@@ -1,0 +1,25 @@
+echo
+
+start molecule
+
+title "BeCl2 | Equilibrium Geometry | B3LYP/6-31G(d)"
+charge 0
+
+print low
+
+geometry units angstroms print xyz autosym
+Be    -0.697491    1.128208    0.000000
+Cl    -2.410908   -0.046133   -0.000000
+Cl     0.980802   -0.095806    0.000000
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize

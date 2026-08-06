@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<molecule xmlns="http://www.xml-cml.org/schema" xmlns:cml="http://www.xml-cml.org/dictionary/cml" xmlns:units="http://www.xml-cml.org/unit/nonSi" xmlns:xsd="http://www.w3c.org/2001/XMLSchema" xmlns:iupac="http://www.iupac.org">
+  <atomArray>
+    <atom id="a1" elementType="Be" x3="-0.697491" y3="1.12821" z3="0" />
+    <atom id="a2" elementType="Cl" x3="-2.82458" y3="0.0181429" z3="4.188e-06" />
+    <atom id="a3" elementType="Cl" x3="0.980802" y3="-0.095806" z3="0" />
+  </atomArray>
+  <bondArray>
+    <bond atomRefs2="a1 a2" order="1" />
+    <bond atomRefs2="a1 a3" order="1" />
+  </bondArray>
+</molecule>

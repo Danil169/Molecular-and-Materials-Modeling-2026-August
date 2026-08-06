@@ -1,0 +1,179 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.1.2                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Wed Aug 27 11:25:29 2025  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  DOUBLET    - SPIN STATE DEFINED AS A DOUBLET
+ *  RHF        - RESTRICTED HARTREE-FOCK CALCULATION
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = +1
+ *
+ *
+ *
+ *  OPEN(M,N)  - THERE ARE 3 ELECTRONS IN 2 LEVELS
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *  LARGE      - EXPANDED OUTPUT TO BE PRINTED
+ *******************************************************************************
+ AUX LARGE CHARGE=+1 DOUBLET PM7 OPEN(3,2) PRECISE RHF
+ HF | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.49563200  *   1.26407000  *  -0.00541700  *
+     2       H         -8.29098800  *   1.36547000  *  -0.49450800  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1         F         -7.4956      1.2641     -0.0054
+     2         H         -8.2910      1.3655     -0.4945
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+ DOUBLET STATE CALCULATION
+
+      THERE ARE    2 DOUBLY FILLED LEVELS
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 2
+
+
+                       NO. OF LEVELS WITH OCCUPANCY 1.500  =  2
+
+          Geometry optimization using EF
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    41.032 HEAT:  294.0110
+ CYCLE:     2 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:    29.616 HEAT:  293.8798
+ CYCLE:     3 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     3.987 HEAT:  293.5099
+ CYCLE:     4 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.494 HEAT:  293.5042
+ CYCLE:     5 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.008 HEAT:  293.5041
+
+     GRADIENT =  0.00816 IS LESS THAN CUTOFF =  0.05000
+
+
+
+ -------------------------------------------------------------------------------
+ AUX LARGE CHARGE=+1 DOUBLET PM7 OPEN(3,2) PRECISE RHF
+ HF | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.1.2 Linux
+                                                       Wed Aug 27 11:25:29 2025
+
+
+
+
+          FINAL HEAT OF FORMATION =        293.50409 KCAL/MOL =    1228.02109 KJ/MOL
+
+
+          COSMO AREA              =         39.83 SQUARE ANGSTROMS
+          COSMO VOLUME            =         22.71 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.00816          =       0.00577 PER ATOM
+          NO. OF FILLED LEVELS    =          2
+          AND NO. OF OPEN LEVELS  =          2
+          MOLECULAR WEIGHT        =         20.0063         POINT GROUP:  C*v 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+            H     2    F     1     0.97575
+            H     2    F     1     0.00000
+            F     1    H     2     0.00000
+
+
+          SCF CALCULATIONS        =          7
+ 
+          WALL-CLOCK TIME         =      0.008 SECONDS
+          COMPUTATION TIME        =      0.005 SECONDS
+
+
+
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.48473386  *   1.26180908  *   0.01134349  *
+     2       H         -8.30188614  *   1.36773092  *  -0.51126849  *
+
+                             CARTESIAN COORDINATES
+
+   1    F       -7.484733859     1.261809081     0.011343491
+   2    H       -8.301886141     1.367730919    -0.511268490
+
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+                  EIGENVALUES  
+ -55.06935 -29.35194 -23.78859 -23.78859  -7.22567
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.   TYPE          CHARGE      No. of ELECS.   s-Pop       p-Pop       
+    1          F           0.493455        6.5065     1.97023     4.53631
+    2          H           0.506545        0.4935     0.49345
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -1.790     0.232    -1.145     2.138
+ HYBRID        -0.116     0.015    -0.074     0.138
+ SUM           -1.906     0.247    -1.219     2.276
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+     Atom    s        px        py        pz   
+    1  F   1.97023   1.52546   1.50043   1.51042
+    2  H   0.49345
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.01 SECONDS
+
+ == MOPAC DONE ==

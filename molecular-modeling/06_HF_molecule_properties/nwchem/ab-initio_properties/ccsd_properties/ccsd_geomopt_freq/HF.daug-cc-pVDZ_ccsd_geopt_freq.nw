@@ -1,0 +1,36 @@
+echo
+
+start molecule
+
+title "CCSD/daug-cc-pVDZ"
+charge 0
+
+print low
+
+geometry units angstroms print xyz 
+SYMMETRY c2v
+F      0.0  0.0   0.0                       
+H      0.0  0.0   0.921
+end
+
+basis
+  * library d-aug-cc-pvdz
+end
+
+scf
+  print low
+end
+
+# Activate the CCSD module block
+ccsd
+  freeze core
+end
+
+driver
+  xyz HFccsd_geom
+end
+
+set ccsd:use_ccsd_omp T
+
+task ccsd optimize
+task ccsd frequencies

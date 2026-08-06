@@ -1,0 +1,40 @@
+echo
+
+start molecule
+
+title "XeO4 B3LYP geometry optimiz"
+
+print low
+
+charge 0
+
+geometry units angstroms autosym
+Xe    -3.048155    1.737988   -0.015871
+O     -3.461183    4.316301    0.006728
+O     -4.751369    0.819396   -1.790312
+O     -3.509942    0.077841    1.917594
+O     -0.459436    1.378927   -0.049210
+end
+
+basis "ao basis"
+  Xe library def2-tzvp
+   O library sto-6g
+end
+
+ecp 
+   Xe library def2-tzvp
+end
+
+dft
+  xc b3lyp
+  mult 1
+  cgmin
+end
+
+driver
+  maxiter 100
+  xyz XeO4_geometry.xyz
+end
+
+
+task dft energy

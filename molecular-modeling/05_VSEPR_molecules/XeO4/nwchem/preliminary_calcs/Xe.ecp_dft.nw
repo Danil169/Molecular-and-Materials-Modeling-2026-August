@@ -1,0 +1,23 @@
+title "Xe atom ECP calculation"
+
+print medium
+
+geometry
+  Xe 0.0 0.0 0.0
+end
+
+basis "ao basis"
+  Xe library def2-svp # Basis set for valence electrons
+end
+
+ecp "ecp basis"
+  Xe library def2-ecp # ECP for core electrons
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft energy
+

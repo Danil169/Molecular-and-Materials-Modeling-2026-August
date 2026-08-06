@@ -1,0 +1,30 @@
+echo
+
+start molecule
+
+print low
+
+title "SF6 "
+charge 0
+
+geometry units angstroms print xyz autosym
+S     -2.694000   -0.273000    0.077000
+F     -3.281000   -1.393000    0.983000
+F     -4.134000    0.155000   -0.326000
+F     -1.254000   -0.701000    0.479000
+F     -2.734000    0.718000    1.275000
+F     -2.108000    0.846000   -0.829000
+F     -2.654000   -1.264000   -1.121000
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq

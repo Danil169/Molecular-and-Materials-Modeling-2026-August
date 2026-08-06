@@ -1,0 +1,732 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.1.2                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Wed Aug 27 10:47:42 2025  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  SINGLET    - SPIN STATE DEFINED AS A SINGLET
+ *  RHF        - RESTRICTED HARTREE-FOCK CALCULATION
+ *  POLAR      - CALCULATE FIRST, SECOND AND THIRD-ORDER POLARIZABILITIES
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = 0
+ *
+ *
+ *
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *  LARGE      - EXPANDED OUTPUT TO BE PRINTED
+ *******************************************************************************
+ AUX LARGE POLAR CHARGE=0 SINGLET  PM7 PRECISE RHF
+ HF | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.49563200  *   1.26407000  *  -0.00541700  *
+     2       H         -8.29098800  *   1.36547000  *  -0.49450800  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1         F         -7.4956      1.2641     -0.0054
+     2         H         -8.2910      1.3655     -0.4945
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+ SINGLET STATE CALCULATION
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 4
+
+
+          Geometry optimization using EF
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    69.936 HEAT: -60.81095
+ CYCLE:     2 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    42.406 HEAT: -61.61847
+ CYCLE:     3 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     5.150 HEAT: -61.93048
+ CYCLE:     4 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.331 HEAT: -61.93566
+ CYCLE:     5 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.006 HEAT: -61.93568
+
+     GRADIENT =  0.00572 IS LESS THAN CUTOFF =  0.05000
+
+
+
+ -------------------------------------------------------------------------------
+ AUX LARGE POLAR CHARGE=0 SINGLET  PM7 PRECISE RHF
+ HF | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.1.2 Linux
+                                                       Wed Aug 27 10:47:42 2025
+
+
+
+
+          FINAL HEAT OF FORMATION =        -61.93568 KCAL/MOL =    -259.13887 KJ/MOL
+
+
+          COSMO AREA              =         39.27 SQUARE ANGSTROMS
+          COSMO VOLUME            =         22.23 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.00572          =       0.00405 PER ATOM
+          IONIZATION POTENTIAL    =         15.795645 EV
+          HOMO LUMO ENERGIES (EV) =        -15.796  4.730
+          NO. OF FILLED LEVELS    =          4
+          MOLECULAR WEIGHT        =         20.0063         POINT GROUP:  C*v 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+            H     2    F     1     0.89566
+            H     2    F     1     0.00000
+            F     1    H     2     0.00000
+
+
+          SCF CALCULATIONS        =          8
+ 
+          WALL-CLOCK TIME         =      0.008 SECONDS
+          COMPUTATION TIME        =      0.004 SECONDS
+
+
+
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.51021192  *   1.26670160  *  -0.02307861  *
+     2       H         -8.27640808  *   1.36283840  *  -0.47684639  *
+
+                             CARTESIAN COORDINATES
+
+   1    F       -7.510211924     1.266701600    -0.023078614
+   2    H       -8.276408075     1.362838400    -0.476846386
+
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+                  EIGENVALUES  
+ -40.58493 -17.55692 -15.79565 -15.79565   4.72959
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.   TYPE          CHARGE      No. of ELECS.   s-Pop       p-Pop       
+    1          F          -0.290305        7.2903     1.95449     5.33581
+    2          H           0.290305        0.7097     0.70969
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -1.068     0.134    -0.633     1.249
+ HYBRID        -0.175     0.022    -0.104     0.205
+ SUM           -1.244     0.156    -0.737     1.454
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+     Atom    s        px        py        pz   
+    1  F   1.95449   1.51394   1.99235   1.82952
+    2  H   0.70969
+ ******************** TDHF POLARIZABILITIES ********************
+
+
+
+
+ ENERGY OF "REORIENTED" SYSTEM WITHOUT FIELD:      -61.9356770319
+
+
+  NFREQ=  3  IWFLB=  0  IBET=  1  IGAM=  1
+  ATOL= 0.10000D-02  BTOL= 0.10000D-02    MAXITU=  500    MAXITA=  150
+
+
+ *****************************************************************
+ CALCULATION OF STATIC FIELD QUANTITIES
+ *****************************************************************
+
+ +++++ ALPHA AT       0.00000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4071      -0.4684       2.2106
+           *=Y:      -0.4683       4.7719      -0.2773
+           *=Z:       2.2106      -0.2775       5.3284
+
+  ISOTROPIC AVERAGE ALPHA =       5.50245 A.U. =      0.81538 ANG.**3
+
+ +++++ BETA (SECOND HARMONIC GENERATION) AT       0.00000 EV.
+
+                              COMPONENTS OF BETA
+            *XX         *XY         *YY         *XZ         *YZ         *ZZ
+   *=X    13.04294    -1.63348     0.21625     7.71117    -0.96615     4.57391
+   *=Y    -1.63371     0.21622    -0.02990    -0.96651     0.12789    -0.57367
+   *=Z     7.71114    -0.96672     0.12810     4.57417    -0.57366     2.72221
+
+
+ AVERAGE BETAX(SHG) VALUE AT   0.00000 EV =         10.7000 a.u. =  0.924414E-31 ESU
+ AVERAGE BETAY(SHG) VALUE AT   0.00000 EV =         -1.3423 a.u. = -0.115965E-31 ESU
+ AVERAGE BETAZ(SHG) VALUE AT   0.00000 EV =          6.3368 a.u. =  0.547463E-31 ESU
+
+
+
+ AVERAGE BETA (SHG) VALUE AT   0.00000 EV =         12.5078 a.u. =  0.108060E-30 ESU
+   (1 a.u. = 8.639418X10-33 esu)
+
+
+
+ +++++ ALPHA AT       0.00000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4079      -0.4684       2.2106
+           *=Y:      -0.4685       4.7719      -0.2773
+           *=Z:       2.2114      -0.2775       5.3284
+
+  ISOTROPIC AVERAGE ALPHA =       5.50270 A.U. =      0.81542 ANG.**3
+
+
+ GAMMA (THIRD HARMONIC GENERATION) AT    0.00000 EV.
+
+
+ GAMMA(X,X,X,X) =           -31.42834
+ GAMMA(Y,Y,Y,Y) =            -0.01104
+ GAMMA(Z,Z,Z,Z) =            -4.25995
+ GAMMA(X,X,Y,Y) =            -0.77234
+ GAMMA(X,X,Z,Z) =           -10.78988
+ GAMMA(Y,Y,X,X) =            -0.77144
+ GAMMA(Y,Y,Z,Z) =            -0.26850
+ GAMMA(Z,Z,X,X) =           -10.77966
+ GAMMA(Z,Z,Y,Y) =            -0.26859
+
+
+ AVERAGE GAMMA VALUE AT    0.00000 =           -11.86995 a.u. =           -5.97854 ESU (X10-39)
+
+
+
+
+ **********************************************************************
+ CALCULATION FOR A FREQUENCY OF    0.25000 EV  =       0.00919 A.U. 
+                  WAVELENGTH OF    4959.37 NM  =    2016.38525 CM(-1)
+ **********************************************************************
+
+ +++++ ALPHA AT       0.25000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4086      -0.4686       2.2115
+           *=Y:      -0.4688       4.7719      -0.2774
+           *=Z:       2.2126      -0.2776       5.3286
+
+  ISOTROPIC AVERAGE ALPHA =       5.50303 A.U. =      0.81546 ANG.**3
+
+ +++++ BETA (SECOND HARMONIC GENERATION) AT       0.25000 EV.
+
+                              COMPONENTS OF BETA
+            *XX         *XY         *YY         *XZ         *YZ         *ZZ
+   *=X    13.08072    -1.63787     0.21653     7.73060    -0.96863     4.58378
+   *=Y    -1.63840     0.21700    -0.02999    -0.96892     0.12840    -0.57489
+   *=Z     7.73331    -0.96937     0.12829     4.58576    -0.57521     2.72828
+
+
+ AVERAGE BETAX(SHG) VALUE AT   0.25000 EV =         10.7296 a.u. =  0.926975E-31 ESU
+ AVERAGE BETAY(SHG) VALUE AT   0.25000 EV =         -1.3459 a.u. = -0.116276E-31 ESU
+ AVERAGE BETAZ(SHG) VALUE AT   0.25000 EV =          6.3529 a.u. =  0.548853E-31 ESU
+
+
+
+ AVERAGE BETA (SHG) VALUE AT   0.25000 EV =         12.5417 a.u. =  0.108353E-30 ESU
+   (1 a.u. = 8.639418X10-33 esu)
+
+
+
+ +++++ ALPHA AT       0.75000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4144      -0.4703       2.2192
+           *=Y:      -0.4703       4.7720      -0.2784
+           *=Z:       2.2201      -0.2786       5.3307
+
+  ISOTROPIC AVERAGE ALPHA =       5.50571 A.U. =      0.81586 ANG.**3
+
+
+ GAMMA (THIRD HARMONIC GENERATION) AT    0.25000 EV.
+
+
+ GAMMA(X,X,X,X) =           -31.53934
+ GAMMA(Y,Y,Y,Y) =            -0.01097
+ GAMMA(Z,Z,Z,Z) =            -4.26451
+ GAMMA(X,X,Y,Y) =            -0.77559
+ GAMMA(X,X,Z,Z) =           -10.80948
+ GAMMA(Y,Y,X,X) =            -0.77237
+ GAMMA(Y,Y,Z,Z) =            -0.26820
+ GAMMA(Z,Z,X,X) =           -10.80854
+ GAMMA(Z,Z,Y,Y) =            -0.26927
+
+
+ AVERAGE GAMMA VALUE AT    0.25000 =           -11.90365 a.u. =           -5.99552 ESU (X10-39)
+
+
+
+
+ **********************************************************************
+ CALCULATION FOR A FREQUENCY OF    0.50000 EV  =       0.01837 A.U. 
+                  WAVELENGTH OF    2479.68 NM  =    4032.77050 CM(-1)
+ **********************************************************************
+
+ +++++ ALPHA AT       0.50000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4108      -0.4692       2.2144
+           *=Y:      -0.4694       4.7719      -0.2778
+           *=Z:       2.2155      -0.2780       5.3294
+
+  ISOTROPIC AVERAGE ALPHA =       5.50404 A.U. =      0.81561 ANG.**3
+
+ +++++ BETA (SECOND HARMONIC GENERATION) AT       0.50000 EV.
+
+                              COMPONENTS OF BETA
+            *XX         *XY         *YY         *XZ         *YZ         *ZZ
+   *=X    13.16795    -1.64891     0.21748     7.78204    -0.97521     4.61396
+   *=Y    -1.64918     0.21904    -0.03031    -0.97530     0.12963    -0.57865
+   *=Z     7.78419    -0.97593     0.12887     4.61658    -0.57924     2.74692
+
+
+ AVERAGE BETAX(SHG) VALUE AT   0.50000 EV =         10.8013 a.u. =  0.933170E-31 ESU
+ AVERAGE BETAY(SHG) VALUE AT   0.50000 EV =         -1.3550 a.u. = -0.117065E-31 ESU
+ AVERAGE BETAZ(SHG) VALUE AT   0.50000 EV =          6.3954 a.u. =  0.552528E-31 ESU
+
+
+
+ AVERAGE BETA (SHG) VALUE AT   0.50000 EV =         12.6256 a.u. =  0.109078E-30 ESU
+   (1 a.u. = 8.639418X10-33 esu)
+
+
+
+ +++++ ALPHA AT       1.50000 EV.
+
+                           COMPONENTS OF ALPHA
+
+                     *X           *Y           *Z
+           *=X:       6.4345      -0.4759       2.2455
+           *=Y:      -0.4760       4.7725      -0.2816
+           *=Z:       2.2466      -0.2820       5.3378
+
+  ISOTROPIC AVERAGE ALPHA =       5.51497 A.U. =      0.81723 ANG.**3
+
+
+ GAMMA (THIRD HARMONIC GENERATION) AT    0.50000 EV.
+
+
+ GAMMA(X,X,X,X) =           -31.61816
+ GAMMA(Y,Y,Y,Y) =            -0.01062
+ GAMMA(Z,Z,Z,Z) =            -4.27590
+ GAMMA(X,X,Y,Y) =            -0.78472
+ GAMMA(X,X,Z,Z) =           -10.83688
+ GAMMA(Y,Y,X,X) =            -0.77098
+ GAMMA(Y,Y,Z,Z) =            -0.26767
+ GAMMA(Z,Z,X,X) =           -10.82787
+ GAMMA(Z,Z,Y,Y) =            -0.27215
+
+
+ AVERAGE GAMMA VALUE AT    0.50000 =           -11.93299 a.u. =           -6.01029 ESU (X10-39)
+
+
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.1.2                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Wed Aug 27 10:47:42 2025  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  POLAR      - CALCULATE FIRST, SECOND AND THIRD-ORDER POLARIZABILITIES
+ *  OLDGEO     - PREVIOUS GEOMETRY TO BE USED
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  GRAPH      - GENERATE FILE FOR GRAPHICS
+ *  THERMO     - THERMODYNAMIC QUANTITIES TO BE CALCULATED
+ *******************************************************************************
+OLDGEO PRECISE PM7 POLAR THERMO PRECISE GRAPHF
+ HF | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.51021192  *   1.26670160  *  -0.02307861  *
+     2       H         -8.27640808  *   1.36283840  *  -0.47684639  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1         F         -7.5102      1.2667     -0.0231
+     2         H         -8.2764      1.3628     -0.4768
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 4
+
+
+
+          HEAT OF FORMATION =     -61.935677 KCALS/MOLE
+
+
+          CARTESIAN COORDINATE DERIVATIVES
+
+   NUMBER  ATOM         X            Y            Z
+
+     1       F      0.004251     0.000000     0.000000
+     2       H     -0.004251     0.000000     0.000000
+ 
+
+
+          GRADIENT NORM =   0.00601
+
+          MOLECULAR WEIGHT =   20.01
+
+
+
+          ROTATIONAL CONSTANTS IN CM(-1)
+
+          A =    0.00000000   B =   21.95553217   C =   21.95553214
+
+
+
+           PRINCIPAL MOMENTS OF INERTIA IN UNITS OF 10**(-40)*GRAM-CM**2
+
+          A =        0.0000   B =        1.2750   C =        1.2750
+
+
+          ORIENTATION OF MOLECULE IN FORCE CALCULATION
+
+    NO.       ATOM         X         Y         Z
+
+     1          F      -0.0451    0.0000    0.0000
+     2          H       0.8505    0.0000   -0.0000
+
+
+    FIRST DERIVATIVES WILL BE USED IN THE CALCULATION OF SECOND DERIVATIVES
+
+          ESTIMATED TIME TO COMPLETE CALCULATION =        0.00 SECONDS
+
+    FOR POINT-GROUP C*v  THERE ARE  84 UNIQUE SYMMETRY FUNCTIONS.
+
+ STEP:   1 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+ STEP:   2 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+ STEP:   3 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+ STEP:   4 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+ STEP:   5 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+ STEP:   6 TIME =     0.00 SECS, INTEGRAL =      0.00 TIME LEFT: 172800.00
+
+(To convert to Hartree/Bohr^2, multiply by (10^(-21) x N x a0^2)/(4.184 x 627.51) =  0.0642)
+
+
+           FORCE MATRIX IN MILLIDYNES/ANGSTROM
+
+
+                  F  1       H  2
+ ------------------------------
+     F    1   9.003979
+     H    2   9.003981   9.003982
+
+
+          HEAT OF FORMATION =     -61.935677 KCALS/MOLE
+
+          ZERO POINT ENERGY       5.712 KCAL/MOL
+
+
+           NORMAL COORDINATE ANALYSIS (Total motion = 1 Angstrom)
+
+
+   Root No.       1
+
+                 1 Sig 
+
+                3995.8
+  
+           1   -0.0504
+           2    0.0000
+           3    0.0000
+           4    0.9496
+           5   -0.0000
+           6   -0.0000
+
+
+           MASS-WEIGHTED COORDINATE ANALYSIS (NORMAL COORDINATES)
+
+
+   Root No.       1
+
+                 1 Sig 
+
+                3995.8
+  
+           1   -0.2245
+           2    0.0000
+           3    0.0000
+           4    0.9745
+           5   -0.0000
+           6   -0.0000
+
+
+          DESCRIPTION OF VIBRATIONS
+
+
+ VIBRATION          1    1Sig        ATOM PAIR     ENERGY CONTRIBUTION    RADIAL
+ FREQUENCY          3995.84         F 1 -- H 2        +100.0% (100.0%)    100.0%
+ TRANSITION DIPOLE   0.7954
+ TRAVEL (Ang.)       0.1328
+ REDUCED MASS        0.9571
+ EFFECTIVE MASS      1.3758
+ FORCE CONSTANT      9.0040
+
+      SYMMETRY NUMBER FOR POINT-GROUP C*v =  1
+
+
+          SYSTEM IS A GROUND STATE
+
+
+
+ HF | Equilibrium Geometry | PM7
+
+
+          MOLECULE IS LINEAR
+
+          THERE ARE  1 GENUINE VIBRATIONS IN THIS SYSTEM
+          THIS THERMODYNAMICS CALCULATION IS LIMITED TO
+          MOLECULES WHICH HAVE NO INTERNAL ROTATIONS
+
+
+
+
+                    CALCULATED THERMODYNAMIC PROPERTIES
+                                          *
+   TEMP. (K)   PARTITION FUNCTION   H.O.F.    ENTHALPY  HEAT CAPACITY ENTROPY
+                                   KCAL/MOL   CAL/MOLE    CAL/K/MOL  CAL/K/MOL
+
+
+ 298.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.9434D+01                   592.1869     1.9872     6.4470
+         INT.     0.9434D+01                   592.1869     1.9872     6.4470
+         TRA.     0.8651D+26                  1480.4672     4.9680    34.9193
+         TOT.                      -61.936    2072.6541     6.9552    41.3663
+
+ 200.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.6331D+01                   397.4409     1.9872     5.6546
+         INT.     0.6331D+01                   397.4409     1.9872     5.6546
+         TRA.     0.4757D+26                   993.6021     4.9680    32.9381
+         TOT.                      -62.617    1391.0430     6.9552    38.5927
+
+ 210.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.6648D+01                   417.3129     1.9872     5.7516
+         INT.     0.6648D+01                   417.3129     1.9872     5.7516
+         TRA.     0.5118D+26                  1043.2822     4.9680    33.1805
+         TOT.                      -62.548    1460.5951     6.9552    38.9321
+
+ 220.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.6964D+01                   437.1849     1.9872     5.8440
+         INT.     0.6964D+01                   437.1849     1.9872     5.8440
+         TRA.     0.5488D+26                  1092.9623     4.9680    33.4116
+         TOT.                      -62.478    1530.1473     6.9552    39.2556
+
+ 230.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.7281D+01                   457.0570     1.9872     5.9323
+         INT.     0.7281D+01                   457.0570     1.9872     5.9323
+         TRA.     0.5866D+26                  1142.6424     4.9680    33.6325
+         TOT.                      -62.409    1599.6994     6.9552    39.5648
+
+ 240.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.7598D+01                   476.9290     1.9872     6.0169
+         INT.     0.7598D+01                   476.9290     1.9872     6.0169
+         TRA.     0.6253D+26                  1192.3226     4.9680    33.8439
+         TOT.                      -62.339    1669.2516     6.9552    39.8608
+
+ 250.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.7914D+01                   496.8011     1.9872     6.0980
+         INT.     0.7914D+01                   496.8011     1.9872     6.0980
+         TRA.     0.6648D+26                  1242.0027     4.9680    34.0467
+         TOT.                      -62.270    1738.8037     6.9552    40.1447
+
+ 260.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.8231D+01                   516.6731     1.9872     6.1760
+         INT.     0.8231D+01                   516.6731     1.9872     6.1760
+         TRA.     0.7050D+26                  1291.6828     4.9680    34.2416
+         TOT.                      -62.200    1808.3559     6.9552    40.4175
+
+ 270.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.8547D+01                   536.5451     1.9872     6.2510
+         INT.     0.8547D+01                   536.5452     1.9872     6.2510
+         TRA.     0.7461D+26                  1341.3629     4.9680    34.4291
+         TOT.                      -62.130    1877.9080     6.9552    40.6800
+
+ 280.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.8864D+01                   556.4172     1.9872     6.3232
+         INT.     0.8864D+01                   556.4172     1.9872     6.3232
+         TRA.     0.7879D+26                  1391.0430     4.9680    34.6097
+         TOT.                      -62.061    1947.4602     6.9552    40.9330
+
+ 290.00  VIB.     0.1000D+01                     0.0000     0.0000     0.0000
+         ROT.     0.9180D+01                   576.2892     1.9872     6.3930
+         INT.     0.9180D+01                   576.2893     1.9872     6.3930
+         TRA.     0.8305D+26                  1440.7231     4.9680    34.7841
+         TOT.                      -61.991    2017.0124     6.9552    41.1770
+
+ 300.00  VIB.     0.1000D+01                     0.0001     0.0000     0.0000
+         ROT.     0.9497D+01                   596.1613     1.9872     6.4603
+         INT.     0.9497D+01                   596.1613     1.9872     6.4603
+         TRA.     0.8738D+26                  1490.4032     4.9680    34.9525
+         TOT.                      -61.922    2086.5645     6.9552    41.4128
+
+ 310.00  VIB.     0.1000D+01                     0.0001     0.0000     0.0000
+         ROT.     0.9814D+01                   616.0333     1.9872     6.5255
+         INT.     0.9814D+01                   616.0334     1.9872     6.5255
+         TRA.     0.9179D+26                  1540.0833     4.9680    35.1154
+         TOT.                      -61.852    2156.1167     6.9552    41.6409
+
+ 320.00  VIB.     0.1000D+01                     0.0002     0.0000     0.0000
+         ROT.     0.1013D+02                   635.9054     1.9872     6.5886
+         INT.     0.1013D+02                   635.9055     1.9872     6.5886
+         TRA.     0.9627D+26                  1589.7634     4.9680    35.2731
+         TOT.                      -61.783    2225.6689     6.9552    41.8617
+
+ 330.00  VIB.     0.1000D+01                     0.0003     0.0000     0.0000
+         ROT.     0.1045D+02                   655.7774     1.9872     6.6497
+         INT.     0.1045D+02                   655.7777     1.9872     6.6497
+         TRA.     0.1008D+27                  1639.4435     4.9680    35.4260
+         TOT.                      -61.713    2295.2212     6.9552    42.0757
+
+ 340.00  VIB.     0.1000D+01                     0.0005     0.0000     0.0000
+         ROT.     0.1076D+02                   675.6494     1.9872     6.7091
+         INT.     0.1076D+02                   675.6500     1.9872     6.7091
+         TRA.     0.1054D+27                  1689.1236     4.9680    35.5743
+         TOT.                      -61.644    2364.7736     6.9552    42.2834
+
+ 350.00  VIB.     0.1000D+01                     0.0008     0.0000     0.0000
+         ROT.     0.1108D+02                   695.5215     1.9872     6.7667
+         INT.     0.1108D+02                   695.5223     1.9872     6.7667
+         TRA.     0.1101D+27                  1738.8037     4.9680    35.7183
+         TOT.                      -61.574    2434.3261     6.9553    42.4850
+
+ 360.00  VIB.     0.1000D+01                     0.0013     0.0001     0.0000
+         ROT.     0.1140D+02                   715.3935     1.9872     6.8227
+         INT.     0.1140D+02                   715.3949     1.9873     6.8227
+         TRA.     0.1149D+27                  1788.4838     4.9680    35.8583
+         TOT.                      -61.504    2503.8787     6.9553    42.6809
+
+ 370.00  VIB.     0.1000D+01                     0.0020     0.0001     0.0000
+         ROT.     0.1171D+02                   735.2656     1.9872     6.8771
+         INT.     0.1171D+02                   735.2676     1.9873     6.8771
+         TRA.     0.1197D+27                  1838.1639     4.9680    35.9944
+         TOT.                      -61.435    2573.4316     6.9553    42.8715
+
+ 380.00  VIB.     0.1000D+01                     0.0031     0.0001     0.0000
+         ROT.     0.1203D+02                   755.1376     1.9872     6.9301
+         INT.     0.1203D+02                   755.1407     1.9873     6.9301
+         TRA.     0.1246D+27                  1887.8440     4.9680    36.1269
+         TOT.                      -61.365    2642.9847     6.9553    43.0570
+
+ 390.00  VIB.     0.1000D+01                     0.0045     0.0002     0.0000
+         ROT.     0.1235D+02                   775.0097     1.9872     6.9817
+         INT.     0.1235D+02                   775.0142     1.9874     6.9817
+         TRA.     0.1295D+27                  1937.5242     4.9680    36.2559
+         TOT.                      -61.296    2712.5383     6.9554    43.2377
+
+ 400.00  VIB.     0.1000D+01                     0.0065     0.0002     0.0000
+         ROT.     0.1266D+02                   794.8817     1.9872     7.0320
+         INT.     0.1266D+02                   794.8882     1.9874     7.0320
+         TRA.     0.1345D+27                  1987.2043     4.9680    36.3817
+         TOT.                      -61.226    2782.0925     6.9555    43.4137
+
+   *: NOTE: HEATS OF FORMATION ARE RELATIVE TO THE
+            ELEMENTS IN THEIR STANDARD STATE AT 298K
+              (=  Standard Enthalpy of Formation).
+
+            Hvib:  Zero-point energy is not included.
+                   frequencies of less than zero cm-1 are not included.
+            Hrot = (3/2)RT
+            Htra = (3/2)RT + pV = (5/2)RT
+
+            Heat capacity is Cp, not Cv
+
+          For more information, see: HTTP://OpenMOPAC.net/Manual/thermochemistry.html
+
+
+           FORCE CONSTANT IN CARTESIAN COORDINATES (Millidynes/A)
+
+    ATOM   CHEMICAL       X               Y               Z
+   NUMBER   SYMBOL  FORCE CONSTANT  FORCE CONSTANT  FORCE CONSTANT
+
+      1       F        9.003980       -0.001193       -0.001193
+      2       H        9.003980       -0.001193       -0.001193
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.03 SECONDS
+
+ == MOPAC DONE ==
