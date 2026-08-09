@@ -21,3 +21,12 @@ working with conda
 
 
 
+Challenge
+=========
+compare installable sofware versions : conda vs Linux package
+
+mopac
+xtb
+nwchem
+quantum espresso
+
