@@ -1,0 +1,17 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Using Materials Project MACE for MACECalculator with /home/miroi/.cache/mace/20231203mace128L1_epoch199model
+Using float32 for MACECalculator, which is faster but less accurate. Recommended for MD. Use float64 for geometry optimization.
+      Step     Time          Energy          fmax
+BFGS:    0 01:20:20      -14.159367        0.226164
+BFGS:    1 01:20:20      -14.160193        0.065139
+BFGS:    2 01:20:21      -14.160244        0.022162
+BFGS:    3 01:20:21      -14.160274        0.019357
+BFGS:    4 01:20:21      -14.160288        0.009003
+
+Optimization Complete!
+Final Potential Energy: -14.1603 eV
+Optimized Positions (Å):
+[[ 1.09387250e-23  8.28134661e-08  1.20585829e-01]
+ [ 2.04316042e-19  7.67028637e-01 -4.77708883e-01]
+ [-5.79781461e-20 -7.67028720e-01 -4.77708946e-01]]
+Optimized O-H Bond Length: 0.9728 Å
