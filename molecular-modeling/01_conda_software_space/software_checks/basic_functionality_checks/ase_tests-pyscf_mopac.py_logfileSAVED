@@ -1,0 +1,13 @@
+
+
+          MOPAC Job: "mopac.mop" ended normally on Aug 17, 2026, at 22:01.
+
+Initializing test molecule (H2O)...
+
+--- Running PySCF Test ---
+PySCF Potential Energy: -2067.6141 eV
+
+--- Running MOPAC Test ---
+MOPAC Potential Energy: -2.5019 eV
+
+Script execution finished.
