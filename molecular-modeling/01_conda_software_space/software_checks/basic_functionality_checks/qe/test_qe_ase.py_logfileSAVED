@@ -1,0 +1,100 @@
+⚠️ /home/miroi/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/01_conda_software_space/software_checks/basic_functionality_checks/qe/qe_command.txt not found. Using default: pw.x
+  To specify a custom command, create /home/miroi/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/01_conda_software_space/software_checks/basic_functionality_checks/qe/qe_command.txt
+  with the command path (e.g., /path/to/pw.x)
+
+============================================================
+ASE Quantum ESPRESSO Testing Suite (Optimized for Speed)
+============================================================
+
+Script directory: /home/miroi/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/01_conda_software_space/software_checks/basic_functionality_checks/qe
+QE executable: pw.x
+QE command using default: pw.x (no qe_command.txt found)
+
+⚠️  OPTIMIZED FOR SPEED: Using low cutoffs (20-25 Ry) and coarse k-points (2x2x2)
+   These parameters are NOT suitable for production calculations!
+   For accurate results, increase ecutwfc to 30-40 Ry and kpts to 4x4x4 or higher
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+✓ Found: H.upf (108,766 bytes)
+
+============================================================
+TEST 1: Single Point SCF Calculation (Quick Test)
+============================================================
+Using ecutwfc=20 Ry, kpts=(2,2,2) for speed
+Structure: 2 atoms, volume=40.03 A^3
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+✓ Found: H.upf (108,766 bytes)
+
+Running SCF calculation...
+
+✓ Calculation completed successfully!
+Total energy: -227.697469 eV
+Force norms: [0. 0.]
+Stress tensor (eV/A^3): [-0.05650158 -0.05650158 -0.05650158 -0.         -0.         -0.        ]
+
+============================================================
+TEST 2: Geometry Optimization (Quick Test)
+============================================================
+Using ecutwfc=25 Ry, kpts=(2,2,2) for speed
+Initial: a=5.500 A, volume=41.59 A^3
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+✓ Found: H.upf (108,766 bytes)
+
+Running geometry optimization...
+       Step     Time          Energy          fmax
+LBFGS:    0 22:46:56     -227.788402        0.000000
+
+✓ Optimization completed successfully!
+Final: a=4.365 A, volume=41.59 A^3
+Final energy: -227.788402 eV
+Number of optimization steps: 0
+
+============================================================
+TEST 3: Quick Convergence Test
+============================================================
+
+Testing k-point grids (minimal)...
+----------------------------------------
+Testing grid: 2x2x2
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+✓ Found: H.upf (108,766 bytes)
+  Energy: -227.697469 eV
+Testing grid: 4x4x4
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+✓ Found: H.upf (108,766 bytes)
+  Energy: -230.060734 eV
+
+✓ K-point test completed
+  2x2x2: -227.697469 eV
+  4x4x4: -230.060734 eV
+
+============================================================
+TEST SUMMARY
+============================================================
+✓ Single Point SCF (Quick)
+✓ Geometry Optimization (Quick)
+✓ Quick Convergence Test
+
+Passed: 3/3
+
+🎉 All tests passed!
+
+📝 Next steps for production calculations:
+   - Increase ecutwfc to 30-40 Ry
+   - Increase kpts to (4,4,4) or higher
+   - Use conv_thr = 1e-8
+   - Use smaller smearing (degauss = 0.01)
