@@ -16,8 +16,41 @@ import subprocess
 # Get the directory where this script is located
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Set the QE command explicitly for your environment
-os.environ['ASE_ESPRESSO_COMMAND'] = '/home/miroi/miniconda3/envs/mace_env/bin/pw.x'
+# Read QE command from a text file
+def read_qe_command():
+    """
+    Read the Quantum ESPRESSO command from a text file.
+    The file should be named 'qe_command.txt' in the same directory.
+    """
+    command_file = os.path.join(SCRIPT_DIR, 'qe_command.txt')
+    
+    # Default command if file doesn't exist
+    default_command = 'pw.x'
+    
+    try:
+        if os.path.exists(command_file):
+            with open(command_file, 'r') as f:
+                command = f.read().strip()
+                if command:
+                    print(f"✓ Read QE command from: {command_file}")
+                    print(f"  Command: {command}")
+                    return command
+                else:
+                    print(f"⚠️ {command_file} is empty. Using default: {default_command}")
+                    return default_command
+        else:
+            print(f"⚠️ {command_file} not found. Using default: {default_command}")
+            print(f"  To specify a custom command, create {command_file}")
+            print(f"  with the command path (e.g., /path/to/pw.x)")
+            return default_command
+    except Exception as e:
+        print(f"⚠️ Error reading {command_file}: {e}")
+        print(f"  Using default: {default_command}")
+        return default_command
+
+# Set the QE command from the text file
+qe_command = read_qe_command()
+os.environ['ASE_ESPRESSO_COMMAND'] = qe_command
 
 
 def check_pseudopotentials():
@@ -48,19 +81,19 @@ def check_pseudopotentials():
         print("  - H.upf")
         print("\nYou can download them from:")
         print("  https://pseudopotentials.quantum-espresso.org/")
-        print("  Or use the SSSP library from Materials Cloud")
         return False
     
     return True
 
 
-def setup_calculator(calculation='scf', kpts=(4, 4, 4)):
+def setup_calculator(calculation='scf', kpts=(4, 4, 4), ecutwfc=30.0):
     """
     Set up the Espresso calculator using local pseudopotentials.
     
     Args:
         calculation: Type of calculation ('scf', 'relax', 'bands', 'nscf')
-        kpts: K-point grid as tuple (nx, ny, nz)
+        kpts: K-point grid as tuple (nx, ny, nx)
+        ecutwfc: Wavefunction cutoff in Ry
     """
     if not check_pseudopotentials():
         return None
@@ -81,7 +114,7 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4)):
         'H': 'H.upf',
     }
     
-    # Input parameters for pw.x
+    # Input parameters for pw.x - CORRECTED NAMELIST STRUCTURE
     input_data = {
         'control': {
             'calculation': calculation,
@@ -93,8 +126,8 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4)):
             'verbosity': 'high',
         },
         'system': {
-            'ecutwfc': 30.0,
-            'ecutrho': 120.0,
+            'ecutwfc': ecutwfc,
+            'ecutrho': 4.0 * ecutwfc,  # 4x ecutwfc is typical
             'occupations': 'smearing',
             'smearing': 'gaussian',
             'degauss': 0.01,
@@ -104,7 +137,7 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4)):
             'diagonalization': 'david',
             'conv_thr': 1e-8,
             'mixing_beta': 0.7,
-            'maxstep': 100,
+            'electron_maxstep': 100,  # Correct parameter name (not 'maxstep')
         },
     }
     
@@ -157,10 +190,10 @@ def test_single_point():
         
         # Try to read the output file for debugging
         if os.path.exists('qe_test.pwo'):
-            print("\nLast 20 lines of QE output:")
+            print("\nLast 30 lines of QE output:")
             with open('qe_test.pwo', 'r') as f:
                 lines = f.readlines()
-                for line in lines[-20:]:
+                for line in lines[-30:]:
                     print(f"  {line.strip()}")
         return False
 
@@ -243,7 +276,7 @@ def test_kpoint_convergence():
     
     # Plot convergence if we have valid results
     valid = ~np.isnan(energies)
-    if np.any(valid) and len(valid) > 1:
+    if np.any(valid) and len([e for e in energies if not np.isnan(e)]) > 1:
         plt.figure(figsize=(8, 5))
         valid_energies = [e for e in energies if not np.isnan(e)]
         valid_labels = [g for g, v in zip(grid_labels, valid) if v]
@@ -258,8 +291,8 @@ def test_kpoint_convergence():
         plt.savefig(os.path.join(SCRIPT_DIR, 'kpoint_convergence.png'), dpi=150)
         print(f"\n✓ K-point convergence plot saved to: {os.path.join(SCRIPT_DIR, 'kpoint_convergence.png')}")
         return True
-    elif np.any(valid) and len(valid) == 1:
-        print(f"\n✓ Single k-point test completed: {energies[0]:.6f} eV")
+    elif np.any(valid):
+        print(f"\n✓ K-point test completed: {energies[0]:.6f} eV")
         return True
     else:
         print("\n✗ No valid k-point convergence data")
@@ -287,12 +320,9 @@ def test_cutoff_convergence():
         print(f"Testing ecutwfc: {ecut} Ry")
         
         try:
-            calc = setup_calculator(calculation='scf')
+            calc = setup_calculator(calculation='scf', ecutwfc=ecut)
             if calc is None:
                 return False
-            
-            calc.input_data['system']['ecutwfc'] = ecut
-            calc.input_data['system']['ecutrho'] = 4 * ecut
             
             si.calc = calc
             energy = si.get_potential_energy()
@@ -305,7 +335,7 @@ def test_cutoff_convergence():
     
     # Plot convergence if we have valid results
     valid = ~np.isnan(energies)
-    if np.any(valid) and len(valid) > 1:
+    if np.any(valid) and len([e for e in energies if not np.isnan(e)]) > 1:
         plt.figure(figsize=(8, 5))
         valid_cutoffs = [c for c, v in zip(cutoffs, valid) if v]
         valid_energies = [e for e in valid if not np.isnan(e)]
@@ -319,8 +349,8 @@ def test_cutoff_convergence():
         plt.savefig(os.path.join(SCRIPT_DIR, 'cutoff_convergence.png'), dpi=150)
         print(f"\n✓ Energy cutoff convergence plot saved to: {os.path.join(SCRIPT_DIR, 'cutoff_convergence.png')}")
         return True
-    elif np.any(valid) and len(valid) == 1:
-        print(f"\n✓ Single cutoff test completed: {energies[0]:.6f} eV")
+    elif np.any(valid):
+        print(f"\n✓ Cutoff test completed: {energies[0]:.6f} eV")
         return True
     else:
         print("\n✗ No valid cutoff convergence data")
@@ -335,13 +365,24 @@ def main():
     print("ASE Quantum ESPRESSO Testing Suite")
     print("="*60)
     print(f"\nScript directory: {SCRIPT_DIR}")
-    print(f"QE executable: {os.environ['ASE_ESPRESSO_COMMAND']}")
+    
+    # Show QE command being used
+    qe_cmd = os.environ.get('ASE_ESPRESSO_COMMAND', 'Not set')
+    print(f"QE executable: {qe_cmd}")
+    
+    # Show where the command came from
+    command_file = os.path.join(SCRIPT_DIR, 'qe_command.txt')
+    if os.path.exists(command_file):
+        print(f"QE command loaded from: {command_file}")
+    else:
+        print(f"QE command using default: pw.x (no qe_command.txt found)")
+    
     print("Using pseudopotentials: Si.upf and H.upf (in script directory)")
     
     # Verify QE executable exists
-    if not os.path.exists(os.environ['ASE_ESPRESSO_COMMAND']):
-        print(f"\nERROR: QE executable not found at: {os.environ['ASE_ESPRESSO_COMMAND']}")
-        print("Please check your conda environment activation.")
+    if not os.path.exists(qe_cmd) and qe_cmd != 'pw.x':
+        print(f"\nERROR: QE executable not found at: {qe_cmd}")
+        print("Please check your qe_command.txt file.")
         return
     
     # Create necessary directories
@@ -354,7 +395,7 @@ def main():
         print("  https://pseudopotentials.quantum-espresso.org/")
         return
     
-    # Run selected tests (start with basic ones first)
+    # Run tests
     tests = [
         ("Single Point SCF", test_single_point),
         ("Geometry Optimization", test_geometry_optimization),
@@ -387,6 +428,7 @@ def main():
         print("1. Check that Si.upf and H.upf are valid pseudopotential files")
         print("2. Check the QE output files (*.pwo) for error messages")
         print("3. Verify you have sufficient disk space in ./tmp/")
+        print("4. Check qe_command.txt contains the correct path to pw.x")
 
 
 if __name__ == "__main__":
