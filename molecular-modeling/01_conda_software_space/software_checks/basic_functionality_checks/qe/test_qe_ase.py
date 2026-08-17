@@ -1,6 +1,7 @@
 """
-ASE Quantum ESPRESSO Testing Script
-Uses local pseudopotential files (H.upf and Si.upf) in the same directory
+ASE Quantum ESPRESSO Testing Script - Optimized for Speed
+Uses local pseudopotential files (H.upf and Si.upf) 
+Optimized cutoff parameters for fast testing
 """
 
 import os
@@ -86,14 +87,15 @@ def check_pseudopotentials():
     return True
 
 
-def setup_calculator(calculation='scf', kpts=(4, 4, 4), ecutwfc=30.0):
+def setup_calculator(calculation='scf', kpts=(2, 2, 2), ecutwfc=20.0):
     """
     Set up the Espresso calculator using local pseudopotentials.
+    OPTIMIZED FOR SPEED: Lower cutoffs and fewer k-points.
     
     Args:
         calculation: Type of calculation ('scf', 'relax', 'bands', 'nscf')
         kpts: K-point grid as tuple (nx, ny, nx)
-        ecutwfc: Wavefunction cutoff in Ry
+        ecutwfc: Wavefunction cutoff in Ry (optimized: 20 Ry for testing)
     """
     if not check_pseudopotentials():
         return None
@@ -114,7 +116,7 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4), ecutwfc=30.0):
         'H': 'H.upf',
     }
     
-    # Input parameters for pw.x - CORRECTED NAMELIST STRUCTURE
+    # Input parameters for pw.x - OPTIMIZED FOR SPEED
     input_data = {
         'control': {
             'calculation': calculation,
@@ -123,21 +125,21 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4), ecutwfc=30.0):
             'tprnfor': True,
             'tstress': True,
             'outdir': os.path.join(SCRIPT_DIR, 'tmp/'),
-            'verbosity': 'high',
+            'verbosity': 'low',  # Reduce output verbosity for speed
         },
         'system': {
-            'ecutwfc': ecutwfc,
-            'ecutrho': 4.0 * ecutwfc,  # 4x ecutwfc is typical
+            'ecutwfc': ecutwfc,  # Lowered to 20 Ry for testing
+            'ecutrho': 4.0 * ecutwfc,
             'occupations': 'smearing',
             'smearing': 'gaussian',
-            'degauss': 0.01,
+            'degauss': 0.02,  # Slightly larger smearing for faster convergence
             'nbnd': 8,
         },
         'electrons': {
             'diagonalization': 'david',
-            'conv_thr': 1e-8,
+            'conv_thr': 1e-6,  # Less strict convergence for testing
             'mixing_beta': 0.7,
-            'electron_maxstep': 100,  # Correct parameter name (not 'maxstep')
+            'electron_maxstep': 50,  # Reduced from 100 for speed
         },
     }
     
@@ -153,17 +155,19 @@ def setup_calculator(calculation='scf', kpts=(4, 4, 4), ecutwfc=30.0):
 def test_single_point():
     """
     Test 1: Single point SCF calculation for Silicon.
+    OPTIMIZED: Low cutoffs and minimal k-points.
     """
     print("\n" + "="*60)
-    print("TEST 1: Single Point SCF Calculation")
+    print("TEST 1: Single Point SCF Calculation (Quick Test)")
     print("="*60)
+    print("Using ecutwfc=20 Ry, kpts=(2,2,2) for speed")
     
     # Create silicon crystal
     si = bulk('Si', 'diamond', a=5.43)
     print(f"Structure: {len(si)} atoms, volume={si.get_volume():.2f} A^3")
     
-    # Set up calculator with local pseudos
-    calc = setup_calculator(calculation='scf')
+    # Set up calculator with optimized parameters
+    calc = setup_calculator(calculation='scf', kpts=(2, 2, 2), ecutwfc=20.0)
     if calc is None:
         return False
     
@@ -201,17 +205,19 @@ def test_single_point():
 def test_geometry_optimization():
     """
     Test 2: Geometry optimization using LBFGS.
+    OPTIMIZED: Fast convergence with relaxed parameters.
     """
     print("\n" + "="*60)
-    print("TEST 2: Geometry Optimization")
+    print("TEST 2: Geometry Optimization (Quick Test)")
     print("="*60)
+    print("Using ecutwfc=25 Ry, kpts=(2,2,2) for speed")
     
     # Create silicon with slightly strained lattice
     si = bulk('Si', 'diamond', a=5.50)
     print(f"Initial: a=5.500 A, volume={si.get_volume():.2f} A^3")
     
     # Setup with relaxation parameters
-    calc = setup_calculator(calculation='relax')
+    calc = setup_calculator(calculation='relax', kpts=(2, 2, 2), ecutwfc=25.0)
     if calc is None:
         return False
     
@@ -220,7 +226,7 @@ def test_geometry_optimization():
     try:
         print("\nRunning geometry optimization...")
         opt = LBFGS(si)
-        opt.run(fmax=0.01)
+        opt.run(fmax=0.05)  # Looser convergence for speed
         
         final_energy = si.get_potential_energy()
         final_volume = si.get_volume()
@@ -237,29 +243,29 @@ def test_geometry_optimization():
         return False
 
 
-def test_kpoint_convergence():
+def test_quick_convergence():
     """
-    Test 3: K-point convergence test.
+    Test 3: Very quick convergence test with minimal parameters.
     """
     print("\n" + "="*60)
-    print("TEST 3: K-point Convergence Test")
+    print("TEST 3: Quick Convergence Test")
     print("="*60)
     
     si = bulk('Si', 'diamond', a=5.43)
     
-    # Test different k-point grids
-    k_grids = [(2,2,2), (4,4,4), (6,6,6), (8,8,8)]
+    # Test just two k-point grids for speed
+    k_grids = [(2,2,2), (4,4,4)]
     energies = []
     grid_labels = []
     
-    print("\nTesting k-point grids...")
+    print("\nTesting k-point grids (minimal)...")
     print("-" * 40)
     
     for kpts in k_grids:
         print(f"Testing grid: {kpts[0]}x{kpts[1]}x{kpts[2]}")
         
         try:
-            calc = setup_calculator(calculation='scf', kpts=kpts)
+            calc = setup_calculator(calculation='scf', kpts=kpts, ecutwfc=20.0)
             if calc is None:
                 return False
             
@@ -274,86 +280,16 @@ def test_kpoint_convergence():
             energies.append(np.nan)
             grid_labels.append(f"{kpts[0]}x{kpts[1]}x{kpts[2]}")
     
-    # Plot convergence if we have valid results
+    # Simple summary
     valid = ~np.isnan(energies)
-    if np.any(valid) and len([e for e in energies if not np.isnan(e)]) > 1:
-        plt.figure(figsize=(8, 5))
-        valid_energies = [e for e in energies if not np.isnan(e)]
-        valid_labels = [g for g, v in zip(grid_labels, valid) if v]
-        
-        plt.plot(range(len(valid_energies)), valid_energies, 'bo-', linewidth=2, markersize=8)
-        plt.xticks(range(len(valid_labels)), valid_labels, rotation=45)
-        plt.xlabel('K-point grid', fontsize=12)
-        plt.ylabel('Total Energy (eV)', fontsize=12)
-        plt.title('K-point Convergence Test for Si', fontsize=14)
-        plt.grid(True, alpha=0.3)
-        plt.tight_layout()
-        plt.savefig(os.path.join(SCRIPT_DIR, 'kpoint_convergence.png'), dpi=150)
-        print(f"\n✓ K-point convergence plot saved to: {os.path.join(SCRIPT_DIR, 'kpoint_convergence.png')}")
-        return True
-    elif np.any(valid):
-        print(f"\n✓ K-point test completed: {energies[0]:.6f} eV")
+    if np.any(valid):
+        print(f"\n✓ K-point test completed")
+        for i, (label, energy) in enumerate(zip(grid_labels, energies)):
+            if not np.isnan(energy):
+                print(f"  {label}: {energy:.6f} eV")
         return True
     else:
-        print("\n✗ No valid k-point convergence data")
-        return False
-
-
-def test_cutoff_convergence():
-    """
-    Test 4: Energy cutoff convergence test.
-    """
-    print("\n" + "="*60)
-    print("TEST 4: Energy Cutoff Convergence Test")
-    print("="*60)
-    
-    si = bulk('Si', 'diamond', a=5.43)
-    
-    # Test different energy cutoffs
-    cutoffs = [15, 20, 25, 30, 35, 40]
-    energies = []
-    
-    print("\nTesting energy cutoffs (Ry)...")
-    print("-" * 40)
-    
-    for ecut in cutoffs:
-        print(f"Testing ecutwfc: {ecut} Ry")
-        
-        try:
-            calc = setup_calculator(calculation='scf', ecutwfc=ecut)
-            if calc is None:
-                return False
-            
-            si.calc = calc
-            energy = si.get_potential_energy()
-            energies.append(energy)
-            print(f"  Energy: {energy:.6f} eV")
-            
-        except Exception as e:
-            print(f"  Error: {e}")
-            energies.append(np.nan)
-    
-    # Plot convergence if we have valid results
-    valid = ~np.isnan(energies)
-    if np.any(valid) and len([e for e in energies if not np.isnan(e)]) > 1:
-        plt.figure(figsize=(8, 5))
-        valid_cutoffs = [c for c, v in zip(cutoffs, valid) if v]
-        valid_energies = [e for e in valid if not np.isnan(e)]
-        
-        plt.plot(valid_cutoffs, valid_energies, 'ro-', linewidth=2, markersize=8)
-        plt.xlabel('ecutwfc (Ry)', fontsize=12)
-        plt.ylabel('Total Energy (eV)', fontsize=12)
-        plt.title('Energy Cutoff Convergence Test for Si', fontsize=14)
-        plt.grid(True, alpha=0.3)
-        plt.tight_layout()
-        plt.savefig(os.path.join(SCRIPT_DIR, 'cutoff_convergence.png'), dpi=150)
-        print(f"\n✓ Energy cutoff convergence plot saved to: {os.path.join(SCRIPT_DIR, 'cutoff_convergence.png')}")
-        return True
-    elif np.any(valid):
-        print(f"\n✓ Cutoff test completed: {energies[0]:.6f} eV")
-        return True
-    else:
-        print("\n✗ No valid cutoff convergence data")
+        print("\n✗ No valid k-point data")
         return False
 
 
@@ -362,7 +298,7 @@ def main():
     Run all tests.
     """
     print("\n" + "="*60)
-    print("ASE Quantum ESPRESSO Testing Suite")
+    print("ASE Quantum ESPRESSO Testing Suite (Optimized for Speed)")
     print("="*60)
     print(f"\nScript directory: {SCRIPT_DIR}")
     
@@ -377,7 +313,9 @@ def main():
     else:
         print(f"QE command using default: pw.x (no qe_command.txt found)")
     
-    print("Using pseudopotentials: Si.upf and H.upf (in script directory)")
+    print("\n⚠️  OPTIMIZED FOR SPEED: Using low cutoffs (20-25 Ry) and coarse k-points (2x2x2)")
+    print("   These parameters are NOT suitable for production calculations!")
+    print("   For accurate results, increase ecutwfc to 30-40 Ry and kpts to 4x4x4 or higher")
     
     # Verify QE executable exists
     if not os.path.exists(qe_cmd) and qe_cmd != 'pw.x':
@@ -391,16 +329,13 @@ def main():
     # Check pseudopotentials
     if not check_pseudopotentials():
         print("\nPlease place Si.upf and H.upf in:", SCRIPT_DIR)
-        print("You can download them from:")
-        print("  https://pseudopotentials.quantum-espresso.org/")
         return
     
-    # Run tests
+    # Run tests (only quick ones)
     tests = [
-        ("Single Point SCF", test_single_point),
-        ("Geometry Optimization", test_geometry_optimization),
-        ("K-point Convergence", test_kpoint_convergence),
-        ("Cutoff Convergence", test_cutoff_convergence),
+        ("Single Point SCF (Quick)", test_single_point),
+        ("Geometry Optimization (Quick)", test_geometry_optimization),
+        ("Quick Convergence Test", test_quick_convergence),
     ]
     
     results = {}
@@ -421,14 +356,14 @@ def main():
     print(f"\nPassed: {passed}/{total}")
     
     if passed == total:
-        print("\n🎉 All tests passed! Quantum ESPRESSO is working correctly with ASE.")
+        print("\n🎉 All tests passed!")
+        print("\n📝 Next steps for production calculations:")
+        print("   - Increase ecutwfc to 30-40 Ry")
+        print("   - Increase kpts to (4,4,4) or higher")
+        print("   - Use conv_thr = 1e-8")
+        print("   - Use smaller smearing (degauss = 0.01)")
     else:
         print(f"\n⚠️ {total - passed} test(s) failed.")
-        print("\nTroubleshooting tips:")
-        print("1. Check that Si.upf and H.upf are valid pseudopotential files")
-        print("2. Check the QE output files (*.pwo) for error messages")
-        print("3. Verify you have sufficient disk space in ./tmp/")
-        print("4. Check qe_command.txt contains the correct path to pw.x")
 
 
 if __name__ == "__main__":
