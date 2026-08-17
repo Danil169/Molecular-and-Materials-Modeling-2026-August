@@ -83,21 +83,30 @@ class CustomNWChemCalculator(Calculator):
     def calculate(self, atoms=None, properties=['energy'], system_changes=['positions', 'numbers']):
         Calculator.calculate(self, atoms, properties, system_changes)
         nw_file = "tmp_bench_nwchem.nw"
+        
+        # ✅ FIX: Simplified geometry signature block to avoid syntax aborts
         with open(nw_file, "w") as f:
-            f.write("geometry units angstroms noautoz\n")
+            f.write("geometry\n")
             for sym, pos in zip(self.atoms.get_chemical_symbols(), self.atoms.get_positions()):
                 f.write(f"  {sym} {pos[0]:.6f} {pos[1]:.6f} {pos[2]:.6f}\n")
             f.write(f"end\nbasis\n  * library {self.basis}\nend\ntask {self.method} energy\n")
+            
         try:
             res = subprocess.run([nwchem_bin, nw_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            energy = None
             for line in res.stdout.splitlines():
-                if "total dft energy" in line.lower() or "total qm energy" in line.lower() or "total energy" in line.lower():
+                if "total dft energy" in line.lower() or "total energy" in line.lower():
                     for token in line.split():
                         try:
-                            self.results['energy'] = float(token) * 27.211386245988
+                            energy = float(token) * 27.211386245988
                             break
                         except ValueError: continue
-                    break
+                    if energy is not None: break
+            
+            if energy is not None:
+                self.results['energy'] = energy
+            else:
+                raise RuntimeError(f"Could not parse energy header. NWChem exit status: {res.returncode}")
         finally:
             if os.path.exists(nw_file): os.remove(nw_file)
 
@@ -105,11 +114,10 @@ class CustomNWChemCalculator(Calculator):
 # 3. Cluster Generation Routine
 # =====================================================================
 def generate_water_cluster(n_molecules):
-    """Generates a linear water cluster chain to avoid unphysical overlapping."""
     cluster = Atoms()
     for i in range(n_molecules):
         h2o = molecule('H2O')
-        h2o.translate([i * 3.5, 0.0, 0.0]) # Spaced at 3.5 Angstroms
+        h2o.translate([i * 3.5, 0.0, 0.0])
         cluster += h2o
     return cluster
 
@@ -117,7 +125,7 @@ def generate_water_cluster(n_molecules):
 # 4. Main Benchmark Setup
 # =====================================================================
 if __name__ == "__main__":
-    cluster_sizes = [1, 2, 4, 8]  # Corresponds to 3, 6, 12, and 24 atoms respectively
+    cluster_sizes = [1, 2, 4, 8]
     methods = {
         'MOPAC (PM7)': lambda: MOPAC(method='PM7'),
         'xTB (GFN2)': lambda: CustomXTBCalculator(method='2'),
@@ -125,7 +133,6 @@ if __name__ == "__main__":
         'NWChem (DFT/3-21G)': lambda: CustomNWChemCalculator(method='dft', basis='3-21g')
     }
 
-    # Data container for results
     results = {m: [] for m in methods}
 
     print("==========================================================")
@@ -140,10 +147,8 @@ if __name__ == "__main__":
 
         for name, calc_init in methods.items():
             try:
-                # Instantiate clean calculator instance
                 atoms.calc = calc_init()
                 
-                # Start wall time tracking
                 start_time = time.perf_counter()
                 energy = atoms.get_potential_energy()
                 end_time = time.perf_counter()
@@ -153,27 +158,25 @@ if __name__ == "__main__":
                 print(f"  |-- {name:<20} : {wall_time:>8.4f} seconds (E = {energy:.2f} eV)")
             except Exception as e:
                 results[name].append("FAILED")
-                print(f"  |-- {name:<20} : ❌ FAILED")
+                # ✅ diagnostic error tracking visible to avoid ghost bugs
+                print(f"  |-- {name:<20} : ❌ FAILED (Reason: {e})")
 
-            # Clean workspace leftover output file signatures cleanly
             for junk in ['mopac.out', 'mopac.arc', 'mopac.mop']:
                 if os.path.exists(junk): os.remove(junk)
 
     # =====================================================================
-    # 5. Summary Generation (Markdown Table Formatting)
+    # 5. Summary Generation
     # =====================================================================
     print("\n\n==========================================================")
     print("                    BENCHMARK SUMMARY                     ")
     print("==========================================================")
     
-    # Print headers
     header_str = f"| {'Method':<20} "
     for n in cluster_sizes:
         header_str += f"| {n} H2O ({n*3} atoms) "
     print(header_str + "|")
     print("|" + "----------------------|" * (len(cluster_sizes) + 1))
     
-    # Print rows
     for name in methods:
         row_str = f"| {name:<20} "
         for idx, n in enumerate(cluster_sizes):
