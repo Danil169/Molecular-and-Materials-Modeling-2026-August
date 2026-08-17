@@ -1,0 +1,138 @@
+🔍 Auto-detecting system configuration...
+  ✓ Found pw.x at: /home/miroi/miniconda3/envs/mace_env/bin/pw.x
+  ✓ MPI available
+  ✓ Total available CPUs: 12
+  ✓ Using 6 CPU cores for MPI
+  ✓ Command: mpirun -np 6 /home/miroi/miniconda3/envs/mace_env/bin/pw.x
+
+============================================================
+ASE Quantum ESPRESSO Testing Suite
+============================================================
+
+📐 Silicon Crystal Structure:
+   - Structure: Diamond cubic
+   - Space group: Fd3̄m (No. 227)
+   - Lattice constant: a = 5.431 Å (experimental)
+   - Atoms per primitive cell: 2
+   - Atomic positions: (0,0,0) and (1/4,1/4,1/4)
+   - Coordination: 4-fold tetrahedral
+
+Script directory: /home/miroi/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/01_conda_software_space/software_checks/basic_functionality_checks/qe
+
+📊 System Configuration:
+----------------------------------------
+  QE command: mpirun -np 6 /home/miroi/miniconda3/envs/mace_env/bin/pw.x
+  Total available CPUs: 12
+  MPI processes: 6
+  Pseudopotential: Si.upf (from Pseudo-Dojo)
+  Using auto-detected MPI configuration
+
+⚠️  OPTIMIZED FOR SPEED: Using low cutoffs (20-25 Ry) and coarse k-points (2x2x2)
+   These parameters are NOT suitable for production calculations!
+   For accurate results, increase ecutwfc to 30-40 Ry and kpts to (4,4,4) or higher
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+
+🚀 Running tests...
+
+
+============================================================
+TEST 1: Single Point SCF Calculation
+============================================================
+Silicon crystal: Diamond cubic (Fd3̄m)
+Lattice constant: a = 5.43 Å
+Using ecutwfc=20 Ry, kpts=(2,2,2) for speed
+
+Structure information:
+  Number of atoms: 2 (primitive cell)
+  Volume: 40.03 Å³
+  Space group: Fd3̄m (diamond cubic)
+
+  Atomic positions (fractional coordinates):
+    Si(1): (0.000, 0.000, 0.000)
+    Si(2): (0.354, 0.354, 0.354)
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+
+Running SCF calculation...
+
+✓ Calculation completed successfully!
+  Time elapsed: 1.91 seconds
+  Total energy: -227.697455 eV
+  Force norms: [0. 0.]
+  Stress tensor (eV/Å³): [-0.05662829 -0.05662829 -0.05662829 -0.         -0.         -0.        ]
+
+============================================================
+TEST 2: Geometry Optimization
+============================================================
+Silicon crystal: Diamond cubic (Fd3̄m)
+Initial lattice constant: a = 5.50 Å (strained)
+Using ecutwfc=25 Ry, kpts=(2,2,2) for speed
+
+Initial: a=5.500 Å, volume=41.59 Å³
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+
+Running geometry optimization...
+       Step     Time          Energy          fmax
+LBFGS:    0 22:58:08     -227.788403        0.000000
+
+✓ Optimization completed successfully!
+  Final lattice constant: a=4.365 Å
+  Final volume: 41.59 Å³
+  Final energy: -227.788403 eV
+  Number of optimization steps: 0
+
+  Experimental a = 5.431 Å
+  Difference: 19.62%
+
+============================================================
+TEST 3: K-point Convergence Test
+============================================================
+Silicon crystal: Diamond cubic (Fd3̄m)
+
+Testing k-point grids...
+----------------------------------------
+Testing grid: 2x2x2
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+  Energy: -227.697455 eV
+Testing grid: 4x4x4
+
+Checking pseudopotential files...
+----------------------------------------
+✓ Found: Si.upf (225,602 bytes)
+  Energy: -230.060734 eV
+
+✓ K-point test completed
+  2x2x2: -227.697455 eV
+  4x4x4: -230.060734 eV
+  ✓ Plot saved to: kpoint_convergence.png
+
+============================================================
+TEST SUMMARY
+============================================================
+✅ Single Point SCF
+✅ Geometry Optimization
+✅ K-point Convergence
+
+Passed: 3/3
+
+🎉 All tests passed!
+
+📝 Next steps for production calculations:
+   - Increase ecutwfc to 30-40 Ry
+   - Increase kpts to (4,4,4) or higher
+   - Use conv_thr = 1e-8
+   - Use smaller smearing (degauss = 0.01)
+
+💻 Current configuration:
+   mpirun -np 6 /home/miroi/miniconda3/envs/mace_env/bin/pw.x
