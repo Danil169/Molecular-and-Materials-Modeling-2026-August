@@ -25,6 +25,17 @@ conda activate myenv
 conda config --add channels conda-forge
 conda install ase nwchem xtb xtb-python mopac nwchem qe pyscf
 
+which ase
+/home/milias/miniconda3/envs/myenv/bin/ase
+ase --version
+ase-3.29.0
+
+which mopac nwchem pw.x xtb
+/home/milias/miniconda3/envs/myenv/bin/mopac
+/home/milias/miniconda3/envs/myenv/bin/nwchem
+/home/milias/miniconda3/envs/myenv/bin/pw.x
+/home/milias/miniconda3/envs/myenv/bin/xtb
+
 
 Challenge
 =========
