@@ -19,6 +19,11 @@ miniconda activated :conda 26.5.3
 working with conda
 ------------------
 
+installing packages
+~~~~~~~~~~~~~~~~~~~
+conda activate myenv
+conda config --add channels conda-forge
+conda install ase nwchem xtb xtb-python mopac nwchem qe pyscf
 
 
 Challenge
