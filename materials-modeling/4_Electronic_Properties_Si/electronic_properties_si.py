@@ -70,20 +70,28 @@ qe_bin = "/home/dsen/work/bin/qe-7.4.1"
 
 # Main QE calculation 
 #pw_command = f'{qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 pw.x'
 
 # Serial post-processing commands for fast execution
-pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
-dos_command = f"{qe_bin}/bin/dos.x < dos.in > dos.out 2>&1"
+#pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
+pp_command = f"pp.x < pp.in > pp.out 2>&1"
+#dos_command = f"{qe_bin}/bin/dos.x < dos.in > dos.out 2>&1"
+dos_command = f"dos.x < dos.in > dos.out 2>&1"
 
 # Memory intensive Parallel post-processing commands (run in one node only)
 #projwfc_command = f'{qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
-projwfc_command = f'mpirun -np 4 {qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
+#projwfc_command = f'mpirun -np 4 {qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
+projwfc_command = f'mpirun -np 4 projwfc.x < projwfc.in > projwfc.out 2>&1'
 
 profile = EspressoProfile(
     command=pw_command,
     pseudo_dir='./'
 )
+
+import os
+print("📢 Setting OMP_NUM_THREADS=1 to disable OpenMP parallelization.")
+os.environ["OMP_NUM_THREADS"] = "1"
 
 # K-point grids 
 scf_kpts = (15,15,15)
