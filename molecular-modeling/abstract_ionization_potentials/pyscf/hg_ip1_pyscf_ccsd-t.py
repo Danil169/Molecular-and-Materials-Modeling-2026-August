@@ -4,10 +4,13 @@ PySCF SCF + CCSD(T) Calculation for Hg Atom
 - Neutral Hg: RHF + CCSD(T) (closed-shell, singlet)
 - Cation Hg+: UHF + CCSD(T) (open-shell, doublet)
 - Uses ECP and appropriate basis sets for heavy elements
+- Supports MPI parallelization with nproc from file
 """
 
 import time
 import datetime
+import numpy as np
+import os
 from pyscf import gto, scf, cc
 
 # ============================================================
@@ -27,14 +30,70 @@ CCSD_CONV_TOL = 1e-8
 CCSD_MAX_CYCLE = 100
 CCSD_DIIS_SPACE = 10
 
+# Memory (per processor)
+MEMORY_PER_PROC = 16000  # MB per processor
+
 # Experimental reference
 EXP_IE = 10.437  # eV
+
+# File containing number of processors
+NPROC_FILE = "nproc.txt"
 
 # ============================================================
 # END OF USER PARAMETERS
 # ============================================================
 
-def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET):
+def read_nproc_from_file(filename="nproc.txt"):
+    """
+    Read number of processors from a text file.
+    The file should contain a single integer (e.g., "4").
+    """
+    nproc = 1  # Default to 1 if file doesn't exist
+    
+    if os.path.exists(filename):
+        try:
+            with open(filename, 'r') as f:
+                content = f.read().strip()
+                nproc = int(content)
+                print(f"✅ Read nproc = {nproc} from {filename}")
+                return nproc
+        except (ValueError, IOError) as e:
+            print(f"⚠️  Error reading {filename}: {e}")
+            print(f"   Using default nproc = 1")
+            return 1
+    else:
+        print(f"⚠️  {filename} not found. Creating default file with nproc=1")
+        with open(filename, 'w') as f:
+            f.write("1\n")
+        return 1
+
+def setup_mpi(nproc):
+    """
+    Set up MPI parallelism for PySCF.
+    PySCF uses mpi4py for parallelization.
+    """
+    try:
+        from mpi4py import MPI
+        comm = MPI.COMM_WORLD
+        rank = comm.Get_rank()
+        size = comm.Get_size()
+        
+        if size != nproc:
+            if rank == 0:
+                print(f"⚠️  Warning: MPI world size ({size}) != requested nproc ({nproc})")
+                print(f"   Using MPI world size: {size}")
+            nproc = size
+        
+        return comm, rank, size
+    except ImportError:
+        print("⚠️  mpi4py not found. Running in serial mode.")
+        return None, 0, 1
+    except Exception as e:
+        print(f"⚠️  MPI setup error: {e}")
+        print("   Running in serial mode.")
+        return None, 0, 1
+
+def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET, nproc=1):
     """
     Set up the Hg atom/molecule with appropriate basis and ECP.
     
@@ -43,6 +102,7 @@ def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET):
         spin: 2S (0 for singlet, 1 for doublet)
         basis: Basis set name
         ecp: ECP name
+        nproc: Number of processors
     
     Returns:
         pyscf.gto.Mole object
@@ -54,7 +114,7 @@ def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET):
     mol.charge = charge
     mol.spin = spin
     mol.verbose = 4
-    mol.max_memory = 32000  # MB
+    mol.max_memory = MEMORY_PER_PROC * nproc  # Total memory scales with processors
     mol.build()
     
     print(f"\n📋 Molecule Setup:")
@@ -65,6 +125,7 @@ def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET):
     print(f"   ECP: {ecp}")
     print(f"   Number of electrons: {mol.nelectron}")
     print(f"   Number of basis functions: {mol.nao}")
+    print(f"   Total memory: {mol.max_memory} MB ({nproc} processors)")
     
     return mol
 
@@ -113,6 +174,39 @@ def run_scf(mol, conv_tol=SCF_CONV_TOL, max_cycle=SCF_MAX_CYCLE):
     
     return mf, scf_time
 
+def get_t1_diagnostic(mycc):
+    """
+    Get T1 diagnostic for both RHF and UHF CCSD objects.
+    
+    Args:
+        mycc: CCSD or UCCSD object
+    
+    Returns:
+        float: T1 diagnostic value
+    """
+    try:
+        # Try the standard method for RHF
+        return mycc.get_t1_diagnostic()
+    except AttributeError:
+        # For UHF, compute T1 diagnostic manually
+        try:
+            t1 = mycc.t1
+            nocc = mycc.nocc
+            if isinstance(nocc, tuple):
+                # UHF case
+                nocc_alpha, nocc_beta = nocc
+                t1_alpha_norm = np.linalg.norm(t1[0].ravel())
+                t1_beta_norm = np.linalg.norm(t1[1].ravel())
+                t1_norm = (t1_alpha_norm + t1_beta_norm) / 2
+                nelec = nocc_alpha + nocc_beta
+                return t1_norm / np.sqrt(nelec)
+            else:
+                # RHF case (fallback)
+                t1_norm = np.linalg.norm(t1.ravel())
+                return t1_norm / np.sqrt(nocc)
+        except (AttributeError, TypeError):
+            return 0.0
+
 def run_ccsd_t(mf, method_name="CCSD(T)"):
     """
     Run CCSD(T) calculation from SCF object.
@@ -128,7 +222,7 @@ def run_ccsd_t(mf, method_name="CCSD(T)"):
     print(f"{method_name} CALCULATION")
     print("="*70)
     
-    # Initialize CCSD
+    # Initialize CCSD (automatically chooses UCCSD for UHF)
     mycc = cc.CCSD(mf)
     mycc.conv_tol = CCSD_CONV_TOL
     mycc.max_cycle = CCSD_MAX_CYCLE
@@ -163,7 +257,7 @@ def run_ccsd_t(mf, method_name="CCSD(T)"):
     print(f"   (T) time: {t_time:.2f} seconds")
     
     # T1 diagnostic (for assessing multi-reference character)
-    t1_diagnostic = mycc.get_t1_diagnostic()
+    t1_diagnostic = get_t1_diagnostic(mycc)
     print(f"\n📊 T1 diagnostic: {t1_diagnostic:.4f}")
     if t1_diagnostic < 0.02:
         print("   ✅ Single-reference method is appropriate (T1 < 0.02)")
@@ -185,13 +279,17 @@ def run_ccsd_t(mf, method_name="CCSD(T)"):
         't1_diagnostic': t1_diagnostic
     }
 
-def calculate_ionization_potential():
+def calculate_ionization_potential(nproc):
     """
     Calculate the vertical ionization potential of Hg.
+    
+    Args:
+        nproc: Number of processors for MPI
     """
     print("="*70)
     print("Hg IONIZATION POTENTIAL CALCULATION")
     print(f"Using {BASIS_SET} basis set with ECP")
+    print(f"Processors: {nproc}")
     print(f"Started at: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("="*70)
     
@@ -202,7 +300,7 @@ def calculate_ionization_potential():
     print("NEUTRAL Hg (RHF + CCSD(T))")
     print("="*70)
     
-    mol_neutral = setup_molecule(charge=0, spin=0)
+    mol_neutral = setup_molecule(charge=0, spin=0, nproc=nproc)
     mf_neutral, scf_time_neutral = run_scf(mol_neutral)
     ccsdt_neutral = run_ccsd_t(mf_neutral, "CCSD(T) (Neutral)")
     
@@ -211,7 +309,7 @@ def calculate_ionization_potential():
     print("CATION Hg+ (UHF + CCSD(T))")
     print("="*70)
     
-    mol_cation = setup_molecule(charge=1, spin=1)
+    mol_cation = setup_molecule(charge=1, spin=1, nproc=nproc)
     mf_cation, scf_time_cation = run_scf(mol_cation)
     ccsdt_cation = run_ccsd_t(mf_cation, "CCSD(T) (Cation)")
     
@@ -252,12 +350,17 @@ def calculate_ionization_potential():
         'cation': ccsdt_cation,
         'ie_hartree': ie_hartree,
         'ie_ev': ie_ev,
-        'total_time': total_time
+        'total_time': total_time,
+        'nproc': nproc
     }
 
 def main():
     """Main execution function"""
-    results = calculate_ionization_potential()
+    # Read number of processors from file
+    nproc = read_nproc_from_file(NPROC_FILE)
+    
+    # Run calculation
+    results = calculate_ionization_potential(nproc)
     
     # Summary
     print("\n" + "="*70)
@@ -271,6 +374,7 @@ def main():
     print(f"   • Cation:  UHF + CCSD(T)")
     print(f"   • T1 diagnostic (neutral): {results['neutral']['t1_diagnostic']:.4f}")
     print(f"   • T1 diagnostic (cation):  {results['cation']['t1_diagnostic']:.4f}")
+    print(f"   • Processors: {results['nproc']}")
     print(f"   • Total time: {results['total_time']/60:.2f} minutes")
     print("="*70)
 
