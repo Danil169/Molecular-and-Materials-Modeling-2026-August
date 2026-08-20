@@ -1,0 +1,84 @@
+======================================================================
+NWChem TCE-CCSD-ECP CALCULATION FOR Hg ATOM
+With ROHF+TCE-CCSD and UHF+TCE-CCSD for cation
+Using ASE directives with short paths
+======================================================================
+✅ Read nproc = 4 from nproc.txt
+======================================================================
+NWChem TCE-CCSD-ECP Calculation for Hg (with MPI)
+======================================================================
+Number of processors: 4
+Basis set:            def2-svp
+ECP:                  def2-svp
+SCF threshold:        1e-07
+SCF maxiter:          100
+TCE io ga:            True
+Memory:               8000 mb
+======================================================================
+
+--- Neutral Hg (RHF + TCE-CCSD, Singlet) ---
+Energy: -4160.931144 eV
+📁 Output in: nwchem_tce_ccsd/neutral
+
+--- Cation Hg+ (ROHF + TCE-CCSD, Open-Shell Doublet) ---
+Energy: -4150.983351 eV
+📁 Output in: nwchem_tce_ccsd/cation_rohf
+
+--- Cation Hg+ (UHF + TCE-CCSD, Open-Shell Doublet) ---
+Energy: -4150.983540 eV
+📁 Output in: nwchem_tce_ccsd/cation_uhf
+
+======================================================================
+RESULTS (TCE-CCSD Level)
+======================================================================
+Neutral Energy (RHF+TCE-CCSD):        -4160.931144 eV
+Cation Energy (ROHF+TCE-CCSD):        -4150.983351 eV
+Cation Energy (UHF+TCE-CCSD):         -4150.983540 eV
+----------------------------------------------------------------------
+Vertical IE (ROHF+TCE-CCSD cation):       9.947793 eV
+Vertical IE (UHF+TCE-CCSD cation):        9.947603 eV
+Experimental IE:                           10.4370 eV
+----------------------------------------------------------------------
+Error (ROHF+TCE-CCSD cation):              -0.4892 eV
+Error (UHF+TCE-CCSD cation):               -0.4894 eV
+======================================================================
+
+📁 Directory Structure:
+   nwchem_tce_ccsd/
+   ├── neutral/        (RHF+TCE-CCSD)
+   ├── cation_rohf/    (ROHF+TCE-CCSD)
+   └── cation_uhf/     (UHF+TCE-CCSD)
+
+📄 Generated Files:
+
+   neutral/ (RHF+TCE-CCSD):
+      - hg.nwi (720 bytes)
+      - hg.nwo (30063 bytes)
+
+   cation_rohf/ (ROHF+TCE-CCSD):
+      - hg.nwi (759 bytes)
+      - hg.nwo (30059 bytes)
+
+   cation_uhf/ (UHF+TCE-CCSD):
+      - hg.nwi (756 bytes)
+      - hg.nwo (40413 bytes)
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ NWChem TCE-CCSD-ECP calculations completed
+
+   ROHF+TCE-CCSD IE = 9.947793 eV (error: -0.489207 eV)
+   UHF+TCE-CCSD IE  = 9.947603 eV (error: -0.489397 eV)
+
+   • Method: TCE-CCSD (Tensor Contraction Engine - Coupled Cluster Singles and Doubles)
+   • TCE io ga: True (optimized parallel memory handling)
+   • Neutral: RHF+TCE-CCSD (closed-shell, singlet)
+   • Cation ROHF: ROHF+TCE-CCSD (restricted open-shell, doublet)
+   • Cation UHF:  UHF+TCE-CCSD (unrestricted open-shell, doublet)
+   • Note: No permanent_dir or scratch_dir specified (uses NWChem defaults)
+   • Basis set: def2-svp
+   • ECP: def2-svp
+   • Processors: 4
+   • Memory: 8000 mb
+======================================================================

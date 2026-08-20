@@ -2,10 +2,10 @@
 """
 NWChem TCE-CCSD-ECP Calculation for Hg using ASE parameters with MPI
 - Neutral Hg: RHF + TCE-CCSD (closed-shell, singlet)
-- Cation Hg+: UHF + TCE-CCSD only (ROHF has file handling issues)
+- Cation Hg+: ROHF + TCE-CCSD and UHF + TCE-CCSD (open-shell, doublet)
 - Uses mpirun with number of processors from an input file
-- Only ASE NWChem flags, no raw input strings
-- TCE with io ga for optimized parallel memory handling
+- Only ASE directives, no raw input strings
+- No permanent_dir or scratch_dir specified (uses NWChem defaults)
 """
 
 from ase import Atoms
@@ -67,10 +67,11 @@ def read_nproc_from_file(filename="nproc.txt"):
 
 def setup_directories():
     """Create directory structure for NWChem calculations"""
-    base_dir = "nwchem_tce_ccsd_calculations"
+    base_dir = "nwchem_tce_ccsd"
     subdirs = [
-        "nwchem_neutral_rhf_tce_ccsd",
-        "nwchem_cation_uhf_tce_ccsd"
+        "neutral",
+        "cation_rohf",
+        "cation_uhf"
     ]
     
     for subdir in subdirs:
@@ -88,40 +89,6 @@ def get_tce_options():
         tce_opts['io'] = 'ga'  # Optimizes parallel memory handling
     return tce_opts
 
-def parse_tce_energy(output_file):
-    """Parse TCE-CCSD total energy from NWChem output file"""
-    if not os.path.exists(output_file):
-        return None
-    try:
-        with open(output_file, 'r') as f:
-            content = f.read()
-            # Look for TCE CCSD total energy
-            for line in content.split('\n'):
-                if 'TCE energy' in line or 'CCSD energy' in line or 'Total CCSD energy' in line:
-                    import re
-                    numbers = re.findall(r'[-+]?\d*\.?\d+', line)
-                    for num in numbers:
-                        try:
-                            val = float(num)
-                            if abs(val) > 1.0:  # Energy should be large
-                                return val * 27.211386245988  # Hartree -> eV
-                        except ValueError:
-                            continue
-                # Look for SCF energy if TCE energy not found
-                if 'Total SCF energy' in line:
-                    import re
-                    numbers = re.findall(r'[-+]?\d*\.?\d+', line)
-                    for num in numbers:
-                        try:
-                            val = float(num)
-                            if abs(val) > 1.0:
-                                return val * 27.211386245988
-                        except ValueError:
-                            continue
-    except Exception as e:
-        print(f"Error parsing {output_file}: {e}")
-    return None
-
 def run_tce_ccsd_calculation(nproc):
     """Run NWChem TCE-CCSD-ECP calculations for Hg ionization energy"""
     print("="*70)
@@ -136,7 +103,7 @@ def run_tce_ccsd_calculation(nproc):
     print(f"Memory:               {MEMORY}")
     print("="*70)
     
-    # Setup directories
+    # Setup directories with short names
     base_dir = setup_directories()
     
     # Get TCE options
@@ -144,17 +111,17 @@ def run_tce_ccsd_calculation(nproc):
     
     # === Neutral Hg (RHF + TCE-CCSD) ===
     print("\n--- Neutral Hg (RHF + TCE-CCSD, Singlet) ---")
-    neutral_dir = os.path.join(base_dir, 'nwchem_neutral_rhf_tce_ccsd')
+    neutral_dir = os.path.join(base_dir, 'neutral')
     
     hg_neutral = Atoms('Hg', positions=[(0, 0, 0)])
     hg_neutral.calc = NWChem(
-        label=os.path.join(neutral_dir, 'hg_neutral'),
-        theory='tce',           # Use TCE module
-        task='energy',          # Single point energy
+        label=os.path.join(neutral_dir, 'hg'),
+        theory='tce',
+        task='energy',
         basis={'Hg': BASIS_SET},
         ecp={'Hg library': ECP_SET},
         scf={'thresh': SCF_THRESH, 'maxiter': SCF_MAXITER},
-        tce=tce_opts,           # TCE options with ccsd and io ga
+        tce=tce_opts,
         memory=MEMORY,
         command=f"mpirun -np {nproc} nwchem PREFIX.nwi > PREFIX.nwo"
     )
@@ -163,21 +130,42 @@ def run_tce_ccsd_calculation(nproc):
     print(f"Energy: {e_neutral:.6f} eV")
     print(f"📁 Output in: {neutral_dir}")
     
-    # === Cation Hg+ (UHF + TCE-CCSD only) ===
-    # ROHF+CCSD has file handling issues in NWChem
+    # === Cation Hg+ (ROHF + TCE-CCSD) ===
+    print("\n--- Cation Hg+ (ROHF + TCE-CCSD, Open-Shell Doublet) ---")
+    cation_rohf_dir = os.path.join(base_dir, 'cation_rohf')
+    
+    hg_cation_rohf = Atoms('Hg', positions=[(0, 0, 0)])
+    hg_cation_rohf.calc = NWChem(
+        label=os.path.join(cation_rohf_dir, 'hg'),
+        theory='tce',
+        task='energy',
+        charge=1,
+        basis={'Hg': BASIS_SET},
+        ecp={'Hg library': ECP_SET},
+        scf={'rohf': True, 'doublet': True, 'thresh': SCF_THRESH, 'maxiter': SCF_MAXITER},
+        tce=tce_opts,
+        memory=MEMORY,
+        command=f"mpirun -np {nproc} nwchem PREFIX.nwi > PREFIX.nwo"
+    )
+    
+    e_cation_rohf = hg_cation_rohf.get_potential_energy()
+    print(f"Energy: {e_cation_rohf:.6f} eV")
+    print(f"📁 Output in: {cation_rohf_dir}")
+    
+    # === Cation Hg+ (UHF + TCE-CCSD) ===
     print("\n--- Cation Hg+ (UHF + TCE-CCSD, Open-Shell Doublet) ---")
-    cation_uhf_dir = os.path.join(base_dir, 'nwchem_cation_uhf_tce_ccsd')
+    cation_uhf_dir = os.path.join(base_dir, 'cation_uhf')
     
     hg_cation_uhf = Atoms('Hg', positions=[(0, 0, 0)])
     hg_cation_uhf.calc = NWChem(
-        label=os.path.join(cation_uhf_dir, 'hg_cation_uhf'),
+        label=os.path.join(cation_uhf_dir, 'hg'),
         theory='tce',
         task='energy',
         charge=1,
         basis={'Hg': BASIS_SET},
         ecp={'Hg library': ECP_SET},
         scf={'uhf': True, 'doublet': True, 'thresh': SCF_THRESH, 'maxiter': SCF_MAXITER},
-        tce=tce_opts,           # TCE options with ccsd and io ga
+        tce=tce_opts,
         memory=MEMORY,
         command=f"mpirun -np {nproc} nwchem PREFIX.nwi > PREFIX.nwo"
     )
@@ -187,31 +175,38 @@ def run_tce_ccsd_calculation(nproc):
     print(f"📁 Output in: {cation_uhf_dir}")
     
     # === Ionization Energies ===
+    ie_rohf = e_cation_rohf - e_neutral
     ie_uhf = e_cation_uhf - e_neutral
     
     print("\n" + "="*70)
     print("RESULTS (TCE-CCSD Level)")
     print("="*70)
     print(f"Neutral Energy (RHF+TCE-CCSD):        {e_neutral:>12.6f} eV")
+    print(f"Cation Energy (ROHF+TCE-CCSD):        {e_cation_rohf:>12.6f} eV")
     print(f"Cation Energy (UHF+TCE-CCSD):         {e_cation_uhf:>12.6f} eV")
     print("-"*70)
+    print(f"Vertical IE (ROHF+TCE-CCSD cation):   {ie_rohf:>12.6f} eV")
     print(f"Vertical IE (UHF+TCE-CCSD cation):    {ie_uhf:>12.6f} eV")
     print(f"Experimental IE:                      {EXP_IE:>12.4f} eV")
     print("-"*70)
+    print(f"Error (ROHF+TCE-CCSD cation):         {ie_rohf-EXP_IE:>+12.4f} eV")
     print(f"Error (UHF+TCE-CCSD cation):          {ie_uhf-EXP_IE:>+12.4f} eV")
     print("="*70)
     
-    # Print directory structure
     print("\n📁 Directory Structure:")
-    print("   nwchem_tce_ccsd_calculations/")
+    print("   nwchem_tce_ccsd/")
     print(f"   ├── {os.path.basename(neutral_dir)}/        (RHF+TCE-CCSD)")
+    print(f"   ├── {os.path.basename(cation_rohf_dir)}/    (ROHF+TCE-CCSD)")
     print(f"   └── {os.path.basename(cation_uhf_dir)}/     (UHF+TCE-CCSD)")
     
     return {
         'neutral': e_neutral,
+        'cation_rohf': e_cation_rohf,
         'cation_uhf': e_cation_uhf,
+        'ie_rohf': ie_rohf,
         'ie_uhf': ie_uhf,
         'neutral_dir': neutral_dir,
+        'cation_rohf_dir': cation_rohf_dir,
         'cation_uhf_dir': cation_uhf_dir,
         'basis': BASIS_SET,
         'ecp': ECP_SET,
@@ -234,6 +229,15 @@ def print_file_summary(results):
                 size = os.path.getsize(os.path.join(neutral_dir, f))
                 print(f"      - {f} ({size} bytes)")
         
+        # Cation ROHF files
+        cation_rohf_dir = results['cation_rohf_dir']
+        if os.path.exists(cation_rohf_dir):
+            files = [f for f in os.listdir(cation_rohf_dir) if os.path.isfile(os.path.join(cation_rohf_dir, f))]
+            print(f"\n   {os.path.basename(cation_rohf_dir)}/ (ROHF+TCE-CCSD):")
+            for f in sorted(files):
+                size = os.path.getsize(os.path.join(cation_rohf_dir, f))
+                print(f"      - {f} ({size} bytes)")
+        
         # Cation UHF files
         cation_uhf_dir = results['cation_uhf_dir']
         if os.path.exists(cation_uhf_dir):
@@ -247,7 +251,8 @@ def main():
     """Main execution function"""
     print("="*70)
     print("NWChem TCE-CCSD-ECP CALCULATION FOR Hg ATOM")
-    print("UHF+TCE-CCSD for cation (ROHF has file handling issues)")
+    print("With ROHF+TCE-CCSD and UHF+TCE-CCSD for cation")
+    print("Using ASE directives with short paths")
     print("="*70)
     
     # Read number of processors from file
@@ -259,17 +264,18 @@ def main():
     # Print file summary
     print_file_summary(tce_ccsd_results)
     
-    # Recommendations
     print("\n" + "="*70)
     print("RECOMMENDATIONS")
     print("="*70)
     print(f"✅ NWChem TCE-CCSD-ECP calculations completed")
-    print(f"\n   UHF+TCE-CCSD IE = {tce_ccsd_results['ie_uhf']:.6f} eV (error: {tce_ccsd_results['ie_uhf']-EXP_IE:+.6f} eV)")
+    print(f"\n   ROHF+TCE-CCSD IE = {tce_ccsd_results['ie_rohf']:.6f} eV (error: {tce_ccsd_results['ie_rohf']-EXP_IE:+.6f} eV)")
+    print(f"   UHF+TCE-CCSD IE  = {tce_ccsd_results['ie_uhf']:.6f} eV (error: {tce_ccsd_results['ie_uhf']-EXP_IE:+.6f} eV)")
     print(f"\n   • Method: TCE-CCSD (Tensor Contraction Engine - Coupled Cluster Singles and Doubles)")
     print(f"   • TCE io ga: {tce_ccsd_results['tce_io_ga']} (optimized parallel memory handling)")
     print(f"   • Neutral: RHF+TCE-CCSD (closed-shell, singlet)")
-    print(f"   • Cation:  UHF+TCE-CCSD (unrestricted open-shell, doublet)")
-    print(f"   • Note: ROHF+TCE-CCSD has file handling issues in NWChem")
+    print(f"   • Cation ROHF: ROHF+TCE-CCSD (restricted open-shell, doublet)")
+    print(f"   • Cation UHF:  UHF+TCE-CCSD (unrestricted open-shell, doublet)")
+    print(f"   • Note: No permanent_dir or scratch_dir specified (uses NWChem defaults)")
     print(f"   • Basis set: {tce_ccsd_results['basis']}")
     print(f"   • ECP: {tce_ccsd_results['ecp']}")
     print(f"   • Processors: {tce_ccsd_results['nproc']}")
