@@ -1,0 +1,144 @@
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 15:44.
+
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 15:44.
+
+================================================================================
+IONIZATION ENERGY CALCULATIONS FOR Hg ATOM
+Methods: MOPAC PM7, xTB GFN1, xTB GFN2
+================================================================================
+
+============================================================
+MOPAC PM7 Calculations
+============================================================
+
+--- Neutral Hg (RHF, Closed-Shell Singlet) ---
+Energy: 0.6370 eV
+📁 Output in: mopac_calculations/mopac_neutral_rhf
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+Energy: 11.1552 eV
+📁 Output in: mopac_calculations/mopac_cation_uhf
+
+Vertical IE:    10.5182 eV
+Experimental:   10.44 eV (difference: +0.0782 eV)
+
+================================================================================
+
+============================================================
+xTB GFN2 Calculations
+============================================================
+
+--- Neutral Hg (Closed-Shell) ---
+✅ Neutral calculation completed
+📁 Output in: xtb_calculations/xtb_gfn2_neutral
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+✅ Cation calculation completed
+📁 Output in: xtb_calculations/xtb_gfn2_cation
+
+Neutral Energy: -23.0761 eV
+Cation Energy:  -5.4175 eV
+Vertical IE:    17.6587 eV
+Experimental:   10.44 eV (difference: +7.2187 eV)
+
+📁 Files in xtb_calculations/xtb_gfn2_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (12615 bytes)
+   - xtbrestart (168 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn2_cation:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation.out (12652 bytes)
+   - xtbrestart (168 bytes)
+
+================================================================================
+
+============================================================
+xTB GFN1 Calculations
+============================================================
+
+--- Neutral Hg (Closed-Shell) ---
+✅ Neutral calculation completed
+📁 Output in: xtb_calculations/xtb_gfn1_neutral
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+✅ Cation calculation completed
+📁 Output in: xtb_calculations/xtb_gfn1_cation
+
+Neutral Energy: -24.9053 eV
+Cation Energy:  -8.1376 eV
+Vertical IE:    16.7676 eV
+Experimental:   10.44 eV (difference: +6.3276 eV)
+
+📁 Files in xtb_calculations/xtb_gfn1_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (11916 bytes)
+   - xtbrestart (80 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn1_cation:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation.out (11953 bytes)
+   - xtbrestart (80 bytes)
+
+================================================================================
+SUMMARY OF IONIZATION ENERGY CALCULATIONS FOR Hg ATOM
+================================================================================
+Method               Neutral (eV)    Method               Cation (eV)     IE (eV)      Error (eV)  
+--------------------------------------------------------------------------------
+MOPAC PM7            0.6370          RHF (closed-shell)   11.1552         10.5182      +0.0782     
+xTB GFN2             -23.0761        Closed-shell         -5.4175         17.6587      +7.2187     
+xTB GFN1             -24.9053        Closed-shell         -8.1376         16.7676      +6.3276     
+--------------------------------------------------------------------------------
+Experimental                                                              10.4400      0.0000      
+================================================================================
+
+📁 Directory Structure:
+   mopac_calculations/
+   ├── mopac_neutral_rhf/  (RHF)
+   └── mopac_cation_uhf/   (UHF)
+
+   xtb_calculations/
+   ├── xtb_gfn2_neutral/  (GFN2, closed-shell)
+   └── xtb_gfn2_cation/   (GFN2, UHF)
+   ├── xtb_gfn1_neutral/  (GFN1, closed-shell)
+   └── xtb_gfn1_cation/   (GFN1, UHF)
+
+📝 Notes:
+  • MOPAC: Neutral uses RHF (default for even-electron), Cation uses UHF (default for odd-electron)
+  • xTB:   Neutral uses closed-shell, Cation uses UHF (--uhf 1 for doublet)
+  • Both methods correctly use UHF for the open-shell cation
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+✅ BEST METHOD: MOPAC PM7 (UHF for cation)
+   IE = 10.5182 eV
+   Error vs experiment: +0.0782 eV
+   • PM7 is specifically parameterized for heavy elements like Hg
+   • Correctly handles open-shell systems with UHF
+
+⚠️  xTB methods overestimate IE for Hg:
+   GFN2: 17.6587 eV (error: +7.2187 eV)
+   GFN1: 16.7676 eV (error: +6.3276 eV)
+
+💡 For accurate Hg calculations, use:
+   • MOPAC PM7 (recommended for heavy elements)
+   • DFT with pseudopotentials (for higher accuracy)
+   • xTB only for qualitative trends
+================================================================================
