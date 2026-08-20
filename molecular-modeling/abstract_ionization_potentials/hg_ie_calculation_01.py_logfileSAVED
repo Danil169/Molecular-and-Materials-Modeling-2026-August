@@ -1,0 +1,19 @@
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 14:27.
+
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 14:27.
+
+Starting Ionization Energy calculations for Hg atom...
+
+--- Running MOPAC (PM7) ---
+Neutral Energy: 0.6370 eV
+Cation Energy:  11.1552 eV
+Vertical IE:    10.5182 eV
+
+--- Running xTB via CLI Executable ---
+Neutral Energy: -23.0761 eV
+Cation Energy:  -5.4175 eV
+Vertical IE:    17.6587 eV
