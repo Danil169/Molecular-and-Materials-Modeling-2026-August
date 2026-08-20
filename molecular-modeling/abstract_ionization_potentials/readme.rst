@@ -30,7 +30,6 @@ quick check of the software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 python -c "import shutil; [print(f'✅ {x}: Ready') if exec(f'try:\n import {x}\nexcept:\n raise') is None else None for x in ['ase', 'xtb', 'pyscf', 'mace']]; [print(f'✅ {bin}: Ready') if shutil.which(bin) else print(f'❌ {bin}: Not found') for bin in ['mopac', 'xtb', 'nwchem', 'pw.x']]"
 
-
 which xtb; xtb --version
 
 runs
@@ -45,7 +44,8 @@ Experiment 10.437 eV
 
 deepseek 
 --------
-link for script buildup:
+link for script buildup: https://chat.deepseek.com/share/vpbbo1f5d5b4gzdxsj
+
 
 
 
