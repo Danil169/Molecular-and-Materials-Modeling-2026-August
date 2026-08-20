@@ -19,7 +19,7 @@ We can employ only quantum mechanical based methods because they are able to des
 electronic structure on neutral and ionized species.
 
 Computational apparatus
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 conda create -n molmatmodel
 conda activate  molmatmodel
 conda install -n molmatmodel -c conda-forge nwchem mopac xtb xtb-python pyscf qe ase pymace
@@ -35,13 +35,10 @@ runs
 python hg_ie_calculation_01.py > hg_ie_calculation_01.py_logfile
 
 Results and discussion
-~~~~~~~~~~~~~~~~~~~~~~
-
+----------------------
 Experiment 10.437 eV
-
 
 deepseek 
 --------
 link for AI thread:  https://chat.deepseek.com/share/vpbbo1f5d5b4gzdxsj
-
 
