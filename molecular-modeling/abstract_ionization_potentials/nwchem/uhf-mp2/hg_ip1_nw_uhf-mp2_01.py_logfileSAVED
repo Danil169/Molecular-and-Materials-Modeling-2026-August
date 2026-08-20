@@ -1,0 +1,66 @@
+======================================================================
+NWChem MP2-ECP CALCULATION FOR Hg ATOM
+UHF+MP2 for cation (ROHF not supported for MP2)
+======================================================================
+✅ Read nproc = 4 from nproc.txt
+======================================================================
+NWChem MP2-ECP Calculation for Hg (with MPI)
+======================================================================
+Number of processors: 4
+Basis set:            def2-svp
+ECP:                  def2-svp
+SCF threshold:        1e-07
+SCF maxiter:          100
+Memory:               4000 mb
+======================================================================
+
+--- Neutral Hg (RHF + MP2, Singlet) ---
+Energy: -4161.695921 eV
+📁 Output in: nwchem_mp2_calculations/nwchem_neutral_rhf_mp2
+
+--- Cation Hg+ (UHF + MP2, Open-Shell Doublet) ---
+Energy: -4151.483214 eV
+📁 Output in: nwchem_mp2_calculations/nwchem_cation_uhf_mp2
+
+======================================================================
+RESULTS (MP2 Level)
+======================================================================
+Neutral Energy (RHF+MP2):      -4161.695921 eV
+Cation Energy (UHF+MP2):       -4151.483214 eV
+----------------------------------------------------------------------
+Vertical IE (UHF+MP2 cation):     10.212707 eV
+Experimental IE:                    10.4370 eV
+----------------------------------------------------------------------
+Error (UHF+MP2 cation):             -0.2243 eV
+======================================================================
+
+📁 Directory Structure:
+   nwchem_mp2_calculations/
+   ├── nwchem_neutral_rhf_mp2/      (RHF+MP2)
+   └── nwchem_cation_uhf_mp2/   (UHF+MP2)
+
+📄 Generated Files:
+
+   nwchem_neutral_rhf_mp2/ (RHF+MP2):
+      - hg_neutral.nwi (756 bytes)
+      - hg_neutral.nwo (27083 bytes)
+
+   nwchem_cation_uhf_mp2/ (UHF+MP2):
+      - hg_cation_uhf.nwi (796 bytes)
+      - hg_cation_uhf.nwo (39084 bytes)
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ NWChem MP2-ECP calculations completed
+
+   UHF+MP2 IE = 10.212707 eV (error: -0.224293 eV)
+
+   • Method: MP2 (second-order Møller-Plesset perturbation theory)
+   • Neutral: RHF+MP2 (closed-shell, singlet)
+   • Cation:  UHF+MP2 (unrestricted open-shell, doublet)
+   • Note: ROHF is NOT supported for MP2 in NWChem
+   • Basis set: def2-svp
+   • ECP: def2-svp
+   • Processors: 4
+======================================================================
