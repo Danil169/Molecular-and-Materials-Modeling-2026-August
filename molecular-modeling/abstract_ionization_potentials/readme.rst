@@ -13,8 +13,6 @@ It is calculated as the difference between energy of ionized atom (M+) and the n
 
 IP = E(Hg+) - E(Hg)
 
-Hg
---
 We focus only on the mercury atom. 
 
 We can employ only quantum mechanical based methods because they are able to describe
@@ -44,8 +42,6 @@ Experiment 10.437 eV
 
 deepseek 
 --------
-link for script buildup: https://chat.deepseek.com/share/vpbbo1f5d5b4gzdxsj
-
-
+link for AI thread:  https://chat.deepseek.com/share/vpbbo1f5d5b4gzdxsj
 
 
