@@ -1,0 +1,26 @@
+title "hg_cation"
+
+print high
+
+charge 1
+
+geometry autosym
+  Hg 0.0000000000000000e+00 0.0000000000000000e+00 0.0000000000000000e+00
+end
+
+basis noprint
+  Hg library def2-svp
+end
+
+ecp
+  * library def2-svp
+end
+
+scf
+  uhf
+  doublet
+  thresh 1.0e-7
+  maxiter 100
+end
+
+task scf energy
