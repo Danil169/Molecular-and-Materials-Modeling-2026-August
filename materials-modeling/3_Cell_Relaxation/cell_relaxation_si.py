@@ -4,7 +4,7 @@ from ase.calculators.espresso import Espresso, EspressoProfile
 from ase.io import write
 from ase.optimize import BFGS
 import numpy as np
-import sys
+import sys, os
 from ase.filters import UnitCellFilter 
 sys.stdout.flush()
 
@@ -66,7 +66,8 @@ qe_bin = "/home/dsen/work/bin/qe-7.4.1"
 
 # Job commands
 #pw_command = f'{qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 pw.x'
 
 pw_profile = EspressoProfile(
     command=pw_command,
@@ -86,6 +87,9 @@ atoms.calc = calc
 # 4. Cell Relaxation
 # ==============================================
 print("\nStarting cell relaxation by ASE", flush=True)
+
+print("📢 Setting OMP_NUM_THREADS=1 to disable OpenMP parallelization.")
+os.environ["OMP_NUM_THREADS"] = "1"
 
 # Setup full cell relaxation
 ucf = UnitCellFilter(atoms)
