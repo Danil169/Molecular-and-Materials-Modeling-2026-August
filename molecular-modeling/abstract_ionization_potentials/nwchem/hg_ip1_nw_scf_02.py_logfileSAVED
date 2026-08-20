@@ -1,0 +1,62 @@
+======================================================================
+NWChem SCF-ECP CALCULATION FOR Hg ATOM
+Using ASE parameters with MPI support
+======================================================================
+✅ Read nproc = 4 from nproc.txt
+======================================================================
+NWChem SCF-ECP Calculation for Hg (with MPI)
+======================================================================
+Number of processors: 4
+Basis set:            def2-svp
+ECP:                  def2-svp
+SCF threshold:        1e-07
+SCF maxiter:          100
+Memory:               2000 mb
+======================================================================
+
+--- Neutral Hg (RHF, Singlet) ---
+Energy: -4151.110366 eV
+📁 Output in: nwchem_calculations/nwchem_neutral_rhf
+
+--- Cation Hg+ (UHF, Doublet) ---
+Energy: -4142.602327 eV
+📁 Output in: nwchem_calculations/nwchem_cation_uhf
+
+======================================================================
+RESULTS
+======================================================================
+Neutral Energy (RHF):  -4151.110366 eV
+Cation Energy (UHF):   -4142.602327 eV
+Vertical IE:               8.508039 eV
+Experimental IE:            10.4370 eV
+Difference:                 -1.9290 eV
+======================================================================
+
+📁 Directory Structure:
+   nwchem_calculations/
+   ├── nwchem_neutral_rhf/  (RHF)
+   └── nwchem_cation_uhf/   (UHF)
+
+📄 Generated Files:
+
+   nwchem_neutral_rhf/ (RHF):
+      - hg_neutral.nwi (724 bytes)
+      - hg_neutral.nwo (23393 bytes)
+
+   nwchem_cation_uhf/ (UHF):
+      - hg_cation.nwi (748 bytes)
+      - hg_cation.nwo (34483 bytes)
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ NWChem SCF-ECP calculation completed
+   IE = 8.508039 eV (error: -1.928961 eV)
+
+   • Method: SCF (Hartree-Fock)
+   • Neutral uses RHF (closed-shell, singlet)
+   • Cation uses UHF (open-shell, doublet)
+   • Basis set: def2-svp
+   • ECP: def2-svp
+   • Processors: 4
+======================================================================
