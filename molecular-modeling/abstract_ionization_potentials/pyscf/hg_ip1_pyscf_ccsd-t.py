@@ -5,6 +5,7 @@ PySCF SCF + CCSD(T) Calculation for Hg Atom
 - Cation Hg+: UHF + CCSD(T) (open-shell, doublet)
 - Uses ECP and appropriate basis sets for heavy elements
 - Supports MPI parallelization with nproc from file
+- Minimal output for cleaner results
 """
 
 import time
@@ -33,6 +34,9 @@ CCSD_DIIS_SPACE = 10
 # Memory (per processor)
 MEMORY_PER_PROC = 16000  # MB per processor
 
+# Verbosity (0 = silent, 1 = minimal, 2 = normal, 3 = verbose)
+VERBOSE = 1  # Set to 0 for minimal output
+
 # Experimental reference
 EXP_IE = 10.437  # eV
 
@@ -44,339 +48,172 @@ NPROC_FILE = "nproc.txt"
 # ============================================================
 
 def read_nproc_from_file(filename="nproc.txt"):
-    """
-    Read number of processors from a text file.
-    The file should contain a single integer (e.g., "4").
-    """
-    nproc = 1  # Default to 1 if file doesn't exist
-    
+    """Read number of processors from a text file."""
+    nproc = 1
     if os.path.exists(filename):
         try:
             with open(filename, 'r') as f:
-                content = f.read().strip()
-                nproc = int(content)
-                print(f"✅ Read nproc = {nproc} from {filename}")
+                nproc = int(f.read().strip())
+                if VERBOSE >= 1:
+                    print(f"✅ Read nproc = {nproc} from {filename}")
                 return nproc
-        except (ValueError, IOError) as e:
-            print(f"⚠️  Error reading {filename}: {e}")
-            print(f"   Using default nproc = 1")
+        except (ValueError, IOError):
             return 1
     else:
-        print(f"⚠️  {filename} not found. Creating default file with nproc=1")
         with open(filename, 'w') as f:
             f.write("1\n")
         return 1
 
-def setup_mpi(nproc):
-    """
-    Set up MPI parallelism for PySCF.
-    PySCF uses mpi4py for parallelization.
-    """
-    try:
-        from mpi4py import MPI
-        comm = MPI.COMM_WORLD
-        rank = comm.Get_rank()
-        size = comm.Get_size()
-        
-        if size != nproc:
-            if rank == 0:
-                print(f"⚠️  Warning: MPI world size ({size}) != requested nproc ({nproc})")
-                print(f"   Using MPI world size: {size}")
-            nproc = size
-        
-        return comm, rank, size
-    except ImportError:
-        print("⚠️  mpi4py not found. Running in serial mode.")
-        return None, 0, 1
-    except Exception as e:
-        print(f"⚠️  MPI setup error: {e}")
-        print("   Running in serial mode.")
-        return None, 0, 1
-
-def setup_molecule(charge=0, spin=0, basis=BASIS_SET, ecp=ECP_SET, nproc=1):
-    """
-    Set up the Hg atom/molecule with appropriate basis and ECP.
-    
-    Args:
-        charge: Net charge (0 for neutral, 1 for cation)
-        spin: 2S (0 for singlet, 1 for doublet)
-        basis: Basis set name
-        ecp: ECP name
-        nproc: Number of processors
-    
-    Returns:
-        pyscf.gto.Mole object
-    """
+def setup_molecule(charge=0, spin=0, nproc=1):
+    """Set up the Hg atom/molecule with appropriate basis and ECP."""
     mol = gto.Mole()
     mol.atom = [['Hg', (0, 0, 0)]]
-    mol.basis = {'Hg': basis}
-    mol.ecp = {'Hg': ecp}
+    mol.basis = {'Hg': BASIS_SET}
+    mol.ecp = {'Hg': ECP_SET}
     mol.charge = charge
     mol.spin = spin
-    mol.verbose = 4
-    mol.max_memory = MEMORY_PER_PROC * nproc  # Total memory scales with processors
+    mol.verbose = VERBOSE  # Control output verbosity
+    mol.max_memory = MEMORY_PER_PROC * nproc
     mol.build()
     
-    print(f"\n📋 Molecule Setup:")
-    print(f"   Atom: Hg (Z={mol.atom_charge(0):.0f})")
-    print(f"   Charge: {charge}")
-    print(f"   Spin: {spin} (2S={spin})")
-    print(f"   Basis: {basis}")
-    print(f"   ECP: {ecp}")
-    print(f"   Number of electrons: {mol.nelectron}")
-    print(f"   Number of basis functions: {mol.nao}")
-    print(f"   Total memory: {mol.max_memory} MB ({nproc} processors)")
+    if VERBOSE >= 1:
+        print(f"\n📋 {['Neutral', 'Cation'][charge]} Hg ({'RHF' if spin==0 else 'UHF'})")
+        print(f"   Electrons: {mol.nelectron}, Basis: {mol.nao}, Memory: {mol.max_memory} MB")
     
     return mol
 
-def run_scf(mol, conv_tol=SCF_CONV_TOL, max_cycle=SCF_MAX_CYCLE):
-    """
-    Run Hartree-Fock calculation.
+def run_scf(mol):
+    """Run Hartree-Fock calculation with minimal output."""
+    if VERBOSE >= 1:
+        print("   SCF...", end=" ", flush=True)
     
-    Args:
-        mol: pyscf.gto.Mole object
-        conv_tol: SCF convergence tolerance
-        max_cycle: Maximum SCF iterations
-    
-    Returns:
-        SCF object
-    """
-    print("\n" + "="*70)
-    print("SCF CALCULATION")
-    print("="*70)
-    
-    # Determine if RHF or UHF based on spin
-    if mol.spin == 0:
-        mf = scf.RHF(mol)
-        method = "RHF"
-    else:
-        mf = scf.UHF(mol)
-        method = "UHF"
-    
-    mf.conv_tol = conv_tol
-    mf.max_cycle = max_cycle
+    mf = scf.RHF(mol) if mol.spin == 0 else scf.UHF(mol)
+    mf.conv_tol = SCF_CONV_TOL
+    mf.max_cycle = SCF_MAX_CYCLE
     mf.diis_space = 10
-    mf.chkfile = f'hg_{method.lower()}.chk'
-    
-    print(f"Method: {method}")
-    print(f"Conv. tol: {conv_tol}")
-    print(f"Max cycles: {max_cycle}")
-    print("-"*70)
+    mf.verbose = 0  # Suppress SCF output
     
     start_time = time.time()
     mf.kernel()
     scf_time = time.time() - start_time
     
-    print(f"\n✅ SCF converged in {mf.converged} cycles")
-    print(f"   Energy: {mf.e_tot:.10f} Hartree")
-    print(f"   Energy: {mf.e_tot * 27.211386245988:.6f} eV")
-    print(f"   Time: {scf_time:.2f} seconds")
+    if VERBOSE >= 1:
+        print(f"done ({scf_time:.2f}s)")
     
     return mf, scf_time
 
 def get_t1_diagnostic(mycc):
-    """
-    Get T1 diagnostic for both RHF and UHF CCSD objects.
-    
-    Args:
-        mycc: CCSD or UCCSD object
-    
-    Returns:
-        float: T1 diagnostic value
-    """
+    """Get T1 diagnostic for both RHF and UHF."""
     try:
-        # Try the standard method for RHF
         return mycc.get_t1_diagnostic()
     except AttributeError:
-        # For UHF, compute T1 diagnostic manually
         try:
             t1 = mycc.t1
             nocc = mycc.nocc
             if isinstance(nocc, tuple):
-                # UHF case
                 nocc_alpha, nocc_beta = nocc
                 t1_alpha_norm = np.linalg.norm(t1[0].ravel())
                 t1_beta_norm = np.linalg.norm(t1[1].ravel())
                 t1_norm = (t1_alpha_norm + t1_beta_norm) / 2
-                nelec = nocc_alpha + nocc_beta
-                return t1_norm / np.sqrt(nelec)
+                return t1_norm / np.sqrt(nocc_alpha + nocc_beta)
             else:
-                # RHF case (fallback)
-                t1_norm = np.linalg.norm(t1.ravel())
-                return t1_norm / np.sqrt(nocc)
+                return np.linalg.norm(t1.ravel()) / np.sqrt(nocc)
         except (AttributeError, TypeError):
             return 0.0
 
-def run_ccsd_t(mf, method_name="CCSD(T)"):
-    """
-    Run CCSD(T) calculation from SCF object.
+def run_ccsd_t(mf):
+    """Run CCSD(T) calculation with minimal output."""
+    if VERBOSE >= 1:
+        print("   CCSD(T)...", end=" ", flush=True)
     
-    Args:
-        mf: SCF object (RHF or UHF)
-        method_name: Name for printing
-    
-    Returns:
-        Dictionary with CCSD(T) results
-    """
-    print("\n" + "="*70)
-    print(f"{method_name} CALCULATION")
-    print("="*70)
-    
-    # Initialize CCSD (automatically chooses UCCSD for UHF)
     mycc = cc.CCSD(mf)
     mycc.conv_tol = CCSD_CONV_TOL
     mycc.max_cycle = CCSD_MAX_CYCLE
     mycc.diis_space = CCSD_DIIS_SPACE
+    mycc.verbose = 0  # Suppress CCSD output
     
-    print(f"Conv. tol: {CCSD_CONV_TOL}")
-    print(f"Max cycles: {CCSD_MAX_CYCLE}")
-    print(f"DIIS space: {CCSD_DIIS_SPACE}")
-    print("-"*70)
-    
-    # Run CCSD
     start_time = time.time()
     e_corr, t1, t2 = mycc.kernel()
     ccsd_time = time.time() - start_time
     
-    # Calculate (T) correction
     start_time_t = time.time()
     e_t = mycc.ccsd_t()
     t_time = time.time() - start_time_t
     
-    # Total energies
     e_ccsd = mf.e_tot + e_corr
     e_ccsdt = e_ccsd + e_t
     
-    print(f"\n✅ CCSD converged in {mycc.converged} cycles")
-    print(f"   CCSD correlation energy: {e_corr:.10f} Hartree")
-    print(f"   CCSD total energy: {e_ccsd:.10f} Hartree")
-    print(f"   (T) correction: {e_t:.10f} Hartree")
-    print(f"   CCSD(T) total energy: {e_ccsdt:.10f} Hartree")
-    print(f"   CCSD(T) energy: {e_ccsdt * 27.211386245988:.6f} eV")
-    print(f"   CCSD time: {ccsd_time:.2f} seconds")
-    print(f"   (T) time: {t_time:.2f} seconds")
-    
-    # T1 diagnostic (for assessing multi-reference character)
-    t1_diagnostic = get_t1_diagnostic(mycc)
-    print(f"\n📊 T1 diagnostic: {t1_diagnostic:.4f}")
-    if t1_diagnostic < 0.02:
-        print("   ✅ Single-reference method is appropriate (T1 < 0.02)")
-    elif t1_diagnostic < 0.04:
-        print("   ⚠️  Moderate multi-reference character (T1 = 0.02-0.04)")
-    else:
-        print("   ❌ Strong multi-reference character (T1 > 0.04)")
+    if VERBOSE >= 1:
+        print(f"done ({ccsd_time + t_time:.2f}s)")
     
     return {
-        'e_corr': e_corr,
-        'e_ccsd': e_ccsd,
-        'e_t': e_t,
         'e_ccsdt': e_ccsdt,
-        't1': t1,
-        't2': t2,
         'ccsd_time': ccsd_time,
         't_time': t_time,
-        'converged': mycc.converged,
-        't1_diagnostic': t1_diagnostic
+        't1_diagnostic': get_t1_diagnostic(mycc)
     }
 
 def calculate_ionization_potential(nproc):
-    """
-    Calculate the vertical ionization potential of Hg.
-    
-    Args:
-        nproc: Number of processors for MPI
-    """
-    print("="*70)
-    print("Hg IONIZATION POTENTIAL CALCULATION")
-    print(f"Using {BASIS_SET} basis set with ECP")
-    print(f"Processors: {nproc}")
-    print(f"Started at: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("="*70)
+    """Calculate the vertical ionization potential of Hg."""
+    print("="*60)
+    print(f"Hg IP: {BASIS_SET} basis, {nproc} procs")
+    print(f"Started: {datetime.datetime.now().strftime('%H:%M:%S')}")
+    print("="*60)
     
     total_start = time.time()
     
-    # === Neutral Hg (RHF + CCSD(T)) ===
-    print("\n" + "="*70)
-    print("NEUTRAL Hg (RHF + CCSD(T))")
-    print("="*70)
-    
+    # Neutral Hg (RHF + CCSD(T))
+    print("\n🔹 Neutral Hg (RHF)")
     mol_neutral = setup_molecule(charge=0, spin=0, nproc=nproc)
     mf_neutral, scf_time_neutral = run_scf(mol_neutral)
-    ccsdt_neutral = run_ccsd_t(mf_neutral, "CCSD(T) (Neutral)")
+    ccsdt_neutral = run_ccsd_t(mf_neutral)
     
-    # === Cation Hg+ (UHF + CCSD(T)) ===
-    print("\n" + "="*70)
-    print("CATION Hg+ (UHF + CCSD(T))")
-    print("="*70)
-    
+    # Cation Hg+ (UHF + CCSD(T))
+    print("\n🔹 Cation Hg+ (UHF)")
     mol_cation = setup_molecule(charge=1, spin=1, nproc=nproc)
     mf_cation, scf_time_cation = run_scf(mol_cation)
-    ccsdt_cation = run_ccsd_t(mf_cation, "CCSD(T) (Cation)")
+    ccsdt_cation = run_ccsd_t(mf_cation)
     
-    # === Ionization Potential ===
+    # Ionization Potential
     ie_hartree = ccsdt_cation['e_ccsdt'] - ccsdt_neutral['e_ccsdt']
     ie_ev = ie_hartree * 27.211386245988
-    
     total_time = time.time() - total_start
     
-    # Print results
-    print("\n" + "="*70)
+    # Results
+    print("\n" + "="*60)
     print("RESULTS")
-    print("="*70)
-    print(f"{'Neutral Energy (CCSD(T)):':<35} {ccsdt_neutral['e_ccsdt']:>15.10f} Hartree")
-    print(f"{'Cation Energy (CCSD(T)):':<35} {ccsdt_cation['e_ccsdt']:>15.10f} Hartree")
-    print("-"*70)
-    print(f"{'Vertical IE:':<35} {ie_hartree:>15.10f} Hartree")
-    print(f"{'Vertical IE:':<35} {ie_ev:>15.6f} eV")
-    print(f"{'Experimental IE:':<35} {EXP_IE:>15.4f} eV")
-    print(f"{'Error:':<35} {ie_ev-EXP_IE:>+15.4f} eV")
-    print("="*70)
+    print("="*60)
+    print(f"Neutral CCSD(T):  {ccsdt_neutral['e_ccsdt']:.8f} Eh")
+    print(f"Cation CCSD(T):   {ccsdt_cation['e_ccsdt']:.8f} Eh")
+    print("-"*60)
+    print(f"IE:               {ie_ev:.4f} eV")
+    print(f"Experiment:       {EXP_IE:.4f} eV")
+    print(f"Error:            {ie_ev-EXP_IE:+.4f} eV")
+    print("="*60)
     
     # Timing summary
-    print("\n" + "="*70)
-    print("TIMING SUMMARY")
-    print("="*70)
-    print(f"{'Neutral SCF:':<35} {scf_time_neutral:>10.2f} s")
-    print(f"{'Neutral CCSD(T):':<35} {ccsdt_neutral['ccsd_time'] + ccsdt_neutral['t_time']:>10.2f} s")
-    print(f"{'Cation SCF:':<35} {scf_time_cation:>10.2f} s")
-    print(f"{'Cation CCSD(T):':<35} {ccsdt_cation['ccsd_time'] + ccsdt_cation['t_time']:>10.2f} s")
-    print("-"*70)
-    print(f"{'Total time:':<35} {total_time:>10.2f} s")
-    print(f"{'Total time:':<35} {total_time/60:>10.2f} min")
-    print("="*70)
+    print(f"\n⏱️  SCF:     {scf_time_neutral + scf_time_cation:.2f}s")
+    print(f"   CCSD(T): {ccsdt_neutral['ccsd_time'] + ccsdt_neutral['t_time'] + ccsdt_cation['ccsd_time'] + ccsdt_cation['t_time']:.2f}s")
+    print(f"   Total:   {total_time:.2f}s ({total_time/60:.2f} min)")
+    
+    # T1 diagnostics
+    print(f"\n📊 T1 diag: Neutral={ccsdt_neutral['t1_diagnostic']:.4f}, Cation={ccsdt_cation['t1_diagnostic']:.4f}")
     
     return {
-        'neutral': ccsdt_neutral,
-        'cation': ccsdt_cation,
-        'ie_hartree': ie_hartree,
         'ie_ev': ie_ev,
         'total_time': total_time,
         'nproc': nproc
     }
 
 def main():
-    """Main execution function"""
-    # Read number of processors from file
+    """Main execution function."""
     nproc = read_nproc_from_file(NPROC_FILE)
-    
-    # Run calculation
     results = calculate_ionization_potential(nproc)
     
-    # Summary
-    print("\n" + "="*70)
-    print("SUMMARY")
-    print("="*70)
-    print(f"✅ PySCF CCSD(T) calculations completed")
-    print(f"\n   IE = {results['ie_ev']:.6f} eV")
-    print(f"   Error = {results['ie_ev']-EXP_IE:+.4f} eV")
-    print(f"\n   • Method: CCSD(T) with {BASIS_SET} basis")
-    print(f"   • Neutral: RHF + CCSD(T)")
-    print(f"   • Cation:  UHF + CCSD(T)")
-    print(f"   • T1 diagnostic (neutral): {results['neutral']['t1_diagnostic']:.4f}")
-    print(f"   • T1 diagnostic (cation):  {results['cation']['t1_diagnostic']:.4f}")
-    print(f"   • Processors: {results['nproc']}")
-    print(f"   • Total time: {results['total_time']/60:.2f} minutes")
-    print("="*70)
+    print("\n" + "="*60)
+    print(f"✅ IE = {results['ie_ev']:.4f} eV  (error: {results['ie_ev']-EXP_IE:+.4f} eV)")
+    print(f"   Processors: {results['nproc']}, Time: {results['total_time']/60:.2f} min")
+    print("="*60)
 
 if __name__ == "__main__":
     main()
