@@ -1,0 +1,913 @@
+ argument  1 = hg1plus_ecp_uhf-ccsd-tce.nw
+                                         
+                                         
+
+
+             Northwest Computational Chemistry Package (NWChem) 7.3.0
+             --------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2025
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = DESKTOP-7OTLCGO
+    program         = nwchem
+    date            = Thu Aug 20 18:20:50 2026
+
+    compiled        = Wed_Dec_10_07:16:07_2025
+    source          = /home/conda/feedstock_root/build_artifacts/bld/rattler-build_nwchem_1765343033/work
+    nwchem branch   = 7.3.0
+    nwchem revision = 3272822
+    ga revision     = 5.9.2
+    use scalapack   = T
+    input           = hg1plus_ecp_uhf-ccsd-tce.nw
+    prefix          = hg1plus_ecp_uhf-ccsd-tce.
+    data base       = ./hg1plus_ecp_uhf-ccsd-tce.db
+    status          = restart
+    nproc           =        4
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =     26214400 doubles =      200.0 Mbytes
+    stack    =     26214397 doubles =      200.0 Mbytes
+    global   =     52428800 doubles =      400.0 Mbytes (distinct from heap & stack)
+    total    =    104857597 doubles =      800.0 Mbytes
+    verify   = yes
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+           Previous task information
+           -------------------------
+
+    Theory    = tce                             
+    Operation = energy                        
+    Status    = ok                            
+    Qmmm      = F
+    Ignore    = F
+
+
+           Geometries in the database
+           --------------------------
+
+       Name                              Natoms  Last Modified
+       --------------------------------  ------  ------------------------
+    1  geometry                               1  Thu Aug 20 18:20:26 2026  
+
+  The geometry named "geometry" is the default for restart
+
+
+
+           Basis sets in the database
+           --------------------------
+
+       Name                              Natoms  Last Modified
+        --------------------------------  ------  ------------------------
+    1  ao basis                               0  Thu Aug 20 18:20:26 2026  
+    2  ecp basis                              0  Thu Aug 20 18:20:26 2026  
+
+  The basis set named "ao basis" is the default AO basis for restart
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                            Hg+ Cation UHF-CCSD via TCE
+                            ---------------------------
+
+ Scaling coordinates for geometry "geometry" by  1.889725989
+ (inverse scale =  0.529177249)
+
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 Hg                  80.0000     0.00000000     0.00000000     0.00000000
+
+      Atomic Mass 
+      ----------- 
+
+      Hg               201.970600
+
+
+ Effective nuclear repulsion energy (a.u.)       0.0000000000
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000     0.0000000000
+
+
+            XYZ format geometry
+            -------------------
+     1
+ geometry
+ Hg                    0.00000000     0.00000000     0.00000000
+
+  library name resolved from: environment
+  library file name is: </home/milias/miniconda3/envs/molmatmodel/share/nwchem/libraries/>
+  
+
+
+ Summary of "ao basis" -> "" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                          def2-svp                  on all atoms 
+
+
+  library name resolved from: environment
+  library file name is: </home/milias/miniconda3/envs/molmatmodel/share/nwchem/libraries/>
+  
+                      Basis "ao basis" -> "ao basis" (cartesian)
+                      -----
+  Hg (Mercury)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  2.68420490E+01 -0.026845
+  1 S  1.03209090E+01  0.817713
+
+  2 S  6.36562423E+00  1.000000
+
+  3 S  1.38989321E+00  1.000000
+
+  4 S  6.37067427E-01  1.000000
+
+  5 S  1.60477251E-01  1.000000
+
+  6 S  5.64104235E-02  1.000000
+
+  7 P  9.77299000E+00  0.212109
+  7 P  7.16909500E+00 -0.440263
+  7 P  1.75595679E+00  0.584063
+  7 P  8.31456704E-01  0.493597
+
+  8 P  3.44949177E-01  1.000000
+
+  9 P  7.00000000E-02  1.000000
+
+ 10 D  4.28000000E+00 -0.320334
+ 10 D  3.48000000E+00  0.377485
+ 10 D  1.25358699E+00  0.483423
+ 10 D  5.08413669E-01  0.434935
+
+ 11 D  1.85015994E-01  1.000000
+
+ 12 F  7.95690000E-01  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ Hg                         def2-svp                12       37   6s3p2d1f
+
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                            Hg+ Cation UHF-CCSD via TCE
+
+
+
+  ao basis        = "ao basis"
+  functions       =    37
+  atoms           =     1
+  alpha electrons =    10
+  beta  electrons =     9
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./hg1plus_ecp_uhf-ccsd-tce.movecs
+  output vectors  = ./hg1plus_ecp_uhf-ccsd-tce.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ Hg                         def2-svp                12       37   6s3p2d1f
+
+
+
+ Forming initial guess at       0.0s
+
+
+ Loading old vectors from job with title :
+
+Hg+ Cation UHF-CCSD via TCE
+
+
+ Starting SCF solution at       0.0s
+
+
+
+ ----------------------------------------------
+         Quadratically convergent UHF
+
+ Convergence threshold     :          1.000E-07
+ Maximum no. of iterations :           30
+ Integral*density screening:          1.000E-09
+ ----------------------------------------------
+
+
+              iter       energy          gnorm     gmax       time
+             ----- ------------------- --------- --------- --------
+                 1     -152.2378288115  1.05D-08  4.49D-09      0.1
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =   -152.237828811463
+      One electron energy =   -263.639377158417
+      Two electron energy =    111.401548346954
+ Nuclear repulsion energy =      0.000000000000
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7517
+
+        Time for solution =      0.0s
+
+
+          Final alpha eigenvalues
+          -----------------------
+
+              1      
+    1   -5.3724
+    2   -3.3615
+    3   -3.3615
+    4   -3.3615
+    5   -0.9360
+    6   -0.9360
+    7   -0.9360
+    8   -0.9360
+    9   -0.9360
+   10   -0.6402
+   11   -0.1590
+   12   -0.1590
+   13   -0.1590
+   14   -0.0069
+   15    0.3723
+   16    0.3723
+   17    0.3723
+   18    0.3723
+   19    0.3723
+   20    0.6771
+
+          Final beta eigenvalues
+          ----------------------
+
+              1      
+    1   -5.3631
+    2   -3.3595
+    3   -3.3595
+    4   -3.3595
+    5   -0.9234
+    6   -0.9234
+    7   -0.9234
+    8   -0.9234
+    9   -0.9234
+   10   -0.3008
+   11   -0.1140
+   12   -0.1140
+   13   -0.1140
+   14    0.0176
+   15    0.3942
+   16    0.3942
+   17    0.3942
+   18    0.3942
+   19    0.3942
+   20    0.7053
+
+                    UHF Final Alpha Molecular Orbital Analysis
+                    ------------------------------------------
+
+ Vector    2  Occ=1.000000D+00  E=-3.361529D+00
+              MO Center= -1.6D-16, -1.5D-17, -2.6D-16, r^2= 3.6D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9      0.928222  1 Hg pz         
+
+ Vector    3  Occ=1.000000D+00  E=-3.361529D+00
+              MO Center= -2.1D-17, -1.5D-17,  2.3D-16, r^2= 3.6D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8      0.712365  1 Hg py                 7      0.595124  1 Hg px         
+
+ Vector    4  Occ=1.000000D+00  E=-3.361529D+00
+              MO Center= -7.5D-17,  1.4D-16,  1.8D-16, r^2= 3.6D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     7      0.712723  1 Hg px                 8     -0.595200  1 Hg py         
+
+ Vector    5  Occ=1.000000D+00  E=-9.360411D-01
+              MO Center=  1.3D-16,  4.1D-16,  1.9D-16, r^2= 7.1D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    19      0.819808  1 Hg dyy               21     -0.761635  1 Hg dzz        
+
+ Vector    6  Occ=1.000000D+00  E=-9.360411D-01
+              MO Center=  4.5D-16, -7.4D-17, -1.2D-15, r^2= 7.1D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    16      0.912655  1 Hg dxx               21     -0.506646  1 Hg dzz        
+    19     -0.406010  1 Hg dyy               22      0.164193  1 Hg dxx        
+
+ Vector    7  Occ=1.000000D+00  E=-9.360411D-01
+              MO Center=  4.4D-16,  3.7D-16, -5.5D-17, r^2= 7.1D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    17      1.427969  1 Hg dxy               18      0.620717  1 Hg dxz        
+    20      0.291548  1 Hg dyz               23      0.256902  1 Hg dxy        
+
+ Vector    8  Occ=1.000000D+00  E=-9.360411D-01
+              MO Center= -1.4D-16, -4.6D-16,  1.7D-16, r^2= 7.1D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    18      1.457813  1 Hg dxz               17     -0.609126  1 Hg dxy        
+    24      0.262271  1 Hg dxz        
+
+ Vector    9  Occ=1.000000D+00  E=-9.360411D-01
+              MO Center= -2.8D-16,  5.3D-16, -1.5D-15, r^2= 7.1D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    20      1.552809  1 Hg dyz               17     -0.315525  1 Hg dxy        
+    26      0.279361  1 Hg dyz        
+
+ Vector   10  Occ=1.000000D+00  E=-6.401590D-01
+              MO Center= -7.1D-17,  6.1D-16,  1.1D-16, r^2= 2.2D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     5      0.861578  1 Hg s                  3     -0.592862  1 Hg s          
+     2      0.443211  1 Hg s                  6      0.304921  1 Hg s          
+     4     -0.272999  1 Hg s                  1     -0.195562  1 Hg s          
+
+ Vector   11  Occ=0.000000D+00  E=-1.590123D-01
+              MO Center=  3.7D-17, -4.8D-16,  5.8D-16, r^2= 4.9D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    15      0.982940  1 Hg pz                 9     -0.262655  1 Hg pz         
+
+ Vector   12  Occ=0.000000D+00  E=-1.590123D-01
+              MO Center=  5.2D-15, -1.3D-16,  3.7D-15, r^2= 4.9D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    14      0.982744  1 Hg py                 8     -0.262603  1 Hg py         
+
+ Vector   13  Occ=0.000000D+00  E=-1.590123D-01
+              MO Center= -1.1D-15,  6.0D-16,  5.7D-16, r^2= 4.9D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    13      0.982954  1 Hg px                 7     -0.262659  1 Hg px         
+
+ Vector   14  Occ=0.000000D+00  E=-6.917987D-03
+              MO Center=  2.0D-15,  3.3D-16, -2.2D-15, r^2= 7.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     6      2.459464  1 Hg s                  5     -1.088640  1 Hg s          
+    22     -0.571908  1 Hg dxx               25     -0.571908  1 Hg dyy        
+    27     -0.571908  1 Hg dzz                3      0.524000  1 Hg s          
+     4     -0.423765  1 Hg s                  2     -0.225338  1 Hg s          
+
+ Vector   15  Occ=0.000000D+00  E= 3.723111D-01
+              MO Center= -5.0D-16, -6.1D-16, -8.3D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    24      1.771351  1 Hg dxz               18     -1.033821  1 Hg dxz        
+    23      0.597947  1 Hg dxy               17     -0.348982  1 Hg dxy        
+    25      0.245123  1 Hg dyy               22     -0.150024  1 Hg dxx        
+
+ Vector   16  Occ=0.000000D+00  E= 3.723111D-01
+              MO Center= -5.9D-17,  5.7D-16, -6.9D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    23      0.948377  1 Hg dxy               27      0.842857  1 Hg dzz        
+    25     -0.704157  1 Hg dyy               26     -0.572357  1 Hg dyz        
+    17     -0.553505  1 Hg dxy               21     -0.491920  1 Hg dzz        
+    19      0.410970  1 Hg dyy               20      0.334047  1 Hg dyz        
+
+ Vector   17  Occ=0.000000D+00  E= 3.723111D-01
+              MO Center= -1.6D-15,  2.5D-15, -1.2D-15, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    22      1.022054  1 Hg dxx               25     -0.608431  1 Hg dyy        
+    16     -0.596506  1 Hg dxx               26      0.522941  1 Hg dyz        
+    23      0.461008  1 Hg dxy               27     -0.413623  1 Hg dzz        
+    19      0.355101  1 Hg dyy               20     -0.305206  1 Hg dyz        
+    17     -0.269060  1 Hg dxy               21      0.241404  1 Hg dzz        
+
+ Vector   18  Occ=0.000000D+00  E= 3.723111D-01
+              MO Center= -1.1D-15, -5.7D-16, -3.5D-15, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    26      1.702949  1 Hg dyz               20     -0.993900  1 Hg dyz        
+    23      0.548052  1 Hg dxy               22     -0.375525  1 Hg dxx        
+    17     -0.319862  1 Hg dxy               27      0.279737  1 Hg dzz        
+    16      0.219169  1 Hg dxx               24     -0.166834  1 Hg dxz        
+    21     -0.163264  1 Hg dzz        
+
+ Vector   19  Occ=0.000000D+00  E= 3.723111D-01
+              MO Center= -2.7D-15, -2.6D-15,  1.0D-15, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    23      1.383935  1 Hg dxy               17     -0.807712  1 Hg dxy        
+    24     -0.696464  1 Hg dxz               25      0.541377  1 Hg dyy        
+    27     -0.509496  1 Hg dzz               26     -0.421193  1 Hg dyz        
+    18      0.406480  1 Hg dxz               19     -0.315966  1 Hg dyy        
+    21      0.297359  1 Hg dzz               20      0.245823  1 Hg dyz        
+
+ Vector   20  Occ=0.000000D+00  E= 6.770705D-01
+              MO Center= -7.4D-17, -3.7D-16,  8.3D-16, r^2= 4.2D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     5      4.052910  1 Hg s                  4     -3.233500  1 Hg s          
+    22     -2.196395  1 Hg dxx               25     -2.196395  1 Hg dyy        
+    27     -2.196395  1 Hg dzz                6      1.977324  1 Hg s          
+     2      0.569929  1 Hg s                 16      0.302989  1 Hg dxx        
+    19      0.302989  1 Hg dyy               21      0.302989  1 Hg dzz        
+
+
+                     UHF Final Beta Molecular Orbital Analysis
+                     -----------------------------------------
+
+ Vector    2  Occ=1.000000D+00  E=-3.359538D+00
+              MO Center=  8.6D-18, -2.7D-17, -1.7D-17, r^2= 3.5D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9      0.927244  1 Hg pz         
+
+ Vector    3  Occ=1.000000D+00  E=-3.359538D+00
+              MO Center=  4.2D-19,  8.9D-17,  1.3D-16, r^2= 3.5D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     7      0.925314  1 Hg px         
+
+ Vector    4  Occ=1.000000D+00  E=-3.359538D+00
+              MO Center=  6.2D-17,  2.6D-18,  1.2D-16, r^2= 3.5D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8      0.926646  1 Hg py         
+
+ Vector    5  Occ=1.000000D+00  E=-9.234495D-01
+              MO Center=  2.4D-16,  5.8D-16, -2.8D-16, r^2= 6.9D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    21     -0.820179  1 Hg dzz               19      0.782560  1 Hg dyy        
+
+ Vector    6  Occ=1.000000D+00  E=-9.234495D-01
+              MO Center=  2.6D-16,  1.0D-16, -1.1D-15, r^2= 6.9D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    16      0.925251  1 Hg dxx               19     -0.495249  1 Hg dyy        
+    21     -0.430002  1 Hg dzz        
+
+ Vector    7  Occ=1.000000D+00  E=-9.234495D-01
+              MO Center=  3.9D-16,  2.2D-16,  3.7D-17, r^2= 6.9D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    17      1.548069  1 Hg dxy               20      0.407591  1 Hg dyz        
+    23      0.242576  1 Hg dxy        
+
+ Vector    8  Occ=1.000000D+00  E=-9.234495D-01
+              MO Center= -4.4D-16,  3.5D-16, -1.3D-15, r^2= 6.9D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    20      1.526951  1 Hg dyz               17     -0.418950  1 Hg dxy        
+    18     -0.256727  1 Hg dxz               26      0.239267  1 Hg dyz        
+
+ Vector    9  Occ=1.000000D+00  E=-9.234495D-01
+              MO Center= -3.4D-17, -3.1D-16, -5.9D-17, r^2= 6.9D-01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    18      1.579930  1 Hg dxz               20      0.274488  1 Hg dyz        
+    24      0.247569  1 Hg dxz        
+
+ Vector   10  Occ=0.000000D+00  E=-3.008136D-01
+              MO Center= -8.9D-16, -1.9D-15,  4.2D-15, r^2= 2.8D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     6      0.621833  1 Hg s                  5      0.557395  1 Hg s          
+     3     -0.500144  1 Hg s                  2      0.382473  1 Hg s          
+     4     -0.246188  1 Hg s                  1     -0.169033  1 Hg s          
+
+ Vector   11  Occ=0.000000D+00  E=-1.139592D-01
+              MO Center=  3.4D-15,  6.9D-15,  4.0D-16, r^2= 5.1D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    14      0.927351  1 Hg py                13      0.406325  1 Hg px         
+     8     -0.197942  1 Hg py         
+
+ Vector   12  Occ=0.000000D+00  E=-1.139592D-01
+              MO Center=  5.8D-15, -5.4D-15, -4.7D-14, r^2= 5.1D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    15      1.001232  1 Hg pz                 9     -0.213712  1 Hg pz         
+
+ Vector   13  Occ=0.000000D+00  E=-1.139592D-01
+              MO Center= -3.8D-14,  1.5D-14, -5.1D-15, r^2= 5.1D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    13      0.921341  1 Hg px                14     -0.395308  1 Hg py         
+     7     -0.196659  1 Hg px                15      0.150387  1 Hg pz         
+
+ Vector   14  Occ=0.000000D+00  E= 1.755200D-02
+              MO Center=  3.2D-14, -2.1D-14,  4.9D-14, r^2= 7.3D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     6      2.445152  1 Hg s                  5     -1.083095  1 Hg s          
+    22     -0.637801  1 Hg dxx               25     -0.637801  1 Hg dyy        
+    27     -0.637801  1 Hg dzz                3      0.606243  1 Hg s          
+     4     -0.466829  1 Hg s                  2     -0.271377  1 Hg s          
+
+ Vector   15  Occ=0.000000D+00  E= 3.942109D-01
+              MO Center= -3.0D-16,  4.1D-16, -8.1D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    24     -1.182131  1 Hg dxz               23      1.148428  1 Hg dxy        
+    26      0.985978  1 Hg dyz               18      0.671052  1 Hg dxz        
+    17     -0.651920  1 Hg dxy               20     -0.559703  1 Hg dyz        
+
+ Vector   16  Occ=0.000000D+00  E= 3.942109D-01
+              MO Center=  1.6D-16,  8.4D-16,  2.8D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    25      1.060354  1 Hg dyy               22     -0.813130  1 Hg dxx        
+    19     -0.601924  1 Hg dyy               16      0.461584  1 Hg dxx        
+    27     -0.247224  1 Hg dzz        
+
+ Vector   17  Occ=0.000000D+00  E= 3.942109D-01
+              MO Center=  4.1D-16, -2.3D-17, -2.6D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    24      1.441138  1 Hg dxz               23      1.217530  1 Hg dxy        
+    18     -0.818080  1 Hg dxz               17     -0.691147  1 Hg dxy        
+    26      0.281163  1 Hg dyz               20     -0.159606  1 Hg dyz        
+
+ Vector   18  Occ=0.000000D+00  E= 3.942109D-01
+              MO Center=  1.7D-16,  6.1D-17, -7.2D-16, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    26      1.622265  1 Hg dyz               23     -0.927092  1 Hg dxy        
+    20     -0.920899  1 Hg dyz               17      0.526276  1 Hg dxy        
+    24      0.457276  1 Hg dxz               18     -0.259579  1 Hg dxz        
+
+ Vector   19  Occ=0.000000D+00  E= 3.942109D-01
+              MO Center=  4.3D-16, -1.5D-16, -1.5D-15, r^2= 2.7D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    27      1.073976  1 Hg dzz               22     -0.743341  1 Hg dxx        
+    21     -0.609656  1 Hg dzz               16      0.421967  1 Hg dxx        
+    25     -0.330636  1 Hg dyy               23      0.200458  1 Hg dxy        
+    19      0.187690  1 Hg dyy        
+
+ Vector   20  Occ=0.000000D+00  E= 7.052632D-01
+              MO Center=  4.9D-16, -6.7D-16,  2.4D-15, r^2= 4.0D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     5      4.137917  1 Hg s                  4     -3.285805  1 Hg s          
+    22     -2.186610  1 Hg dxx               25     -2.186610  1 Hg dyy        
+    27     -2.186610  1 Hg dzz                6      1.923470  1 Hg s          
+     2      0.589681  1 Hg s                 16      0.308644  1 Hg dxx        
+    19      0.308644  1 Hg dyy               21      0.308644  1 Hg dzz        
+
+
+ center of mass
+ --------------
+ x =   0.00000000 y =   0.00000000 z =   0.00000000
+
+ moments of inertia (a.u.)
+ ------------------
+           0.000000000000           0.000000000000           0.000000000000
+           0.000000000000           0.000000000000           0.000000000000
+           0.000000000000           0.000000000000           0.000000000000
+
+  Mulliken analysis of the total density
+  --------------------------------------
+
+    Atom       Charge   Shell Charges
+ -----------   ------   -------------------------------------------------------
+    1 Hg  20    19.00   0.12 -0.54  1.78  0.61  0.67  0.26  5.57  0.41  0.00  9.18  0.93  0.02
+
+  Mulliken analysis of the alpha density
+  --------------------------------------
+
+    Atom       Charge   Shell Charges
+ -----------   ------   -------------------------------------------------------
+    1 Hg  20    10.00   0.06 -0.29  0.93  0.29  0.67  0.26  2.78  0.21  0.00  4.56  0.52  0.01
+
+   Mulliken analysis of the beta density
+   -------------------------------------
+
+    Atom       Charge   Shell Charges
+ -----------   ------   -------------------------------------------------------
+    1 Hg  20     9.00   0.06 -0.25  0.85  0.32 -0.00 -0.00  2.80  0.19 -0.00  4.62  0.41  0.01
+
+   Mulliken analysis of the spin density
+   -------------------------------------
+
+    Atom       Charge   Shell Charges
+ -----------   ------   -------------------------------------------------------
+    1 Hg  20     1.00   0.01 -0.04  0.08 -0.03  0.67  0.26 -0.02  0.02  0.00 -0.06  0.11 -0.01
+
+       Multipole analysis of the density wrt the origin
+       ------------------------------------------------
+
+     L   x y z        total         alpha         beta         nuclear
+     -   - - -        -----         -----         ----         -------
+     0   0 0 0      1.000000    -10.000000     -9.000000     20.000000
+
+     1   1 0 0     -0.000000     -0.000000     -0.000000      0.000000
+     1   0 1 0     -0.000000     -0.000000     -0.000000      0.000000
+     1   0 0 1      0.000000      0.000000      0.000000      0.000000
+
+     2   2 0 0    -14.056077     -8.391071     -5.665006      0.000000
+     2   1 1 0     -0.000000      0.000000     -0.000000      0.000000
+     2   1 0 1      0.000000      0.000000     -0.000000      0.000000
+     2   0 2 0    -14.056077     -8.391071     -5.665006      0.000000
+     2   0 1 1     -0.000000     -0.000000      0.000000      0.000000
+     2   0 0 2    -14.056077     -8.391071     -5.665006      0.000000
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                            Hg+ Cation UHF-CCSD via TCE
+
+
+            General Information
+            -------------------
+      Number of processors :     4
+         Wavefunction type : Unrestricted Hartree-Fock
+          No. of electrons :    19
+           Alpha electrons :    10
+            Beta electrons :     9
+           No. of orbitals :    74
+            Alpha orbitals :    37
+             Beta orbitals :    37
+        Alpha frozen cores :     0
+         Beta frozen cores :     0
+     Alpha frozen virtuals :     0
+      Beta frozen virtuals :     0
+         Spin multiplicity : doublet 
+    Number of AO functions :    37
+       Number of AO shells :    12
+        Use of symmetry is : off
+      Symmetry adaption is : off
+         Schwarz screening : 0.10D-09
+
+          Correlation Information
+          -----------------------
+          Calculation type : Coupled-cluster singles & doubles                           
+   Perturbative correction : none                                                        
+            Max iterations :      100
+        Residual threshold : 0.10D-06
+     T(0) DIIS level shift : 0.00D+00
+     L(0) DIIS level shift : 0.00D+00
+     T(1) DIIS level shift : 0.00D+00
+     L(1) DIIS level shift : 0.00D+00
+     T(R) DIIS level shift : 0.00D+00
+     T(I) DIIS level shift : 0.00D+00
+   CC-T/L Amplitude update :  5-th order DIIS
+                I/O scheme : Global Array Library
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+            Memory Information
+            ------------------
+          Available GA space size is     209712462 doubles
+          Available MA space size is      52414260 doubles
+
+ Maximum block size        32 doubles
+
+ tile_dim =     28
+
+ Block   Spin    Irrep     Size     Offset   Alpha
+ -------------------------------------------------
+   1    alpha     a     10 doubles       0       1
+   2    beta      a      9 doubles      10       2
+   3    alpha     a     27 doubles      19       3
+   4    beta      a     28 doubles      46       4
+
+ Global array virtual files algorithm will be used
+
+ Parallel file system coherency ......... OK
+
+ Fock matrix recomputed
+ 1-e file size   =             2738
+ 1-e file name   = ./hg1plus_ecp_uhf-ccsd-tce.f1
+ Cpu & wall time / sec            0.0            0.0
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ 2-e (intermediate) file size =         4907865
+ 2-e (intermediate) file name = ./hg1plus_ecp_uhf-ccsd-tce.v2i
+ Cpu & wall time / sec            0.1            0.1
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+
+ 2-e file size   =          4329651
+ 2-e file name   = ./hg1plus_ecp_uhf-ccsd-tce.v2
+ Cpu & wall time / sec            0.1            0.1
+ T1-number-of-tasks                    2
+
+ t1 file size   =              522
+ t1 file name   = ./hg1plus_ecp_uhf-ccsd-tce.t1
+ t1 file handle =       -998
+ T2-number-of-boxes                    3
+
+ t2 file size   =           204444
+ t2 file name   = ./hg1plus_ecp_uhf-ccsd-tce.t2
+ t2 file handle =       -995
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1488644140568  -0.3261319173109     0.0     0.0
+    2   0.0236418418224  -0.3030966566516     0.0     0.0
+    3   0.0054405157967  -0.3079849596467     0.0     0.0
+    4   0.0017505713661  -0.3077745202894     0.0     0.0
+    5   0.0005629974350  -0.3079703856742     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0001577679162  -0.3080041318875     0.0     0.0
+    7   0.0000397725822  -0.3080020516674     0.0     0.0
+    8   0.0000143140949  -0.3080033357153     0.0     0.0
+    9   0.0000055708507  -0.3080035568567     0.0     0.0
+   10   0.0000021622688  -0.3080037891378     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000002524734  -0.3080039128785     0.0     0.0
+   12   0.0000000638684  -0.3080039048961     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.308003904896101
+ CCSD total energy / hartree       =      -152.545832716359030
+
+ Singles contributions
+
+ Doubles contributions
+
+ Task  times  cpu:        0.7s     wall:        0.7s
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+ Summary of allocated global arrays
+-----------------------------------
+  No active global arrays
+
+
+MA_summarize_allocated_blocks: starting scan ...
+MA_summarize_allocated_blocks: scan completed: 0 heap blocks, 0 stack blocks
+MA usage statistics:
+
+	allocation statistics:
+					      heap	     stack
+					      ----	     -----
+	current number of blocks	         0	         0
+	maximum number of blocks	        32	        39
+	current total bytes		         0	         0
+	maximum total bytes		    113744	  12901128
+	maximum total K-bytes		       114	     12902
+	maximum total M-bytes		         1	        13
+
+
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+
+          E. Apra, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, Y. Alexeev, J. Anchell,
+       V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach, N. P. Bauman,
+     J. C. Becca, D. E. Bernholdt, K. Bhaskaran-Nair, S. Bogatko, P. Borowski,
+         J. Boschen, J. Brabec, A. Bruner, E. Cauet, Y. Chen, G. N. Chuev,
+      C. J. Cramer, J. Daily, M. J. O. Deegan, T. H. Dunning Jr., M. Dupuis,
+   K. G. Dyall, G. I. Fann, S. A. Fischer, A. Fonari, H. Fruchtl, L. Gagliardi,
+      J. Garza, N. Gawande, S. Ghosh, K. Glaesemann, A. W. Gotz, J. Hammond,
+       V. Helms, E. D. Hermes, K. Hirao, S. Hirata, M. Jacquelin, L. Jensen,
+   B. G. Johnson, H. Jonsson, R. A. Kendall, M. Klemm, R. Kobayashi, V. Konkov,
+      S. Krishnamoorthy, M. Krishnan, Z. Lin, R. D. Lins, R. J. Littlefield,
+      A. J. Logsdail, K. Lopata, W. Ma, A. V. Marenich, J. Martin del Campo,
+   D. Mejia-Rodriguez, J. E. Moore, J. M. Mullin, T. Nakajima, D. R. Nascimento,
+    J. A. Nichols, P. J. Nichols, J. Nieplocha, A. Otero-de-la-Roza, B. Palmer,
+    A. Panyala, T. Pirojsirikul, B. Peng, R. Peverati, J. Pittner, L. Pollack,
+   R. M. Richard, P. Sadayappan, G. C. Schatz, W. A. Shelton, D. W. Silverstein,
+   D. M. A. Smith, T. A. Soares, D. Song, M. Swart, H. L. Taylor, G. S. Thomas,
+            V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
+      A. Vazquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis,
+        D. Wang, J. H. Weare, M. J. Williamson, T. L. Windus, K. Wolinski,
+        A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias, Z. Zhang, Y. Zhao,
+                                and R. J. Harrison
+                        "NWChem: Past, present, and future
+                         J. Chem. Phys. 152, 184102 (2020)
+                               doi:10.1063/5.0004997
+
+                                      AUTHORS
+                                      -------
+        E. Apra, E. J. Bylaska, N. Govind, K. Kowalski, D. Mejia-Rodriguez,
+        N. P. Bauman, A. Panyala, R. J. Harrison, M. Valiev, W. A. de Jong,
+       T. P. Straatsma, H. J. J. van Dam, D. Wang, T. L. Windus, J. Hammond,
+     J. Autschbach, R. de P. Soares, A. Kunitsa, K. Bhaskaran-Nair, J. Brabec,
+      K. Lopata, S. A. Fischer, S. Krishnamoorthy, M. Jacquelin, R. Goswami,
+       A. Woods, W. Ma, M. Klemm, O. Villa, Y. Chen, V. Anisimov, F. Aquino,
+     S. Hirata, M. T. Hackler, E. Hermes, L. Jensen, J. E. Moore, J. C. Becca,
+      V. Konjkov, T. Risthaus, M. Malagoli, A. Marenich, A. Otero-de-la-Roza,
+        J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao, P.-D. Fan,
+        A. Fonari, M. J. Williamson, J. R. Rehr, M. Dupuis, D. Silverstein,
+    D. M. A. Smith, J. Nieplocha, V. Tipparaju, M. Krishnan, B. E. Van Kuiken,
+        A. Vazquez-Mayagoitia, M. Swart, Q. Wu, T. Van Voorhis, A. A. Auer,
+     M. Nooijen, L. D. Crosby, E. Brown, G. Cisneros, G. I. Fann, H. Fruchtl,
+   J. Garza, K. Hirao, R. A. Kendall, J. A. Nichols, K. Tsemekhman, K. Wolinski,
+     J. Anchell, D. E. Bernholdt, P. Borowski, T. Clark, D. Clerc, H. Dachsel,
+   M. J. O. Deegan, K. Dyall, D. Elwood, E. Glendening, M. Gutowski, A. C. Hess,
+         J. Jaffe, B. G. Johnson, J. Ju, R. Kobayashi, R. Kutteh, Z. Lin,
+   R. Littlefield, X. Long, B. Meng, T. Nakajima, S. Niu, L. Pollack, M. Rosing,
+   K. Glaesemann, G. Sandrone, M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe,
+                               A. T. Wong, Z. Zhang.
+
+ Total times  cpu:        0.8s     wall:        0.8s

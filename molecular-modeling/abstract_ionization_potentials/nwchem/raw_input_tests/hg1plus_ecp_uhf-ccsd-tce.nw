@@ -1,0 +1,29 @@
+title "Hg+ Cation UHF-CCSD via TCE"
+
+charge 1
+
+geometry units angstroms nocenter noautoz
+  Hg 0.000000 0.000000 0.000000
+end
+
+basis
+  * library def2-svp
+end
+
+ecp
+  * library def2-svp
+end
+
+scf
+  uhf        # Establish a spin-contaminated UHF reference
+  doublet
+  thresh 1.0e-7
+end
+
+tce
+  ccsd        # Direct the TCE module to build a CCSD framework
+  io ga       # Optional: Optimizes parallel memory handling
+end
+
+task tce energy  # Activates the TCE engine block
+
