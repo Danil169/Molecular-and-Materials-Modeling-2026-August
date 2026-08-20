@@ -1,0 +1,38 @@
+title "hg_cation_rohf"
+
+#permanent_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
+
+#scratch_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
+
+start hg_cation_rohf
+
+
+
+geometry units angstrom nocenter noautosym noautoz
+  Hg 0.0000000000000000e+00 0.0000000000000000e+00 0.0000000000000000e+00
+end
+
+charge 1
+
+memory 8000 mb
+
+basis noprint
+  Hg library def2-svp
+end
+
+ecp
+  Hg library def2-svp
+end
+scf
+  rohf .true.
+  doublet .true.
+  thresh 1e-07
+  maxiter 100
+end
+tce
+  ccsd .true.
+  io ga
+end
+
+task tce energy
+
