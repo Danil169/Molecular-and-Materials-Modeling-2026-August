@@ -1,0 +1,51 @@
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 15:52.
+
+
+
+          MOPAC Job: "mop.mop" ended normally on Aug 20, 2026, at 15:52.
+
+======================================================================
+MOPAC PM7 CALCULATION FOR Hg ATOM
+======================================================================
+
+======================================================================
+MOPAC PM7 Ionization Energy Calculation for Hg
+======================================================================
+
+--- Neutral Hg (RHF, Closed-Shell Singlet) ---
+Energy: 0.6370 eV
+📁 Output in: mopac_calculations/mopac_neutral_rhf
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+Energy: 11.1552 eV
+📁 Output in: mopac_calculations/mopac_cation_uhf
+
+======================================================================
+RESULTS
+======================================================================
+Neutral Energy (RHF):         0.6370 eV
+Cation Energy (UHF):         11.1552 eV
+Vertical IE:                 10.5182 eV
+Experimental IE:             10.4400 eV
+Difference:                  +0.0782 eV
+======================================================================
+
+📁 Directory Structure:
+   mopac_calculations/
+   ├── mopac_neutral_rhf/  (RHF)
+   └── mopac_cation_uhf/   (UHF)
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ MOPAC PM7 gives excellent results for Hg
+   IE = 10.5182 eV (error: +0.0782 eV)
+   Error is only 0.08% from experimental
+
+   • PM7 is specifically parameterized for heavy elements like Hg
+   • Correctly handles open-shell systems with UHF
+   • RHF is used for neutral (default for even-electron)
+   • UHF is used for cation (default for odd-electron)
+======================================================================
