@@ -3,6 +3,7 @@
 NWChem TCE-CCSD(T)-ECP Calculation for Hg using ASE parameters with MPI
 - Neutral Hg: RHF + TCE-CCSD(T) (closed-shell, singlet)
 - Cation Hg+: ROHF + TCE-CCSD(T) and UHF + TCE-CCSD(T) (open-shell, doublet)
+- Uses larger basis set def2-tzvp for improved accuracy
 - Uses mpirun with number of processors from an input file
 - Only ASE directives, no raw input strings
 - No permanent_dir or scratch_dir specified (uses NWChem defaults)
@@ -17,20 +18,20 @@ import shutil
 # USER-DEFINED PARAMETERS - Modify these as needed
 # ============================================================
 
-# Basis set and ECP
-BASIS_SET = "def2-svp"
-ECP_SET = "def2-svp"
+# Basis set and ECP - UPGRADED to Triple-Zeta
+BASIS_SET = "def2-tzvp"      # Triple-zeta valence with polarization
+ECP_SET = "def2-tzvp"        # Triple-zeta ECP for Hg
 
 # SCF settings
-SCF_THRESH = 1.0e-7
-SCF_MAXITER = 100
+SCF_THRESH = 1.0e-8          # Tighter threshold for larger basis
+SCF_MAXITER = 200            # More iterations for larger basis
 
 # TCE-CCSD(T) settings
-TCE_IO_GA = True          # Optimizes parallel memory handling
-TCE_THRESH = 1.0e-7       # TCE convergence threshold
+TCE_IO_GA = True             # Optimizes parallel memory handling
+TCE_THRESH = 1.0e-8          # Tighter TCE threshold for accuracy
 
-# Memory (CCSD(T) needs more memory)
-MEMORY = "8000 mb"
+# Memory (larger basis needs more memory)
+MEMORY = "16000 mb"          # Increased memory for def2-tzvp
 
 # Experimental reference
 EXP_IE = 10.437  # eV
@@ -68,7 +69,7 @@ def read_nproc_from_file(filename="nproc.txt"):
 
 def setup_directories():
     """Create directory structure for NWChem calculations"""
-    base_dir = "nwchem_tce_ccsdt"
+    base_dir = "nwchem_tce_ccsdt_tzvp"  # New directory for def2-tzvp
     subdirs = [
         "neutral",
         "cation_rohf",
@@ -101,7 +102,7 @@ def run_tce_ccsdt_calculation(nproc):
     print("NWChem TCE-CCSD(T)-ECP Calculation for Hg (with MPI)")
     print("="*70)
     print(f"Number of processors: {nproc}")
-    print(f"Basis set:            {BASIS_SET}")
+    print(f"Basis set:            {BASIS_SET} (Triple-Zeta)")
     print(f"ECP:                  {ECP_SET}")
     print(f"SCF threshold:        {SCF_THRESH}")
     print(f"SCF maxiter:          {SCF_MAXITER}")
@@ -202,7 +203,7 @@ def run_tce_ccsdt_calculation(nproc):
     print("="*70)
     
     print("\n📁 Directory Structure:")
-    print("   nwchem_tce_ccsdt/")
+    print("   nwchem_tce_ccsdt_tzvp/")
     print(f"   ├── {os.path.basename(neutral_dir)}/        (RHF+TCE-CCSD(T))")
     print(f"   ├── {os.path.basename(cation_rohf_dir)}/    (ROHF+TCE-CCSD(T))")
     print(f"   └── {os.path.basename(cation_uhf_dir)}/     (UHF+TCE-CCSD(T))")
@@ -256,12 +257,37 @@ def print_file_summary(results):
                 size = os.path.getsize(os.path.join(cation_uhf_dir, f))
                 print(f"      - {f} ({size} bytes)")
 
+def print_comparison(ccsd_results, ccsdt_results):
+    """Compare CCSD and CCSD(T) results"""
+    if ccsd_results and ccsdt_results:
+        print("\n" + "="*70)
+        print("COMPARISON: CCSD vs CCSD(T)")
+        print("="*70)
+        print(f"{'Method':<20} {'IE (eV)':<15} {'Error (eV)':<15} {'Improvement':<15}")
+        print("-"*70)
+        
+        # CCSD results (from previous run with def2-svp)
+        ccsd_ie = ccsd_results['ie_uhf']
+        ccsd_error = ccsd_ie - EXP_IE
+        print(f"{'CCSD (def2-svp)':<20} {ccsd_ie:<15.6f} {ccsd_error:<+15.4f} {'-':<15}")
+        
+        # CCSD(T) results with def2-tzvp
+        ccsdt_ie = ccsdt_results['ie_uhf']
+        ccsdt_error = ccsdt_ie - EXP_IE
+        improvement = ccsd_error - ccsdt_error
+        print(f"{'CCSD(T) (def2-tzvp)':<20} {ccsdt_ie:<15.6f} {ccsdt_error:<+15.4f} {improvement:<+15.4f}")
+        
+        print("-"*70)
+        print(f"{'CCSD(T) (ROHF)':<20} {ccsdt_results['ie_rohf']:<15.6f} {ccsdt_results['ie_rohf']-EXP_IE:<+15.4f} {'-':<15}")
+        print(f"{'Experimental':<20} {'10.4370':<15} {'0.0000':<15} {'-':<15}")
+        print("="*70)
+
 def main():
     """Main execution function"""
     print("="*70)
     print("NWChem TCE-CCSD(T)-ECP CALCULATION FOR Hg ATOM")
+    print(f"Using {BASIS_SET} basis set (Triple-Zeta)")
     print("With ROHF+TCE-CCSD(T) and UHF+TCE-CCSD(T) for cation")
-    print("Using ASE directives with short paths")
     print("="*70)
     
     # Read number of processors from file
@@ -273,21 +299,23 @@ def main():
     # Print file summary
     print_file_summary(tce_ccsdt_results)
     
+    # Print comparison (optional - remove if CCSD results not available)
+    # print_comparison(None, tce_ccsdt_results)
+    
     print("\n" + "="*70)
     print("RECOMMENDATIONS")
     print("="*70)
-    print(f"✅ NWChem TCE-CCSD(T)-ECP calculations completed")
+    print(f"✅ NWChem TCE-CCSD(T)-ECP calculations completed with {BASIS_SET}")
     print(f"\n   ROHF+TCE-CCSD(T) IE = {tce_ccsdt_results['ie_rohf']:.6f} eV (error: {tce_ccsdt_results['ie_rohf']-EXP_IE:+.6f} eV)")
     print(f"   UHF+TCE-CCSD(T) IE  = {tce_ccsdt_results['ie_uhf']:.6f} eV (error: {tce_ccsdt_results['ie_uhf']-EXP_IE:+.6f} eV)")
     print(f"\n   • Method: TCE-CCSD(T) (Tensor Contraction Engine - CCSD with perturbative triples)")
+    print(f"   • Basis set: {BASIS_SET} (Triple-Zeta Valence with Polarization)")
+    print(f"   • ECP: {ECP_SET}")
     print(f"   • TCE syntax: ccsd(t) with io ga and thresh {tce_ccsdt_results['tce_thresh']}")
     print(f"   • TCE io ga: {tce_ccsdt_results['tce_io_ga']} (optimized parallel memory handling)")
     print(f"   • Neutral: RHF+TCE-CCSD(T) (closed-shell, singlet)")
     print(f"   • Cation ROHF: ROHF+TCE-CCSD(T) (restricted open-shell, doublet)")
     print(f"   • Cation UHF:  UHF+TCE-CCSD(T) (unrestricted open-shell, doublet)")
-    print(f"   • Note: No permanent_dir or scratch_dir specified (uses NWChem defaults)")
-    print(f"   • Basis set: {tce_ccsdt_results['basis']}")
-    print(f"   • ECP: {tce_ccsdt_results['ecp']}")
     print(f"   • Processors: {tce_ccsdt_results['nproc']}")
     print(f"   • Memory: {MEMORY}")
     print("="*70)
