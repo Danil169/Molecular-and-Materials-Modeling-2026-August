@@ -6,6 +6,15 @@ from ase import Atoms
 from ase.calculators.mopac import MOPAC
 from ase.io import write
 
+def setup_directories(base_dir, subdirs):
+    """Create directory structure if it doesn't exist"""
+    for subdir in subdirs:
+        path = os.path.join(base_dir, subdir)
+        if os.path.exists(path):
+            shutil.rmtree(path)
+        os.makedirs(path, exist_ok=True)
+    return base_dir
+
 def run_mopac_ie():
     """
     Run MOPAC PM7 calculations for Hg ionization energy.
@@ -13,47 +22,58 @@ def run_mopac_ie():
     According to MOPAC manual:
     - RHF is default for even-electron systems (neutral Hg)
     - UHF is default for odd-electron systems (Hg+ cation)
-    - The 'CLOSED SHELL' keyword is ignored for odd-electron systems
     """
     print("\n" + "="*60)
     print("MOPAC PM7 Calculations")
     print("="*60)
     
-    results = {}
+    # Setup directory structure
+    base_dir = "mopac_calculations"
+    subdirs = [
+        "mopac_neutral_rhf",
+        "mopac_cation_uhf"
+    ]
+    setup_directories(base_dir, subdirs)
     
     # === Neutral: RHF (Closed-Shell) ===
     print("\n--- Neutral Hg (RHF, Closed-Shell Singlet) ---")
     neutral_atom = Atoms('Hg', positions=[(0, 0, 0)])
-    neutral_atom.calc = MOPAC(label='mopac_neutral/mop', 
-                              task='1SCF RHF', 
-                              keywords='PM7')
+    neutral_atom.calc = MOPAC(
+        label=os.path.join(base_dir, 'mopac_neutral_rhf', 'mop'), 
+        task='1SCF RHF', 
+        keywords='PM7'
+    )
     e_neutral = neutral_atom.get_potential_energy()
     print(f"Energy: {e_neutral:.4f} eV")
+    print(f"📁 Output in: {os.path.join(base_dir, 'mopac_neutral_rhf')}")
     
     # === Cation: UHF (Open-Shell) ===
     print("\n--- Cation Hg+ (UHF, Open-Shell Doublet) ---")
     cation_atom = Atoms('Hg', positions=[(0, 0, 0)])
-    cation_atom.calc = MOPAC(label='mopac_cation/mop', 
-                             task='1SCF UHF', 
-                             charge=1, 
-                             keywords='PM7 DOUBLET')
+    cation_atom.calc = MOPAC(
+        label=os.path.join(base_dir, 'mopac_cation_uhf', 'mop'), 
+        task='1SCF UHF', 
+        charge=1, 
+        keywords='PM7 DOUBLET'
+    )
     e_cation = cation_atom.get_potential_energy()
     print(f"Energy: {e_cation:.4f} eV")
+    print(f"📁 Output in: {os.path.join(base_dir, 'mopac_cation_uhf')}")
     
     # === Ionization Energy ===
     ie = e_cation - e_neutral
     print(f"\nVertical IE:    {ie:.4f} eV")
     print(f"Experimental:   10.44 eV (difference: {ie-10.44:+.4f} eV)")
     
-    results = {
+    return {
         'neutral': e_neutral,
         'cation': e_cation,
         'ie': ie,
         'neutral_method': 'RHF (closed-shell)',
-        'cation_method': 'UHF (open-shell, doublet)'
+        'cation_method': 'UHF (open-shell, doublet)',
+        'neutral_dir': os.path.join(base_dir, 'mopac_neutral_rhf'),
+        'cation_dir': os.path.join(base_dir, 'mopac_cation_uhf')
     }
-    
-    return results
 
 def run_xtb_cli_ie(method='GFN2'):
     """
@@ -76,51 +96,54 @@ def run_xtb_cli_ie(method='GFN2'):
     }
     flag = method_flags.get(method, '--gfn 2')
     
-    results = {}
+    # Setup directory structure
+    base_dir = "xtb_calculations"
+    method_lower = method.lower()
+    subdirs = [
+        f"xtb_{method_lower}_neutral",
+        f"xtb_{method_lower}_cation"
+    ]
+    setup_directories(base_dir, subdirs)
     
     # === Neutral: Closed-Shell ===
     print(f"\n--- Neutral Hg (Closed-Shell) ---")
-    xtb_dir_neutral = f'xtb_run_{method.lower()}_neutral'
-    if os.path.exists(xtb_dir_neutral):
-        shutil.rmtree(xtb_dir_neutral)
-    os.makedirs(xtb_dir_neutral, exist_ok=True)
+    neutral_dir = os.path.join(base_dir, f'xtb_{method_lower}_neutral')
     
     # Prepare input files
     atoms = Atoms('Hg', positions=[(0, 0, 0)])
-    write(f'{xtb_dir_neutral}/coord.xyz', atoms)
-    with open(f'{xtb_dir_neutral}/coord', 'w') as f:
+    write(os.path.join(neutral_dir, 'coord.xyz'), atoms)
+    with open(os.path.join(neutral_dir, 'coord'), 'w') as f:
         f.write("1\nHg atom\nHg    0.000000    0.000000    0.000000\n")
     
     # Run neutral calculation
     cmd_neutral = f"xtb coord.xyz {flag} > xtb_neutral.out 2>&1"
-    res_n = subprocess.run(cmd_neutral, shell=True, cwd=xtb_dir_neutral, 
+    res_n = subprocess.run(cmd_neutral, shell=True, cwd=neutral_dir, 
                            capture_output=True, text=True)
     
     if res_n.returncode == 0:
         print("✅ Neutral calculation completed")
+        print(f"📁 Output in: {neutral_dir}")
     else:
         print("⚠️  Neutral calculation had warnings (check output file)")
     
     # === Cation: UHF (Open-Shell) ===
     print(f"\n--- Cation Hg+ (UHF, Open-Shell Doublet) ---")
-    xtb_dir_cation = f'xtb_run_{method.lower()}_cation'
-    if os.path.exists(xtb_dir_cation):
-        shutil.rmtree(xtb_dir_cation)
-    os.makedirs(xtb_dir_cation, exist_ok=True)
+    cation_dir = os.path.join(base_dir, f'xtb_{method_lower}_cation')
     
     # Prepare input files
     atoms = Atoms('Hg', positions=[(0, 0, 0)])
-    write(f'{xtb_dir_cation}/coord.xyz', atoms)
-    with open(f'{xtb_dir_cation}/coord', 'w') as f:
+    write(os.path.join(cation_dir, 'coord.xyz'), atoms)
+    with open(os.path.join(cation_dir, 'coord'), 'w') as f:
         f.write("1\nHg atom\nHg    0.000000    0.000000    0.000000\n")
     
     # Run cation calculation with UHF
     cmd_cation = f"xtb coord.xyz {flag} --charge 1 --uhf 1 > xtb_cation.out 2>&1"
-    res_c = subprocess.run(cmd_cation, shell=True, cwd=xtb_dir_cation,
+    res_c = subprocess.run(cmd_cation, shell=True, cwd=cation_dir,
                            capture_output=True, text=True)
     
     if res_c.returncode == 0:
         print("✅ Cation calculation completed")
+        print(f"📁 Output in: {cation_dir}")
     else:
         print("⚠️  Cation calculation had warnings (check output file)")
     
@@ -147,8 +170,8 @@ def run_xtb_cli_ie(method='GFN2'):
         return None
     
     # Parse energies
-    e_neutral = parse_energy(xtb_dir_neutral, 'xtb_neutral.out')
-    e_cation = parse_energy(xtb_dir_cation, 'xtb_cation.out')
+    e_neutral = parse_energy(neutral_dir, 'xtb_neutral.out')
+    e_cation = parse_energy(cation_dir, 'xtb_cation.out')
     
     if e_neutral is not None and e_cation is not None:
         ie = e_cation - e_neutral
@@ -161,14 +184,16 @@ def run_xtb_cli_ie(method='GFN2'):
             'neutral': e_neutral,
             'cation': e_cation,
             'ie': ie,
-            'method': method
+            'method': method,
+            'neutral_dir': neutral_dir,
+            'cation_dir': cation_dir
         }
     else:
         print(f"❌ Could not parse {method} output")
         results = None
     
     # Show created files
-    for dir_name in [xtb_dir_neutral, xtb_dir_cation]:
+    for dir_name in [neutral_dir, cation_dir]:
         if os.path.exists(dir_name):
             files = [f for f in os.listdir(dir_name) if os.path.isfile(os.path.join(dir_name, f))]
             if files:
@@ -212,6 +237,20 @@ def print_summary(mopac_results, xtb_results):
     print("-"*80)
     print(f"{'Experimental':<20} {'':<15} {'':<20} {'':<15} {'10.4400':<12} {'0.0000':<12}")
     print("="*80)
+    
+    # Directory structure
+    print("\n📁 Directory Structure:")
+    print("   mopac_calculations/")
+    if mopac_results:
+        print(f"   ├── {os.path.basename(mopac_results['neutral_dir'])}/  (RHF)")
+        print(f"   └── {os.path.basename(mopac_results['cation_dir'])}/   (UHF)")
+    
+    print("\n   xtb_calculations/")
+    if xtb_results:
+        for method, results in xtb_results.items():
+            if results:
+                print(f"   ├── {os.path.basename(results['neutral_dir'])}/  ({method}, closed-shell)")
+                print(f"   └── {os.path.basename(results['cation_dir'])}/   ({method}, UHF)")
     
     # Additional information
     print("\n📝 Notes:")
