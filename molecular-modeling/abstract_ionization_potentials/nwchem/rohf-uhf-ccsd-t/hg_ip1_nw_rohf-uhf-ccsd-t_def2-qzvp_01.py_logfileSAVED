@@ -1,0 +1,112 @@
+(molmatmodel) milias@DESKTOP-7OTLCGO:~/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd-t/.python  hg_ip1_nw_rohf-uhf-ccsd-t_def2-qzvp_01.py
+======================================================================
+NWChem TCE-CCSD(T)-ECP CALCULATION FOR Hg ATOM
+Using def2-qzvp basis set (Quadruple-Zeta)
+With ROHF+TCE-CCSD(T) and UHF+TCE-CCSD(T) for cation
+Started at: 2026-08-20 19:10:04
+======================================================================
+✅ Read nproc = 4 from nproc.txt
+======================================================================
+NWChem TCE-CCSD(T)-ECP Calculation for Hg (with MPI)
+======================================================================
+Number of processors: 4
+Basis set:            def2-qzvp (Quadruple-Zeta)
+ECP:                  def2-qzvp
+SCF threshold:        1e-09
+SCF maxiter:          300
+TCE method:           CCSD(T)
+TCE io ga:            True
+TCE thresh:           1e-09
+Memory:               32000 mb
+Start time:           2026-08-20 19:10:04
+======================================================================
+
+--- Neutral Hg (RHF + TCE-CCSD(T), Singlet) ---
+Energy: -4170.634551 eV
+📁 Output in: nwchem_tce_ccsdt_qzvp/neutral
+
+--- Cation Hg+ (ROHF + TCE-CCSD(T), Open-Shell Doublet) ---
+Energy: -4160.313388 eV
+📁 Output in: nwchem_tce_ccsdt_qzvp/cation_rohf
+
+--- Cation Hg+ (UHF + TCE-CCSD(T), Open-Shell Doublet) ---
+Energy: -4160.309667 eV
+📁 Output in: nwchem_tce_ccsdt_qzvp/cation_uhf
+
+======================================================================
+RESULTS (TCE-CCSD(T) Level)
+======================================================================
+Neutral Energy (RHF+TCE-CCSD(T)):     -4170.634551 eV
+Cation Energy (ROHF+TCE-CCSD(T)):     -4160.313388 eV
+Cation Energy (UHF+TCE-CCSD(T)):      -4160.309667 eV
+----------------------------------------------------------------------
+Vertical IE (ROHF+TCE-CCSD(T)):          10.321163 eV
+Vertical IE (UHF+TCE-CCSD(T)):           10.324884 eV
+Experimental IE:                           10.4370 eV
+----------------------------------------------------------------------
+Error (ROHF+TCE-CCSD(T)):                  -0.1158 eV
+Error (UHF+TCE-CCSD(T)):                   -0.1121 eV
+======================================================================
+
+📁 Directory Structure:
+   nwchem_tce_ccsdt_qzvp/
+   ├── neutral/        (RHF+TCE-CCSD(T))
+   ├── cation_rohf/    (ROHF+TCE-CCSD(T))
+   └── cation_uhf/     (UHF+TCE-CCSD(T))
+
+📄 Generated Files:
+
+   neutral/ (RHF+TCE-CCSD(T)):
+      - hg.nwi (757 bytes)
+      - hg.nwo (35935 bytes)
+
+   cation_rohf/ (ROHF+TCE-CCSD(T)):
+      - hg.nwi (796 bytes)
+      - hg.nwo (37105 bytes)
+
+   cation_uhf/ (UHF+TCE-CCSD(T)):
+      - hg.nwi (793 bytes)
+      - hg.nwo (51279 bytes)
+
+======================================================================
+TIMING SUMMARY
+======================================================================
+Section                   Time (s)        Time (min)      Percentage
+----------------------------------------------------------------------
+Neutral SCF               43.79           0.73            25.4       %
+Neutral Total             43.79           0.73            25.4       %
+Cation ROHF SCF           63.98           1.07            37.1       %
+Cation ROHF Total         63.98           1.07            37.1       %
+Cation UHF SCF            64.78           1.08            37.5       %
+Cation UHF Total          64.78           1.08            37.5       %
+----------------------------------------------------------------------
+TOTAL                     172.55          2.88            100.0      %
+======================================================================
+
+⏱️  Wall-clock time: 2.88 minutes (172.55 seconds)
+📅 Completed at: 2026-08-20 19:12:57
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ NWChem TCE-CCSD(T)-ECP calculations completed with def2-qzvp
+
+   ROHF+TCE-CCSD(T) IE = 10.321163 eV (error: -0.115837 eV)
+   UHF+TCE-CCSD(T) IE  = 10.324884 eV (error: -0.112116 eV)
+
+   • Method: TCE-CCSD(T) (Tensor Contraction Engine - CCSD with perturbative triples)
+   • Basis set: def2-qzvp (Quadruple-Zeta Valence with Polarization)
+   • ECP: def2-qzvp
+   • TCE syntax: ccsd(t) with io ga and thresh 1e-09
+   • TCE io ga: True (optimized parallel memory handling)
+   • Processors: 4
+   • Memory: 32000 mb
+   • Total time: 2.88 minutes
+
+📈 Expected Convergence:
+   def2-svp:  10.018 eV (error: -0.419 eV)
+   def2-tzvp: 10.139 eV (error: -0.298 eV)
+   def2-qzvp: ~10.22-10.26 eV (error: ~-0.18 to -0.22 eV)
+   CBS limit: ~10.34-10.38 eV (error: ~-0.06 to -0.10 eV)
+   Experimental: 10.437 eV
+======================================================================
