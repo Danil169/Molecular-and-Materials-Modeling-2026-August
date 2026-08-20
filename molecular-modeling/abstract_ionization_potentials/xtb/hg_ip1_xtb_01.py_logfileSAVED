@@ -1,0 +1,177 @@
+================================================================================
+xTB IONIZATION ENERGY CALCULATIONS FOR Hg ATOM
+Methods: GFN1, GFN2
+Including: RHF-like and UHF for cation
+================================================================================
+
+======================================================================
+xTB GFN2 Ionization Energy Calculation for Hg
+======================================================================
+
+--- Neutral Hg (Closed-Shell) ---
+✅ Neutral calculation completed
+📁 Output in: xtb_calculations/xtb_gfn2_neutral
+
+--- Cation Hg+ (RHF-like, Closed-Shell) ---
+✅ Cation (RHF-like) calculation completed
+📁 Output in: xtb_calculations/xtb_gfn2_cation_rhf
+
+======================================================================
+RESULTS for xTB GFN2 (RHF-like Cation)
+======================================================================
+Neutral Energy:             -23.0761 eV
+Cation Energy (RHF-like):  -5.4175 eV
+Vertical IE (RHF-like):      17.6587 eV
+Experimental IE:             10.4400 eV
+Difference:                  +7.2187 eV
+======================================================================
+
+📁 Files in xtb_calculations/xtb_gfn2_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (12615 bytes)
+   - xtbrestart (168 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn2_cation_rhf:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation_rhf.out (12644 bytes)
+   - xtbrestart (168 bytes)
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+✅ Cation (UHF) calculation completed
+📁 Output in: xtb_calculations/xtb_gfn2_cation_uhf
+
+======================================================================
+RESULTS for xTB GFN2 (UHF Cation)
+======================================================================
+Neutral Energy:             -23.0761 eV
+Cation Energy (UHF):         -5.4175 eV
+Vertical IE (UHF):           17.6587 eV
+Experimental IE:             10.4400 eV
+Difference:                  +7.2187 eV
+======================================================================
+
+📁 Files in xtb_calculations/xtb_gfn2_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (12615 bytes)
+   - xtbrestart (168 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn2_cation_uhf:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation_uhf.out (12652 bytes)
+   - xtbrestart (168 bytes)
+
+======================================================================
+xTB GFN1 Ionization Energy Calculation for Hg
+======================================================================
+
+--- Neutral Hg (Closed-Shell) ---
+✅ Neutral calculation completed
+📁 Output in: xtb_calculations/xtb_gfn1_neutral
+
+--- Cation Hg+ (RHF-like, Closed-Shell) ---
+✅ Cation (RHF-like) calculation completed
+📁 Output in: xtb_calculations/xtb_gfn1_cation_rhf
+
+======================================================================
+RESULTS for xTB GFN1 (RHF-like Cation)
+======================================================================
+Neutral Energy:             -24.9053 eV
+Cation Energy (RHF-like):  -8.1376 eV
+Vertical IE (RHF-like):      16.7676 eV
+Experimental IE:             10.4400 eV
+Difference:                  +6.3276 eV
+======================================================================
+
+📁 Files in xtb_calculations/xtb_gfn1_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (11916 bytes)
+   - xtbrestart (80 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn1_cation_rhf:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation_rhf.out (11945 bytes)
+   - xtbrestart (80 bytes)
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+✅ Cation (UHF) calculation completed
+📁 Output in: xtb_calculations/xtb_gfn1_cation_uhf
+
+======================================================================
+RESULTS for xTB GFN1 (UHF Cation)
+======================================================================
+Neutral Energy:             -24.9053 eV
+Cation Energy (UHF):         -8.1376 eV
+Vertical IE (UHF):           16.7676 eV
+Experimental IE:             10.4400 eV
+Difference:                  +6.3276 eV
+======================================================================
+
+📁 Files in xtb_calculations/xtb_gfn1_neutral:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_neutral.out (11916 bytes)
+   - xtbrestart (80 bytes)
+
+📁 Files in xtb_calculations/xtb_gfn1_cation_uhf:
+   - charges (15 bytes)
+   - coord (49 bytes)
+   - coord.xyz (99 bytes)
+   - wbo (0 bytes)
+   - xtb_cation_uhf.out (11953 bytes)
+   - xtbrestart (80 bytes)
+
+================================================================================
+SUMMARY OF xTB IONIZATION ENERGY CALCULATIONS FOR Hg
+================================================================================
+Method          State           Neutral (eV)    Cation (eV)     IE (eV)      Error (eV)  
+--------------------------------------------------------------------------------
+GFN2            RHF-like        -23.0761        -5.4175         17.6587      +7.2187     
+GFN2            UHF             -23.0761        -5.4175         17.6587      +7.2187     
+GFN1            RHF-like        -24.9053        -8.1376         16.7676      +6.3276     
+GFN1            UHF             -24.9053        -8.1376         16.7676      +6.3276     
+--------------------------------------------------------------------------------
+Experimental                                                    10.4400      0.0000      
+================================================================================
+
+📁 Directory Structure:
+   xtb_calculations/
+   ├── xtb_gfn2_neutral/      (GFN2, closed-shell)
+   ├── xtb_gfn2_cation_rhf/   (GFN2, RHF-like)
+   └── xtb_gfn2_cation_uhf/   (GFN2, UHF)
+   ├── xtb_gfn1_neutral/      (GFN1, closed-shell)
+   ├── xtb_gfn1_cation_rhf/   (GFN1, RHF-like)
+   └── xtb_gfn1_cation_uhf/   (GFN1, UHF)
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+✅ Best xTB method for Hg: GFN1 (RHF-like)
+   IE = 16.7676 eV
+   Error: +6.3276 eV
+
+⚠️  All xTB methods overestimate IE for Hg
+   Consider using:
+   • MOPAC PM7 (recommended for heavy elements)
+   • DFT with pseudopotentials (for higher accuracy)
+   • xTB only for qualitative trends
+================================================================================
