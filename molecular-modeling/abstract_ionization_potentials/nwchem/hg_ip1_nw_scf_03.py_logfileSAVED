@@ -1,0 +1,79 @@
+======================================================================
+NWChem SCF-ECP CALCULATION FOR Hg ATOM
+With ROHF and UHF for cation (RHF is only for closed-shell)
+======================================================================
+✅ Read nproc = 4 from nproc.txt
+======================================================================
+NWChem SCF-ECP Calculation for Hg (with MPI)
+======================================================================
+Number of processors: 4
+Basis set:            def2-svp
+ECP:                  def2-svp
+SCF threshold:        1e-07
+SCF maxiter:          100
+Memory:               2000 mb
+======================================================================
+
+--- Neutral Hg (RHF, Singlet) ---
+Energy: -4151.110366 eV
+📁 Output in: nwchem_calculations/nwchem_neutral_rhf
+
+--- Cation Hg+ (ROHF, Open-Shell Doublet) ---
+Energy: -4142.581042 eV
+📁 Output in: nwchem_calculations/nwchem_cation_rohf
+
+--- Cation Hg+ (UHF, Open-Shell Doublet) ---
+Energy: -4142.602327 eV
+📁 Output in: nwchem_calculations/nwchem_cation_uhf
+
+======================================================================
+RESULTS
+======================================================================
+Neutral Energy (RHF):           -4151.110366 eV
+Cation Energy (ROHF):           -4142.581042 eV
+Cation Energy (UHF):            -4142.602327 eV
+----------------------------------------------------------------------
+Vertical IE (ROHF cation):          8.529325 eV
+Vertical IE (UHF cation):           8.508039 eV
+Experimental IE:                     10.4370 eV
+----------------------------------------------------------------------
+Error (ROHF cation):                 -1.9077 eV
+Error (UHF cation):                  -1.9290 eV
+======================================================================
+
+📁 Directory Structure:
+   nwchem_calculations/
+   ├── nwchem_neutral_rhf/      (RHF)
+   ├── nwchem_cation_rohf/  (ROHF, open-shell)
+   └── nwchem_cation_uhf/   (UHF, open-shell)
+
+📄 Generated Files:
+
+   nwchem_neutral_rhf/ (RHF):
+      - hg_neutral.nwi (724 bytes)
+      - hg_neutral.nwo (23832 bytes)
+
+   nwchem_cation_rohf/ (ROHF):
+      - hg_cation_rohf.nwi (771 bytes)
+      - hg_cation_rohf.nwo (23844 bytes)
+
+   nwchem_cation_uhf/ (UHF):
+      - hg_cation_uhf.nwi (764 bytes)
+      - hg_cation_uhf.nwo (34968 bytes)
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+✅ NWChem SCF-ECP calculations completed
+
+   ROHF cation IE = 8.529325 eV (error: -1.907675 eV)
+   UHF cation IE  = 8.508039 eV (error: -1.928961 eV)
+
+   • Method: SCF (Hartree-Fock)
+   • Neutral: RHF (closed-shell, singlet)
+   • Cation ROHF: restricted open-shell (doublet)
+   • Cation UHF:  unrestricted open-shell (doublet)
+   • Basis set: def2-svp
+   • ECP: def2-svp
+   • Processors: 4
+======================================================================
