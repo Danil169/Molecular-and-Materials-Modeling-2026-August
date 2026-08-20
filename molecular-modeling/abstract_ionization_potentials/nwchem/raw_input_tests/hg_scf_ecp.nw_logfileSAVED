@@ -38,7 +38,7 @@
 
     hostname        = DESKTOP-7OTLCGO
     program         = nwchem
-    date            = Thu Aug 20 16:37:32 2026
+    date            = Thu Aug 20 16:47:05 2026
 
     compiled        = Wed_Dec_10_07:16:07_2025
     source          = /home/conda/feedstock_root/build_artifacts/bld/rattler-build_nwchem_1765343033/work
@@ -58,10 +58,10 @@
            Memory information
            ------------------
 
-    heap     =     26214394 doubles =      200.0 Mbytes
-    stack    =     26214399 doubles =      200.0 Mbytes
+    heap     =     26214396 doubles =      200.0 Mbytes
+    stack    =     26214401 doubles =      200.0 Mbytes
     global   =     52428800 doubles =      400.0 Mbytes (distinct from heap & stack)
-    total    =    104857593 doubles =      800.0 Mbytes
+    total    =    104857597 doubles =      800.0 Mbytes
     verify   = yes
     hardfail = no 
 
@@ -88,7 +88,8 @@
 
        Name                              Natoms  Last Modified
        --------------------------------  ------  ------------------------
-    1  geometry                               1  Thu Aug 20 16:36:17 2026  
+    1  geometry                               1  Thu Aug 20 16:39:41 2026  
+    2  autosymm                               1  Thu Aug 20 16:40:39 2026  
 
   The geometry named "geometry" is the default for restart
 
@@ -99,8 +100,8 @@
 
        Name                              Natoms  Last Modified
         --------------------------------  ------  ------------------------
-    1  ao basis                               1  Thu Aug 20 16:36:17 2026  
-    2  ecp basis                              0  Thu Aug 20 16:36:17 2026  
+    1  ao basis                               1  Thu Aug 20 16:40:39 2026  
+    2  ecp basis                              0  Thu Aug 20 16:40:39 2026  
 
   The basis set named "ao basis" is the default AO basis for restart
 
@@ -114,7 +115,7 @@
                                     hg_neutral
                                     ----------
 
- Scaling coordinates for geometry "geometry" by  1.889725989
+ Scaling coordinates for geometry "autosymm" by  1.889725989
  (inverse scale =  0.529177249)
 
      MOLECULAR POINT GROUP NUMBER =  1     SCHOENFLIES SYMBOL = C1        
@@ -173,7 +174,7 @@ The   1 symmetry operators (excl. E) are as follows:
 
 
 
-                             Geometry "geometry" -> ""
+                             Geometry "autosymm" -> ""
                              -------------------------
 
  Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
@@ -200,7 +201,7 @@ The   1 symmetry operators (excl. E) are as follows:
             XYZ format geometry
             -------------------
      1
- geometry
+ autosymm
  Hg                    0.00000000     0.00000000     0.00000000
 
   library name resolved from: environment
@@ -443,9 +444,9 @@ hg_neutral
  Starting SCF solution at       0.0s
 
  ready to solve ...                    0
- ready to solve ...                    1
  ready to solve ...                    2
  ready to solve ...                    3
+ ready to solve ...                    1
 
 
  ----------------------------------------------
@@ -532,57 +533,59 @@ hg_neutral
      1     -0.465691  1 Hg s                  4     -0.336005  1 Hg s          
 
  Vector    2  Occ=2.000000D+00  E=-3.031304D+00
-              MO Center=  1.5D-16,  2.0D-16,  2.9D-16, r^2= 3.5D-01
+              MO Center=  8.4D-17,  9.2D-17, -1.0D-16, r^2= 3.5D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-     7      0.925518  1 Hg px         
+     7      0.905120  1 Hg px                 9     -0.214335  1 Hg pz         
 
  Vector    3  Occ=2.000000D+00  E=-3.031304D+00
-              MO Center=  5.7D-17, -4.1D-17, -1.0D-16, r^2= 3.5D-01
+              MO Center=  3.9D-17,  5.4D-17,  1.6D-16, r^2= 3.5D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-     8      0.921042  1 Hg py         
+     9      0.904646  1 Hg pz                 7      0.214431  1 Hg px         
 
  Vector    4  Occ=2.000000D+00  E=-3.031304D+00
-              MO Center=  2.4D-16,  4.4D-17, -9.2D-17, r^2= 3.5D-01
+              MO Center=  6.8D-17, -1.3D-16, -9.9D-17, r^2= 3.5D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-     9      0.924816  1 Hg pz         
+     8      0.929690  1 Hg py         
 
  Vector    5  Occ=2.000000D+00  E=-6.035142D-01
-              MO Center= -5.8D-16, -1.8D-16, -2.5D-16, r^2= 7.2D-01
+              MO Center= -1.3D-16, -6.3D-17, -5.8D-16, r^2= 7.2D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    21      0.845338  1 Hg dzz               19     -0.712055  1 Hg dyy        
-    27      0.162432  1 Hg dzz        
+    19      0.900552  1 Hg dyy               21     -0.557261  1 Hg dzz        
+    16     -0.343291  1 Hg dxx               25      0.173042  1 Hg dyy        
 
  Vector    6  Occ=2.000000D+00  E=-6.035142D-01
-              MO Center=  3.9D-16,  3.6D-16,  3.8D-16, r^2= 7.2D-01
+              MO Center= -3.7D-17,  3.0D-16,  5.5D-16, r^2= 7.2D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    16      0.899160  1 Hg dxx               19     -0.565007  1 Hg dyy        
-    21     -0.334153  1 Hg dzz               22      0.172774  1 Hg dxx        
+    16      0.841664  1 Hg dxx               21     -0.718131  1 Hg dzz        
+    22      0.161727  1 Hg dxx        
 
  Vector    7  Occ=2.000000D+00  E=-6.035142D-01
-              MO Center=  3.4D-16, -1.9D-16,  8.3D-16, r^2= 7.2D-01
+              MO Center= -9.2D-16, -8.0D-16,  3.1D-16, r^2= 7.2D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    17      1.573965  1 Hg dxy               23      0.302439  1 Hg dxy        
+    18      1.574407  1 Hg dxz               24      0.302524  1 Hg dxz        
 
  Vector    8  Occ=2.000000D+00  E=-6.035142D-01
-              MO Center= -9.5D-16, -9.0D-16,  1.3D-16, r^2= 7.2D-01
+              MO Center=  5.1D-16, -3.6D-16,  7.4D-16, r^2= 7.2D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    18      1.572026  1 Hg dxz               24      0.302066  1 Hg dxz        
+    17      1.538342  1 Hg dxy               20      0.335052  1 Hg dyz        
+    23      0.295594  1 Hg dxy        
 
  Vector    9  Occ=2.000000D+00  E=-6.035142D-01
-              MO Center=  2.3D-16, -7.1D-16,  3.0D-16, r^2= 7.2D-01
+              MO Center=  9.2D-17, -5.6D-16,  4.1D-16, r^2= 7.2D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    20      1.572348  1 Hg dyz               26      0.302128  1 Hg dyz        
+    20      1.538338  1 Hg dyz               17     -0.335054  1 Hg dxy        
+    26      0.295593  1 Hg dyz        
 
  Vector   10  Occ=2.000000D+00  E=-3.266074D-01
-              MO Center=  2.9D-16,  3.2D-17, -2.7D-16, r^2= 2.6D+00
+              MO Center=  3.3D-16,  5.8D-17, -2.9D-16, r^2= 2.6D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      5      0.641767  1 Hg s                  6      0.544987  1 Hg s          
@@ -590,28 +593,28 @@ hg_neutral
      4     -0.246576  1 Hg s                  1     -0.177751  1 Hg s          
 
  Vector   11  Occ=0.000000D+00  E= 8.156043D-02
-              MO Center= -3.3D-15, -6.3D-14, -5.1D-14, r^2= 5.1D+00
+              MO Center= -3.6D-15,  1.1D-14, -1.6D-14, r^2= 5.1D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    14      0.794787  1 Hg py                15      0.644113  1 Hg pz         
-     8     -0.162121  1 Hg py         
+    15      0.828820  1 Hg pz                14     -0.544694  1 Hg py         
+    13      0.253409  1 Hg px                 9     -0.169063  1 Hg pz         
 
  Vector   12  Occ=0.000000D+00  E= 8.156043D-02
-              MO Center=  1.9D-15,  6.5D-16, -8.6D-16, r^2= 5.1D+00
+              MO Center= -2.6D-16, -7.7D-17, -5.3D-16, r^2= 5.1D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    13      0.981156  1 Hg px                15     -0.246789  1 Hg pz         
-     7     -0.200136  1 Hg px                14      0.155815  1 Hg py         
+    14      0.739489  1 Hg py                13      0.646423  1 Hg px         
+    15      0.288345  1 Hg pz                 8     -0.150841  1 Hg py         
 
  Vector   13  Occ=0.000000D+00  E= 8.156043D-02
-              MO Center= -3.2D-14,  6.8D-14, -8.2D-14, r^2= 5.1D+00
+              MO Center= -2.9D-14,  1.8D-14,  2.2D-14, r^2= 5.1D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    15      0.756349  1 Hg pz                14     -0.626007  1 Hg py         
-    13      0.289658  1 Hg px                 9     -0.154280  1 Hg pz         
+    13      0.752178  1 Hg px                15     -0.527034  1 Hg pz         
+    14     -0.452011  1 Hg py                 7     -0.153429  1 Hg px         
 
  Vector   14  Occ=0.000000D+00  E= 2.026743D-01
-              MO Center=  3.3D-14, -4.1D-15,  1.3D-13, r^2= 7.6D+00
+              MO Center=  3.3D-14, -2.7D-14, -9.9D-15, r^2= 7.6D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      6      2.529830  1 Hg s                  5     -0.912024  1 Hg s          
@@ -620,56 +623,53 @@ hg_neutral
      3      0.614817  1 Hg s                  2     -0.239920  1 Hg s          
 
  Vector   15  Occ=0.000000D+00  E= 6.583413D-01
-              MO Center=  4.7D-17, -8.1D-16,  3.0D-16, r^2= 2.7D+00
+              MO Center= -3.6D-16, -3.9D-16,  3.2D-16, r^2= 2.7D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    26      1.761710  1 Hg dyz               20     -1.042818  1 Hg dyz        
-    25     -0.341874  1 Hg dyy               24     -0.324647  1 Hg dxz        
-    22      0.319642  1 Hg dxx               19      0.202367  1 Hg dyy        
-    18      0.192170  1 Hg dxz               16     -0.189207  1 Hg dxx        
-    23      0.163636  1 Hg dxy        
+    25      0.859713  1 Hg dyy               24      0.780366  1 Hg dxz        
+    26     -0.722306  1 Hg dyz               22     -0.715693  1 Hg dxx        
+    19     -0.508894  1 Hg dyy               18     -0.461926  1 Hg dxz        
+    20      0.427558  1 Hg dyz               16      0.423644  1 Hg dxx        
 
  Vector   16  Occ=0.000000D+00  E= 6.583413D-01
-              MO Center=  6.3D-16, -8.3D-16,  2.9D-16, r^2= 2.7D+00
+              MO Center= -5.7D-17, -2.2D-17, -1.6D-16, r^2= 2.7D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    23      1.344581  1 Hg dxy               17     -0.795905  1 Hg dxy        
-    25     -0.687305  1 Hg dyy               27      0.531895  1 Hg dzz        
-    19      0.406840  1 Hg dyy               24      0.396520  1 Hg dxz        
-    26     -0.388393  1 Hg dyz               21     -0.314847  1 Hg dzz        
-    18     -0.234714  1 Hg dxz               20      0.229904  1 Hg dyz        
+    27      0.946081  1 Hg dzz               22     -0.832607  1 Hg dxx        
+    21     -0.560018  1 Hg dzz               16      0.492849  1 Hg dxx        
+    26      0.487344  1 Hg dyz               24     -0.477674  1 Hg dxz        
+    20     -0.288476  1 Hg dyz               18      0.282752  1 Hg dxz        
 
  Vector   17  Occ=0.000000D+00  E= 6.583413D-01
-              MO Center=  4.9D-16,  3.2D-16,  3.2D-17, r^2= 2.7D+00
+              MO Center= -3.1D-16, -4.6D-16, -5.1D-16, r^2= 2.7D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    23      1.331613  1 Hg dxy               17     -0.788229  1 Hg dxy        
-    24     -0.668767  1 Hg dxz               25      0.651005  1 Hg dyy        
-    27     -0.537247  1 Hg dzz               18      0.395867  1 Hg dxz        
-    19     -0.385353  1 Hg dyy               21      0.318015  1 Hg dzz        
+    24      1.473936  1 Hg dxz               18     -0.872474  1 Hg dxz        
+    25     -0.632143  1 Hg dyy               27      0.500344  1 Hg dzz        
+    19      0.374187  1 Hg dyy               26     -0.371324  1 Hg dyz        
+    21     -0.296171  1 Hg dzz               20      0.219800  1 Hg dyz        
+    23     -0.172842  1 Hg dxy        
 
  Vector   18  Occ=0.000000D+00  E= 6.583413D-01
-              MO Center= -1.5D-16,  1.3D-16, -1.0D-15, r^2= 2.7D+00
+              MO Center= -4.9D-16, -2.1D-15, -3.7D-16, r^2= 2.7D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    22      0.979959  1 Hg dxx               24     -0.615671  1 Hg dxz        
-    26     -0.595801  1 Hg dyz               16     -0.580072  1 Hg dxx        
-    27     -0.573185  1 Hg dzz               25     -0.406774  1 Hg dyy        
-    18      0.364437  1 Hg dxz               20      0.352676  1 Hg dyz        
-    21      0.339288  1 Hg dzz               19      0.240784  1 Hg dyy        
+    23      1.857573  1 Hg dxy               17     -1.099563  1 Hg dxy        
+    26      0.363471  1 Hg dyz               24      0.296140  1 Hg dxz        
+    20     -0.215151  1 Hg dyz               18     -0.175296  1 Hg dxz        
 
  Vector   19  Occ=0.000000D+00  E= 6.583413D-01
-              MO Center= -4.1D-16, -1.7D-17,  5.4D-16, r^2= 2.7D+00
+              MO Center= -6.0D-16, -4.3D-16,  9.7D-16, r^2= 2.7D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    24      1.608091  1 Hg dxz               18     -0.951885  1 Hg dxz        
-    27     -0.569542  1 Hg dzz               22      0.354086  1 Hg dxx        
-    21      0.337132  1 Hg dzz               26      0.248516  1 Hg dyz        
-    25      0.215456  1 Hg dyy               16     -0.209596  1 Hg dxx        
-    23      0.186577  1 Hg dxy        
+    26      1.626548  1 Hg dyz               20     -0.962811  1 Hg dyz        
+    24      0.759968  1 Hg dxz               18     -0.449852  1 Hg dxz        
+    23     -0.433045  1 Hg dxy               25      0.270862  1 Hg dyy        
+    17      0.256335  1 Hg dxy               27     -0.240366  1 Hg dzz        
+    19     -0.160333  1 Hg dyy        
 
  Vector   20  Occ=0.000000D+00  E= 9.518212D-01
-              MO Center=  8.5D-16,  1.0D-15, -5.3D-15, r^2= 3.9D+00
+              MO Center=  1.9D-15, -2.8D-16,  4.4D-16, r^2= 3.9D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      5      4.187609  1 Hg s                  4     -3.354130  1 Hg s          
@@ -679,96 +679,102 @@ hg_neutral
     19      0.321185  1 Hg dyy               21      0.321185  1 Hg dzz        
 
  Vector   21  Occ=0.000000D+00  E= 1.026842D+00
-              MO Center= -2.3D-15, -1.1D-15,  2.1D-16, r^2= 2.5D+00
+              MO Center=  1.5D-15,  1.6D-15,  3.3D-15, r^2= 2.5D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    10      1.795233  1 Hg px                11      0.948240  1 Hg py         
-     7     -0.899287  1 Hg px                13     -0.597793  1 Hg px         
-     8     -0.475003  1 Hg py                14     -0.315754  1 Hg py         
-    28     -0.263048  1 Hg fxxx              31     -0.263048  1 Hg fxyy       
-    33     -0.263048  1 Hg fxzz              12     -0.179969  1 Hg pz         
+    10      1.434116  1 Hg px                12      1.440729  1 Hg pz         
+     7     -0.718393  1 Hg px                 9     -0.721706  1 Hg pz         
+    13     -0.477545  1 Hg px                15     -0.479747  1 Hg pz         
+    28     -0.210135  1 Hg fxxx              30     -0.211104  1 Hg fxxz       
+    31     -0.210135  1 Hg fxyy              33     -0.210135  1 Hg fxzz       
 
  Vector   22  Occ=0.000000D+00  E= 1.026842D+00
-              MO Center= -9.2D-17, -4.3D-16,  6.0D-17, r^2= 2.5D+00
+              MO Center= -1.8D-15, -2.4D-16,  1.6D-15, r^2= 2.5D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    11      1.772650  1 Hg py                10     -0.964869  1 Hg px         
-     8     -0.887975  1 Hg py                14     -0.590273  1 Hg py         
-     7      0.483333  1 Hg px                13      0.321291  1 Hg px         
-    12     -0.284864  1 Hg pz                29     -0.259739  1 Hg fxxy       
-    34     -0.259739  1 Hg fyyy              36     -0.259739  1 Hg fyzz       
+    10      1.446965  1 Hg px                12     -1.416075  1 Hg pz         
+     7     -0.724829  1 Hg px                 9      0.709356  1 Hg pz         
+    13     -0.481824  1 Hg px                15      0.471538  1 Hg pz         
+    11      0.235438  1 Hg py                28     -0.212018  1 Hg fxxx       
+    31     -0.212018  1 Hg fxyy              33     -0.212018  1 Hg fxzz       
 
  Vector   23  Occ=0.000000D+00  E= 1.026842D+00
-              MO Center= -2.7D-16,  1.2D-15,  9.5D-15, r^2= 2.5D+00
+              MO Center= -4.5D-17, -4.8D-16, -1.9D-17, r^2= 2.5D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    12      2.010192  1 Hg pz                 9     -1.006967  1 Hg pz         
-    15     -0.669372  1 Hg pz                11      0.336096  1 Hg py         
-    30     -0.294545  1 Hg fxxz              35     -0.294545  1 Hg fyyz       
-    37     -0.294545  1 Hg fzzz               8     -0.168361  1 Hg py         
+    11      2.019148  1 Hg py                 8     -1.011454  1 Hg py         
+    14     -0.672354  1 Hg py                29     -0.295858  1 Hg fxxy       
+    34     -0.295858  1 Hg fyyy              36     -0.295858  1 Hg fyzz       
+    12      0.270993  1 Hg pz         
 
  Vector   24  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center=  4.5D-16,  5.1D-17,  1.6D-16, r^2= 7.9D-01
+              MO Center= -1.1D-17,  1.0D-16,  3.1D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    31      1.910303  1 Hg fxyy              33     -1.590660  1 Hg fxzz       
-    29     -0.785484  1 Hg fxxy              36      0.582346  1 Hg fyzz       
-    30     -0.444157  1 Hg fxxz              35      0.335437  1 Hg fyyz       
+    35      1.421525  1 Hg fyyz              30      1.279914  1 Hg fxxz       
+    37     -0.900480  1 Hg fzzz              31      0.689512  1 Hg fxyy       
+    36     -0.475668  1 Hg fyzz              29     -0.469904  1 Hg fxxy       
+    32     -0.367535  1 Hg fxyz              34      0.315191  1 Hg fyyy       
+    33     -0.206644  1 Hg fxzz              28     -0.160956  1 Hg fxxx       
 
  Vector   25  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center=  2.1D-16, -3.0D-16, -2.9D-16, r^2= 7.9D-01
+              MO Center=  2.5D-16,  2.3D-16,  2.1D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    30      1.552989  1 Hg fxxz              35     -1.417862  1 Hg fyyz       
-    29      1.064642  1 Hg fxxy              36     -0.924283  1 Hg fyzz       
-    31      0.745828  1 Hg fxyy              33     -0.711837  1 Hg fxzz       
-    32      0.168056  1 Hg fxyz       
+    31      1.665792  1 Hg fxyy              33      0.924329  1 Hg fxzz       
+    28     -0.863374  1 Hg fxxx              29      0.612487  1 Hg fxxy       
+    36      0.592596  1 Hg fyzz              35     -0.467365  1 Hg fyyz       
+    32      0.414736  1 Hg fxyz              34     -0.401694  1 Hg fyyy       
+    30      0.337776  1 Hg fxxz       
 
  Vector   26  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center=  3.8D-16,  2.5D-16, -2.5D-17, r^2= 7.9D-01
+              MO Center=  5.7D-16,  9.4D-17,  2.4D-17, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    29      1.826392  1 Hg fxxy              30     -1.090019  1 Hg fxxz       
-    35      1.067631  1 Hg fyyz              36     -0.867440  1 Hg fyzz       
-    31      0.702237  1 Hg fxyy              34     -0.319650  1 Hg fyyy       
-    28     -0.290867  1 Hg fxxx              33      0.170365  1 Hg fxzz       
+    29      1.795291  1 Hg fxxy              32     -1.121285  1 Hg fxyz       
+    35      1.107969  1 Hg fyyz              34     -0.735534  1 Hg fyyy       
+    36      0.411312  1 Hg fyzz              30     -0.363368  1 Hg fxxz       
+    31     -0.312058  1 Hg fxyy              33     -0.299392  1 Hg fxzz       
+    37     -0.248200  1 Hg fzzz              28      0.203817  1 Hg fxxx       
 
  Vector   27  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center= -1.2D-16, -7.8D-17,  3.2D-16, r^2= 7.9D-01
+              MO Center=  5.1D-17,  1.2D-17, -9.8D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    35      1.455588  1 Hg fyyz              30      1.286044  1 Hg fxxz       
-    37     -0.913877  1 Hg fzzz              36     -0.516195  1 Hg fyzz       
-    29     -0.436578  1 Hg fxxy              33      0.405175  1 Hg fxzz       
-    31      0.336554  1 Hg fxyy              34      0.317591  1 Hg fyyy       
-    28     -0.247243  1 Hg fxxx       
+    33      2.072760  1 Hg fxzz              31     -0.981456  1 Hg fxyy       
+    32     -0.914938  1 Hg fxyz              35      0.814979  1 Hg fyyz       
+    30     -0.667379  1 Hg fxxz              29     -0.494466  1 Hg fxxy       
+    28     -0.363768  1 Hg fxxx       
 
  Vector   28  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center= -2.1D-16,  7.5D-16, -7.6D-16, r^2= 7.9D-01
+              MO Center=  7.6D-16,  1.1D-15, -8.2D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    32      3.865953  1 Hg fxyz       
+    30      1.737833  1 Hg fxxz              31     -1.273837  1 Hg fxyy       
+    32      0.992742  1 Hg fxyz              36      0.754829  1 Hg fyzz       
+    35     -0.741735  1 Hg fyyz              33      0.642736  1 Hg fxzz       
+    37     -0.332033  1 Hg fzzz              34     -0.325795  1 Hg fyyy       
+    29      0.222556  1 Hg fxxy              28      0.210367  1 Hg fxxx       
 
  Vector   29  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center=  1.9D-16, -2.6D-17,  2.3D-16, r^2= 7.9D-01
+              MO Center= -1.8D-16,  3.1D-16, -1.2D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    33      1.656757  1 Hg fxzz              31      1.087189  1 Hg fxyy       
-    28     -0.914649  1 Hg fxxx              35     -0.768541  1 Hg fyyz       
-    29     -0.441723  1 Hg fxxy              37      0.265271  1 Hg fzzz       
-    36      0.197443  1 Hg fyzz       
+    32      3.407758  1 Hg fxyz              35      1.007524  1 Hg fyyz       
+    30     -0.706574  1 Hg fxxz              29      0.273104  1 Hg fxxy       
+    36     -0.194509  1 Hg fyzz       
 
  Vector   30  Occ=0.000000D+00  E= 1.890466D+00
-              MO Center=  1.9D-16,  2.3D-16, -2.9D-16, r^2= 7.9D-01
+              MO Center= -2.3D-16, -4.6D-16,  1.7D-16, r^2= 7.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    36      1.933850  1 Hg fyzz              34     -0.885182  1 Hg fyyy       
-    30      0.736716  1 Hg fxxz              29      0.721695  1 Hg fxxy       
-    37     -0.301095  1 Hg fzzz              35      0.166569  1 Hg fyyz       
-    33      0.152049  1 Hg fxzz       
+    36      2.153882  1 Hg fyzz              29     -1.346241  1 Hg fxxy       
+    35      0.551159  1 Hg fyyz              33     -0.533649  1 Hg fxzz       
+    30     -0.388571  1 Hg fxxz              34     -0.269214  1 Hg fyyy       
+    31      0.225723  1 Hg fxyy       
 
  Vector   31  Occ=0.000000D+00  E= 3.374441D+00
-              MO Center=  2.0D-15,  1.0D-14, -8.7D-15, r^2= 1.6D+00
+              MO Center=  3.2D-15,  6.3D-15, -6.3D-15, r^2= 1.6D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      4     11.360800  1 Hg s                  3     -6.563554  1 Hg s          
@@ -778,37 +784,36 @@ hg_neutral
     21     -1.334457  1 Hg dzz                6     -0.949170  1 Hg s          
 
  Vector   32  Occ=0.000000D+00  E= 3.425846D+00
-              MO Center= -2.7D-15, -3.8D-16,  4.9D-17, r^2= 1.8D+00
+              MO Center= -2.0D-15,  1.1D-15,  7.3D-17, r^2= 1.8D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    10      3.540682  1 Hg px                28     -2.442600  1 Hg fxxx       
-    31     -2.442600  1 Hg fxyy              33     -2.442600  1 Hg fxzz       
-    13     -0.467560  1 Hg px                 7      0.267179  1 Hg px         
-    11      0.231453  1 Hg py                29     -0.159672  1 Hg fxxy       
-    34     -0.159672  1 Hg fyyy              36     -0.159672  1 Hg fyzz       
+    10      3.527870  1 Hg px                28     -2.433761  1 Hg fxxx       
+    31     -2.433761  1 Hg fxyy              33     -2.433761  1 Hg fxzz       
+    13     -0.465868  1 Hg px                11     -0.354725  1 Hg py         
+     7      0.266212  1 Hg px                29      0.244713  1 Hg fxxy       
+    34      0.244713  1 Hg fyyy              36      0.244713  1 Hg fyzz       
 
  Vector   33  Occ=0.000000D+00  E= 3.425846D+00
-              MO Center=  1.0D-15, -8.0D-15, -1.4D-15, r^2= 1.8D+00
+              MO Center= -3.5D-16, -2.8D-16,  6.3D-15, r^2= 1.8D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    11      3.452222  1 Hg py                29     -2.381574  1 Hg fxxy       
-    34     -2.381574  1 Hg fyyy              36     -2.381574  1 Hg fyzz       
-    12      0.807025  1 Hg pz                30     -0.556740  1 Hg fxxz       
-    35     -0.556740  1 Hg fyyz              37     -0.556740  1 Hg fzzz       
-    14     -0.455878  1 Hg py                 8      0.260504  1 Hg py         
+    12      3.539207  1 Hg pz                30     -2.441582  1 Hg fxxz       
+    35     -2.441582  1 Hg fyyz              37     -2.441582  1 Hg fzzz       
+    15     -0.467365  1 Hg pz                 9      0.267068  1 Hg pz         
+    10     -0.209062  1 Hg px                11     -0.194168  1 Hg py         
 
  Vector   34  Occ=0.000000D+00  E= 3.425846D+00
-              MO Center=  4.4D-16, -2.8D-15,  1.1D-14, r^2= 1.8D+00
+              MO Center= -1.3D-15, -6.2D-15, -6.6D-16, r^2= 1.8D+00
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
-    12      3.455244  1 Hg pz                30     -2.383659  1 Hg fxxz       
-    35     -2.383659  1 Hg fyyz              37     -2.383659  1 Hg fzzz       
-    11     -0.797486  1 Hg py                29      0.550160  1 Hg fxxy       
-    34      0.550160  1 Hg fyyy              36      0.550160  1 Hg fyzz       
-    15     -0.456277  1 Hg pz                 9      0.260732  1 Hg pz         
+    11      3.527586  1 Hg py                29     -2.433565  1 Hg fxxy       
+    34     -2.433565  1 Hg fyyy              36     -2.433565  1 Hg fyzz       
+    14     -0.465830  1 Hg py                10      0.343246  1 Hg px         
+     8      0.266191  1 Hg py                28     -0.236794  1 Hg fxxx       
+    31     -0.236794  1 Hg fxyy              33     -0.236794  1 Hg fxzz       
 
  Vector   35  Occ=0.000000D+00  E= 1.322183D+01
-              MO Center=  1.2D-17, -1.7D-17, -5.8D-18, r^2= 4.9D-01
+              MO Center=  4.3D-17, -4.6D-17,  1.4D-17, r^2= 4.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      4     27.661765  1 Hg s                  5     13.834918  1 Hg s          
@@ -818,7 +823,7 @@ hg_neutral
     22     -2.562966  1 Hg dxx               25     -2.562966  1 Hg dyy        
 
  Vector   36  Occ=0.000000D+00  E= 5.366476D+01
-              MO Center= -4.7D-18,  1.2D-17, -1.1D-17, r^2= 2.9D-01
+              MO Center= -1.9D-18,  5.2D-18, -1.2D-18, r^2= 2.9D-01
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      4     21.892972  1 Hg s                  5     14.853943  1 Hg s          
@@ -828,7 +833,7 @@ hg_neutral
     22     -2.980294  1 Hg dxx               25     -2.980294  1 Hg dyy        
 
  Vector   37  Occ=0.000000D+00  E= 1.302086D+02
-              MO Center=  1.7D-19, -2.2D-19,  1.4D-18, r^2= 6.3D-02
+              MO Center=  1.2D-18, -3.0D-19, -5.2D-19, r^2= 6.3D-02
    Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
   ----- ------------  ---------------      ----- ------------  ---------------
      4      9.678905  1 Hg s                  2     -8.419496  1 Hg s          
@@ -930,111 +935,138 @@ hg_neutral
 
  Entry                                   Type[nelem]           Date
  ---------------------------  ----------------------  ------------------------
- task:operation                          char[7]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:angstrom_to_au         double[1]      Thu Aug 20 16:37:32 2026 
- bgj:scf_type                             int[1]      Thu Aug 20 16:37:32 2026 
- scf:maxiter                              int[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star segment         logical[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:user units            char[10]     Thu Aug 20 16:37:32 2026 
- scf:nopen                                int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:coords              double[3]      Thu Aug 20 16:37:32 2026 
+ task:operation                          char[7]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:angstrom_to_au         double[1]      Thu Aug 20 16:39:41 2026 
+ bgj:scf_type                             int[1]      Thu Aug 20 16:47:05 2026 
+ scf:maxiter                              int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:group number            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star segment         logical[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:user units            char[10]     Thu Aug 20 16:39:41 2026 
+ scf:nopen                                int[1]      Thu Aug 20 16:47:05 2026 
  basis:names                             char[19]     Thu Aug 20 16:34:36 2026 
- scf:nclosed                              int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:atomct              double[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star nr tags             int[1]      Thu Aug 20 16:37:32 2026 
- scf:nmo                                  int[1]      Thu Aug 20 16:37:32 2026 
- :print                                  char[5]      Thu Aug 20 16:37:32 2026 
- task:theory                             char[4]      Thu Aug 20 16:37:32 2026 
- task:cputime                          double[1]      Thu Aug 20 16:37:32 2026 
- task:walltime                         double[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:contraction info            int[90000]  Thu Aug 20 16:37:32 2026 
- geometry:geometry:efield              double[3]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:use_primitive        logical[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star filename           char[65]     Thu Aug 20 16:37:32 2026 
- basis:ao basis:tags info                 int[280]    Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star tag_in_lib           char[2]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star nr except            int[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:tags info                int[280]    Thu Aug 20 16:37:32 2026 
- task:dipole                           double[3]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star tot except            int[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:assoc ecp name           char[4]      Thu Aug 20 16:37:32 2026 
- scf:dipole                            double[3]      Thu Aug 20 16:37:32 2026 
- geometry:ngeom                           int[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star tag names           char[2]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:operators           double[2304]   Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star rel             logical[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:star nr tags              int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:recip vectors         double[3]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star bas type           char[9]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:no. unique centers            int[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:contraction info            int[90000]  Thu Aug 20 16:37:32 2026 
- basis:ecp basis:star details         logical[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:bs_nr_tags                int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:group number            int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:recip angles         double[3]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:system type            int[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:header                   int[7]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:bs_stdname               char[9]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:charges             double[1]      Thu Aug 20 16:37:32 2026 
- basisprint:ecp basis                 logical[1]      Thu Aug 20 16:37:32 2026 
- scf:output vectors                      char[20]     Thu Aug 20 16:37:32 2026 
- basis:ao basis:header                    int[7]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:tags                  char[3]      Thu Aug 20 16:37:32 2026 
- scf:input vectors                       char[20]     Thu Aug 20 16:37:32 2026 
- geometry:geometry:include_bqbq        logical[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:group name            char[3]      Thu Aug 20 16:37:32 2026 
- basisprint:ao basis                  logical[1]      Thu Aug 20 16:37:32 2026 
- basis:ecp basis:number of exps and coeffs            int[1]      Thu Aug 20 16:37:32 2026 
- scf:converged                        logical[1]      Thu Aug 20 16:37:32 2026 
- scf:nelec                                int[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:number of exps and coeffs            int[1]      Thu Aug 20 16:37:32 2026 
- geometry:names                          char[9]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:masses              double[1]      Thu Aug 20 16:37:32 2026 
- scf:scftype                             char[4]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:exps and coeffs         double[38]     Thu Aug 20 16:37:32 2026 
- geometry:geometry:unique centers            int[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:amatrix             double[9]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:inv nuc expon         double[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:vel                 double[3]      Thu Aug 20 16:37:32 2026 
- task:status                          logical[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:direct volume         double[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:num_operators            int[1]      Thu Aug 20 16:37:32 2026 
+ geometry:geometry:coords              double[3]      Thu Aug 20 16:39:41 2026 
+ scf:nclosed                              int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:atomct              double[1]      Thu Aug 20 16:39:41 2026 
+ basis:ecp basis:star nr tags             int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:group name            char[3]      Thu Aug 20 16:47:05 2026 
+ scf:nmo                                  int[1]      Thu Aug 20 16:47:05 2026 
+ :print                                  char[5]      Thu Aug 20 16:47:05 2026 
+ task:theory                             char[4]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:inv nuc expon         double[1]      Thu Aug 20 16:47:05 2026 
+ task:cputime                          double[1]      Thu Aug 20 16:47:05 2026 
+ task:walltime                         double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:include_bqbq        logical[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:contraction info            int[90000]  Thu Aug 20 16:47:05 2026 
+ geometry:geometry:efield              double[3]      Thu Aug 20 16:39:41 2026 
+ geometry:geometry:use_primitive        logical[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:num_operators            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star filename           char[65]     Thu Aug 20 16:47:05 2026 
+ basis:ao basis:tags info                 int[280]    Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:coords              double[3]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star tag_in_lib           char[2]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star nr except            int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:atomct              double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:direct volume         double[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:tags info                int[280]    Thu Aug 20 16:47:05 2026 
+ task:dipole                           double[3]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star tot except            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:assoc ecp name           char[4]      Thu Aug 20 16:47:05 2026 
+ scf:dipole                            double[3]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:zmt_source            char[2]      Thu Aug 20 16:47:05 2026 
+ geometry:ngeom                           int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:efield              double[3]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star tag names           char[2]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:operators           double[2304]   Thu Aug 20 16:39:41 2026 
+ basis:ecp basis:star rel             logical[1]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:star nr tags              int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:recip vectors         double[3]      Thu Aug 20 16:39:41 2026 
+ basis:ecp basis:star bas type           char[9]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:no. unique centers            int[1]      Thu Aug 20 16:39:41 2026 
+ basis:ao basis:contraction info            int[90000]  Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:star details         logical[1]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:bs_nr_tags                int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:group number            int[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:charges             double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:recip angles         double[3]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:user units            char[10]     Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:use_primitive        logical[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:system type            int[1]      Thu Aug 20 16:39:41 2026 
+ basis:ecp basis:header                   int[7]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:bs_stdname               char[9]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:charges             double[1]      Thu Aug 20 16:39:41 2026 
+ basisprint:ecp basis                 logical[1]      Thu Aug 20 16:47:05 2026 
+ scf:output vectors                      char[20]     Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:unique centers            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:header                    int[7]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:tags                  char[3]      Thu Aug 20 16:39:41 2026 
+ scf:input vectors                       char[20]     Thu Aug 20 16:47:05 2026 
+ geometry:geometry:include_bqbq        logical[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:amatrix             double[9]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:group name            char[3]      Thu Aug 20 16:39:41 2026 
+ basisprint:ao basis                  logical[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:primitive_center           char[2]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:number of exps and coeffs            int[1]      Thu Aug 20 16:47:05 2026 
+ scf:converged                        logical[1]      Thu Aug 20 16:47:05 2026 
+ scf:nelec                                int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:tags                  char[3]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:number of exps and coeffs            int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:recip vectors         double[3]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:no. unique centers            int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:names                          char[18]     Thu Aug 20 16:47:05 2026 
+ geometry:geometry:masses              double[1]      Thu Aug 20 16:39:41 2026 
+ scf:scftype                             char[4]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:setting number            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:exps and coeffs         double[38]     Thu Aug 20 16:47:05 2026 
+ geometry:geometry:unique centers            int[1]      Thu Aug 20 16:39:41 2026 
+ geometry:geometry:amatrix             double[9]      Thu Aug 20 16:39:41 2026 
+ geometry:geometry:inv nuc expon         double[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:ncenter                int[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:vel                 double[3]      Thu Aug 20 16:39:41 2026 
+ task:status                          logical[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:direct volume         double[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:vel                 double[3]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:num_operators            int[1]      Thu Aug 20 16:39:41 2026 
  basis:nbasis                             int[1]      Thu Aug 20 16:34:36 2026 
- file_prefix                             char[11]     Thu Aug 20 16:37:32 2026 
- geometry:geometry:primitive_center           char[2]      Thu Aug 20 16:37:32 2026 
- task:energy                           double[1]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:ncenter                int[1]      Thu Aug 20 16:37:32 2026 
- scf:thresh                            double[1]      Thu Aug 20 16:37:32 2026 
- scf:energy                            double[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:assoc ecp name           char[4]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:zmt_source            char[2]      Thu Aug 20 16:37:32 2026 
- geometry:geometry:setting number            int[1]      Thu Aug 20 16:37:32 2026 
- basis:ao basis:bs_tags                  char[3]      Thu Aug 20 16:37:32 2026 
- rtdb:stored:state                    logical[3]      Thu Aug 20 16:37:32 2026 
- title                                   char[11]     Thu Aug 20 16:37:32 2026 
- scf:alpha irreps                         int[37]     Thu Aug 20 16:37:32 2026 
- basis:ecp basis:bs_nr_tags               int[1]      Thu Aug 20 16:37:32 2026 
+ file_prefix                             char[11]     Thu Aug 20 16:47:05 2026 
+ geometry:geometry:primitive_center           char[2]      Thu Aug 20 16:39:41 2026 
+ task:energy                           double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:ncenter                int[1]      Thu Aug 20 16:39:41 2026 
+ scf:thresh                            double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:masses              double[1]      Thu Aug 20 16:47:05 2026 
+ scf:energy                            double[1]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:assoc ecp name           char[4]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:angstrom_to_au         double[1]      Thu Aug 20 16:47:05 2026 
+ geometry:geometry:zmt_source            char[2]      Thu Aug 20 16:39:41 2026 
+ geometry:geometry:setting number            int[1]      Thu Aug 20 16:39:41 2026 
+ geometry:autosymm:recip angles         double[3]      Thu Aug 20 16:47:05 2026 
+ basis:ao basis:bs_tags                  char[3]      Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:operators           double[2304]   Thu Aug 20 16:47:05 2026 
+ rtdb:stored:state                    logical[3]      Thu Aug 20 16:47:05 2026 
+ title                                   char[11]     Thu Aug 20 16:47:05 2026 
+ scf:alpha irreps                         int[37]     Thu Aug 20 16:47:05 2026 
+ geometry:autosymm:system type            int[1]      Thu Aug 20 16:47:05 2026 
+ basis:ecp basis:bs_nr_tags               int[1]      Thu Aug 20 16:47:05 2026 
 
 
  HDBM usage statistics
  ---------------------
- Reads         = 827
- Inserts       = 506
- Replaces      = 170
+ Reads         = 967
+ Inserts       = 616
+ Replaces      = 172
  Extracts      = 0
- Deletes       = 1081
- Reuses        = 167
+ Deletes       = 1353
+ Reuses        = 171
 
- Memory allocs = 5390
- Memory frees  = 5390
- Memory max    = 1500881
+ Memory allocs = 6893
+ Memory frees  = 6893
+ Memory max    = 1507954
  Memory in use = 0
 
- IO seeks      = 2380
- IO reads      = 1701
- IO writes     = 1688
- IO nread      = 4445489
- IO nwrite     = 4422569
+ IO seeks      = 2962
+ IO reads      = 2169
+ IO writes     = 2022
+ IO nread      = 4493364
+ IO nwrite     = 4466977
 
  Summary of allocated global arrays
 -----------------------------------
@@ -1046,9 +1078,9 @@ hg_neutral
                          ------------------------------
 
        create   destroy   get      put      acc     scatter   gather  read&inc
-calls:   37       37      421      284       15        0        0       37     
+calls:   37       37      421      284       15        0        0       38     
 number of processes/call 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
-bytes total:             5.82e+05 2.72e+05 5.65e+04 0.00e+00 0.00e+00 2.96e+02
+bytes total:             5.82e+05 2.72e+05 5.65e+04 0.00e+00 0.00e+00 3.04e+02
 bytes remote:            8.38e+04 3.07e+04 3.22e+03 0.00e+00 0.00e+00 0.00e+00
 Max memory consumed for GA by this process: 94040 bytes
 
@@ -1062,7 +1094,7 @@ MA usage statistics:
 	current number of blocks	         0	         0
 	maximum number of blocks	        32	        14
 	current total bytes		         0	         0
-	maximum total bytes		    113792	   9390552
+	maximum total bytes		    113776	   9390568
 	maximum total K-bytes		       114	      9391
 	maximum total M-bytes		         1	        10
 
@@ -1095,11 +1127,11 @@ MA usage statistics:
 		         1  MA_set_error_print
 		         3  MA_set_hard_fail
 		         1  MA_set_numalign
-		      1298  MA_sizeof
+		      1301  MA_sizeof
 		         1  MA_sizeof_overhead
 		         1  MA_summarize_allocated_blocks
 		         0  MA_trace
-		      1999  MA_verify_allocator_stuff
+		      2002  MA_verify_allocator_stuff
 
 
                                      CITATION

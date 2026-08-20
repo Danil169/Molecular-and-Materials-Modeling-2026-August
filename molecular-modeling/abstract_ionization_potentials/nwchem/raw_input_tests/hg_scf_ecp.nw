@@ -2,7 +2,7 @@ title "hg_neutral"
 
 print high
 
-geometry units angstrom nocenter noautosym noautoz
+geometry autosymm
   Hg 0.0000000000000000e+00 0.0000000000000000e+00 0.0000000000000000e+00
 end
 
