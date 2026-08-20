@@ -1,8 +1,8 @@
 title "hg_cation_rohf"
 
-#permanent_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
+permanent_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
 
-#scratch_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
+scratch_dir /home/milias/work/projects/schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/abstract_ionization_potentials/nwchem/rohf-uhf-ccsd/nwchem_tce_ccsd_calculations/nwchem_cation_rohf_tce_ccsd/hg_cation_rohf
 
 start hg_cation_rohf
 
