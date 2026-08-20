@@ -1,0 +1,20 @@
+title "hg_neutral"
+
+geometry units angstrom nocenter noautosym noautoz
+  Hg 0.0000000000000000e+00 0.0000000000000000e+00 0.0000000000000000e+00
+end
+
+basis noprint
+  Hg library def2-svp
+end
+
+input ecp
+  * library def2-svp
+end
+
+scf
+  nopen 0
+end
+
+task scf energy
+
