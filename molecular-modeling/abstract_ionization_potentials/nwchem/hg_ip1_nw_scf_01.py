@@ -1,26 +1,34 @@
 #!/usr/bin/env python
 """
-Pure HF-SCF calculation for Hg ionization energy using ASE-NWChem
+NWChem HF-SCF Calculation for Hg
 - Neutral Hg: RHF (closed-shell, singlet)
 - Cation Hg+: UHF (open-shell, doublet)
 """
 
 from ase import Atoms
 from ase.calculators.nwchem import NWChem
+import os
 
 def run_hf_calculation():
     print("="*70)
     print("NWChem HF-SCF Calculation for Hg")
     print("="*70)
     
+    # Create directory for output
+    os.makedirs('nwchem_scf', exist_ok=True)
+    
     # === Neutral Hg (RHF, singlet) ===
     print("\n--- Neutral Hg (RHF, Singlet) ---")
     hg_neutral = Atoms('Hg', positions=[(0, 0, 0)])
     hg_neutral.calc = NWChem(
+        label='nwchem_scf/hg_neutral',
         theory='scf',
         task='energy',
-        basis='def2-tzvp',      # Triple-zeta valence with polarization
-        # singlet is default for closed-shell
+        basis={'Hg': 'def2-svp'},
+        ecp={'Hg': 'def2-svp'},  # Use ECP for Hg
+        scf__thresh=1.0e-7,
+        scf__maxiter=100,
+        title="Hg Neutral RHF Energy Calculation"
     )
     
     e_neutral = hg_neutral.get_potential_energy()
@@ -30,12 +38,17 @@ def run_hf_calculation():
     print("\n--- Cation Hg+ (UHF, Doublet) ---")
     hg_cation = Atoms('Hg', positions=[(0, 0, 0)])
     hg_cation.calc = NWChem(
+        label='nwchem_scf/hg_cation',
         theory='scf',
         task='energy',
-        basis='def2-tzvp',
-        charge=1,               # Net charge +1
-        uhf=True,               # Unrestricted HF for open-shell
-        mult=2,                 # Doublet state
+        basis={'Hg': 'def2-svp'},
+        ecp={'Hg': 'def2-svp'},  # Use ECP for Hg
+        charge=1,                  # Net charge +1
+        scf__uhf=True,             # UHF flag (becomes "uhf" in input)
+        scf__doublet=True,         # Doublet state (becomes "doublet" in input)
+        scf__thresh=1.0e-7,
+        scf__maxiter=100,
+        title="Hg+ Cation UHF Energy Calculation"
     )
     
     e_cation = hg_cation.get_potential_energy()
