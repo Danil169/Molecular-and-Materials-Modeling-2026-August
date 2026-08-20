@@ -31,6 +31,8 @@ quick check of the software
 python -c "import shutil; [print(f'✅ {x}: Ready') if exec(f'try:\n import {x}\nexcept:\n raise') is None else None for x in ['ase', 'xtb', 'pyscf', 'mace']]; [print(f'✅ {bin}: Ready') if shutil.which(bin) else print(f'❌ {bin}: Not found') for bin in ['mopac', 'xtb', 'nwchem', 'pw.x']]"
 
 
+which xtb; xtb --version
+
 runs
 ----
 python hg_ie_calculation_01.py > hg_ie_calculation_01.py_logfile
