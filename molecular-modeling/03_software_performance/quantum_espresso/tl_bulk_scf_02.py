@@ -207,6 +207,8 @@ def run_benchmark(profile, input_data, pseudopotentials, atoms, nproc, omp_threa
             return performance
         else:
             print(f"❌ Failed to extract performance data")
+            if performance:
+                print(f"   Status: {performance.get('status')}")
             return None
             
     except subprocess.CalledProcessError as e:
@@ -221,7 +223,7 @@ def run_benchmark(profile, input_data, pseudopotentials, atoms, nproc, omp_threa
 def extract_performance(output_file, total_elapsed, nproc, omp_threads):
     """
     Extract performance metrics from pw.out file.
-    Handles both MPI-only and hybrid (MPI+OpenMP) output formats.
+    Handles multiple output formats.
     """
     performance = {
         'timestamp': datetime.now().isoformat(),
@@ -235,20 +237,36 @@ def extract_performance(output_file, total_elapsed, nproc, omp_threads):
         with open(output_file, 'r') as f:
             content = f.read()
         
-        # Try multiple patterns for PWSCF timing
-        # Pattern 1: Standard format with seconds
-        # "PWSCF        :     18.32s CPU     19.57s WALL"
-        pattern1 = r'PWSCF\s*:\s*([\d.]+)s\s+CPU\s+([\d.]+)s\s+WALL'
-        match = re.search(pattern1, content)
+        # Check if JOB DONE is present
+        if "JOB DONE" not in content:
+            performance['status'] = 'incomplete'
+            print(f"Warning: JOB DONE not found in {output_file}")
+            return performance
         
-        if not match:
-            # Pattern 2: Format with minutes and seconds
-            # "PWSCF        :   3m 6.06s CPU   1m 7.80s WALL"
-            pattern2 = r'PWSCF\s*:\s*(?:(\d+)m\s*)?([\d.]+)s\s+CPU\s+(?:(\d+)m\s*)?([\d.]+)s\s+WALL'
-            match = re.search(pattern2, content)
+        # Multiple patterns for PWSCF timing
+        patterns = [
+            # Pattern 1: "PWSCF        :     56.62s CPU     57.27s WALL"
+            r'PWSCF\s*:\s*([\d.]+)s\s+CPU\s+([\d.]+)s\s+WALL',
             
+            # Pattern 2: "PWSCF        :   3m 6.06s CPU   1m 7.80s WALL"
+            r'PWSCF\s*:\s*(?:(\d+)m\s*)?([\d.]+)s\s+CPU\s+(?:(\d+)m\s*)?([\d.]+)s\s+WALL',
+            
+            # Pattern 3: More flexible with spaces
+            r'PWSCF\s*:\s*([\d.]+)\s*s\s+CPU\s+([\d.]+)\s*s\s+WALL',
+            
+            # Pattern 4: With possible extra spaces
+            r'PWSCF\s+:\s+([\d.]+)s\s+CPU\s+([\d.]+)s\s+WALL',
+        ]
+        
+        match = None
+        for pattern in patterns:
+            match = re.search(pattern, content)
             if match:
-                # Parse minutes and seconds for CPU
+                break
+        
+        if match:
+            if len(match.groups()) == 4:
+                # Pattern with minutes and seconds
                 if match.group(1):  # CPU minutes
                     cpu_min = int(match.group(1))
                     cpu_sec = float(match.group(2))
@@ -256,7 +274,6 @@ def extract_performance(output_file, total_elapsed, nproc, omp_threads):
                 else:
                     cpu_time = float(match.group(2))
                 
-                # Parse minutes and seconds for WALL
                 if match.group(3):  # WALL minutes
                     wall_min = int(match.group(3))
                     wall_sec = float(match.group(4))
@@ -268,45 +285,40 @@ def extract_performance(output_file, total_elapsed, nproc, omp_threads):
                 performance['wall_time'] = wall_time
                 performance['efficiency'] = cpu_time / wall_time if wall_time > 0 else 0
                 performance['overhead'] = total_elapsed - wall_time
-                
-                if "JOB DONE" in content:
-                    performance['status'] = 'completed'
-                else:
-                    performance['status'] = 'incomplete'
-        
-        if match:
-            # We already have the data from pattern2
-            pass
-        elif 'match' in locals() and match:
-            # Pattern1 matched
-            cpu_time = float(match.group(1))
-            wall_time = float(match.group(2))
-            performance['cpu_time'] = cpu_time
-            performance['wall_time'] = wall_time
-            performance['efficiency'] = cpu_time / wall_time if wall_time > 0 else 0
-            performance['overhead'] = total_elapsed - wall_time
-            
-            if "JOB DONE" in content:
                 performance['status'] = 'completed'
-            else:
-                performance['status'] = 'incomplete'
-        else:
-            # Try a more general pattern
-            pattern3 = r'PWSCF\s*:\s*([\d.]+)\s*s\s+CPU\s+([\d.]+)\s*s\s+WALL'
-            match = re.search(pattern3, content)
-            if match:
+                
+            elif len(match.groups()) == 2:
+                # Pattern with just seconds
                 cpu_time = float(match.group(1))
                 wall_time = float(match.group(2))
                 performance['cpu_time'] = cpu_time
                 performance['wall_time'] = wall_time
                 performance['efficiency'] = cpu_time / wall_time if wall_time > 0 else 0
                 performance['overhead'] = total_elapsed - wall_time
-                
-                if "JOB DONE" in content:
-                    performance['status'] = 'completed'
-                else:
-                    performance['status'] = 'incomplete'
+                performance['status'] = 'completed'
             else:
+                performance['status'] = 'no_timing'
+                print(f"Warning: Unexpected match groups: {match.groups()}")
+        else:
+            # Try to find timing in the output more flexibly
+            # Look for any line containing "CPU" and "WALL"
+            lines = content.split('\n')
+            for line in lines:
+                if 'CPU' in line and 'WALL' in line and 's' in line:
+                    # Try to extract numbers
+                    numbers = re.findall(r'([\d.]+)s', line)
+                    if len(numbers) >= 2:
+                        # Try to find the PWSCF line specifically
+                        if 'PWSCF' in line:
+                            performance['cpu_time'] = float(numbers[0])
+                            performance['wall_time'] = float(numbers[1])
+                            performance['efficiency'] = float(numbers[0]) / float(numbers[1]) if float(numbers[1]) > 0 else 0
+                            performance['overhead'] = total_elapsed - float(numbers[1])
+                            performance['status'] = 'completed'
+                            print(f"Found timing via fallback: CPU={numbers[0]}s, WALL={numbers[1]}s")
+                            break
+            
+            if performance['status'] != 'completed':
                 performance['status'] = 'no_timing'
                 print(f"Warning: Could not find PWSCF timing in {output_file}")
         
