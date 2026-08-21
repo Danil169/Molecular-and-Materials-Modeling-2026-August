@@ -1,0 +1,1 @@
+/home/milias/miniconda3/envs/molmatmodel/bin/pw.x
