@@ -15,6 +15,38 @@ from pathlib import Path
 # SYSTEM INFORMATION
 # ============================================
 
+def get_total_cores():
+    """
+    Get the total number of available CPU cores.
+    Returns the number of logical cores (threads) available.
+    """
+    try:
+        # Method 1: Use /proc/cpuinfo (Linux)
+        with open('/proc/cpuinfo', 'r') as f:
+            cpuinfo = f.read()
+        cores = re.findall(r'processor\s+:\s+\d+', cpuinfo)
+        if cores:
+            return len(cores)
+    except:
+        pass
+    
+    try:
+        # Method 2: Use os.sched_getaffinity (Linux)
+        return len(os.sched_getaffinity(0))
+    except:
+        pass
+    
+    try:
+        # Method 3: Use multiprocessing
+        import multiprocessing
+        return multiprocessing.cpu_count()
+    except:
+        pass
+    
+    # Fallback
+    print("⚠️  Could not detect number of cores. Using default value 1.")
+    return 1
+
 def print_system_info():
     """Print detailed system information."""
     print("=" * 80)
@@ -38,12 +70,13 @@ def print_system_info():
         print(f"Total CPU cores (logical): {total_cores}")
         
         core_ids = re.findall(r'core id\s+:\s+(\d+)', cpuinfo)
-        unique_cores = len(set(core_ids))
-        print(f"Physical cores: {unique_cores}")
-        
-        siblings = re.findall(r'siblings\s+:\s+(\d+)', cpuinfo)
-        if siblings:
-            print(f"Threads per core: {int(siblings[0]) // unique_cores if unique_cores > 0 else 'N/A'}")
+        if core_ids:
+            unique_cores = len(set(core_ids))
+            print(f"Physical cores: {unique_cores}")
+            
+            siblings = re.findall(r'siblings\s+:\s+(\d+)', cpuinfo)
+            if siblings:
+                print(f"Threads per core: {int(siblings[0]) // unique_cores if unique_cores > 0 else 'N/A'}")
         
         freq_match = re.search(r'cpu MHz\s+:\s+([\d.]+)', cpuinfo)
         if freq_match:
@@ -364,7 +397,7 @@ def print_summary(results):
         if serial:
             serial_time = serial[0]['wall_time']
             print(f"\n📊 Speedup relative to serial (1 MPI, 1 OMP): {serial_time:.2f}s")
-            for r in completed:
+            for r in sorted(completed, key=lambda x: x['wall_time']):
                 speedup = serial_time / r['wall_time']
                 print(f"   MPI={r['nproc']:>2}, OMP={r['omp_threads']:>2}: {speedup:>6.2f}x speedup, {r['wall_time']:>8.2f}s")
 
@@ -416,19 +449,22 @@ def main():
     # DEFINE BENCHMARK PARAMETERS
     # ============================================
     
-    # Get total available cores
-    total_cores = 20
-    try:
-        with open('/proc/cpuinfo', 'r') as f:
-            cores = re.findall(r'processor\s+:\s+\d+', f.read())
-            total_cores = len(cores)
-    except:
-        pass
+    # Get total available cores dynamically from the CPU
+    total_cores = get_total_cores()
     
     # Define MPI process counts to test
-    mpi_values = [1, 2, 4, 8, 16]
-    # Filter to not exceed total cores
-    mpi_values = [m for m in mpi_values if m <= total_cores]
+    # Test powers of 2 up to total_cores
+    mpi_values = []
+    i = 1
+    while i <= total_cores:
+        mpi_values.append(i)
+        i *= 2
+    
+    # Also include total_cores if it's not a power of 2
+    if total_cores not in mpi_values:
+        mpi_values.append(total_cores)
+    
+    mpi_values = sorted(mpi_values)
     
     # Define OpenMP thread counts to test
     omp_values = [1, 2, 4]
