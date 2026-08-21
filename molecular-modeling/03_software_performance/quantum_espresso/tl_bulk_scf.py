@@ -38,18 +38,20 @@ def run_pw_parallel(calc, atoms, nproc=4, mpirun_cmd='mpirun'):
 atoms = bulk('Tl', crystalstructure='hcp', a=3.46, c=5.52)
 
 # 2. Define the pseudopotentials
-# Make sure this file exists in your pseudopotential directory
+# Use the Tl.upf file you have in your current directory
 pseudopotentials = {
-    'Tl': 'Tl.upf'
+    'Tl': 'Tl.upf'  # Using the file you have
 }
 
 # 3. Set input parameters for a two-component calculation
+# IMPORTANT: Check if your Tl.upf is fully relativistic (contains spin-orbit)
+# If not, you'll need to download a relativistic one
 input_data = {
     'system': {
         'ecutwfc': 60.0,
         'ecutrho': 480.0,
-        'noncolin': True,
-        'lspinorb': True,
+        'noncolin': True,  # Enable two-component spinors
+        'lspinorb': True,  # Enable spin-orbit coupling
         'occupations': 'smearing',
         'smearing': 'cold',
         'degauss': 0.01,
@@ -60,16 +62,21 @@ input_data = {
     },
 }
 
-# 4. Configure the Espresso calculator with the correct path
-# Using the path you found with 'which pw.x'
+# 4. Configure the Espresso calculator
 pw_executable = '/home/milias/miniconda3/envs/molmatmodel/bin/pw.x'
 
-# Create an EspressoProfile with the executable path
-profile = EspressoProfile(command=pw_executable)
+# IMPORTANT: EspressoProfile requires both command AND pseudo_dir
+# Set pseudo_dir to the current directory where Tl.upf is located
+pseudo_dir = os.getcwd()  # Current directory where your script and Tl.upf are
+
+profile = EspressoProfile(
+    command=pw_executable,
+    pseudo_dir=pseudo_dir  # Required argument
+)
 
 # Create the Espresso calculator
 calc = Espresso(
-    profile=profile,           # <-- This provides the configuration
+    profile=profile,
     directory='qe_tl_scf',
     input_data=input_data,
     pseudopotentials=pseudopotentials,
@@ -77,9 +84,8 @@ calc = Espresso(
 )
 
 # 5. Run the calculation in parallel
-# Adjust the number of processors as needed
-NPROC = 4  # You can increase this if you have more cores available
-MPI_CMD = 'mpirun'  # Use 'mpiexec' if 'mpirun' doesn't work
+NPROC = 4  # Adjust based on your system
+MPI_CMD = 'mpirun'
 
 run_pw_parallel(calc, atoms, nproc=NPROC, mpirun_cmd=MPI_CMD)
 
