@@ -63,21 +63,35 @@ atoms = Atoms(
 # ==============================================
 # 3. Calculator Configuration
 # ==============================================
+#print("📢 Setting OMP_NUM_THREADS=1 to disable OpenMP parallelization.")
+#os.environ["OMP_NUM_THREADS"] = "1"
+
 # Set QE bin directory
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+#qe_bin = "/opt/espresso/7.5"
+qe_bin = "/home/milias/work/software/qe/qe-7.5/bin"
 
 # Main QE calculation 
 #pw_command = f'{qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 {qe_bin}/pw.x'
+#pw_command = f'mpirun -np 4 pw.x'
 
 # Serial post-processing commands for fast execution
-pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
-dos_command = f"{qe_bin}/bin/dos.x < dos.in > dos.out 2>&1"
+#pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
+pp_command = f"{qe_bin}/pp.x < pp.in > pp.out 2>&1"
+#pp_command = f"pp.x < pp.in > pp.out 2>&1"
+
+#dos_command = f"{qe_bin}/bin/dos.x < dos.in > dos.out 2>&1"
+dos_command = f"{qe_bin}/dos.x < dos.in > dos.out 2>&1"
+#dos_command = f"dos.x < dos.in > dos.out 2>&1"
 
 # Memory intensive Parallel post-processing commands (run in one node only)
 #projwfc_command = f'{qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
-projwfc_command = f'mpirun -np 4 {qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
+#projwfc_command = f'mpirun -np 4 {qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
+projwfc_command = f'mpirun -np 4 {qe_bin}/projwfc.x < projwfc.in > projwfc.out 2>&1'
+#projwfc_command = f'mpirun -np 4 projwfc.x < projwfc.in > projwfc.out 2>&1'
 
 profile = EspressoProfile(
     command=pw_command,
