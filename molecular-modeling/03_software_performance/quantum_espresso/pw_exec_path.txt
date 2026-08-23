@@ -1,1 +1,1 @@
-/home/milias/miniconda3/envs/molmatmodel/bin/pw.x
+/home/miroi/miniconda3/envs/mace_env/bin/pw.x

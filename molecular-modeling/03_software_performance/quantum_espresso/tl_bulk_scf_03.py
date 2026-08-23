@@ -10,6 +10,7 @@ import json
 from datetime import datetime
 import itertools
 from pathlib import Path
+import shutil
 
 # ============================================
 # SYSTEM INFORMATION
@@ -125,31 +126,76 @@ def print_system_info():
 # READ PW.X PATH
 # ============================================
 
-def read_pw_path():
-    """Read pw.x executable path from pw_exec_path.txt."""
+def find_pw_path():
+    """
+    Find pw.x executable path by checking:
+    1. pw_exec_path.txt file
+    2. System PATH
+    3. Common installation locations
+    """
     path_file = 'pw_exec_path.txt'
     
-    if not os.path.exists(path_file):
-        print(f"⚠️  {path_file} not found. Creating with default path...")
-        default_path = '/home/milias/miniconda3/envs/molmatmodel/bin/pw.x'
-        with open(path_file, 'w') as f:
-            f.write(default_path)
-        print(f"Created {path_file} with: {default_path}")
-        return default_path
+    # Check if path file exists
+    if os.path.exists(path_file):
+        try:
+            with open(path_file, 'r') as f:
+                path = f.read().strip()
+            if os.path.exists(path) and os.access(path, os.X_OK):
+                print(f"✓ Found pw.x at: {path} (from {path_file})")
+                return path
+            else:
+                print(f"⚠️  Path in {path_file} not valid or not executable: {path}")
+        except Exception as e:
+            print(f"Error reading {path_file}: {e}")
     
-    try:
-        with open(path_file, 'r') as f:
-            path = f.read().strip()
-        if os.path.exists(path):
-            print(f"✓ Found pw.x at: {path}")
-            return path
+    # Check if pw.x is in PATH
+    pw_in_path = shutil.which('pw.x')
+    if pw_in_path:
+        print(f"✓ Found pw.x in PATH: {pw_in_path}")
+        # Update the path file for future use
+        with open(path_file, 'w') as f:
+            f.write(pw_in_path)
+        return pw_in_path
+    
+    # Check common installation locations
+    common_locations = [
+        '/usr/local/bin/pw.x',
+        '/usr/bin/pw.x',
+        '/opt/quantum_espresso/bin/pw.x',
+        os.path.expanduser('~/qe/bin/pw.x'),
+        os.path.expanduser('~/quantum_espresso/bin/pw.x'),
+        os.path.expanduser('~/miniconda3/envs/mace_env/bin/pw.x'),
+        os.path.expanduser('~/miniconda3/envs/molmatmodel/bin/pw.x'),
+    ]
+    
+    for loc in common_locations:
+        if os.path.exists(loc) and os.access(loc, os.X_OK):
+            print(f"✓ Found pw.x at: {loc}")
+            # Update the path file for future use
+            with open(path_file, 'w') as f:
+                f.write(loc)
+            return loc
+    
+    # If still not found, ask the user
+    print("\n❌ Could not find pw.x automatically.")
+    print("Please enter the full path to your pw.x executable:")
+    print("(e.g., /home/user/miniconda3/envs/mace_env/bin/pw.x)")
+    
+    while True:
+        user_path = input("Path to pw.x: ").strip()
+        if os.path.exists(user_path) and os.access(user_path, os.X_OK):
+            print(f"✓ Found pw.x at: {user_path}")
+            # Save to file for future use
+            with open(path_file, 'w') as f:
+                f.write(user_path)
+            return user_path
         else:
-            print(f"⚠️  pw.x not found at: {path}")
-            print("Please update pw_exec_path.txt with the correct path.")
-            sys.exit(1)
-    except Exception as e:
-        print(f"Error reading {path_file}: {e}")
-        sys.exit(1)
+            print(f"❌ Invalid path: {user_path}")
+            print("Please provide a valid path to the pw.x executable.")
+    
+    # Fallback - try just using 'pw.x' and hope it's in PATH
+    print("⚠️  Using 'pw.x' from PATH (may fail if not available)")
+    return 'pw.x'
 
 # ============================================
 # PERFORMANCE BENCHMARK
@@ -422,8 +468,8 @@ def main():
     # Print system information
     print_system_info()
     
-    # Read pw.x path
-    pw_executable = read_pw_path()
+    # Find pw.x executable
+    pw_executable = find_pw_path()
     
     # Set up the Thallium crystal structure
     print("\nSetting up Thallium calculation with spin-orbit coupling...")
