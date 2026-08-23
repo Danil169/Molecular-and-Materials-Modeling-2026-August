@@ -574,7 +574,7 @@ def main():
     input_data = {
         'system': {
             'ecutwfc': 60.0,
-            'ecutrho': 480.0,
+           # 'ecutrho': 480.0,
             'noncolin': True,
             'lspinorb': True,
             'occupations': 'smearing',
