@@ -1,0 +1,129 @@
+(mace_env) miroi@MIRO:~/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/03_software_performance/quantum_espresso/.python tl_bulk_scf_04.py
+================================================================================
+SYSTEM INFORMATION
+================================================================================
+Platform: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+Processor: x86_64
+CPU Model: 12th Gen Intel(R) Core(TM) i5-12450H
+Total CPU cores (logical): 12
+Physical cores: 6
+Threads per core: 2
+CPU Frequency: 2496 MHz
+Total Memory: 7.6 GB
+================================================================================
+
+✓ Found pw.x at: /home/miroi/miniconda3/envs/mace_env/bin/pw.x (from pw_configure.txt)
+
+Setting up Thallium calculation with spin-orbit coupling...
+Created bulk Thallium with 2 atoms
+
+================================================================================
+CPU CORE INFORMATION
+================================================================================
+Physical cores: 6
+Logical cores (with hyper-threading): 12
+================================================================================
+
+================================================================================
+BENCHMARK CONFIGURATION
+================================================================================
+Physical cores: 6
+Logical cores: 12
+Number of benchmarks to run: 6
+MPI values: [1]
+OMP values: [1, 2, 3, 4, 5, 6]
+Combinations: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]
+================================================================================
+
+📊 Benchmark 1/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=1
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp1/espresso.pwi > qe_benchmark_mpi1_omp1/pw.out
+✅ Benchmark completed: MPI=1, OMP=1
+   Wall Time: 68.05s
+   Efficiency: 0.98x
+
+📊 Benchmark 2/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=2
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp2/espresso.pwi > qe_benchmark_mpi1_omp2/pw.out
+✅ Benchmark completed: MPI=1, OMP=2
+   Wall Time: 82.11s
+   Efficiency: 2.84x
+
+📊 Benchmark 3/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=3
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp3/espresso.pwi > qe_benchmark_mpi1_omp3/pw.out
+✅ Benchmark completed: MPI=1, OMP=3
+   Wall Time: 97.08s
+   Efficiency: 4.74x
+
+📊 Benchmark 4/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=4
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp4/espresso.pwi > qe_benchmark_mpi1_omp4/pw.out
+✅ Benchmark completed: MPI=1, OMP=4
+   Wall Time: 107.86s
+   Efficiency: 6.60x
+
+📊 Benchmark 5/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=5
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp5/espresso.pwi > qe_benchmark_mpi1_omp5/pw.out
+✅ Benchmark completed: MPI=1, OMP=5
+   Wall Time: 116.34s
+   Efficiency: 8.44x
+
+📊 Benchmark 6/6
+
+============================================================
+BENCHMARK: MPI=1, OMP=6
+============================================================
+Command: /home/miroi/miniconda3/envs/mace_env/bin/pw.x -i qe_benchmark_mpi1_omp6/espresso.pwi > qe_benchmark_mpi1_omp6/pw.out
+✅ Benchmark completed: MPI=1, OMP=6
+   Wall Time: 146.46s
+   Efficiency: 9.91x
+
+✓ Results saved to benchmark_results.json
+
+================================================================================
+BENCHMARK SUMMARY
+================================================================================
+   MPI    OMP    Wall Time   Efficiency       Status
+--------------------------------------------------------------------------------
+     1      1        68.05s         0.98x    completed
+     1      2        82.11s         2.84x    completed
+     1      3        97.08s         4.74x    completed
+     1      4       107.86s         6.60x    completed
+     1      5       116.34s         8.44x    completed
+     1      6       146.46s         9.91x    completed
+================================================================================
+
+🏆 Fastest calculation: MPI=1, OMP=1
+   Wall Time: 68.05s
+   Efficiency: 0.98x
+
+🏆 Best efficiency: MPI=1, OMP=6
+   Efficiency: 9.91x
+   Wall Time: 146.46s
+
+📊 Speedup relative to serial (1 MPI, 1 OMP): 68.05s
+   MPI= 1, OMP= 1:   1.00x speedup,    68.05s
+   MPI= 1, OMP= 2:   0.83x speedup,    82.11s
+   MPI= 1, OMP= 3:   0.70x speedup,    97.08s
+   MPI= 1, OMP= 4:   0.63x speedup,   107.86s
+   MPI= 1, OMP= 5:   0.58x speedup,   116.34s
+   MPI= 1, OMP= 6:   0.46x speedup,   146.46s
+
+=== BENCHMARK FINISHED ===
