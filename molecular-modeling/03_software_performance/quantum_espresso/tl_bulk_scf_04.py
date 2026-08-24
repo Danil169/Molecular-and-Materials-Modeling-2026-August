@@ -573,7 +573,8 @@ def main():
     # Input parameters
     input_data = {
         'system': {
-            'ecutwfc': 60.0,
+           # 'ecutwfc': 60.0,
+            'ecutwfc': 40.0,
            # 'ecutrho': 480.0,
             'noncolin': True,
             'lspinorb': True,

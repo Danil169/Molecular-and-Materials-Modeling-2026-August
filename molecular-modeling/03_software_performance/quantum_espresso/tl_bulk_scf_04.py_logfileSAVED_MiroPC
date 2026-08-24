@@ -1,0 +1,116 @@
+================================================================================
+SYSTEM INFORMATION
+================================================================================
+Platform: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+Processor: x86_64
+CPU Model: 12th Gen Intel(R) Core(TM) i7-12700K
+Total CPU cores (logical): 20
+Physical cores: 10
+Threads per core: 2
+CPU Frequency: 3610 MHz
+Total Memory: 15.5 GB
+================================================================================
+
+✓ Found pw.x at: /home/milias/miniconda3/envs/molmatmodel/bin/pw.x (from pw_configure.txt)
+
+Setting up Thallium calculation with spin-orbit coupling...
+Created bulk Thallium with 2 atoms
+
+================================================================================
+CPU CORE INFORMATION
+================================================================================
+Physical cores: 10
+Logical cores (with hyper-threading): 20
+================================================================================
+
+================================================================================
+BENCHMARK CONFIGURATION
+================================================================================
+Physical cores: 10
+Logical cores: 20
+Number of benchmarks to run: 5
+MPI values: [1, 2, 4, 8, 10]
+OMP values: [1]
+Combinations: [(1, 1), (2, 1), (4, 1), (8, 1), (10, 1)]
+================================================================================
+
+📊 Benchmark 1/5
+
+============================================================
+BENCHMARK: MPI=1, OMP=1
+============================================================
+Command: /home/milias/miniconda3/envs/molmatmodel/bin/pw.x -i qe_benchmark_mpi1_omp1/espresso.pwi > qe_benchmark_mpi1_omp1/pw.out
+✅ Benchmark completed: MPI=1, OMP=1
+   Wall Time: 32.65s
+   Efficiency: 0.99x
+
+📊 Benchmark 2/5
+
+============================================================
+BENCHMARK: MPI=2, OMP=1
+============================================================
+Command: mpirun  -np 2 /home/milias/miniconda3/envs/molmatmodel/bin/pw.x -i qe_benchmark_mpi2_omp1/espresso.pwi > qe_benchmark_mpi2_omp1/pw.out
+✅ Benchmark completed: MPI=2, OMP=1
+   Wall Time: 21.70s
+   Efficiency: 0.96x
+
+📊 Benchmark 3/5
+
+============================================================
+BENCHMARK: MPI=4, OMP=1
+============================================================
+Command: mpirun  -np 4 /home/milias/miniconda3/envs/molmatmodel/bin/pw.x -i qe_benchmark_mpi4_omp1/espresso.pwi > qe_benchmark_mpi4_omp1/pw.out
+✅ Benchmark completed: MPI=4, OMP=1
+   Wall Time: 12.53s
+   Efficiency: 0.93x
+
+📊 Benchmark 4/5
+
+============================================================
+BENCHMARK: MPI=8, OMP=1
+============================================================
+Command: mpirun  -np 8 /home/milias/miniconda3/envs/molmatmodel/bin/pw.x -i qe_benchmark_mpi8_omp1/espresso.pwi > qe_benchmark_mpi8_omp1/pw.out
+✅ Benchmark completed: MPI=8, OMP=1
+   Wall Time: 9.25s
+   Efficiency: 0.97x
+
+📊 Benchmark 5/5
+
+============================================================
+BENCHMARK: MPI=10, OMP=1
+============================================================
+Command: mpirun  -np 10 /home/milias/miniconda3/envs/molmatmodel/bin/pw.x -i qe_benchmark_mpi10_omp1/espresso.pwi > qe_benchmark_mpi10_omp1/pw.out
+✅ Benchmark completed: MPI=10, OMP=1
+   Wall Time: 12.68s
+   Efficiency: 0.98x
+
+✓ Results saved to benchmark_results.json
+
+================================================================================
+BENCHMARK SUMMARY
+================================================================================
+   MPI    OMP    Wall Time   Efficiency       Status
+--------------------------------------------------------------------------------
+     1      1        32.65s         0.99x    completed
+     2      1        21.70s         0.96x    completed
+     4      1        12.53s         0.93x    completed
+     8      1         9.25s         0.97x    completed
+    10      1        12.68s         0.98x    completed
+================================================================================
+
+🏆 Fastest calculation: MPI=8, OMP=1
+   Wall Time: 9.25s
+   Efficiency: 0.97x
+
+🏆 Best efficiency: MPI=1, OMP=1
+   Efficiency: 0.99x
+   Wall Time: 32.65s
+
+📊 Speedup relative to serial (1 MPI, 1 OMP): 32.65s
+   MPI= 8, OMP= 1:   3.53x speedup,     9.25s
+   MPI= 4, OMP= 1:   2.61x speedup,    12.53s
+   MPI=10, OMP= 1:   2.57x speedup,    12.68s
+   MPI= 2, OMP= 1:   1.50x speedup,    21.70s
+   MPI= 1, OMP= 1:   1.00x speedup,    32.65s
+
+=== BENCHMARK FINISHED ===
