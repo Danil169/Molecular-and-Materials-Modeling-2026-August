@@ -41,7 +41,7 @@ BENCHMARK: MPI=1, OMP=1
 ============================================================
 Command: /home/milias/work/software/qe/qe-7.5/bin/pw.x -i qe_benchmark_mpi1_omp1/espresso.pwi > qe_benchmark_mpi1_omp1/pw.out
 ✅ Benchmark completed: MPI=1, OMP=1
-   Wall Time: 33.38s
+   Wall Time: 33.69s
    Efficiency: 0.99x
 
 📊 Benchmark 2/5
@@ -51,8 +51,8 @@ BENCHMARK: MPI=2, OMP=1
 ============================================================
 Command: mpirun  -np 2 /home/milias/work/software/qe/qe-7.5/bin/pw.x -i qe_benchmark_mpi2_omp1/espresso.pwi > qe_benchmark_mpi2_omp1/pw.out
 ✅ Benchmark completed: MPI=2, OMP=1
-   Wall Time: 34.04s
-   Efficiency: 0.99x
+   Wall Time: 21.52s
+   Efficiency: 0.98x
 
 📊 Benchmark 3/5
 
@@ -61,8 +61,8 @@ BENCHMARK: MPI=4, OMP=1
 ============================================================
 Command: mpirun  -np 4 /home/milias/work/software/qe/qe-7.5/bin/pw.x -i qe_benchmark_mpi4_omp1/espresso.pwi > qe_benchmark_mpi4_omp1/pw.out
 ✅ Benchmark completed: MPI=4, OMP=1
-   Wall Time: 34.33s
-   Efficiency: 0.99x
+   Wall Time: 12.59s
+   Efficiency: 0.94x
 
 📊 Benchmark 4/5
 
@@ -71,8 +71,8 @@ BENCHMARK: MPI=8, OMP=1
 ============================================================
 Command: mpirun  -np 8 /home/milias/work/software/qe/qe-7.5/bin/pw.x -i qe_benchmark_mpi8_omp1/espresso.pwi > qe_benchmark_mpi8_omp1/pw.out
 ✅ Benchmark completed: MPI=8, OMP=1
-   Wall Time: 35.42s
-   Efficiency: 0.99x
+   Wall Time: 8.06s
+   Efficiency: 0.97x
 
 📊 Benchmark 5/5
 
@@ -81,8 +81,8 @@ BENCHMARK: MPI=10, OMP=1
 ============================================================
 Command: mpirun  -np 10 /home/milias/work/software/qe/qe-7.5/bin/pw.x -i qe_benchmark_mpi10_omp1/espresso.pwi > qe_benchmark_mpi10_omp1/pw.out
 ✅ Benchmark completed: MPI=10, OMP=1
-   Wall Time: 41.98s
-   Efficiency: 0.99x
+   Wall Time: 11.75s
+   Efficiency: 0.98x
 
 ✓ Results saved to benchmark_results.json
 
@@ -91,22 +91,26 @@ BENCHMARK SUMMARY
 ================================================================================
    MPI    OMP    Wall Time   Efficiency       Status
 --------------------------------------------------------------------------------
-     1      1        33.38s         0.99x    completed
-     2      1        34.04s         0.99x    completed
-     4      1        34.33s         0.99x    completed
-     8      1        35.42s         0.99x    completed
-    10      1        41.98s         0.99x    completed
+     1      1        33.69s         0.99x    completed
+     2      1        21.52s         0.98x    completed
+     4      1        12.59s         0.94x    completed
+     8      1         8.06s         0.97x    completed
+    10      1        11.75s         0.98x    completed
 ================================================================================
 
-🏆 Fastest calculation: MPI=1, OMP=1
-   Wall Time: 33.38s
-   Efficiency: 0.99x
+🏆 Fastest calculation: MPI=8, OMP=1
+   Wall Time: 8.06s
+   Efficiency: 0.97x
 
-📊 Speedup relative to serial (1 MPI, 1 OMP): 33.38s
-   MPI= 1, OMP= 1:   1.00x speedup,    33.38s
-   MPI= 2, OMP= 1:   0.98x speedup,    34.04s
-   MPI= 4, OMP= 1:   0.97x speedup,    34.33s
-   MPI= 8, OMP= 1:   0.94x speedup,    35.42s
-   MPI=10, OMP= 1:   0.80x speedup,    41.98s
+🏆 Best efficiency: MPI=1, OMP=1
+   Efficiency: 0.99x
+   Wall Time: 33.69s
+
+📊 Speedup relative to serial (1 MPI, 1 OMP): 33.69s
+   MPI= 8, OMP= 1:   4.18x speedup,     8.06s
+   MPI=10, OMP= 1:   2.87x speedup,    11.75s
+   MPI= 4, OMP= 1:   2.68x speedup,    12.59s
+   MPI= 2, OMP= 1:   1.57x speedup,    21.52s
+   MPI= 1, OMP= 1:   1.00x speedup,    33.69s
 
 === BENCHMARK FINISHED ===
