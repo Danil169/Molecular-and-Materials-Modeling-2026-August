@@ -3,9 +3,9 @@ Materials Modeling
 ~~~~~~~~~~~~
 **Working files Hubrid School on Molecular and Materials Modeling.**
 
-source ~/work/software/venv/bin/activate
+**source ~/work/software/venv/bin/activate**
 
-/home/milias/work/software/qe/qe-7.5/bin
+**/home/milias/work/software/qe/qe-7.5/bin**
 
 ~~~~~~~~~~~~
 Requirements:
@@ -33,23 +33,16 @@ Requirements:
 Structure and potentials:
 ~~~~~~~~~~~~
 (1) Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
-
 (2) Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
-
 (3) Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
-
 (4) Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. 
-
 (5) DOS Plotting scripts provided: ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
 
-For converting crystal structures to QE format, various online/ offline tools can be used.
+**For converting crystal structures to QE format, various online/ offline tools can be used.**
 
 (1) https://qeinputgenerator.materialscloud.io/ 
-
 (2) https://seekpath.materialscloud.io/ 
-
 (3) VESTA
-
 (4) ASE
 
 ~~~~~~~~~~~~
