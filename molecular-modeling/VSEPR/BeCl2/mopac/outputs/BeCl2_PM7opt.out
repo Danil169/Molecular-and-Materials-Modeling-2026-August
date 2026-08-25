@@ -1,0 +1,198 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.2.3                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Thu Feb 19 12:23:00 2026  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  SINGLET    - SPIN STATE DEFINED AS A SINGLET
+ *  PDBOUT     - PRINT GEOMETRY IN PDB FORMAT
+ *  RHF        - RESTRICTED HARTREE-FOCK CALCULATION
+ *  RESIDUES   - DETERMINE THE SEQUENCE OF RESIDUES
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = 0
+ *
+ *
+ *
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *  LARGE      - EXPANDED OUTPUT TO BE PRINTED
+ *******************************************************************************
+ PRECISE AUX LARGE CHARGE=0 SINGLET  PM7  PDBOUT RHF
+ BeCl2 | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1      Be         -0.69749100  *   1.12821000  *   0.00000000  *
+     2      Cl         -2.82458000  *   0.01814300  *   0.00000400  *
+     3      Cl          1.84330700  *  -0.54873200  *   0.08243600  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1        Be         -0.6975      1.1282      0.0000
+     2        Cl         -2.8246      0.0181      0.0000
+     3        Cl          1.8433     -0.5487      0.0824
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: Be Cl2  =     3 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   Cs  
+
+
+ SINGLET STATE CALCULATION
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 8
+
+
+          Geometry optimization using EF
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.012 TIME LEFT:  2.00D  GRAD.:   133.393 HEAT:  79.64753
+ CYCLE:     2 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:   140.610 HEAT:  54.81150
+ CYCLE:     3 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:   123.663 HEAT:  28.80330
+ CYCLE:     4 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:   210.798 HEAT:  3.190589
+ CYCLE:     5 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:   180.572 HEAT: -22.35670
+ CYCLE:     6 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:   128.692 HEAT: -30.13139
+ CYCLE:     7 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    95.549 HEAT: -50.61073
+ CYCLE:     8 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:    96.555 HEAT: -59.01963
+ CYCLE:     9 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    22.873 HEAT: -61.64496
+ CYCLE:    10 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    18.355 HEAT: -61.73777
+ CYCLE:    11 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     7.783 HEAT: -61.98532
+ CYCLE:    12 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     8.133 HEAT: -62.04345
+ CYCLE:    13 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    18.350 HEAT: -62.42613
+ CYCLE:    14 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    15.976 HEAT: -62.78517
+ CYCLE:    15 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     3.289 HEAT: -63.00120
+ CYCLE:    16 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     1.284 HEAT: -63.00830
+ CYCLE:    17 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.582 HEAT: -63.01228
+ CYCLE:    18 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.048 HEAT: -63.01248
+
+     GRADIENT =  0.04825 IS LESS THAN CUTOFF =  0.05000
+
+
+
+ -------------------------------------------------------------------------------
+ PRECISE AUX LARGE CHARGE=0 SINGLET  PM7  PDBOUT RHF
+ BeCl2 | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.2.3 Linux
+                                                       Thu Feb 19 12:23:00 2026
+
+
+
+
+          FINAL HEAT OF FORMATION =        -63.01248 KCAL/MOL =    -263.64421 KJ/MOL
+
+
+          COSMO AREA              =        100.79 SQUARE ANGSTROMS
+          COSMO VOLUME            =         85.01 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.04825          =       0.02786 PER ATOM
+          IONIZATION POTENTIAL    =         11.903443 EV
+          HOMO LUMO ENERGIES (EV) =        -11.903 -0.139
+          NO. OF FILLED LEVELS    =          8
+          MOLECULAR WEIGHT        =         79.9182         POINT GROUP:  D*h 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+           Cl     3   Cl     2     3.62281
+           Be     1   Cl     2     0.00033
+           Be     1   Cl     3     0.00000
+
+
+          SCF CALCULATIONS        =         23
+ 
+          WALL-CLOCK TIME         =      0.098 SECONDS
+          COMPUTATION TIME        =      0.303 SECONDS
+
+
+
+
+   ATOM                 CHEMICAL                   X               Y               Z
+  NUMBER                 SYMBOL               (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1      Be(HETATM    1 BE    BE A   1)   -0.53227640  *   0.01553121  *   0.03291381  *
+     2      Cl(HETATM    2 CL    CL B   2)   -2.32902453  *   0.24300933  *   0.00092963  *
+     3      Cl(HETATM    3 CL    CL C   3)    1.26445309  *  -0.21260429  *   0.06491578  *
+
+                             CARTESIAN COORDINATES
+
+   1   Be       -0.532276401     0.015531209     0.032913813
+   2   Cl       -2.329024532     0.243009328     0.000929625
+   3   Cl        1.264453095    -0.212604293     0.064915781
+
+
+           Empirical Formula: Be Cl2  =     3 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   D*h 
+
+
+                  EIGENVALUES  
+ -26.27102 -26.23642 -14.38646 -14.14086 -12.33462 -12.33462 -11.90344 -11.90344
+  -0.13919   1.44184   1.44184   2.58666  69.82070  69.90100  69.90100  70.36158
+  71.02648  71.02648  71.32233  71.32233  71.71177  71.71177
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.                 TYPE                        CHARGE      No. of ELECS.   s-Pop       p-Pop       d-Pop       
+    1         Be(HETATM    1 BE    BE A   1)           0.697657        1.3023     0.60173     0.70061
+    2         Cl(HETATM    2 CL    CL B   2)          -0.348810        7.3488     1.98601     5.36190     0.00089
+    3         Cl(HETATM    3 CL    CL C   3)          -0.348847        7.3488     1.98601     5.36194     0.00089
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -0.000     0.001    -0.000     0.001
+ HYBRID         0.000     0.000    -0.000     0.000
+ SUM           -0.000     0.002    -0.000     0.002
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+                   Atom                  s        px        py        pz      x^2-y^2     xz        z^2       yz        xy
+  Be(HETATM    1 BE    BE A   1)   0.60173   0.53405   0.08686   0.07970
+  Cl(HETATM    2 CL    CL B   2)   1.98601   1.45027   1.95181   1.95982   0.00031   0.00023   0.00011   0.00000   0.00024
+  Cl(HETATM    3 CL    CL C   3)   1.98601   1.45034   1.95177   1.95983   0.00031   0.00023   0.00011   0.00000   0.00024
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.10 SECONDS
+
+ == MOPAC DONE ==

@@ -1,0 +1,1446 @@
+ argument  1 = BF3.b3lyp_geomopt.nw
+
+
+
+============================== echo of input deck ==============================
+echo
+
+start molecule
+
+title "BF3 | Equilibrium Geometry | B3LYP/6-31G(d)"
+charge 0
+
+print low
+
+geometry units angstroms print xyz autosym
+B     -3.405764    0.080870   -0.561701
+F     -4.182413    0.858108   -0.613469
+F     -3.922955   -0.841549   -0.864469
+F     -2.319600    0.221784   -0.459450
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq
+================================================================================
+
+
+                                         
+                                         
+
+
+             Northwest Computational Chemistry Package (NWChem) 7.0.2
+             --------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2020
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = DESKTOP-7OTLCGO
+    program         = nwchem
+    date            = Tue Aug 26 14:54:22 2025
+
+    compiled        = Sat_Apr_09_17:12:10_2022
+    source          = /build/nwchem-f1f4gx/nwchem-7.0.2/build-openmpi
+    nwchem branch   = 7.0.2
+    nwchem revision = N/A
+    ga revision     = 5.8.1
+    use scalapack   = T
+    input           = BF3.b3lyp_geomopt.nw
+    prefix          = molecule.
+    data base       = ./molecule.db
+    status          = startup
+    nproc           =        8
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =   13107198 doubles =    100.0 Mbytes
+    stack    =   13107195 doubles =    100.0 Mbytes
+    global   =   26214400 doubles =    200.0 Mbytes (distinct from heap & stack)
+    total    =   52428793 doubles =    400.0 Mbytes
+    verify   = yes
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+                    -------------------------------------------
+
+ Scaling coordinates for geometry "geometry" by  1.889725989
+ (inverse scale =  0.529177249)
+
+
+          ------
+          auto-z
+          ------
+  Looking for out-of-plane bends
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 B                    5.0000     0.00403022    -0.06863653     0.06099554
+    2 F                    9.0000     0.85970911     0.61886316    -0.01056090
+    3 F                    9.0000    -0.87753950     0.58538747    -0.01041344
+    4 F                    9.0000     0.01559138    -1.16611922    -0.01291207
+
+      Atomic Mass 
+      ----------- 
+
+      B                 11.009310
+      F                 18.998400
+
+
+ Effective nuclear repulsion energy (a.u.)     133.1224478004
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000     0.0000000000
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value
+      ----------- --------  ----- ----- ----- ----- ----- ----------
+    1 Stretch                  1     2                       1.09998
+    2 Stretch                  1     3                       1.10001
+    3 Stretch                  1     4                       1.10003
+    4 Bend                     2     1     3               104.33538
+    5 Bend                     2     1     4               127.66302
+    6 Bend                     3     1     4               126.67314
+    7 Torsion                  2     1     3     4         167.57906
+    8 Torsion                  2     1     4     3        -164.73690
+    9 Torsion                  3     1     2     4        -167.41262
+   10 Torsion                  2     4     1     3         164.73690
+   11 Torsion                  3     2     1     4         167.41262
+   12 Torsion                  2     3     1     4        -167.57906
+
+
+            XYZ format geometry
+            -------------------
+     4
+ geometry
+ B                     0.00403022    -0.06863653     0.06099554
+ F                     0.85970911     0.61886316    -0.01056090
+ F                    -0.87753950     0.58538747    -0.01041344
+ F                     0.01559138    -1.16611922    -0.01291207
+
+ ==============================================================================
+                                internuclear distances
+ ------------------------------------------------------------------------------
+       center one      |      center two      | atomic units |  angstroms
+ ------------------------------------------------------------------------------
+    2 F                |   1 B                |     2.07867  |     1.09998
+    3 F                |   1 B                |     2.07871  |     1.10001
+    4 F                |   1 B                |     2.07875  |     1.10003
+ ------------------------------------------------------------------------------
+                         number of included internuclear distances:          3
+ ==============================================================================
+
+
+
+ ==============================================================================
+                                 internuclear angles
+ ------------------------------------------------------------------------------
+        center 1       |       center 2       |       center 3       |  degrees
+ ------------------------------------------------------------------------------
+    2 F                |   1 B                |   3 F                |   104.34
+    2 F                |   1 B                |   4 F                |   127.66
+    3 F                |   1 B                |   4 F                |   126.67
+ ------------------------------------------------------------------------------
+                            number of included internuclear angles:          3
+ ==============================================================================
+
+
+
+
+
+ Summary of "ao basis" -> "" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                           6-31G*                   on all atoms 
+
+
+
+
+                           NWChem Geometry Optimization
+                           ----------------------------
+
+
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+  no constraints, skipping    0.0000000000000000     
+ maximum gradient threshold         (gmax) =   0.000450
+ rms gradient threshold             (grms) =   0.000300
+ maximum cartesian step threshold   (xmax) =   0.001800
+ rms cartesian step threshold       (xrms) =   0.001200
+ fixed trust radius                (trust) =   0.300000
+ maximum step size to saddle      (sadstp) =   0.100000
+ energy precision                  (eprec) =   5.0D-06
+ maximum number of steps          (nptopt) =   20
+ initial hessian option           (inhess) =    0
+ line search option               (linopt) =    1
+ hessian update option            (modupd) =    1
+ saddle point option              (modsad) =    0
+ initial eigen-mode to follow     (moddir) =    0
+ initial variable to follow       (vardir) =    0
+ follow first negative mode     (firstneg) =    T
+ apply conjugacy                    (opcg) =    F
+ source of zmatrix                         =   autoz   
+
+
+          -------------------
+          Energy Minimization
+          -------------------
+
+
+ Names of Z-matrix variables 
+    1              2              3              4              5         
+    6              7              8              9             10         
+   11             12         
+
+ Variables with the same non-blank name are constrained to be equal
+
+
+ Using diagonal initial Hessian 
+ Scaling for Hessian diagonals: bonds = 1.00  angles = 0.25  torsions = 0.10
+
+          --------
+          Step   0
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+                      Basis "ao basis" -> "ao basis" (cartesian)
+                      -----
+  B (Boron)
+  ---------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  2.06888230E+03  0.001866
+  1 S  3.10649570E+02  0.014252
+  1 S  7.06830330E+01  0.069552
+  1 S  1.98610800E+01  0.232573
+  1 S  6.29930480E+00  0.467079
+  1 S  2.12702700E+00  0.363431
+
+  2 S  4.72797100E+00 -0.130394
+  2 S  1.19033770E+00 -0.130789
+  2 S  3.59411700E-01  1.130944
+
+  3 P  4.72797100E+00  0.074598
+  3 P  1.19033770E+00  0.307847
+  3 P  3.59411700E-01  0.743457
+
+  4 S  1.26751200E-01  1.000000
+
+  5 P  1.26751200E-01  1.000000
+
+  6 D  6.00000000E-01  1.000000
+
+  F (Fluorine)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  7.00171309E+03  0.001820
+  1 S  1.05136609E+03  0.013916
+  1 S  2.39285690E+02  0.068405
+  1 S  6.73974453E+01  0.233186
+  1 S  2.15199573E+01  0.471267
+  1 S  7.40310130E+00  0.356619
+
+  2 S  2.08479528E+01 -0.108507
+  2 S  4.80830834E+00 -0.146452
+  2 S  1.34406986E+00  1.128689
+
+  3 P  2.08479528E+01  0.071629
+  3 P  4.80830834E+00  0.345912
+  3 P  1.34406986E+00  0.722470
+
+  4 S  3.58151393E-01  1.000000
+
+  5 P  3.58151393E-01  1.000000
+
+  6 D  8.00000000E-01  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ B                           6-31G*                  6       15   3s2p1d
+ F                           6-31G*                  6       15   3s2p1d
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      0.1
+   Time prior to 1st pass:      0.1
+  Resetting Diis
+
+
+         Total DFT energy =     -324.290187261973
+      One electron energy =     -715.053098817899
+           Coulomb energy =      293.728519935820
+    Exchange-Corr. energy =      -36.088056180329
+ Nuclear repulsion energy =      133.122447800435
+
+ Numeric. integr. density =       32.000002570600
+
+     Total iterative time =      0.4s
+
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.007616  -0.129704   0.115265   -0.001661   0.028343  -0.038110
+   2 F       1.624615   1.169482  -0.019957   -0.472945  -0.244468   0.012164
+   3 F      -1.658309   1.106222  -0.019679    0.481820  -0.229046   0.012023
+   4 F       0.029463  -2.203646  -0.024400   -0.007214   0.445170   0.013923
+
+  no constraints, skipping    0.0000000000000000     
+
+@ Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+@ ---- ---------------- -------- -------- -------- -------- -------- --------
+@    0    -324.29018726  0.0D+00  0.52311  0.25039  0.00000  0.00000      0.6
+                                                                    
+
+ Restricting large step in mode    3 eval= 7.3D-02 step= 1.3D+00 new= 3.0D-01
+ Restricting large step in mode    4 eval= 7.2D-01 step= 6.1D-01 new= 3.0D-01
+ Restricting large step in mode    5 eval= 7.3D-01 step= 7.2D-01 new= 3.0D-01
+ Restricting large step in mode    6 eval= 7.3D-01 step= 7.2D-01 new= 3.0D-01
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      0.6
+   Time prior to 1st pass:      0.6
+
+
+         Total DFT energy =     -324.536202833498
+      One electron energy =     -681.627641997347
+           Coulomb energy =      276.860856857217
+    Exchange-Corr. energy =      -35.696829699331
+ Nuclear repulsion energy =      115.927412005963
+
+ Numeric. integr. density =       31.999999568005
+
+     Total iterative time =      0.3s
+
+
+ Line search: 
+     step= 1.00 grad=-4.8D-01 hess= 2.3D-01 energy=   -324.536203 mode=accept  
+ new step= 1.00                   predicted energy=   -324.536203
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   1
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -324.536202833498
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B      -0.003056  -0.083764   0.102035   -0.000742  -0.012233   0.012878
+   2 F       1.950109   1.268813  -0.015178   -0.082129  -0.029981  -0.004371
+   3 F      -1.991840   1.216053  -0.014018    0.082893  -0.026039  -0.004408
+   4 F       0.048171  -2.458749  -0.021610   -0.000022   0.068253  -0.004098
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    1    -324.53620283 -2.5D-01  0.08427  0.04001  0.16066  0.34157      1.1
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      1.1
+   Time prior to 1st pass:      1.1
+
+
+         Total DFT energy =     -324.548558386961
+      One electron energy =     -676.541304577503
+           Coulomb energy =      274.298418510237
+    Exchange-Corr. energy =      -35.643743223153
+ Nuclear repulsion energy =      113.338070903457
+
+ Numeric. integr. density =       31.999997880647
+
+     Total iterative time =      0.3s
+
+
+ Line search: 
+     step= 1.00 grad=-1.7D-02 hess= 4.8D-03 energy=   -324.548558 mode=downhill
+ new step= 1.78                   predicted energy=   -324.551475
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   2
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      1.5
+   Time prior to 1st pass:      1.5
+
+
+         Total DFT energy =     -324.552283603650
+      One electron energy =     -672.858021319466
+           Coulomb energy =      272.447896973598
+    Exchange-Corr. energy =      -35.605524155161
+ Nuclear repulsion energy =      111.463364897379
+
+ Numeric. integr. density =       31.999998577170
+
+     Total iterative time =      0.3s
+
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.002022  -0.012804   0.075275   -0.000809  -0.003104   0.012991
+   2 F       2.127707   1.253091  -0.005343   -0.007503  -0.005443  -0.004404
+   3 F      -2.162919   1.177463  -0.004415    0.009157  -0.006710  -0.004370
+   4 F       0.036576  -2.475396  -0.014288   -0.000845   0.015257  -0.004216
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    2    -324.55228360 -1.6D-02  0.01510  0.00606  0.07587  0.17754      1.9
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      1.9
+   Time prior to 1st pass:      1.9
+
+
+         Total DFT energy =     -324.552866849517
+      One electron energy =     -671.224291218848
+           Coulomb energy =      271.627561537959
+    Exchange-Corr. energy =      -35.588749499967
+ Nuclear repulsion energy =      110.632612331340
+
+ Numeric. integr. density =       32.000000055865
+
+     Total iterative time =      0.3s
+
+
+ Line search: 
+     step= 1.00 grad=-9.3D-04 hess= 3.5D-04 energy=   -324.552867 mode=downhill
+ new step= 1.33                   predicted energy=   -324.552905
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   3
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      2.2
+   Time prior to 1st pass:      2.3
+
+
+         Total DFT energy =     -324.552908995209
+      One electron energy =     -670.692647212875
+           Coulomb energy =      271.360546494111
+    Exchange-Corr. energy =      -35.583208907345
+ Nuclear repulsion energy =      110.362400630901
+
+ Numeric. integr. density =       32.000000442997
+
+     Total iterative time =      0.2s
+
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.000539  -0.013221   0.059215   -0.000054   0.001552   0.010236
+   2 F       2.139587   1.266899   0.000020    0.001615   0.000921  -0.003398
+   3 F      -2.178490   1.197978   0.001017   -0.001710   0.001006  -0.003398
+   4 F       0.041749  -2.509302  -0.009023    0.000148  -0.003479  -0.003440
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    3    -324.55290900 -6.3D-04  0.00357  0.00139  0.01448  0.03387      2.6
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      2.6
+   Time prior to 1st pass:      2.6
+
+
+         Total DFT energy =     -324.553003754314
+      One electron energy =     -670.693456894458
+           Coulomb energy =      271.360685610239
+    Exchange-Corr. energy =      -35.583397056914
+ Nuclear repulsion energy =      110.363164586819
+
+ Numeric. integr. density =       32.000000479533
+
+     Total iterative time =      0.2s
+
+
+ Line search: 
+     step= 1.00 grad=-1.0D-04 hess= 8.8D-06 energy=   -324.553004 mode=restrict
+ new step= 4.00                   predicted energy=   -324.553182
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   4
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      2.8
+   Time prior to 1st pass:      2.8
+
+
+         Total DFT energy =     -324.553181776742
+      One electron energy =     -670.686916601508
+           Coulomb energy =      271.357052313110
+    Exchange-Corr. energy =      -35.583575186042
+ Nuclear repulsion energy =      110.360257697698
+
+ Numeric. integr. density =       32.000000569376
+
+     Total iterative time =      0.2s
+
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.000894  -0.012873   0.029117    0.000249  -0.000442   0.003591
+   2 F       2.143767   1.264924   0.010058    0.002642   0.000923  -0.001197
+   3 F      -2.182702   1.195630   0.011052   -0.002958   0.001043  -0.001197
+   4 F       0.041426  -2.505327   0.001002    0.000068  -0.001524  -0.001197
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    4    -324.55318178 -2.7D-04  0.00310  0.00130  0.01027  0.03008      3.2
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      3.2
+   Time prior to 1st pass:      3.2
+
+
+         Total DFT energy =     -324.553238447627
+      One electron energy =     -671.001831516490
+           Coulomb energy =      271.515602630210
+    Exchange-Corr. energy =      -35.587086034460
+ Nuclear repulsion energy =      110.520076473113
+
+ Numeric. integr. density =       32.000000344307
+
+     Total iterative time =      0.2s
+
+
+ Line search: 
+     step= 1.00 grad=-1.0D-04 hess= 4.8D-05 energy=   -324.553238 mode=accept  
+ new step= 1.00                   predicted energy=   -324.553238
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   5
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -324.553238447627
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.001020  -0.014591   0.013523    0.000175  -0.001026   0.000151
+   2 F       2.139041   1.264979   0.015256    0.000759   0.000253  -0.000051
+   3 F      -2.177681   1.195229   0.016244   -0.000913   0.000291  -0.000050
+   4 F       0.041005  -2.503264   0.006205   -0.000021   0.000481  -0.000050
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    5    -324.55323845 -5.7D-05  0.00094  0.00038  0.00563  0.01557      3.6
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      3.6
+   Time prior to 1st pass:      3.6
+
+
+         Total DFT energy =     -324.553240307495
+      One electron energy =     -671.057985218021
+           Coulomb energy =      271.544045899131
+    Exchange-Corr. energy =      -35.587650943236
+ Nuclear repulsion energy =      110.548349954632
+
+ Numeric. integr. density =       32.000000292718
+
+     Total iterative time =      0.1s
+
+
+ Line search: 
+     step= 1.00 grad=-3.1D-06 hess= 1.2D-06 energy=   -324.553240 mode=accept  
+ new step= 1.00                   predicted energy=   -324.553240
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   6
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -324.553240307495
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.000924  -0.014794   0.012708    0.000086  -0.000564  -0.000028
+   2 F       2.137288   1.265418   0.015529    0.000172   0.000121   0.000009
+   3 F      -2.175868   1.195710   0.016517   -0.000245   0.000141   0.000009
+   4 F       0.041041  -2.503981   0.006475   -0.000013   0.000303   0.000010
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    6    -324.55324031 -1.9D-06  0.00030  0.00013  0.00083  0.00181      3.9
+                                     ok       ok       ok           
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      3.9
+   Time prior to 1st pass:      3.9
+
+
+         Total DFT energy =     -324.553240523600
+      One electron energy =     -671.069037792955
+           Coulomb energy =      271.548576436506
+    Exchange-Corr. energy =      -35.587559318847
+ Nuclear repulsion energy =      110.554780151696
+
+ Numeric. integr. density =       32.000000279426
+
+     Total iterative time =      0.2s
+
+
+ Line search: 
+     step= 1.00 grad=-4.4D-07 hess= 2.2D-07 energy=   -324.553241 mode=accept  
+ new step= 1.00                   predicted energy=   -324.553241
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   7
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -324.553240523600
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 B       0.000845  -0.014509   0.012791   -0.000005  -0.000037  -0.000003
+   2 F       2.136882   1.265409   0.015502   -0.000030   0.000008   0.000001
+   3 F      -2.175422   1.195731   0.016489    0.000034   0.000005   0.000001
+   4 F       0.041080  -2.504277   0.006447    0.000001   0.000023   0.000001
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    7    -324.55324052 -2.2D-07  0.00003  0.00001  0.00021  0.00045      4.2
+                                     ok       ok       ok       ok  
+
+
+      ----------------------
+      Optimization converged
+      ----------------------
+
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    7    -324.55324052 -2.2D-07  0.00003  0.00001  0.00021  0.00045      4.2
+                                     ok       ok       ok       ok  
+
+
+
+                         Geometry "geometry" -> "geometry"
+                         ---------------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 B                    5.0000     0.00044736    -0.00767778     0.00676886
+    2 F                    9.0000     1.13078925     0.66962568     0.00820327
+    3 F                    9.0000    -1.15118387     0.63275353     0.00872558
+    4 F                    9.0000     0.02173847    -1.32520655     0.00341141
+
+      Atomic Mass 
+      ----------- 
+
+      B                 11.009310
+      F                 18.998400
+
+
+ Effective nuclear repulsion energy (a.u.)     110.5547801517
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0270824641    -0.4607813574     0.4098942031
+
+
+                Final and change from initial internal coordinates
+                --------------------------------------------------
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value       Change
+      ----------- --------  ----- ----- ----- ----- ----- ---------- ----------
+    1 Stretch                  1     2                       1.31773    0.21775
+    2 Stretch                  1     3                       1.31773    0.21772
+    3 Stretch                  1     4                       1.31771    0.21768
+    4 Bend                     2     1     3               119.99091   15.65554
+    5 Bend                     2     1     4               120.00438   -7.65864
+    6 Bend                     3     1     4               120.00470   -6.66844
+    7 Torsion                  2     1     3     4        -179.99834   12.42260
+    8 Torsion                  2     1     4     3         179.99834  -15.26477
+    9 Torsion                  3     1     2     4         179.99834  -12.58904
+   10 Torsion                  2     4     1     3        -179.99834   15.26477
+   11 Torsion                  3     2     1     4        -179.99834   12.58904
+   12 Torsion                  2     3     1     4         179.99834  -12.42260
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+
+
+                   NWChem Nuclear Hessian and Frequency Analysis
+                   ---------------------------------------------
+
+
+
+                              NWChem Analytic Hessian
+                              -----------------------
+
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                    BF3 | Equilibrium Geometry | B3LYP/6-31G(d)
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      4.2
+   Time prior to 1st pass:      4.2
+
+
+         Total DFT energy =     -324.553239783828
+      One electron energy =     -671.069272726915
+           Coulomb energy =      271.548856851860
+    Exchange-Corr. energy =      -35.587604060469
+ Nuclear repulsion energy =      110.554780151696
+
+ Numeric. integr. density =       32.000000012972
+
+     Total iterative time =      0.2s
+
+
+
+ HESSIAN: the one electron contributions are done in       0.0s
+
+
+ HESSIAN: 2-el 1st deriv. term done in                     0.1s
+
+
+ HESSIAN: 2-el 2nd deriv. term done in                     0.2s
+
+  stpr_wrt_fd_from_sq: overwrite of existing file:./molecule.hess
+ stpr_wrt_fd_dipole: overwrite of existing file./molecule.fd_ddipole
+
+ HESSIAN: the two electron contributions are done in       1.4s
+
+ SCF residual:    1.0791613925441755E-005
+ HESSIAN: the CPHF contributions are done
+  stpr_wrt_fd_from_sq: overwrite of existing file:./molecule.hess
+ stpr_wrt_fd_dipole: overwrite of existing file./molecule.fd_ddipole
+
+ Derivative Dipole
+
+  
+  
+ X vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_x/<atom=   1,x> =     1.9056     [    9.1528]
+ d_dipole_x/<atom=   1,y> =    -0.0000     [   -0.0000]
+ d_dipole_x/<atom=   1,z> =    -0.0003     [   -0.0013]
+ d_dipole_x/<atom=   2,x> =    -0.7527     [   -3.6154]
+ d_dipole_x/<atom=   2,y> =    -0.2197     [   -1.0551]
+ d_dipole_x/<atom=   2,z> =    -0.0004     [   -0.0021]
+ d_dipole_x/<atom=   3,x> =    -0.7666     [   -3.6823]
+ d_dipole_x/<atom=   3,y> =     0.2116     [    1.0164]
+ d_dipole_x/<atom=   3,z> =     0.0007     [    0.0032]
+ d_dipole_x/<atom=   4,x> =    -0.3862     [   -1.8552]
+ d_dipole_x/<atom=   4,y> =     0.0080     [    0.0386]
+ d_dipole_x/<atom=   4,z> =     0.0000     [    0.0002]
+  
+ Y vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_y/<atom=   1,x> =    -0.0000     [   -0.0000]
+ d_dipole_y/<atom=   1,y> =     1.9056     [    9.1532]
+ d_dipole_y/<atom=   1,z> =     0.0026     [    0.0123]
+ d_dipole_y/<atom=   2,x> =    -0.2196     [   -1.0548]
+ d_dipole_y/<atom=   2,y> =    -0.5177     [   -2.4867]
+ d_dipole_y/<atom=   2,z> =    -0.0005     [   -0.0024]
+ d_dipole_y/<atom=   3,x> =     0.2116     [    1.0162]
+ d_dipole_y/<atom=   3,y> =    -0.5038     [   -2.4197]
+ d_dipole_y/<atom=   3,z> =    -0.0006     [   -0.0028]
+ d_dipole_y/<atom=   4,x> =     0.0080     [    0.0387]
+ d_dipole_y/<atom=   4,y> =    -0.8842     [   -4.2468]
+ d_dipole_y/<atom=   4,z> =    -0.0015     [   -0.0071]
+  
+ Z vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_z/<atom=   1,x> =    -0.0003     [   -0.0013]
+ d_dipole_z/<atom=   1,y> =     0.0026     [    0.0123]
+ d_dipole_z/<atom=   1,z> =     0.9019     [    4.3319]
+ d_dipole_z/<atom=   2,x> =    -0.0004     [   -0.0021]
+ d_dipole_z/<atom=   2,y> =    -0.0005     [   -0.0024]
+ d_dipole_z/<atom=   2,z> =    -0.3006     [   -1.4440]
+ d_dipole_z/<atom=   3,x> =     0.0007     [    0.0032]
+ d_dipole_z/<atom=   3,y> =    -0.0006     [   -0.0028]
+ d_dipole_z/<atom=   3,z> =    -0.3006     [   -1.4440]
+ d_dipole_z/<atom=   4,x> =     0.0000     [    0.0002]
+ d_dipole_z/<atom=   4,y> =    -0.0015     [   -0.0072]
+ d_dipole_z/<atom=   4,z> =    -0.3006     [   -1.4439]
+  
+  
+ HESSIAN: the Hessian is done
+
+
+  Vibrational analysis via the FX method 
+
+  See chapter 2 in "Molecular Vibrations" by Wilson, Decius and Cross
+
+  Vib: Default input used 
+
+  Nuclear Hessian passed symmetry test 
+
+
+
+ ---------------------------- Atom information ----------------------------
+     atom    #        X              Y              Z            mass
+ --------------------------------------------------------------------------
+    B        1  8.4539235D-04 -1.4508893D-02  1.2791297D-02  1.1009310D+01
+    F        2  2.1368818D+00  1.2654090D+00  1.5501942D-02  1.8998400D+01
+    F        3 -2.1754221D+00  1.1957308D+00  1.6488947D-02  1.8998400D+01
+    F        4  4.1079753D-02 -2.5042773D+00  6.4466348D-03  1.8998400D+01
+ --------------------------------------------------------------------------
+
+
+
+
+          ----------------------------------------------------
+          MASS-WEIGHTED NUCLEAR HESSIAN (Hartree/Bohr/Bohr/Kamu)
+          ----------------------------------------------------
+
+
+               1            2            3            4            5            6            7            8            9           10
+   ----- ----- ----- ----- -----
+    1    6.40020D+01
+    2   -5.14315D-04  6.40161D+01
+    3   -1.32720D-02  1.25434D-01  1.48734D+01
+    4   -2.18882D+01 -1.05587D+01 -2.22063D-02  1.97591D+01
+    5   -1.05587D+01 -1.05932D+01 -1.46417D-02  9.75813D+00  9.31865D+00
+    6   -2.22362D-02 -1.46598D-02 -3.77417D+00  1.99551D-02  1.87753D-02  9.58614D-01
+    7   -2.25585D+01  1.01720D+01  3.11895D-02 -3.03841D+00  3.15524D-01  1.89226D-03  2.03785D+01
+    8    1.01722D+01 -9.92310D+00 -1.85259D-02 -4.41640D-01  8.63136D-01 -1.24708D-04 -9.40079D+00  8.69929D+00
+    9    3.12206D-02 -1.85431D-02 -3.77417D+00 -5.50736D-05 -3.29518D-04  9.57913D-01 -2.93691D-02  2.23666D-02  9.58652D-01
+   10   -4.27269D+00  3.86936D-01  1.11983D-03 -5.72297D-02 -2.03588D+00 -4.92062D-03 -1.66377D-01  2.09885D+00  5.65885D-03  3.47689D+00
+   11    3.86990D-01 -2.82138D+01 -6.23060D-02 -1.27864D+00 -2.11675D+00 -7.49391D-03  1.34166D+00 -2.00753D+00 -7.92308D-03 -3.57668D-01
+   12    1.11941D-03 -6.22742D-02 -3.77375D+00 -2.99492D-03 -7.30200D-03  9.57596D-01  3.73383D-03 -8.14018D-03  9.57577D-01 -1.59377D-03
+
+
+              11           12
+   ----- ----- ----- ----- -----
+   11    2.56030D+01
+   12    6.28492D-02  9.58448D-01
+
+
+
+          -------------------------------------------------
+          NORMAL MODE EIGENVECTORS IN CARTESIAN COORDINATES
+          -------------------------------------------------
+                 (Frequencies expressed in cm-1)
+
+                    1           2           3           4           5           6
+ 
+ Frequency          3.66        4.19        4.58        5.05        5.70        5.89
+ 
+           1    -0.02305    -0.00019     0.00008    -0.00023    -0.08976     0.07820
+           2    -0.00432     0.00005    -0.00056    -0.00011    -0.07897    -0.09192
+           3    -0.00056     0.00099     0.08652     0.08497    -0.00030    -0.00034
+           4     0.04374     0.00058     0.00051    -0.00025    -0.10113     0.08484
+           5    -0.11578    -0.00160    -0.00114    -0.00021    -0.05999    -0.10299
+           6    -0.00228     0.16819     0.02639     0.14424    -0.00014    -0.00002
+           7     0.04010     0.00046     0.00048    -0.00025    -0.10052     0.08447
+           8     0.10924     0.00169     0.00037    -0.00036    -0.09832    -0.08064
+           9     0.00188    -0.15571     0.01555     0.15907    -0.00054     0.00001
+          10    -0.15299    -0.00162    -0.00074    -0.00020    -0.06764     0.06530
+          11    -0.00642     0.00005    -0.00091     0.00023    -0.07861    -0.09212
+          12    -0.00126    -0.00952     0.21762    -0.04843    -0.00022    -0.00102
+
+                    7           8           9          10          11          12
+ 
+ Frequency        479.38      479.42      684.79      889.48     1489.40     1489.56
+ 
+           1     0.08751     0.00390     0.00007    -0.00000     0.26145     0.01005
+           2     0.00390    -0.08750    -0.00070    -0.00001     0.01005    -0.26145
+           3    -0.00001    -0.00022     0.27591    -0.00001    -0.00004    -0.00067
+           4     0.04723    -0.10876    -0.00001     0.11363    -0.07175     0.03434
+           5     0.10725     0.08103     0.00014     0.06808    -0.03823     0.02925
+           6     0.00026     0.00024    -0.05330     0.00014    -0.00008     0.00007
+           7     0.04456     0.10879    -0.00002    -0.11577    -0.07130    -0.03848
+           8    -0.11030     0.07836     0.00014     0.06437     0.03461     0.02970
+           9    -0.00029     0.00017    -0.05330     0.00020     0.00011     0.00009
+          10    -0.14249    -0.00229    -0.00001     0.00214    -0.00845    -0.00168
+          11     0.00079    -0.10870     0.00013    -0.13244    -0.00220     0.09255
+          12     0.00004    -0.00028    -0.05329    -0.00034    -0.00000     0.00024
+  
+  
+ ----------------------------------------------------------------------------
+ Normal Eigenvalue ||                 Infra Red Intensities
+  Mode   [cm**-1]  || [atomic units] [(debye/angs)**2] [(KM/mol)] [arbitrary]
+ ------ ---------- || -------------- ----------------- ---------- -----------
+    1        3.663 ||    0.000000           0.000         0.000       0.000
+    2        4.193 ||    0.000000           0.000         0.000       0.000
+    3        4.584 ||    0.000000           0.000         0.000       0.000
+    4        5.050 ||    0.000000           0.000         0.000       0.000
+    5        5.698 ||    0.000000           0.000         0.000       0.000
+    6        5.886 ||    0.000000           0.000         0.000       0.000
+    7      479.376 ||    0.011087           0.256        10.808       1.487
+    8      479.419 ||    0.011088           0.256        10.809       1.487
+    9      684.787 ||    0.088151           2.034        85.934      11.821
+   10      889.481 ||    0.000000           0.000         0.000       0.000
+   11     1489.402 ||    0.392251           9.050       382.386      52.601
+   12     1489.558 ||    0.392284           9.050       382.418      52.605
+ ----------------------------------------------------------------------------
+
+
+
+
+
+        Vibrational analysis via the FX method 
+  --- with translations and rotations projected out ---
+  --- via the Eckart algorithm                      ---
+
+          --------------------------------------------------------
+          MASS-WEIGHTED PROJECTED HESSIAN (Hartree/Bohr/Bohr/Kamu)
+          --------------------------------------------------------
+
+
+               1            2            3            4            5            6            7            8            9           10
+   ----- ----- ----- ----- -----
+    1    6.40015D+01
+    2   -5.27768D-04  6.40156D+01
+    3   -1.32724D-02  1.25428D-01  1.48736D+01
+    4   -2.18884D+01 -1.05587D+01 -2.22065D-02  1.97586D+01
+    5   -1.05591D+01 -1.05935D+01 -1.46448D-02  9.75825D+00  9.31827D+00
+    6   -2.22906D-02 -1.46942D-02 -3.77388D+00  1.99687D-02  1.87881D-02  9.57592D-01
+    7   -2.25588D+01  1.01721D+01  3.11896D-02 -3.03894D+00  3.15720D-01  1.90665D-03  2.03780D+01
+    8    1.01726D+01 -9.92348D+00 -1.85289D-02 -4.41844D-01  8.62989D-01 -1.15789D-04 -9.40086D+00  8.69899D+00
+    9    3.12759D-02 -1.85762D-02 -3.77392D+00 -6.96001D-05 -3.20911D-04  9.57553D-01 -2.93836D-02  2.23779D-02  9.57623D-01
+   10   -4.27332D+00  3.87018D-01  1.12028D-03 -5.72823D-02 -2.03594D+00 -4.90687D-03 -1.66464D-01  2.09895D+00  5.64473D-03  3.47677D+00
+   11    3.86972D-01 -2.82142D+01 -6.23073D-02 -1.27868D+00 -2.11704D+00 -7.48647D-03  1.34172D+00 -2.00782D+00 -7.91606D-03 -3.57622D-01
+   12    1.11814D-03 -6.22105D-02 -3.77461D+00 -2.99468D-03 -7.31899D-03  9.57683D-01  3.73417D-03 -8.15720D-03  9.57684D-01 -1.59066D-03
+
+
+              11           12
+   ----- ----- ----- ----- -----
+   11    2.56026D+01
+   12    6.28333D-02  9.58013D-01
+
+ center of mass
+ --------------
+ x =   0.00084632 y =  -0.01440015 z =   0.01280907
+
+ moments of inertia (a.u.)
+ ------------------
+         176.720794419484           0.000534585130           0.047729938465
+           0.000534585130         176.694083787601          -0.451044403442
+           0.047729938465          -0.451044403442         353.412549997983
+
+ Rotational Constants
+ --------------------
+ A=   0.340705 cm-1  (  0.490188 K)
+ B=   0.340651 cm-1  (  0.490110 K)
+ C=   0.170339 cm-1  (  0.245074 K)
+
+
+ Temperature                      =   298.15K
+ frequency scaling parameter      =   1.0000
+
+ Zero-Point correction to Energy  =    7.876 kcal/mol  (  0.012551 au)
+ Thermal correction to Energy     =   10.070 kcal/mol  (  0.016047 au)
+ Thermal correction to Enthalpy   =   10.662 kcal/mol  (  0.016991 au)
+
+ Total Entropy                    =   64.374 cal/mol-K
+   - Translational                =   38.551 cal/mol-K (mol. weight =  68.0045)
+   - Rotational                   =   23.905 cal/mol-K (symmetry #  =        1)
+   - Vibrational                  =    1.917 cal/mol-K
+
+ Cv (constant volume heat capacity) =   10.077 cal/mol-K
+   - Translational                  =    2.979 cal/mol-K
+   - Rotational                     =    2.979 cal/mol-K
+   - Vibrational                    =    4.118 cal/mol-K
+
+
+
+          -------------------------------------------------
+          NORMAL MODE EIGENVECTORS IN CARTESIAN COORDINATES
+          -------------------------------------------------
+             (Projected Frequencies expressed in cm-1)
+
+                    1           2           3           4           5           6
+ 
+ P.Frequency       -0.00       -0.00       -0.00       -0.00       -0.00        0.00
+ 
+           1     0.07879    -0.04967     0.07765    -0.00000     0.00000     0.00000
+           2    -0.05910    -0.10561    -0.00759     0.00000     0.00000    -0.00000
+           3    -0.00000    -0.00000    -0.00000     0.07412     0.06589     0.06978
+           4     0.11850    -0.06815     0.02553     0.00006    -0.00005    -0.00001
+           5    -0.12538    -0.07478     0.07939     0.00006    -0.00024     0.00017
+           6    -0.00000     0.00000     0.00000    -0.00000     0.22315     0.00000
+           7     0.11634    -0.06715     0.02837     0.00012    -0.00011    -0.00002
+           8     0.00842    -0.13703    -0.09622    -0.00024     0.00004     0.00022
+           9     0.00000     0.00000    -0.00000     0.22238    -0.01273    -0.01348
+          10     0.00154    -0.01373     0.17904    -0.00018     0.00016     0.00003
+          11    -0.06035    -0.10503    -0.00595     0.00019     0.00020    -0.00039
+          12    -0.00000    -0.00000    -0.00000     0.00000    -0.01273     0.22278
+
+                    7           8           9          10          11          12
+ 
+ P.Frequency      479.38      479.42      684.79      889.48     1489.40     1489.56
+ 
+           1     0.08750     0.00410     0.00007    -0.00000     0.26144     0.01017
+           2     0.00410    -0.08749    -0.00070    -0.00001     0.01017    -0.26144
+           3    -0.00001    -0.00022     0.27591    -0.00001    -0.00004    -0.00067
+           4     0.04747    -0.10865    -0.00001     0.11363    -0.07176     0.03431
+           5     0.10707     0.08127     0.00014     0.06808    -0.03825     0.02924
+           6     0.00026     0.00024    -0.05329     0.00014    -0.00008     0.00007
+           7     0.04431     0.10889    -0.00002    -0.11577    -0.07129    -0.03851
+           8    -0.11047     0.07812     0.00014     0.06437     0.03460     0.02971
+           9    -0.00029     0.00017    -0.05329     0.00020     0.00011     0.00009
+          10    -0.14249    -0.00262    -0.00001     0.00214    -0.00845    -0.00169
+          11     0.00103    -0.10869     0.00013    -0.13244    -0.00224     0.09255
+          12     0.00004    -0.00028    -0.05330    -0.00034    -0.00000     0.00024
+  
+  
+ ----------------------------------------------------------------------------
+ Normal Eigenvalue ||           Projected Infra Red Intensities
+  Mode   [cm**-1]  || [atomic units] [(debye/angs)**2] [(KM/mol)] [arbitrary]
+ ------ ---------- || -------------- ----------------- ---------- -----------
+    1       -0.000 ||    0.000000           0.000         0.000       0.000
+    2       -0.000 ||    0.000000           0.000         0.000       0.000
+    3       -0.000 ||    0.000000           0.000         0.000       0.000
+    4       -0.000 ||    0.000000           0.000         0.000       0.000
+    5       -0.000 ||    0.000000           0.000         0.000       0.000
+    6        0.000 ||    0.000000           0.000         0.000       0.000
+    7      479.375 ||    0.011087           0.256        10.808       1.487
+    8      479.418 ||    0.011088           0.256        10.809       1.487
+    9      684.791 ||    0.088151           2.034        85.934      11.821
+   10      889.481 ||    0.000000           0.000         0.000       0.000
+   11     1489.402 ||    0.392251           9.050       382.385      52.601
+   12     1489.558 ||    0.392284           9.050       382.417      52.605
+ ----------------------------------------------------------------------------
+
+
+
+ vib:animation  F
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+
+
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+
+          E. Aprà, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, Y. Alexeev, J. Anchell,
+       V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach, N. P. Bauman,
+     J. C. Becca, D. E. Bernholdt, K. Bhaskaran-Nair, S. Bogatko, P. Borowski,
+        J. Boschen, J. Brabec, A. Bruner, E. Cauët, Y. Chen, G. N. Chuev,
+      C. J. Cramer, J. Daily, M. J. O. Deegan, T. H. Dunning Jr., M. Dupuis,
+   K. G. Dyall, G. I. Fann, S. A. Fischer, A. Fonari, H. Früchtl, L. Gagliardi,
+      J. Garza, N. Gawande, S. Ghosh, K. Glaesemann, A. W. Götz, J. Hammond,
+       V. Helms, E. D. Hermes, K. Hirao, S. Hirata, M. Jacquelin, L. Jensen,
+   B. G. Johnson, H. Jónsson, R. A. Kendall, M. Klemm, R. Kobayashi, V. Konkov,
+      S. Krishnamoorthy, M. Krishnan, Z. Lin, R. D. Lins, R. J. Littlefield,
+      A. J. Logsdail, K. Lopata, W. Ma, A. V. Marenich, J. Martin del Campo,
+   D. Mejia-Rodriguez, J. E. Moore, J. M. Mullin, T. Nakajima, D. R. Nascimento,
+    J. A. Nichols, P. J. Nichols, J. Nieplocha, A. Otero-de-la-Roza, B. Palmer,
+    A. Panyala, T. Pirojsirikul, B. Peng, R. Peverati, J. Pittner, L. Pollack,
+   R. M. Richard, P. Sadayappan, G. C. Schatz, W. A. Shelton, D. W. Silverstein,
+   D. M. A. Smith, T. A. Soares, D. Song, M. Swart, H. L. Taylor, G. S. Thomas,
+            V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
+     Á. Vázquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis,
+        D. Wang, J. H. Weare, M. J. Williamson, T. L. Windus, K. Woliński,
+        A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias, Z. Zhang, Y. Zhao,
+                                and R. J. Harrison
+                        "NWChem: Past, present, and future
+                         J. Chem. Phys. 152, 184102 (2020)
+                               doi:10.1063/5.0004997
+
+                                      AUTHORS
+                                      -------
+     E. Apra, E. J. Bylaska, N. Govind, K. Kowalski, M. Valiev, W. A. de Jong,
+      T. P. Straatsma, H. J. J. van Dam, D. Wang, T. L. Windus, N. P. Bauman,
+       A. Panyala, J. Hammond, J. Autschbach, K. Bhaskaran-Nair, J. Brabec,
+    K. Lopata, S. A. Fischer, S. Krishnamoorthy, M. Jacquelin, W. Ma, M. Klemm,
+       O. Villa, Y. Chen, V. Anisimov, F. Aquino, S. Hirata, M. T. Hackler,
+           Eric Hermes, L. Jensen, J. E. Moore, J. C. Becca, V. Konjkov,
+            D. Mejia-Rodriguez, T. Risthaus, M. Malagoli, A. Marenich,
+   A. Otero-de-la-Roza, J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao,
+        P.-D. Fan, A. Fonari, M. J. Williamson, R. J. Harrison, J. R. Rehr,
+      M. Dupuis, D. Silverstein, D. M. A. Smith, J. Nieplocha, V. Tipparaju,
+      M. Krishnan, B. E. Van Kuiken, A. Vazquez-Mayagoitia, M. Swart, Q. Wu,
+   T. Van Voorhis, A. A. Auer, M. Nooijen, L. D. Crosby, E. Brown, G. Cisneros,
+     G. I. Fann, H. Fruchtl, J. Garza, K. Hirao, R. A. Kendall, J. A. Nichols,
+       K. Tsemekhman, K. Wolinski, J. Anchell, D. E. Bernholdt, P. Borowski,
+       T. Clark, D. Clerc, H. Dachsel, M. J. O. Deegan, K. Dyall, D. Elwood,
+      E. Glendening, M. Gutowski, A. C. Hess, J. Jaffe, B. G. Johnson, J. Ju,
+        R. Kobayashi, R. Kutteh, Z. Lin, R. Littlefield, X. Long, B. Meng,
+      T. Nakajima, S. Niu, L. Pollack, M. Rosing, K. Glaesemann, G. Sandrone,
+      M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe, A. T. Wong, Z. Zhang.
+
+ Total times  cpu:       10.7s     wall:       11.8s

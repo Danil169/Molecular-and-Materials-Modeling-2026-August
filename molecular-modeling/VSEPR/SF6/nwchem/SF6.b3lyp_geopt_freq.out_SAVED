@@ -1,0 +1,1546 @@
+ argument  1 = SF6.b3lyp_geopt_freq.nw
+
+
+
+============================== echo of input deck ==============================
+echo
+
+start molecule
+
+print low
+
+title "SF6 "
+charge 0
+
+geometry units angstroms print xyz autosym
+S     -2.694000   -0.273000    0.077000
+F     -3.281000   -1.393000    0.983000
+F     -4.134000    0.155000   -0.326000
+F     -1.254000   -0.701000    0.479000
+F     -2.734000    0.718000    1.275000
+F     -2.108000    0.846000   -0.829000
+F     -2.654000   -1.264000   -1.121000
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq
+================================================================================
+
+
+                                         
+                                         
+
+
+             Northwest Computational Chemistry Package (NWChem) 7.2.2
+             --------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2022
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = DESKTOP-7OTLCGO
+    program         = nwchem
+    date            = Thu Feb 19 14:34:05 2026
+
+    compiled        = Mon_Apr_01_11:12:32_2024
+    source          = /build/nwchem-qbYJLs/nwchem-7.2.2/build-openmpi
+    nwchem branch   = 7.2.2
+    nwchem revision = N/A
+    ga revision     = N/A
+    use scalapack   = T
+    input           = SF6.b3lyp_geopt_freq.nw
+    prefix          = molecule.
+    data base       = ./molecule.db
+    status          = startup
+    nproc           =        4
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =   26214400 doubles =    200.0 Mbytes
+    stack    =   26214397 doubles =    200.0 Mbytes
+    global   =   52428800 doubles =    400.0 Mbytes (distinct from heap & stack)
+    total    =  104857597 doubles =    800.0 Mbytes
+    verify   = yes
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                                        SF6
+                                        ---
+
+ Scaling coordinates for geometry "geometry" by  1.889725989
+ (inverse scale =  0.529177249)
+
+
+          ------
+          auto-z
+          ------
+  Looking for out-of-plane bends
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 S                   16.0000     0.00000000     0.00000000     0.00000000
+    2 F                    9.0000    -0.20163480     0.75131828    -1.34646305
+    3 F                    9.0000    -0.99229907     0.97666071     0.69301275
+    4 F                    9.0000     0.99229907    -0.97666071    -0.69301275
+    5 F                    9.0000    -1.18029517    -0.94945017    -0.35260841
+    6 F                    9.0000     0.20163480    -0.75131828     1.34646305
+    7 F                    9.0000     1.18029517     0.94945017     0.35260841
+
+      Atomic Mass 
+      ----------- 
+
+      S                 31.972070
+      F                 18.998400
+
+
+ Effective nuclear repulsion energy (a.u.)     569.2014197733
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000    -0.0000000000
+
+      Symmetry information
+      --------------------
+
+ Group name             Ci        
+ Group number              3
+ Group order               2
+ No. of unique centers     4
+
+      Symmetry unique atoms
+
+     1    2    3    5
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value
+      ----------- --------  ----- ----- ----- ----- ----- ----------
+    1 Stretch                  1     2                       1.55502
+    2 Stretch                  1     3                       1.55525
+    3 Stretch                  1     4                       1.55525
+    4 Stretch                  1     5                       1.55528
+    5 Stretch                  1     6                       1.55502
+    6 Stretch                  1     7                       1.55528
+    7 Bend                     2     1     3                89.98226
+    8 Bend                     2     1     4                90.01774
+    9 Bend                     2     1     5                90.01366
+   10 Bend                     2     1     7                89.98634
+   11 Bend                     3     1     5                90.01059
+   12 Bend                     3     1     6                90.01774
+   13 Bend                     3     1     7                89.98941
+   14 Bend                     4     1     5                89.98941
+   15 Bend                     4     1     6                89.98226
+   16 Bend                     4     1     7                90.01059
+   17 Bend                     5     1     6                89.98634
+   18 Bend                     6     1     7                90.01366
+
+
+            XYZ format geometry
+            -------------------
+     7
+ geometry
+ S                     0.00000000     0.00000000     0.00000000
+ F                    -0.20163480     0.75131828    -1.34646305
+ F                    -0.99229907     0.97666071     0.69301275
+ F                     0.99229907    -0.97666071    -0.69301275
+ F                    -1.18029517    -0.94945017    -0.35260841
+ F                     0.20163480    -0.75131828     1.34646305
+ F                     1.18029517     0.94945017     0.35260841
+
+ ==============================================================================
+                                internuclear distances
+ ------------------------------------------------------------------------------
+       center one      |      center two      | atomic units |  angstroms
+ ------------------------------------------------------------------------------
+    2 F                |   1 S                |     2.93857  |     1.55502
+    3 F                |   1 S                |     2.93899  |     1.55525
+    4 F                |   1 S                |     2.93899  |     1.55525
+    5 F                |   1 S                |     2.93905  |     1.55528
+    6 F                |   1 S                |     2.93857  |     1.55502
+    7 F                |   1 S                |     2.93905  |     1.55528
+ ------------------------------------------------------------------------------
+                         number of included internuclear distances:          6
+ ==============================================================================
+
+
+
+ ==============================================================================
+                                 internuclear angles
+ ------------------------------------------------------------------------------
+        center 1       |       center 2       |       center 3       |  degrees
+ ------------------------------------------------------------------------------
+    2 F                |   1 S                |   3 F                |    89.98
+    2 F                |   1 S                |   4 F                |    90.02
+    2 F                |   1 S                |   5 F                |    90.01
+    2 F                |   1 S                |   6 F                |   180.00
+    2 F                |   1 S                |   7 F                |    89.99
+    3 F                |   1 S                |   4 F                |   180.00
+    3 F                |   1 S                |   5 F                |    90.01
+    3 F                |   1 S                |   6 F                |    90.02
+    3 F                |   1 S                |   7 F                |    89.99
+    4 F                |   1 S                |   5 F                |    89.99
+    4 F                |   1 S                |   6 F                |    89.98
+    4 F                |   1 S                |   7 F                |    90.01
+    5 F                |   1 S                |   6 F                |    89.99
+    5 F                |   1 S                |   7 F                |   180.00
+    6 F                |   1 S                |   7 F                |    90.01
+ ------------------------------------------------------------------------------
+                            number of included internuclear angles:         15
+ ==============================================================================
+
+
+
+
+
+ Summary of "ao basis" -> "" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                           6-31G*                   on all atoms 
+
+
+
+
+                           NWChem Geometry Optimization
+                           ----------------------------
+
+
+
+
+                                        SF6
+
+
+  no constraints, skipping    0.0000000000000000     
+ maximum gradient threshold         (gmax) =   0.000450
+ rms gradient threshold             (grms) =   0.000300
+ maximum cartesian step threshold   (xmax) =   0.001800
+ rms cartesian step threshold       (xrms) =   0.001200
+ fixed trust radius                (trust) =   0.300000
+ maximum step size to saddle      (sadstp) =   0.100000
+ energy precision                  (eprec) =   5.0D-06
+ maximum number of steps          (nptopt) =   40
+ initial hessian option           (inhess) =    0
+ line search option               (linopt) =    1
+ hessian update option            (modupd) =    1
+ saddle point option              (modsad) =    0
+ initial eigen-mode to follow     (moddir) =    0
+ initial variable to follow       (vardir) =    0
+ follow first negative mode     (firstneg) =    T
+ apply conjugacy                    (opcg) =    F
+ source of zmatrix                         =   autoz   
+
+
+          -------------------
+          Energy Minimization
+          -------------------
+
+
+ Names of Z-matrix variables 
+    1              2              3              4              5         
+    6              7              8              9             10         
+   11             12             13             14             15         
+   16             17             18         
+
+ Variables with the same non-blank name are constrained to be equal
+
+
+ Using diagonal initial Hessian 
+ Scaling for Hessian diagonals: bonds = 1.00  angles = 0.25  torsions = 0.10
+
+          --------
+          Step   0
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+                      Basis "ao basis" -> "ao basis" (cartesian)
+                      -----
+  S (Sulphur)
+  -----------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  2.19171000E+04  0.001869
+  1 S  3.30149000E+03  0.014230
+  1 S  7.54146000E+02  0.069696
+  1 S  2.12711000E+02  0.238487
+  1 S  6.79896000E+01  0.483307
+  1 S  2.30515000E+01  0.338074
+
+  2 S  4.23735000E+02 -0.002377
+  2 S  1.00710000E+02 -0.031693
+  2 S  3.21599000E+01 -0.113317
+  2 S  1.18079000E+01  0.056090
+  2 S  4.63110000E+00  0.592255
+  2 S  1.87025000E+00  0.455006
+
+  3 P  4.23735000E+02  0.004061
+  3 P  1.00710000E+02  0.030681
+  3 P  3.21599000E+01  0.130452
+  3 P  1.18079000E+01  0.327205
+  3 P  4.63110000E+00  0.452851
+  3 P  1.87025000E+00  0.256042
+
+  4 S  2.61584000E+00 -0.250374
+  4 S  9.22167000E-01  0.066957
+  4 S  3.41287000E-01  1.054510
+
+  5 P  2.61584000E+00 -0.014511
+  5 P  9.22167000E-01  0.310263
+  5 P  3.41287000E-01  0.754483
+
+  6 S  1.17167000E-01  1.000000
+
+  7 P  1.17167000E-01  1.000000
+
+  8 D  6.50000000E-01  1.000000
+
+  F (Fluorine)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  7.00171309E+03  0.001820
+  1 S  1.05136609E+03  0.013916
+  1 S  2.39285690E+02  0.068405
+  1 S  6.73974453E+01  0.233186
+  1 S  2.15199573E+01  0.471267
+  1 S  7.40310130E+00  0.356619
+
+  2 S  2.08479528E+01 -0.108507
+  2 S  4.80830834E+00 -0.146452
+  2 S  1.34406986E+00  1.128689
+
+  3 P  2.08479528E+01  0.071629
+  3 P  4.80830834E+00  0.345912
+  3 P  1.34406986E+00  0.722470
+
+  4 S  3.58151393E-01  1.000000
+
+  5 P  3.58151393E-01  1.000000
+
+  6 D  8.00000000E-01  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ S                           6-31G*                  8       19   4s3p1d
+ F                           6-31G*                  6       15   3s2p1d
+
+
+
+  Caching 1-el integrals 
+  WARNING: movecs_in_org=atomic not equal to movecs_in=./molecule.movecs
+   Time after variat. SCF:      0.6
+   Time prior to 1st pass:      0.6
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -996.7521101315 -1.57D+03  2.90D-02  3.51D+00     1.6
+ d= 0,ls=0.0,diis     2   -996.4628636289  2.89D-01  1.66D-02  7.71D+00     2.4
+ d= 0,ls=0.0,diis     3   -997.0947126028 -6.32D-01  1.27D-03  4.03D-02     3.1
+ d= 0,ls=0.0,diis     4   -997.0970336028 -2.32D-03  3.80D-04  7.93D-03     3.7
+ d= 0,ls=0.0,diis     5   -997.0976048077 -5.71D-04  1.33D-05  2.23D-06     4.5
+ d= 0,ls=0.0,diis     6   -997.0976049151 -1.07D-07  3.22D-06  1.29D-07     5.2
+
+
+         Total DFT energy =     -997.097604915081
+      One electron energy =    -2516.208808087426
+           Coulomb energy =     1038.664171331185
+    Exchange-Corr. energy =      -88.754387932168
+ Nuclear repulsion energy =      569.201419773328
+
+ Numeric. integr. density =       69.999996497361
+
+     Total iterative time =      4.7s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 S       0.000000   0.000000   0.000000    0.000000   0.000000   0.000000
+   2 F      -0.381035   1.419786  -2.544446    0.004889  -0.018139   0.032743
+   3 F      -1.875173   1.845621   1.309604    0.024028  -0.023544  -0.016825
+   4 F       1.875173  -1.845621  -1.309604   -0.024028   0.023544   0.016825
+   5 F      -2.230434  -1.794201  -0.666333    0.028573   0.022883   0.008555
+   6 F       0.381035  -1.419786   2.544446   -0.004889   0.018139  -0.032743
+   7 F       2.230434   1.794201   0.666333   -0.028573  -0.022883  -0.008555
+
+  no constraints, skipping    0.0000000000000000     
+
+@ Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+@ ---- ---------------- -------- -------- -------- -------- -------- --------
+@    0    -997.09760492  0.0D+00  0.03775  0.02174  0.00000  0.00000      6.6
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:      6.7
+   Time prior to 1st pass:      6.7
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1008187553 -1.55D+03  2.10D-03  4.28D-02     7.7
+ d= 0,ls=0.0,diis     2   -997.1065234411 -5.70D-03  4.38D-04  3.18D-03     8.5
+ d= 0,ls=0.0,diis     3   -997.1065381376 -1.47D-05  2.58D-04  3.03D-03     9.6
+ d= 0,ls=0.0,diis     4   -997.1067486084 -2.10D-04  6.48D-05  1.11D-04    10.3
+ d= 0,ls=0.0,diis     5   -997.1067589208 -1.03D-05  6.02D-06  4.06D-07    11.6
+ d= 0,ls=0.0,diis     6   -997.1067589579 -3.71D-08  9.83D-07  1.25D-08    12.2
+
+
+         Total DFT energy =     -997.106758957872
+      One electron energy =    -2481.989797955836
+           Coulomb energy =     1021.581858244103
+    Exchange-Corr. energy =      -88.589780986916
+ Nuclear repulsion energy =      551.890961740777
+
+ Numeric. integr. density =       69.999995941181
+
+     Total iterative time =      5.5s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+ Line search: 
+     step= 1.00 grad=-2.1D-02 hess= 1.2D-02 energy=   -997.106759 mode=downhill
+ new step= 0.89                   predicted energy=   -997.106895
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   1
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:     12.3
+   Time prior to 1st pass:     12.3
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1067359917 -1.55D+03  2.15D-04  4.48D-04    13.4
+ d= 0,ls=0.0,diis     2   -997.1067976937 -6.17D-05  5.11D-05  4.01D-05    14.2
+ d= 0,ls=0.0,diis     3   -997.1067976186  7.50D-08  3.03D-05  4.04D-05    15.1
+ d= 0,ls=0.0,diis     4   -997.1068005156 -2.90D-06  6.53D-06  1.09D-06    16.0
+ d= 0,ls=0.0,diis     5   -997.1068006173 -1.02D-07  7.75D-07  7.41D-09    16.5
+
+
+         Total DFT energy =     -997.106800617296
+      One electron energy =    -2485.579260128486
+           Coulomb energy =     1023.372269998400
+    Exchange-Corr. energy =      -88.606442325480
+ Nuclear repulsion energy =      553.706631838269
+
+ Numeric. integr. density =       69.999995399037
+
+     Total iterative time =      4.2s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 S       0.000000   0.000000   0.000000    0.000000   0.000000   0.000000
+   2 F      -0.391669   1.458788  -2.616287    0.000164  -0.000647   0.001044
+   3 F      -1.927848   1.896572   1.346771    0.000745  -0.000792  -0.000496
+   4 F       1.927848  -1.896572  -1.346771   -0.000745   0.000792   0.000496
+   5 F      -2.293127  -1.843774  -0.685239    0.000878   0.000760   0.000251
+   6 F       0.391669  -1.458788   2.616287   -0.000164   0.000647  -0.001044
+   7 F       2.293127   1.843774   0.685239   -0.000878  -0.000760  -0.000251
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    1    -997.10680062 -9.2D-03  0.00124  0.00070  0.04396  0.07186     17.9
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:     18.0
+   Time prior to 1st pass:     18.0
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1068067806 -1.55D+03  6.05D-05  3.45D-05    19.0
+ d= 0,ls=0.0,diis     2   -997.1068115601 -4.78D-06  1.41D-05  3.04D-06    19.8
+ d= 0,ls=0.0,diis     3   -997.1068115532  6.92D-09  8.40D-06  3.09D-06    20.5
+
+
+         Total DFT energy =     -997.106811553218
+      One electron energy =    -2484.596090740275
+           Coulomb energy =     1022.884005151736
+    Exchange-Corr. energy =      -88.602817000054
+ Nuclear repulsion energy =      553.208091035376
+
+ Numeric. integr. density =       69.999995555934
+
+     Total iterative time =      2.5s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+ Line search: 
+     step= 1.00 grad=-2.0D-05 hess= 9.0D-06 energy=   -997.106812 mode=downhill
+ new step= 1.11                   predicted energy=   -997.106812
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   2
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:     20.6
+   Time prior to 1st pass:     20.6
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1068118667 -1.55D+03  7.46D-06  5.80D-07    21.5
+ d= 0,ls=0.0,diis     2   -997.1068119363 -6.96D-08  3.45D-06  1.05D-07    22.4
+
+
+         Total DFT energy =     -997.106811936254
+      One electron energy =    -2484.482250548910
+           Coulomb energy =     1022.823861542211
+    Exchange-Corr. energy =      -88.601300043587
+ Nuclear repulsion energy =      553.152877114033
+
+ Numeric. integr. density =       69.999995570924
+
+     Total iterative time =      1.8s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 S       0.000000   0.000000   0.000000    0.000000   0.000000   0.000000
+   2 F      -0.392112   1.460868  -2.618655    0.000004   0.000018   0.000072
+   3 F      -1.929570   1.898912   1.347718    0.000048  -0.000001  -0.000051
+   4 F       1.929570  -1.898912  -1.347718   -0.000048   0.000001   0.000051
+   5 F      -2.295117  -1.845990  -0.685720    0.000061   0.000003   0.000025
+   6 F       0.392112  -1.460868   2.618655   -0.000004  -0.000018  -0.000072
+   7 F       2.295117   1.845990   0.685720   -0.000061  -0.000003  -0.000025
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    2    -997.10681194 -1.1D-05  0.00005  0.00004  0.00165  0.00237     23.7
+                                     ok       ok                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:     23.8
+   Time prior to 1st pass:     23.8
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       19.93            19932976
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1068118760 -1.55D+03  1.20D-05  5.14D-07    24.8
+ d= 0,ls=0.0,diis     2   -997.1068119687 -9.28D-08  3.56D-06  1.26D-07    25.6
+
+
+         Total DFT energy =     -997.106811968724
+      One electron energy =    -2484.426649224678
+           Coulomb energy =     1022.796608870179
+    Exchange-Corr. energy =      -88.601121010628
+ Nuclear repulsion energy =      553.124349396403
+
+ Numeric. integr. density =       69.999995576000
+
+     Total iterative time =      1.8s
+
+
+
+                  Occupations of the irreducible representations
+                  ----------------------------------------------
+
+                     irrep           alpha         beta
+                     --------     --------     --------
+                     ag               17.0         17.0
+                     au               18.0         18.0
+
+ Line search: 
+     step= 1.00 grad=-1.7D-07 hess= 1.4D-07 energy=   -997.106812 mode=accept  
+ new step= 1.00                   predicted energy=   -997.106812
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   3
+          --------
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -997.106811968724
+
+
+
+                         DFT ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 S       0.000000   0.000000   0.000000    0.000000   0.000000   0.000000
+   2 F      -0.392104   1.460524  -2.619030    0.000000  -0.000021  -0.000023
+   3 F      -1.929804   1.898672   1.348067   -0.000012  -0.000021   0.000022
+   4 F       1.929804  -1.898672  -1.348067    0.000012   0.000021  -0.000022
+   5 F      -2.295428  -1.845792  -0.685896   -0.000016   0.000017  -0.000011
+   6 F       0.392104  -1.460524   2.619030   -0.000000   0.000021   0.000023
+   7 F       2.295428   1.845792   0.685896    0.000016  -0.000017   0.000011
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    3    -997.10681197 -3.2D-08  0.00002  0.00001  0.00025  0.00038     26.7
+                                     ok       ok       ok       ok  
+
+
+      ----------------------
+      Optimization converged
+      ----------------------
+
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    3    -997.10681197 -3.2D-08  0.00002  0.00001  0.00025  0.00038     26.7
+                                     ok       ok       ok       ok  
+
+
+
+                         Geometry "geometry" -> "geometry"
+                         ---------------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 S                   16.0000     0.00000000     0.00000000     0.00000000
+    2 F                    9.0000    -0.20749252     0.77287628    -1.38593114
+    3 F                    9.0000    -1.02120827     1.00473409     0.71336646
+    4 F                    9.0000     1.02120827    -1.00473409    -0.71336646
+    5 F                    9.0000    -1.21468817    -0.97675095    -0.36296077
+    6 F                    9.0000     0.20749252    -0.77287628     1.38593114
+    7 F                    9.0000     1.21468817     0.97675095     0.36296077
+
+      Atomic Mass 
+      ----------- 
+
+      S                 31.972070
+      F                 18.998400
+
+
+ Effective nuclear repulsion energy (a.u.)     553.1243493964
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000    -0.0000000000
+
+      Symmetry information
+      --------------------
+
+ Group name             Ci        
+ Group number              3
+ Group order               2
+ No. of unique centers     4
+
+      Symmetry unique atoms
+
+     1    2    3    5
+
+
+                Final and change from initial internal coordinates
+                --------------------------------------------------
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value       Change
+      ----------- --------  ----- ----- ----- ----- ----- ---------- ----------
+    1 Stretch                  1     2                       1.60037    0.04535
+    2 Stretch                  1     3                       1.60039    0.04514
+    3 Stretch                  1     4                       1.60039    0.04514
+    4 Stretch                  1     5                       1.60039    0.04511
+    5 Stretch                  1     6                       1.60037    0.04535
+    6 Stretch                  1     7                       1.60039    0.04511
+    7 Bend                     2     1     3                90.00556    0.02331
+    8 Bend                     2     1     4                89.99444   -0.02331
+    9 Bend                     2     1     5                89.99620   -0.01745
+   10 Bend                     2     1     7                90.00380    0.01745
+   11 Bend                     3     1     5                89.99663   -0.01396
+   12 Bend                     3     1     6                89.99444   -0.02331
+   13 Bend                     3     1     7                90.00337    0.01396
+   14 Bend                     4     1     5                90.00337    0.01396
+   15 Bend                     4     1     6                90.00556    0.02331
+   16 Bend                     4     1     7                89.99663   -0.01396
+   17 Bend                     5     1     6                90.00380    0.01745
+   18 Bend                     6     1     7                89.99620   -0.01745
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+
+
+                   NWChem Nuclear Hessian and Frequency Analysis
+                   ---------------------------------------------
+
+
+
+                              NWChem Analytic Hessian
+                              -----------------------
+
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                                        SF6
+
+
+
+  Caching 1-el integrals 
+   Time after variat. SCF:     26.9
+   Time prior to 1st pass:     26.9
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):       16.41            16414512
+          Stack Space remaining (MW):       26.21            26213636
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d= 0,ls=0.0,diis     1   -997.1068131886 -1.55D+03  4.10D-06  1.08D-07    29.2
+ d= 0,ls=0.0,diis     2   -997.1068131751  1.35D-08  2.46D-06  2.76D-07    31.5
+
+
+         Total DFT energy =     -997.106813175061
+      One electron energy =    -2484.427205134883
+           Coulomb energy =     1022.797259234605
+    Exchange-Corr. energy =      -88.601216671186
+ Nuclear repulsion energy =      553.124349396403
+
+ Numeric. integr. density =       69.999999277017
+
+     Total iterative time =      4.7s
+
+
+
+ HESSIAN: the one electron contributions are done in       0.1s
+
+
+ HESSIAN: 2-el 1st deriv. term done in                     1.0s
+
+
+ HESSIAN: 2-el 2nd deriv. term done in                     3.2s
+
+  stpr_wrt_fd_from_sq: overwrite of existing file:./molecule.hess
+ stpr_wrt_fd_dipole: overwrite of existing file./molecule.fd_ddipole
+
+ HESSIAN: the two electron contributions are done in      39.3s
+
+ SCF residual:    3.3883632285283634E-005
+ HESSIAN: the CPHF contributions are done
+  stpr_wrt_fd_from_sq: overwrite of existing file:./molecule.hess
+ stpr_wrt_fd_dipole: overwrite of existing file./molecule.fd_ddipole
+
+ Derivative Dipole
+
+  
+  
+ X vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_x/<atom=   1,x> =     3.1063     [   14.9203]
+ d_dipole_x/<atom=   1,y> =     0.0000     [    0.0001]
+ d_dipole_x/<atom=   1,z> =    -0.0000     [   -0.0002]
+ d_dipole_x/<atom=   2,x> =    -0.3796     [   -1.8231]
+ d_dipole_x/<atom=   2,y> =     0.0273     [    0.1312]
+ d_dipole_x/<atom=   2,z> =    -0.0490     [   -0.2353]
+ d_dipole_x/<atom=   3,x> =    -0.5499     [   -2.6415]
+ d_dipole_x/<atom=   3,y> =     0.1748     [    0.8398]
+ d_dipole_x/<atom=   3,z> =     0.1241     [    0.5963]
+ d_dipole_x/<atom=   4,x> =    -0.5499     [   -2.6415]
+ d_dipole_x/<atom=   4,y> =     0.1748     [    0.8398]
+ d_dipole_x/<atom=   4,z> =     0.1241     [    0.5963]
+ d_dipole_x/<atom=   5,x> =    -0.6237     [   -2.9956]
+ d_dipole_x/<atom=   5,y> =    -0.2022     [   -0.9711]
+ d_dipole_x/<atom=   5,z> =    -0.0751     [   -0.3608]
+ d_dipole_x/<atom=   6,x> =    -0.3796     [   -1.8231]
+ d_dipole_x/<atom=   6,y> =     0.0273     [    0.1312]
+ d_dipole_x/<atom=   6,z> =    -0.0490     [   -0.2353]
+ d_dipole_x/<atom=   7,x> =    -0.6237     [   -2.9956]
+ d_dipole_x/<atom=   7,y> =    -0.2022     [   -0.9710]
+ d_dipole_x/<atom=   7,z> =    -0.0751     [   -0.3608]
+  
+ Y vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_y/<atom=   1,x> =    -0.0000     [   -0.0002]
+ d_dipole_y/<atom=   1,y> =     3.1062     [   14.9199]
+ d_dipole_y/<atom=   1,z> =     0.0000     [    0.0000]
+ d_dipole_y/<atom=   2,x> =     0.0273     [    0.1313]
+ d_dipole_y/<atom=   2,y> =    -0.4740     [   -2.2769]
+ d_dipole_y/<atom=   2,z> =     0.1826     [    0.8770]
+ d_dipole_y/<atom=   3,x> =     0.1749     [    0.8400]
+ d_dipole_y/<atom=   3,y> =    -0.5443     [   -2.6142]
+ d_dipole_y/<atom=   3,z> =    -0.1222     [   -0.5867]
+ d_dipole_y/<atom=   4,x> =     0.1749     [    0.8400]
+ d_dipole_y/<atom=   4,y> =    -0.5443     [   -2.6142]
+ d_dipole_y/<atom=   4,z> =    -0.1222     [   -0.5867]
+ d_dipole_y/<atom=   5,x> =    -0.2022     [   -0.9712]
+ d_dipole_y/<atom=   5,y> =    -0.5348     [   -2.5688]
+ d_dipole_y/<atom=   5,z> =    -0.0604     [   -0.2902]
+ d_dipole_y/<atom=   6,x> =     0.0273     [    0.1313]
+ d_dipole_y/<atom=   6,y> =    -0.4740     [   -2.2769]
+ d_dipole_y/<atom=   6,z> =     0.1826     [    0.8770]
+ d_dipole_y/<atom=   7,x> =    -0.2022     [   -0.9712]
+ d_dipole_y/<atom=   7,y> =    -0.5348     [   -2.5688]
+ d_dipole_y/<atom=   7,z> =    -0.0604     [   -0.2902]
+  
+ Z vector of derivative dipole (au) [debye/angstrom]
+ d_dipole_z/<atom=   1,x> =     0.0000     [    0.0000]
+ d_dipole_z/<atom=   1,y> =     0.0000     [    0.0001]
+ d_dipole_z/<atom=   1,z> =     3.1063     [   14.9202]
+ d_dipole_z/<atom=   2,x> =    -0.0490     [   -0.2354]
+ d_dipole_z/<atom=   2,y> =     0.1825     [    0.8767]
+ d_dipole_z/<atom=   2,z> =    -0.6995     [   -3.3600]
+ d_dipole_z/<atom=   3,x> =     0.1241     [    0.5962]
+ d_dipole_z/<atom=   3,y> =    -0.1221     [   -0.5866]
+ d_dipole_z/<atom=   3,z> =    -0.4589     [   -2.2044]
+ d_dipole_z/<atom=   4,x> =     0.1241     [    0.5962]
+ d_dipole_z/<atom=   4,y> =    -0.1221     [   -0.5866]
+ d_dipole_z/<atom=   4,z> =    -0.4589     [   -2.2044]
+ d_dipole_z/<atom=   5,x> =    -0.0751     [   -0.3609]
+ d_dipole_z/<atom=   5,y> =    -0.0604     [   -0.2901]
+ d_dipole_z/<atom=   5,z> =    -0.3947     [   -1.8957]
+ d_dipole_z/<atom=   6,x> =    -0.0490     [   -0.2354]
+ d_dipole_z/<atom=   6,y> =     0.1825     [    0.8767]
+ d_dipole_z/<atom=   6,z> =    -0.6995     [   -3.3600]
+ d_dipole_z/<atom=   7,x> =    -0.0751     [   -0.3609]
+ d_dipole_z/<atom=   7,y> =    -0.0604     [   -0.2901]
+ d_dipole_z/<atom=   7,z> =    -0.3947     [   -1.8957]
+  
+  
+ HESSIAN: the Hessian is done
+
+
+  Vibrational analysis via the FX method 
+
+  See chapter 2 in "Molecular Vibrations" by Wilson, Decius and Cross
+
+  Vib: Default input used 
+
+  Nuclear Hessian passed symmetry test 
+
+
+
+ ---------------------------- Atom information ----------------------------
+     atom    #        X              Y              Z            mass
+ --------------------------------------------------------------------------
+    S        1  0.0000000D+00  0.0000000D+00  0.0000000D+00  3.1972070D+01
+    F        2 -3.9210400D-01  1.4605244D+00 -2.6190301D+00  1.8998400D+01
+    F        3 -1.9298038D+00  1.8986721D+00  1.3480671D+00  1.8998400D+01
+    F        4  1.9298038D+00 -1.8986721D+00 -1.3480671D+00  1.8998400D+01
+    F        5 -2.2954278D+00 -1.8457917D+00 -6.8589640D-01  1.8998400D+01
+    F        6  3.9210400D-01 -1.4605244D+00  2.6190301D+00  1.8998400D+01
+    F        7  2.2954278D+00  1.8457917D+00  6.8589640D-01  1.8998400D+01
+ --------------------------------------------------------------------------
+
+
+
+
+          ----------------------------------------------------
+          MASS-WEIGHTED NUCLEAR HESSIAN (Hartree/Bohr/Bohr/Kamu)
+          ----------------------------------------------------
+
+
+               1            2            3            4            5            6            7            8            9           10
+   ----- ----- ----- ----- -----
+    1    2.41411D+01
+    2    1.65258D-04  2.41407D+01
+    3    2.64765D-04 -7.74315D-04  2.41426D+01
+    4   -3.03135D+00  4.32902D-01 -7.76243D-01  4.74817D+00
+    5    4.32931D-01 -4.52791D+00  2.89169D+00 -7.89517D-01  7.47567D+00
+    6   -7.76317D-01  2.89180D+00 -8.10022D+00  1.41452D+00 -5.26983D+00  1.39827D+01
+    7   -5.72981D+00  2.76941D+00  1.96613D+00  9.27155D-02  3.35544D-01  5.44568D-01  9.66512D+00
+    8    2.76936D+00 -5.64004D+00 -1.93448D+00  1.64074D-02  3.98929D-01  2.85352D-01 -5.04648D+00  9.50306D+00
+    9    1.96614D+00 -1.93449D+00 -4.28852D+00  1.40352D+00 -7.82738D-01 -2.06535D+00 -3.58158D+00  3.52508D+00  7.03851D+00
+   10   -5.72981D+00  2.76941D+00  1.96613D+00 -3.78131D-01  1.12485D+00 -2.79614D-03  9.57730D-02  1.91179D-01  1.35740D-01  9.66512D+00
+   11    2.76936D+00 -5.64004D+00 -1.93448D+00  1.44393D+00 -1.32598D+00  1.51110D-01  1.91188D-01  1.02026D-01 -1.33560D-01 -5.04648D+00
+   12    1.96614D+00 -1.93449D+00 -4.28852D+00 -8.62038D-01  1.21955D+00  1.28248D-01  1.35747D-01 -1.33569D-01  1.95273D-01 -3.58157D+00
+   13   -6.89736D+00 -3.20236D+00 -1.18990D+00 -1.29059D-01 -7.26563D-01  8.63671D-02  3.53243D-01  3.86866D-01  2.41628D-01 -2.39958D+00
+   14   -3.20225D+00 -5.49036D+00 -9.56715D-01 -1.35406D+00 -1.26767D+00  5.87903D-01 -8.31801D-01 -1.77235D+00 -1.15722D+00  6.34412D-01
+   15   -1.18998D+00 -9.56820D-01 -3.27076D+00  9.70334D-01  1.48612D+00 -1.78983D-01 -4.38175D-01 -1.33969D+00 -1.56162D-01  7.91785D-01
+   16   -3.03135D+00  4.32902D-01 -7.76243D-01  2.82096D-01  2.98903D-02 -5.35804D-02 -3.78141D-01  1.44394D+00 -8.62025D-01  9.27061D-02
+   17    4.32931D-01 -4.52791D+00  2.89169D+00  2.98905D-02  1.78857D-01  1.99565D-01  1.12486D+00 -1.32599D+00  1.21954D+00  3.35558D-01
+   18   -7.76317D-01  2.89180D+00 -8.10022D+00 -5.35817D-02  1.99573D-01 -6.77717D-02 -2.77698D-03  1.51093D-01  1.28252D-01  5.44587D-01
+   19   -6.89736D+00 -3.20236D+00 -1.18990D+00 -6.88181D-01 -5.36166D-01 -9.81946D-01 -2.39958D+00 -5.84254D-01  1.12124D-01  3.53243D-01
+   20   -3.20225D+00 -5.49036D+00 -9.56715D-01  9.11463D-02  4.09092D-01  2.94276D-01  6.34412D-01  4.06881D-01 -1.61107D-01 -8.31801D-01
+   21   -1.18998D+00 -9.56820D-01 -3.27076D+00 -1.86562D+00 -6.03819D-01 -1.29510D+00  7.91785D-01  2.13705D-02  4.18637D-01 -4.38175D-01
+
+
+              11           12           13           14           15           16           17           18           19           20
+   ----- ----- ----- ----- -----
+   11    9.50306D+00
+   12    3.52508D+00  7.03851D+00
+   13   -5.84254D-01  1.12124D-01  1.17920D+01
+   14    4.06881D-01 -1.61107D-01  5.83537D+00  9.22986D+00
+   15    2.13706D-02  4.18637D-01  2.16733D+00  1.74384D+00  5.18458D+00
+   16    1.64137D-02  1.40354D+00 -6.88193D-01  9.11351D-02 -1.86561D+00  4.74817D+00
+   17    3.98915D-01 -7.82754D-01 -5.36175D-01  4.09086D-01 -6.03834D-01 -7.89517D-01  7.47567D+00
+   18    2.85335D-01 -2.06535D+00 -9.81954D-01  2.94269D-01 -1.29508D+00  1.41453D+00 -5.26983D+00  1.39827D+01
+   19    3.86866D-01  2.41628D-01  1.51882D-02 -2.21056D-01 -8.21352D-02 -1.29059D-01 -7.26563D-01  8.63672D-02  1.17920D+01
+   20   -1.77235D+00 -1.15722D+00 -2.21055D-01  1.12380D-01 -6.60678D-02 -1.35406D+00 -1.26767D+00  5.87903D-01  5.83537D+00  9.22986D+00
+   21   -1.33969D+00 -1.56162D-01 -8.21422D-02 -6.60700D-02  2.65557D-01  9.70334D-01  1.48612D+00 -1.78983D-01  2.16733D+00  1.74384D+00
+
+
+              21
+   ----- ----- ----- ----- -----
+   21    5.18459D+00
+
+
+
+          -------------------------------------------------
+          NORMAL MODE EIGENVECTORS IN CARTESIAN COORDINATES
+          -------------------------------------------------
+                 (Frequencies expressed in cm-1)
+
+                    1           2           3           4           5           6
+ 
+ Frequency        -11.65      -10.61       -9.73       -9.33       -9.18       -8.99
+ 
+           1     0.00011    -0.00068     0.01374    -0.08148     0.00463     0.00065
+           2    -0.00040     0.00053     0.06478     0.00802    -0.05085    -0.00154
+           3     0.00008     0.00061    -0.04964    -0.01209    -0.06507    -0.00229
+           4     0.07246     0.08309     0.01402    -0.08186     0.00443     0.02683
+           5     0.08033    -0.05924     0.06509     0.00863    -0.05165    -0.00186
+           6     0.03427    -0.04527    -0.04951    -0.01169    -0.06549    -0.00640
+           7     0.01443     0.00117     0.01409    -0.08195     0.00755    -0.08643
+           8    -0.00048     0.06746     0.06503     0.00718    -0.04818    -0.06057
+           9     0.02070    -0.09102    -0.04949    -0.01158    -0.06466    -0.04381
+          10    -0.01421    -0.00253     0.01338    -0.08101     0.00171     0.08774
+          11    -0.00031    -0.06639     0.06454     0.00886    -0.05352     0.05749
+          12    -0.02054     0.09223    -0.04981    -0.01260    -0.06549     0.03923
+          13    -0.02429    -0.01655     0.01339    -0.08103     0.00220     0.06939
+          14     0.06339     0.02208     0.06528     0.00764    -0.04872    -0.06252
+          15    -0.08994    -0.00428    -0.04980    -0.01259    -0.06271    -0.06823
+          16    -0.07224    -0.08446     0.01348    -0.08114     0.00481    -0.02553
+          17    -0.08112     0.06031     0.06451     0.00741    -0.05009    -0.00121
+          18    -0.03411     0.04649    -0.04976    -0.01248    -0.06468     0.00181
+          19     0.02451     0.01519     0.01408    -0.08194     0.00705    -0.06809
+          20    -0.06418    -0.02102     0.06431     0.00840    -0.05298     0.05945
+          21     0.09010     0.00549    -0.04950    -0.01159    -0.06745     0.06365
+
+                    7           8           9          10          11          12
+ 
+ Frequency        315.82      315.84      315.95      473.83      473.86      473.86
+ 
+           1     0.00001     0.00001     0.00001    -0.00000    -0.00000     0.00000
+           2    -0.00000     0.00001     0.00000     0.00000     0.00000     0.00000
+           3    -0.00000    -0.00001     0.00000     0.00000    -0.00000     0.00000
+           4    -0.06278    -0.03978    -0.08610    -0.01554     0.11074    -0.02080
+           5     0.02716    -0.09555     0.01478    -0.08069    -0.01476    -0.05794
+           6     0.02455    -0.04735     0.02114    -0.04270    -0.02483    -0.02922
+           7     0.00785     0.07351     0.04836    -0.04364     0.01773     0.07473
+           8     0.05842     0.06745    -0.00296    -0.07018    -0.03915     0.03887
+           9    -0.07110     0.01022     0.07340     0.03643     0.08059     0.05221
+          10     0.00785     0.07351     0.04836     0.04364    -0.01773    -0.07473
+          11     0.05842     0.06745    -0.00296     0.07018     0.03915    -0.03887
+          12    -0.07110     0.01022     0.07340    -0.03643    -0.08059    -0.05221
+          13     0.05494    -0.03371     0.03776    -0.05238     0.01401     0.05139
+          14    -0.08558     0.02813    -0.01181     0.07665    -0.03843    -0.03003
+          15     0.04653     0.03714    -0.09455    -0.03109     0.05662    -0.09117
+          16    -0.06278    -0.03978    -0.08610     0.01554    -0.11074     0.02080
+          17     0.02716    -0.09555     0.01478     0.08069     0.01476     0.05794
+          18     0.02455    -0.04735     0.02114     0.04270     0.02483     0.02922
+          19     0.05494    -0.03371     0.03776     0.05238    -0.01401    -0.05139
+          20    -0.08558     0.02813    -0.01181    -0.07666     0.03843     0.03003
+          21     0.04653     0.03714    -0.09455     0.03109    -0.05662     0.09117
+
+                   13          14          15          16          17          18
+ 
+ Frequency        558.10      558.18      558.20      647.87      647.89      730.45
+ 
+           1     0.00493     0.06527    -0.01317    -0.00000    -0.00000    -0.00000
+           2    -0.06600     0.00653     0.00766    -0.00000     0.00000     0.00000
+           3     0.00878     0.01245     0.06501    -0.00000     0.00000    -0.00000
+           4     0.00819    -0.07121     0.03326     0.00200     0.01706    -0.01215
+           5     0.02556    -0.02861    -0.07516    -0.00737    -0.06355     0.04527
+           6     0.08315     0.02283     0.04203     0.01319     0.11393    -0.08112
+           7     0.06403    -0.02191    -0.05692     0.06785    -0.05040    -0.05975
+           8     0.00898    -0.06175     0.06226    -0.06676     0.04961     0.05881
+           9    -0.05911    -0.05302    -0.02594    -0.04738     0.03523     0.04173
+          10     0.06403    -0.02191    -0.05692    -0.06785     0.05040     0.05975
+          11     0.00898    -0.06175     0.06226     0.06676    -0.04960    -0.05881
+          12    -0.05911    -0.05302    -0.02594     0.04738    -0.03523    -0.04173
+          13    -0.07637     0.03823     0.03474    -0.09227    -0.03992    -0.07107
+          14     0.02096     0.08486     0.00646    -0.07421    -0.03211    -0.05717
+          15    -0.03141     0.01972    -0.07077    -0.02756    -0.01194    -0.02123
+          16     0.00819    -0.07122     0.03326    -0.00200    -0.01706     0.01215
+          17     0.02556    -0.02861    -0.07516     0.00737     0.06355    -0.04527
+          18     0.08315     0.02283     0.04203    -0.01319    -0.11393     0.08112
+          19    -0.07637     0.03823     0.03474     0.09227     0.03992     0.07107
+          20     0.02096     0.08486     0.00646     0.07421     0.03211     0.05717
+          21    -0.03141     0.01972    -0.07077     0.02756     0.01194     0.02123
+
+                   19          20          21
+ 
+ Frequency        964.13      964.14      964.18
+ 
+           1     0.01805    -0.13966    -0.01182
+           2    -0.13333    -0.02078     0.04197
+           3    -0.04321     0.00579    -0.13442
+           4    -0.00373     0.01145     0.01171
+           5     0.01920     0.00078    -0.04346
+           6    -0.01177     0.00113     0.08267
+           7    -0.04532     0.04135    -0.00902
+           8     0.05387    -0.02799     0.00644
+           9     0.03411    -0.02152     0.01775
+          10    -0.04532     0.04135    -0.00902
+          11     0.05387    -0.02799     0.00644
+          12     0.03411    -0.02152     0.01775
+          13     0.03386     0.06471     0.00726
+          14     0.03910     0.04469     0.00170
+          15     0.01402     0.01552     0.01267
+          16    -0.00373     0.01145     0.01171
+          17     0.01920     0.00078    -0.04346
+          18    -0.01177     0.00113     0.08267
+          19     0.03386     0.06471     0.00726
+          20     0.03910     0.04469     0.00170
+          21     0.01402     0.01552     0.01267
+  
+  
+ ----------------------------------------------------------------------------
+ Normal Eigenvalue ||                 Infra Red Intensities
+  Mode   [cm**-1]  || [atomic units] [(debye/angs)**2] [(KM/mol)] [arbitrary]
+ ------ ---------- || -------------- ----------------- ---------- -----------
+    1      -11.648 ||    0.000000           0.000         0.000       0.000
+    2      -10.614 ||    0.000000           0.000         0.000       0.000
+    3       -9.728 ||    0.000000           0.000         0.000       0.000
+    4       -9.325 ||    0.000000           0.000         0.000       0.000
+    5       -9.176 ||    0.000000           0.000         0.000       0.000
+    6       -8.992 ||    0.000000           0.000         0.000       0.000
+    7      315.819 ||    0.000000           0.000         0.000       0.000
+    8      315.842 ||    0.000000           0.000         0.000       0.000
+    9      315.950 ||    0.000000           0.000         0.000       0.000
+   10      473.826 ||    0.000000           0.000         0.000       0.000
+   11      473.855 ||    0.000000           0.000         0.000       0.000
+   12      473.863 ||    0.000000           0.000         0.000       0.000
+   13      558.101 ||    0.025904           0.598        25.252       4.535
+   14      558.176 ||    0.025918           0.598        25.266       4.538
+   15      558.197 ||    0.025923           0.598        25.271       4.539
+   16      647.875 ||    0.000000           0.000         0.000       0.000
+   17      647.889 ||    0.000000           0.000         0.000       0.000
+   18      730.453 ||    0.000000           0.000         0.000       0.000
+   19      964.127 ||    0.373899           8.626       364.495      65.463
+   20      964.144 ||    0.373900           8.626       364.497      65.463
+   21      964.185 ||    0.373890           8.626       364.486      65.462
+ ----------------------------------------------------------------------------
+
+
+
+
+
+        Vibrational analysis via the FX method 
+  --- with translations and rotations projected out ---
+  --- via the Eckart algorithm                      ---
+
+          --------------------------------------------------------
+          MASS-WEIGHTED PROJECTED HESSIAN (Hartree/Bohr/Bohr/Kamu)
+          --------------------------------------------------------
+
+
+               1            2            3            4            5            6            7            8            9           10
+   ----- ----- ----- ----- -----
+    1    2.41407D+01
+    2    1.15883D-04  2.41404D+01
+    3    2.28597D-04 -7.54327D-04  2.41422D+01
+    4   -3.03125D+00  4.32947D-01 -7.76306D-01  4.75032D+00
+    5    4.32921D-01 -4.52779D+00  2.89170D+00 -7.89121D-01  7.47746D+00
+    6   -7.76324D-01  2.89185D+00 -8.10018D+00  1.41438D+00 -5.26923D+00  1.39838D+01
+    7   -5.72981D+00  2.76935D+00  1.96607D+00  9.35123D-02  3.35647D-01  5.44604D-01  9.66627D+00
+    8    2.76929D+00 -5.64003D+00 -1.93447D+00  1.67825D-02  3.99446D-01  2.85139D-01 -5.04626D+00  9.50406D+00
+    9    1.96614D+00 -1.93451D+00 -4.28850D+00  1.40297D+00 -7.82183D-01 -2.06412D+00 -3.58139D+00  3.52473D+00  7.04005D+00
+   10   -5.72981D+00  2.76935D+00  1.96607D+00 -3.77464D-01  1.12473D+00 -2.87875D-03  9.58349D-02  1.90764D-01  1.35521D-01  9.66626D+00
+   11    2.76929D+00 -5.64003D+00 -1.93447D+00  1.44366D+00 -1.32500D+00  1.51403D-01  1.90771D-01  1.02267D-01 -1.33320D-01 -5.04625D+00
+   12    1.96614D+00 -1.93451D+00 -4.28850D+00 -8.61524D-01  1.21889D+00  1.28397D-01  1.35518D-01 -1.33315D-01  1.95071D-01 -3.58139D+00
+   13   -6.89735D+00 -3.20237D+00 -1.18991D+00 -1.28553D-01 -7.26629D-01  8.63746D-02  3.53399D-01  3.86520D-01  2.41581D-01 -2.39850D+00
+   14   -3.20228D+00 -5.49033D+00 -9.56747D-01 -1.35344D+00 -1.26655D+00  5.88000D-01 -8.31432D-01 -1.77145D+00 -1.15724D+00  6.33972D-01
+   15   -1.18996D+00 -9.56849D-01 -3.27070D+00  9.69568D-01  1.48537D+00 -1.78539D-01 -4.37957D-01 -1.33955D+00 -1.55496D-01  7.91584D-01
+   16   -3.03124D+00  4.32947D-01 -7.76306D-01  2.81683D-01  2.97531D-02 -5.34897D-02 -3.77467D-01  1.44366D+00 -8.61521D-01  9.35125D-02
+   17    4.32921D-01 -4.52779D+00  2.89171D+00  2.97501D-02  1.78846D-01  1.99054D-01  1.12474D+00 -1.32501D+00  1.21889D+00  3.35651D-01
+   18   -7.76326D-01  2.89185D+00 -8.10018D+00 -5.34889D-02  1.99060D-01 -6.74593D-02 -2.87008D-03  1.51394D-01  1.28400D-01  5.44616D-01
+   19   -6.89735D+00 -3.20237D+00 -1.18991D+00 -6.87188D-01 -5.35993D-01 -9.81893D-01 -2.39850D+00 -5.83960D-01  1.12244D-01  3.53400D-01
+   20   -3.20228D+00 -5.49033D+00 -9.56748D-01  9.07272D-02  4.09532D-01  2.94153D-01  6.33968D-01  4.07271D-01 -1.61301D-01 -8.31436D-01
+   21   -1.18996D+00 -9.56849D-01 -3.27070D+00 -1.86484D+00 -6.03190D-01 -1.29407D+00  7.91587D-01  2.11082D-02  4.19399D-01 -4.37954D-01
+
+
+              11           12           13           14           15           16           17           18           19           20
+   ----- ----- ----- ----- -----
+   11    9.50405D+00
+   12    3.52473D+00  7.04005D+00
+   13   -5.83960D-01  1.12248D-01  1.17931D+01
+   14    4.07272D-01 -1.61301D-01  5.83499D+00  9.23100D+00
+   15    2.11105D-02  4.19395D-01  2.16733D+00  1.74349D+00  5.18631D+00
+   16    1.67807D-02  1.40298D+00 -6.87193D-01  9.07201D-02 -1.86484D+00  4.75033D+00
+   17    3.99444D-01 -7.82189D-01 -5.36000D-01  4.09531D-01 -6.03196D-01 -7.89120D-01  7.47746D+00
+   18    2.85131D-01 -2.06412D+00 -9.81900D-01  2.94151D-01 -1.29407D+00  1.41437D+00 -5.26922D+00  1.39838D+01
+   19    3.86515D-01  2.41582D-01  1.54001D-02 -2.20621D-01 -8.19973D-02 -1.28551D-01 -7.26627D-01  8.63700D-02  1.17931D+01
+   20   -1.77145D+00 -1.15725D+00 -2.20618D-01  1.12582D-01 -6.59450D-02 -1.35344D+00 -1.26655D+00  5.88002D-01  5.83499D+00  9.23100D+00
+   21   -1.33955D+00 -1.55496D-01 -8.20032D-02 -6.59490D-02  2.65345D-01  9.69569D-01  1.48537D+00 -1.78538D-01  2.16732D+00  1.74349D+00
+
+
+              21
+   ----- ----- ----- ----- -----
+   21    5.18631D+00
+
+ center of mass
+ --------------
+ x =   0.00000000 y =   0.00000000 z =   0.00000000
+
+ moments of inertia (a.u.)
+ ------------------
+         695.040949617284          -0.005294382735           0.005596716258
+          -0.005294382735         695.110975166319          -0.015276103881
+           0.005596716258          -0.015276103881         695.034096618099
+
+ Rotational Constants
+ --------------------
+ A=   0.086615 cm-1  (  0.124617 K)
+ B=   0.086614 cm-1  (  0.124615 K)
+ C=   0.086605 cm-1  (  0.124602 K)
+
+
+ Temperature                      =   298.15K
+ frequency scaling parameter      =   1.0000
+
+ Zero-Point correction to Energy  =   12.806 kcal/mol  (  0.020408 au)
+ Thermal correction to Energy     =   16.456 kcal/mol  (  0.026225 au)
+ Thermal correction to Enthalpy   =   17.049 kcal/mol  (  0.027169 au)
+
+ Total Entropy                    =   77.222 cal/mol-K
+   - Translational                =   40.827 cal/mol-K (mol. weight = 145.9625)
+   - Rotational                   =   27.297 cal/mol-K (symmetry #  =        1)
+   - Vibrational                  =    9.098 cal/mol-K
+
+ Cv (constant volume heat capacity) =   22.063 cal/mol-K
+   - Translational                  =    2.979 cal/mol-K
+   - Rotational                     =    2.979 cal/mol-K
+   - Vibrational                    =   16.104 cal/mol-K
+
+
+
+          -------------------------------------------------
+          NORMAL MODE EIGENVECTORS IN CARTESIAN COORDINATES
+          -------------------------------------------------
+             (Projected Frequencies expressed in cm-1)
+
+                    1           2           3           4           5           6
+ 
+ P.Frequency       -0.00       -0.00        0.00        0.00        0.00        0.00
+ 
+           1     0.02424    -0.04259    -0.02793     0.05914    -0.01298     0.00210
+           2    -0.01357    -0.02564    -0.05508    -0.03559     0.00859    -0.04043
+           3    -0.03753     0.00745     0.01636     0.01785    -0.05522    -0.04185
+           4     0.07202    -0.08604    -0.00890     0.00155    -0.08088     0.02398
+           5     0.04799    -0.02510    -0.01779    -0.03605     0.02862    -0.10758
+           6    -0.01036     0.01426     0.03431     0.02621    -0.03388    -0.08257
+           7    -0.00841    -0.09913     0.01780     0.06179     0.02360    -0.00794
+           8    -0.05174    -0.08938    -0.02963    -0.05706    -0.00041    -0.00489
+           9    -0.03052     0.01628     0.04597     0.05188     0.00982    -0.10629
+          10     0.05690     0.01396    -0.07365     0.05649    -0.04957     0.01215
+          11     0.02460     0.03810    -0.08054    -0.01412     0.01758    -0.07597
+          12    -0.04454    -0.00138    -0.01325    -0.01619    -0.12026     0.02259
+          13     0.04353     0.01238    -0.06962     0.06675    -0.03214     0.00681
+          14    -0.00412    -0.09079     0.00061    -0.05804     0.01519    -0.05701
+          15    -0.12752    -0.00118     0.00601     0.05279    -0.00887    -0.01299
+          16    -0.02353     0.00087    -0.04695     0.11672     0.05491    -0.01978
+          17    -0.07513    -0.02618    -0.09238    -0.03514    -0.01144     0.02671
+          18    -0.06471     0.00065    -0.00159     0.00948    -0.07655    -0.00113
+          19     0.00496    -0.09755     0.01377     0.05153     0.00618    -0.00261
+          20    -0.02302     0.03950    -0.11078    -0.01314     0.00199    -0.02385
+          21     0.05246     0.01608     0.02671    -0.01710    -0.10157    -0.07071
+
+                    7           8           9          10          11          12
+ 
+ P.Frequency      315.82      315.84      315.95      473.83      473.86      473.86
+ 
+           1     0.00001     0.00000    -0.00000    -0.00000    -0.00000     0.00000
+           2    -0.00000     0.00000     0.00000     0.00000     0.00000     0.00000
+           3     0.00000    -0.00001     0.00000     0.00000    -0.00000     0.00000
+           4    -0.06279    -0.03979    -0.08610    -0.01554     0.11074    -0.02080
+           5     0.02716    -0.09556     0.01478    -0.08070    -0.01476    -0.05794
+           6     0.02455    -0.04735     0.02114    -0.04270    -0.02483    -0.02922
+           7     0.00785     0.07350     0.04835    -0.04364     0.01773     0.07473
+           8     0.05842     0.06743    -0.00297    -0.07018    -0.03915     0.03887
+           9    -0.07109     0.01022     0.07340     0.03642     0.08059     0.05221
+          10     0.00785     0.07350     0.04835     0.04364    -0.01773    -0.07473
+          11     0.05842     0.06743    -0.00297     0.07018     0.03915    -0.03887
+          12    -0.07109     0.01022     0.07340    -0.03642    -0.08059    -0.05221
+          13     0.05493    -0.03371     0.03775    -0.05237     0.01401     0.05140
+          14    -0.08558     0.02812    -0.01182     0.07665    -0.03842    -0.03003
+          15     0.04653     0.03714    -0.09455    -0.03109     0.05662    -0.09117
+          16    -0.06279    -0.03979    -0.08610     0.01554    -0.11074     0.02080
+          17     0.02716    -0.09556     0.01478     0.08070     0.01476     0.05793
+          18     0.02455    -0.04735     0.02114     0.04270     0.02483     0.02922
+          19     0.05493    -0.03371     0.03775     0.05238    -0.01401    -0.05139
+          20    -0.08558     0.02812    -0.01182    -0.07665     0.03842     0.03003
+          21     0.04653     0.03714    -0.09455     0.03109    -0.05662     0.09116
+
+                   13          14          15          16          17          18
+ 
+ P.Frequency      558.10      558.18      558.20      647.87      647.89      730.45
+ 
+           1     0.00515     0.06537    -0.01253    -0.00000    -0.00000    -0.00000
+           2    -0.06600     0.00662     0.00743    -0.00000     0.00000    -0.00000
+           3     0.00852     0.01181     0.06515    -0.00000     0.00000    -0.00000
+           4     0.00787    -0.07155     0.03261     0.00200     0.01706    -0.01215
+           5     0.02582    -0.02796    -0.07532    -0.00737    -0.06355     0.04527
+           6     0.08302     0.02222     0.04260     0.01319     0.11393    -0.08112
+           7     0.06423    -0.02153    -0.05684     0.06785    -0.05040    -0.05975
+           8     0.00856    -0.06236     0.06171    -0.06676     0.04960     0.05881
+           9    -0.05913    -0.05262    -0.02670    -0.04738     0.03523     0.04173
+          10     0.06423    -0.02153    -0.05684    -0.06785     0.05040     0.05975
+          11     0.00857    -0.06236     0.06171     0.06676    -0.04960    -0.05881
+          12    -0.05913    -0.05262    -0.02670     0.04738    -0.03523    -0.04173
+          13    -0.07643     0.03808     0.03477    -0.09227    -0.03992    -0.07107
+          14     0.02115     0.08474     0.00736    -0.07421    -0.03211    -0.05717
+          15    -0.03106     0.02046    -0.07072    -0.02756    -0.01194    -0.02123
+          16     0.00787    -0.07155     0.03261    -0.00200    -0.01706     0.01215
+          17     0.02582    -0.02796    -0.07532     0.00737     0.06355    -0.04527
+          18     0.08302     0.02222     0.04261    -0.01319    -0.11393     0.08112
+          19    -0.07643     0.03808     0.03477     0.09227     0.03992     0.07107
+          20     0.02115     0.08475     0.00736     0.07421     0.03211     0.05717
+          21    -0.03106     0.02046    -0.07072     0.02756     0.01194     0.02123
+
+                   19          20          21
+ 
+ P.Frequency      964.13      964.15      964.19
+ 
+           1     0.02114     0.13922     0.01187
+           2    -0.13279     0.02375    -0.04212
+           3    -0.04349    -0.00485     0.13437
+           4    -0.00397    -0.01136    -0.01172
+           5     0.01914    -0.00122     0.04348
+           6    -0.01170    -0.00085    -0.08268
+           7    -0.04624    -0.04033     0.00896
+           8     0.05449     0.02678    -0.00638
+           9     0.03460     0.02075    -0.01772
+          10    -0.04624    -0.04033     0.00896
+          11     0.05449     0.02678    -0.00638
+          12     0.03460     0.02075    -0.01772
+          13     0.03242    -0.06545    -0.00723
+          14     0.03810    -0.04555    -0.00167
+          15     0.01369    -0.01583    -0.01266
+          16    -0.00397    -0.01136    -0.01172
+          17     0.01914    -0.00122     0.04348
+          18    -0.01170    -0.00085    -0.08268
+          19     0.03242    -0.06545    -0.00723
+          20     0.03810    -0.04555    -0.00167
+          21     0.01369    -0.01583    -0.01266
+  
+  
+ ----------------------------------------------------------------------------
+ Normal Eigenvalue ||           Projected Infra Red Intensities
+  Mode   [cm**-1]  || [atomic units] [(debye/angs)**2] [(KM/mol)] [arbitrary]
+ ------ ---------- || -------------- ----------------- ---------- -----------
+    1       -0.000 ||    0.000000           0.000         0.000       0.000
+    2       -0.000 ||    0.000000           0.000         0.000       0.000
+    3        0.000 ||    0.000000           0.000         0.000       0.000
+    4        0.000 ||    0.000000           0.000         0.000       0.000
+    5        0.000 ||    0.000000           0.000         0.000       0.000
+    6        0.000 ||    0.000000           0.000         0.000       0.000
+    7      315.819 ||    0.000000           0.000         0.000       0.000
+    8      315.842 ||    0.000000           0.000         0.000       0.000
+    9      315.950 ||    0.000000           0.000         0.000       0.000
+   10      473.826 ||    0.000000           0.000         0.000       0.000
+   11      473.855 ||    0.000000           0.000         0.000       0.000
+   12      473.863 ||    0.000000           0.000         0.000       0.000
+   13      558.104 ||    0.025901           0.598        25.250       4.535
+   14      558.179 ||    0.025916           0.598        25.264       4.537
+   15      558.199 ||    0.025922           0.598        25.270       4.538
+   16      647.875 ||    0.000000           0.000         0.000       0.000
+   17      647.889 ||    0.000000           0.000         0.000       0.000
+   18      730.453 ||    0.000000           0.000         0.000       0.000
+   19      964.133 ||    0.373901           8.626       364.497      65.464
+   20      964.150 ||    0.373902           8.626       364.498      65.464
+   21      964.191 ||    0.373892           8.626       364.488      65.462
+ ----------------------------------------------------------------------------
+
+
+
+ vib:animation  F
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+
+
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+
+          E. Apra, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, Y. Alexeev, J. Anchell,
+       V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach, N. P. Bauman,
+     J. C. Becca, D. E. Bernholdt, K. Bhaskaran-Nair, S. Bogatko, P. Borowski,
+         J. Boschen, J. Brabec, A. Bruner, E. Cauet, Y. Chen, G. N. Chuev,
+      C. J. Cramer, J. Daily, M. J. O. Deegan, T. H. Dunning Jr., M. Dupuis,
+   K. G. Dyall, G. I. Fann, S. A. Fischer, A. Fonari, H. Fruchtl, L. Gagliardi,
+      J. Garza, N. Gawande, S. Ghosh, K. Glaesemann, A. W. Gotz, J. Hammond,
+       V. Helms, E. D. Hermes, K. Hirao, S. Hirata, M. Jacquelin, L. Jensen,
+   B. G. Johnson, H. Jonsson, R. A. Kendall, M. Klemm, R. Kobayashi, V. Konkov,
+      S. Krishnamoorthy, M. Krishnan, Z. Lin, R. D. Lins, R. J. Littlefield,
+      A. J. Logsdail, K. Lopata, W. Ma, A. V. Marenich, J. Martin del Campo,
+   D. Mejia-Rodriguez, J. E. Moore, J. M. Mullin, T. Nakajima, D. R. Nascimento,
+    J. A. Nichols, P. J. Nichols, J. Nieplocha, A. Otero-de-la-Roza, B. Palmer,
+    A. Panyala, T. Pirojsirikul, B. Peng, R. Peverati, J. Pittner, L. Pollack,
+   R. M. Richard, P. Sadayappan, G. C. Schatz, W. A. Shelton, D. W. Silverstein,
+   D. M. A. Smith, T. A. Soares, D. Song, M. Swart, H. L. Taylor, G. S. Thomas,
+            V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
+      A. Vazquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis,
+        D. Wang, J. H. Weare, M. J. Williamson, T. L. Windus, K. Wolinski,
+        A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias, Z. Zhang, Y. Zhao,
+                                and R. J. Harrison
+                        "NWChem: Past, present, and future
+                         J. Chem. Phys. 152, 184102 (2020)
+                               doi:10.1063/5.0004997
+
+                                      AUTHORS
+                                      -------
+  E. Apra, E. J. Bylaska, N. Govind, K. Kowalski, M. Valiev, D. Mejia-Rodriguez,
+       A. Kunitsa, N. P. Bauman, A. Panyala, W. A. de Jong, T. P. Straatsma,
+   H. J. J. van Dam, D. Wang, T. L. Windus, J. Hammond, J. Autschbach, A. Woods,
+    K. Bhaskaran-Nair, J. Brabec, K. Lopata, S. A. Fischer, S. Krishnamoorthy,
+     M. Jacquelin, W. Ma, M. Klemm, O. Villa, Y. Chen, V. Anisimov, F. Aquino,
+     S. Hirata, M. T. Hackler, E. Hermes, L. Jensen, J. E. Moore, J. C. Becca,
+      V. Konjkov, T. Risthaus, M. Malagoli, A. Marenich, A. Otero-de-la-Roza,
+        J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao, P.-D. Fan,
+        A. Fonari, M. J. Williamson, R. J. Harrison, J. R. Rehr, M. Dupuis,
+     D. Silverstein, D. M. A. Smith, J. Nieplocha, V. Tipparaju, M. Krishnan,
+     B. E. Van Kuiken, A. Vazquez-Mayagoitia, M. Swart, Q. Wu, T. Van Voorhis,
+     A. A. Auer, M. Nooijen, L. D. Crosby, E. Brown, G. Cisneros, G. I. Fann,
+   H. Fruchtl, J. Garza, K. Hirao, R. A. Kendall, J. A. Nichols, K. Tsemekhman,
+    K. Wolinski, J. Anchell, D. E. Bernholdt, P. Borowski, T. Clark, D. Clerc,
+   H. Dachsel, M. J. O. Deegan, K. Dyall, D. Elwood, E. Glendening, M. Gutowski,
+   A. C. Hess, J. Jaffe, B. G. Johnson, J. Ju, R. Kobayashi, R. Kutteh, Z. Lin,
+   R. Littlefield, X. Long, B. Meng, T. Nakajima, S. Niu, L. Pollack, M. Rosing,
+   K. Glaesemann, G. Sandrone, M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe,
+                               A. T. Wong, Z. Zhang.
+
+ Total times  cpu:      280.9s     wall:      219.3s

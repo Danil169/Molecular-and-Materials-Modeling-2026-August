@@ -1,0 +1,195 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.1.2                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Wed Aug 27 11:25:29 2025  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  DOUBLET    - SPIN STATE DEFINED AS A DOUBLET
+ *  UHF        - UNRESTRICTED HARTREE-FOCK CALCULATION
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = +1
+ *
+ *
+ *
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *  LARGE      - EXPANDED OUTPUT TO BE PRINTED
+ *******************************************************************************
+ AUX LARGE CHARGE=+1 DOUBLET PM7 PRECISE UHF
+ HF | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.49563200  *   1.26407000  *  -0.00541700  *
+     2       H         -8.29098800  *   1.36547000  *  -0.49450800  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1         F         -7.4956      1.2641     -0.0054
+     2         H         -8.2910      1.3655     -0.4945
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+ DOUBLET STATE CALCULATION
+
+
+          UHF CALCULATION, NO. OF ALPHA ELECTRONS =    4
+                           NO. OF BETA  ELECTRONS =    3
+
+          Geometry optimization using EF
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    41.012 HEAT:  293.4839
+ CYCLE:     2 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:    29.589 HEAT:  293.3527
+ CYCLE:     3 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     4.078 HEAT:  292.9860
+ CYCLE:     4 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.492 HEAT:  292.9783
+ CYCLE:     5 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.221 HEAT:  292.9775
+ CYCLE:     6 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.072 HEAT:  292.9772
+ CYCLE:     7 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.004 HEAT:  292.9772
+
+     GRADIENT =  0.00399 IS LESS THAN CUTOFF =  0.05000
+
+
+
+ -------------------------------------------------------------------------------
+ AUX LARGE CHARGE=+1 DOUBLET PM7 PRECISE UHF
+ HF | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.1.2 Linux
+                                                       Wed Aug 27 11:25:29 2025
+
+
+
+
+          FINAL HEAT OF FORMATION =        292.97721 KCAL/MOL =    1225.81666 KJ/MOL
+
+
+          COSMO AREA              =         39.83 SQUARE ANGSTROMS
+          COSMO VOLUME            =         22.71 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.00399          =       0.00282 PER ATOM
+          IONIZATION POTENTIAL    =         24.182693 EV
+          ALPHA SOMO LUMO (EV)    =        -24.183 -7.129
+          BETA  SOMO LUMO (EV)    =        -28.792-14.902
+          NO. OF ALPHA ELECTRONS  =          4
+          NO. OF BETA  ELECTRONS  =          3
+          MOLECULAR WEIGHT        =         20.0063         POINT GROUP:  C*v 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+            H     2    F     1     0.97573
+            H     2    F     1     0.00000
+            F     1    H     2     0.00000
+
+
+          SCF CALCULATIONS        =          9
+ 
+          WALL-CLOCK TIME         =      0.008 SECONDS
+          COMPUTATION TIME        =      0.005 SECONDS
+
+
+
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       F         -7.48682742  *   1.26271974  *   0.01475462  *
+     2       H         -8.29979258  *   1.36682026  *  -0.51467962  *
+
+                             CARTESIAN COORDINATES
+
+   1    F       -7.486827423     1.262719736     0.014754621
+   2    H       -8.299792576     1.366820263    -0.514679619
+
+
+           Empirical Formula: H F  =     2 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C*v 
+
+
+          ALPHA EIGENVALUES  
+ -56.43617 -28.81999 -27.31628 -24.18269  -7.12948
+
+
+           BETA EIGENVALUES 
+ -53.73964 -29.90253 -28.79167 -14.90237  -7.28867
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.   TYPE          CHARGE      No. of ELECS.   s-Pop       p-Pop       
+    1          F           0.496318        6.5037     1.97012     4.53356
+    2          H           0.503682        0.4963     0.49632
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -1.770     0.227    -1.153     2.124
+ HYBRID        -0.115     0.015    -0.075     0.138
+ SUM           -1.885     0.241    -1.228     2.263
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+     Atom    s        px        py        pz   
+    1  F   1.97012   1.40951   1.95443   1.16962
+    2  H   0.49632
+
+
+                    (SZ)    =    0.500000
+                    (S**2)  =    0.753889
+
+
+          ATOMIC ORBITAL SPIN POPULATIONS
+
+    Atom   Total    s     px     py     pz   
+         Atomic
+    1  F  0.9514  0.003  0.231  0.040  0.678
+    2  H  0.0486  0.049
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.01 SECONDS
+
+ == MOPAC DONE ==

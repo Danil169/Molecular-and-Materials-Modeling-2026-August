@@ -1,0 +1,1964 @@
+ argument  1 = /home/milias/work/git-projects/Molecular-and-Materials-Modeling-2025/molecular-modeling/themes/HF_molecule_properties/nwchem/ionization_energy/HF+.ccsd_daug-cc-pVDZ.nw
+
+
+
+============================== echo of input deck ==============================
+echo
+
+start molecule
+
+title "HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ"
+charge +1
+
+print low
+
+geometry units angstroms print xyz
+SYMMETRY c1
+F     -7.495632    1.264070   -0.005417
+H     -8.290988    1.365470   -0.494508
+end
+
+basis
+  * library d-aug-cc-pvdz
+end
+
+scf
+  print low
+  doublet
+  uhf
+end
+
+tce
+  freeze core
+  ccsd
+end
+
+task tce optimize
+================================================================================
+
+
+                                         
+                                         
+
+
+             Northwest Computational Chemistry Package (NWChem) 7.0.2
+             --------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2020
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = DESKTOP-7OTLCGO
+    program         = /usr/bin/nwchem
+    date            = Wed Aug 27 14:51:25 2025
+
+    compiled        = Sat_Apr_09_17:12:10_2022
+    source          = /build/nwchem-f1f4gx/nwchem-7.0.2/build-openmpi
+    nwchem branch   = 7.0.2
+    nwchem revision = N/A
+    ga revision     = 5.8.1
+    use scalapack   = T
+    input           = /home/milias/work/git-projects/Molecular-and-Materials-Modeling-2025/molecular-modeling/themes/HF_molecule_properties/nwchem/ionization_energy/HF+.ccsd_daug-cc-pVDZ.nw
+    prefix          = molecule.
+    data base       = ./molecule.db
+    status          = startup
+    nproc           =        8
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =   13107198 doubles =    100.0 Mbytes
+    stack    =   13107195 doubles =    100.0 Mbytes
+    global   =   26214400 doubles =    200.0 Mbytes (distinct from heap & stack)
+    total    =   52428793 doubles =    400.0 Mbytes
+    verify   = yes
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+                  ----------------------------------------------
+
+ Scaling coordinates for geometry "geometry" by  1.889725989
+ (inverse scale =  0.529177249)
+
+ Turning off AUTOSYM since
+ SYMMETRY directive was detected!
+
+
+          ------
+          auto-z
+          ------
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 F                    9.0000     0.07953560    -0.01014000     0.04890910
+    2 H                    1.0000    -0.71582040     0.09126000    -0.44018190
+
+      Atomic Mass 
+      ----------- 
+
+      F                 18.998400
+      H                  1.007825
+
+
+ Effective nuclear repulsion energy (a.u.)       5.0709451711
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+    -0.0000000000     0.0000000000     0.0000000000
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value
+      ----------- --------  ----- ----- ----- ----- ----- ----------
+    1 Stretch                  1     2                       0.93919
+
+
+            XYZ format geometry
+            -------------------
+     2
+ geometry
+ F                     0.07953560    -0.01014000     0.04890910
+ H                    -0.71582040     0.09126000    -0.44018190
+
+ ==============================================================================
+                                internuclear distances
+ ------------------------------------------------------------------------------
+       center one      |      center two      | atomic units |  angstroms
+ ------------------------------------------------------------------------------
+    2 H                |   1 F                |     1.77482  |     0.93919
+ ------------------------------------------------------------------------------
+                         number of included internuclear distances:          1
+ ==============================================================================
+
+
+
+
+
+ Summary of "ao basis" -> "" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                       d-aug-cc-pvdz                on all atoms 
+
+
+
+
+                           NWChem Geometry Optimization
+                           ----------------------------
+
+
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+  no constraints, skipping    0.0000000000000000     
+ maximum gradient threshold         (gmax) =   0.000450
+ rms gradient threshold             (grms) =   0.000300
+ maximum cartesian step threshold   (xmax) =   0.001800
+ rms cartesian step threshold       (xrms) =   0.001200
+ fixed trust radius                (trust) =   0.300000
+ maximum step size to saddle      (sadstp) =   0.100000
+ energy precision                  (eprec) =   1.0D-07
+ maximum number of steps          (nptopt) =   20
+ initial hessian option           (inhess) =    0
+ line search option               (linopt) =    1
+ hessian update option            (modupd) =    1
+ saddle point option              (modsad) =    0
+ initial eigen-mode to follow     (moddir) =    0
+ initial variable to follow       (vardir) =    0
+ follow first negative mode     (firstneg) =    T
+ apply conjugacy                    (opcg) =    F
+ source of zmatrix                         =   autoz   
+
+
+          -------------------
+          Energy Minimization
+          -------------------
+
+
+ Names of Z-matrix variables 
+    1         
+
+ Variables with the same non-blank name are constrained to be equal
+
+
+ Using diagonal initial Hessian 
+ Scaling for Hessian diagonals: bonds = 1.00  angles = 0.25  torsions = 0.10
+
+          --------
+          Step   0
+          --------
+                         NWChem Numerical Gradients Module
+                         ---------------------------------
+
+
+ No. of totally-symmetric internal modes =   1
+
+                      Basis "ao basis" -> "ao basis" (cartesian)
+                      -----
+  F (Fluorine)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  1.47100000E+04  0.000721
+  1 S  2.20700000E+03  0.005553
+  1 S  5.02800000E+02  0.028267
+  1 S  1.42600000E+02  0.106444
+  1 S  4.64700000E+01  0.286814
+  1 S  1.67000000E+01  0.448641
+  1 S  6.35600000E+00  0.264761
+  1 S  1.31600000E+00  0.015333
+
+  2 S  1.47100000E+04 -0.000165
+  2 S  2.20700000E+03 -0.001308
+  2 S  5.02800000E+02 -0.006495
+  2 S  1.42600000E+02 -0.026691
+  2 S  4.64700000E+01 -0.073690
+  2 S  1.67000000E+01 -0.170776
+  2 S  6.35600000E+00 -0.112327
+  2 S  1.31600000E+00  0.562814
+
+  3 S  3.89700000E-01  1.000000
+
+  4 S  9.86300000E-02  1.000000
+
+  5 S  2.50000000E-02  1.000000
+
+  6 P  2.26700000E+01  0.044878
+  6 P  4.97700000E+00  0.235718
+  6 P  1.34700000E+00  0.508521
+
+  7 P  3.47100000E-01  1.000000
+
+  8 P  8.50200000E-02  1.000000
+
+  9 P  2.08000000E-02  1.000000
+
+ 10 D  1.64000000E+00  1.000000
+
+ 11 D  4.64000000E-01  1.000000
+
+ 12 D  1.31000000E-01  1.000000
+
+  H (Hydrogen)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  1.30100000E+01  0.019685
+  1 S  1.96200000E+00  0.137977
+  1 S  4.44600000E-01  0.478148
+
+  2 S  1.22000000E-01  1.000000
+
+  3 S  2.97400000E-02  1.000000
+
+  4 S  7.25000000E-03  1.000000
+
+  5 P  7.27000000E-01  1.000000
+
+  6 P  1.41000000E-01  1.000000
+
+  7 P  2.73000000E-02  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ F                       d-aug-cc-pvdz              12       35   5s4p3d
+ H                       d-aug-cc-pvdz               7       13   4s3p
+
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = atomic
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       0.4s
+
+
+ Starting SCF solution at       0.4s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.507501726389
+      One electron energy =   -144.385287679166
+      Two electron energy =     39.806840781666
+ Nuclear repulsion energy =      5.070945171111
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7543
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1139289688504  -0.1651485389590     0.1     0.1
+    2   0.0301880205767  -0.1756146773829     0.0     0.0
+    3   0.0124177859890  -0.1776311202692     0.0     0.0
+    4   0.0063438023925  -0.1782305223568     0.0     0.0
+    5   0.0036289831605  -0.1784549157380     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0007977683480  -0.1786617704467     0.0     0.0
+    7   0.0003917358591  -0.1786502096712     0.0     0.0
+    8   0.0002374483396  -0.1786515106627     0.0     0.0
+    9   0.0001513210646  -0.1786511652385     0.0     0.0
+   10   0.0000981882651  -0.1786516701629     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000115057744  -0.1786526788382     0.0     0.0
+   12   0.0000042098694  -0.1786530923829     0.0     0.0
+   13   0.0000020198018  -0.1786532117830     0.0     0.0
+   14   0.0000010810141  -0.1786532585890     0.0     0.0
+   15   0.0000006178698  -0.1786532790510     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000001881852  -0.1786532982992     0.0     0.0
+   17   0.0000001060865  -0.1786533005925     0.0     0.0
+   18   0.0000000664206  -0.1786533011938     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.178653301193809
+ CCSD total energy / hartree       =       -99.686155027583169
+
+ Singles contributions
+
+ Doubles contributions
+ Reference energy         -99.68615503
+
+ Finite difference step  1.00000D-02
+ Use five point formula F
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       2.0s
+
+
+ Starting SCF solution at       2.0s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.507964818590
+      One electron energy =   -144.328704836319
+      Two electron energy =     39.789881839394
+ Nuclear repulsion energy =      5.030858178335
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7543
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1140143513628  -0.1653830962986     0.0     0.0
+    2   0.0302817733847  -0.1758348638888     0.0     0.0
+    3   0.0124957719576  -0.1778600985436     0.0     0.0
+    4   0.0064070517789  -0.1784639008786     0.0     0.0
+    5   0.0036793854492  -0.1786908503953     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0008197258330  -0.1789017114828     0.0     0.0
+    7   0.0004048486451  -0.1788898020423     0.0     0.0
+    8   0.0002465729402  -0.1788911947440     0.0     0.0
+    9   0.0001577372702  -0.1788908330154     0.0     0.0
+   10   0.0001027238779  -0.1788913669955     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000119696604  -0.1788924413111     0.0     0.0
+   12   0.0000043813580  -0.1788928780514     0.0     0.0
+   13   0.0000021055061  -0.1788930036696     0.0     0.0
+   14   0.0000011285812  -0.1788930532450     0.0     0.0
+   15   0.0000006464373  -0.1788930750438     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000001987337  -0.1788930957377     0.0     0.0
+   17   0.0000001125517  -0.1788930982049     0.0     0.0
+   18   0.0000000707648  -0.1788930988668     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.178893098866753
+ CCSD total energy / hartree       =       -99.686857917457246
+
+ Singles contributions
+
+ Doubles contributions
+ step     1 energy         -99.68685792
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       3.3s
+
+
+ Starting SCF solution at       3.3s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.506930790353
+      One electron energy =   -144.442806455992
+      Two electron energy =     39.824199526331
+ Nuclear repulsion energy =      5.111676139308
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7542
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1138417915545  -0.1649130485995     0.0     0.0
+    2   0.0300927277357  -0.1753926441088     0.0     0.0
+    3   0.0123395300606  -0.1774001139662     0.0     0.0
+    4   0.0062809869840  -0.1779950545481     0.0     0.0
+    5   0.0035792836191  -0.1782168951506     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0007764177803  -0.1784198169700     0.0     0.0
+    7   0.0003789990686  -0.1784085983490     0.0     0.0
+    8   0.0002286020649  -0.1784098127070     0.0     0.0
+    9   0.0001451143140  -0.1784094829057     0.0     0.0
+   10   0.0000938125705  -0.1784099604643     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000110600064  -0.1784109077668     0.0     0.0
+   12   0.0000040465463  -0.1784112992160     0.0     0.0
+   13   0.0000019393083  -0.1784114127046     0.0     0.0
+   14   0.0000010368427  -0.1784114568951     0.0     0.0
+   15   0.0000005915600  -0.1784114761047     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000001783400  -0.1784114940207     0.0     0.0
+   17   0.0000001000125  -0.1784114961493     0.0     0.0
+   18   0.0000000623353  -0.1784114966937     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.178411496693749
+ CCSD total energy / hartree       =       -99.685342287046964
+
+ Singles contributions
+
+ Doubles contributions
+ step    -1 energy         -99.68534229
+            gradient        -0.075782
+
+
+                         TCE ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 F       0.150300  -0.019162   0.092425   -0.045379   0.005785  -0.027905
+   2 H      -1.352704   0.172456  -0.831823    0.045379  -0.005785   0.027905
+
+
+  no constraints, skipping    0.0000000000000000     
+
+@ Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+@ ---- ---------------- -------- -------- -------- -------- -------- --------
+@    0     -99.68615503  0.0D+00  0.05359  0.05359  0.00000  0.00000      4.6
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       4.7s
+
+
+ Starting SCF solution at       4.7s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.507572808344
+      One electron energy =   -143.774483149596
+      Two electron energy =     39.631969147758
+ Nuclear repulsion energy =      4.634941193493
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7550
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1148829862963  -0.1677737040206     0.0     0.0
+    2   0.0312352221509  -0.1780564721876     0.0     0.0
+    3   0.0133296068461  -0.1801744919017     0.0     0.0
+    4   0.0071100742541  -0.1808253111409     0.0     0.0
+    5   0.0042551257855  -0.1810811736895     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010888983120  -0.1813399753499     0.0     0.0
+    7   0.0005684824560  -0.1813242379162     0.0     0.0
+    8   0.0003625831836  -0.1813269118787     0.0     0.0
+    9   0.0002406956828  -0.1813263315527     0.0     0.0
+   10   0.0001624538492  -0.1813272932877     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000182848064  -0.1813293988599     0.0     0.0
+   12   0.0000068455187  -0.1813301479259     0.0     0.0
+   13   0.0000034437098  -0.1813303644655     0.0     0.0
+   14   0.0000019191989  -0.1813304545542     0.0     0.0
+   15   0.0000011411629  -0.1813304970827     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003664115  -0.1813305424213     0.0     0.0
+   17   0.0000002128314  -0.1813305471512     0.0     0.0
+   18   0.0000001383397  -0.1813305486632     0.0     0.0
+   19   0.0000000923370  -0.1813305493244     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.181330549324446
+ CCSD total energy / hartree       =       -99.688903357668593
+
+ Singles contributions
+
+ Doubles contributions
+ Line search: 
+     step= 1.00 grad=-8.9D-03 hess= 6.2D-03 energy=    -99.688903 mode=downhill
+ new step= 0.72                   predicted energy=    -99.689383
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   1
+          --------
+                         NWChem Numerical Gradients Module
+                         ---------------------------------
+
+
+ No. of totally-symmetric internal modes =   1
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       6.1s
+
+
+ Starting SCF solution at       6.1s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508567840070
+      One electron energy =   -143.932468977666
+      Two electron energy =     39.675337675667
+ Nuclear repulsion energy =      4.748563461929
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7548
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1146327326258  -0.1670779873673     0.0     0.0
+    2   0.0309592878256  -0.1774150729912     0.0     0.0
+    3   0.0130795737578  -0.1795056387638     0.0     0.0
+    4   0.0068937517190  -0.1801424325093     0.0     0.0
+    5   0.0040749429624  -0.1803893132302     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010010011422  -0.1806326935099     0.0     0.0
+    7   0.0005144677727  -0.1806181104405     0.0     0.0
+    8   0.0003238670079  -0.1806203336530     0.0     0.0
+    9   0.0002127436986  -0.1806198280365     0.0     0.0
+   10   0.0001421221311  -0.1806206351174     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000160836003  -0.1806223564232     0.0     0.0
+   12   0.0000059662415  -0.1806229983270     0.0     0.0
+   13   0.0000029479476  -0.1806231820286     0.0     0.0
+   14   0.0000016186166  -0.1806232575225     0.0     0.0
+   15   0.0000009500565  -0.1806232923560     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003038100  -0.1806233281572     0.0     0.0
+   17   0.0000001755798  -0.1806233321364     0.0     0.0
+   18   0.0000001131054  -0.1806233333439     0.0     0.0
+   19   0.0000000747832  -0.1806233338697     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180623333869682
+ CCSD total energy / hartree       =       -99.689191173940131
+
+ Singles contributions
+
+ Doubles contributions
+ Reference energy         -99.68919117
+
+ Finite difference step  1.00000D-02
+ Use five point formula F
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       7.5s
+
+
+ Starting SCF solution at       7.5s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508332185145
+      One electron energy =   -143.883458110929
+      Two electron energy =     39.661732147282
+ Nuclear repulsion energy =      4.713393778503
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7548
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1147103845409  -0.1672930122182     0.0     0.0
+    2   0.0310446661264  -0.1776138069574     0.0     0.0
+    3   0.0131560941504  -0.1797128086960     0.0     0.0
+    4   0.0069594355822  -0.1803539026071     0.0     0.0
+    5   0.0041293809269  -0.1806035008758     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010272074652  -0.1808514986432     0.0     0.0
+    7   0.0005305118305  -0.1808365610032     0.0     0.0
+    8   0.0003353248428  -0.1808389154241     0.0     0.0
+    9   0.0002209900250  -0.1808383878196     0.0     0.0
+   10   0.0001481004264  -0.1808392394694     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000167242729  -0.1808410704332     0.0     0.0
+   12   0.0000062206603  -0.1808417438004     0.0     0.0
+   13   0.0000030898031  -0.1808419369408     0.0     0.0
+   14   0.0000017039480  -0.1808420166381     0.0     0.0
+   15   0.0000010040427  -0.1808420536634     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003216640  -0.1808420921470     0.0     0.0
+   17   0.0000001861927  -0.1808420963486     0.0     0.0
+   18   0.0000001202701  -0.1808420976431     0.0     0.0
+   19   0.0000000797514  -0.1808420982083     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180842098208311
+ CCSD total energy / hartree       =       -99.689174283353097
+
+ Singles contributions
+
+ Doubles contributions
+ step     1 energy         -99.68917428
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at       8.8s
+
+
+ Starting SCF solution at       8.8s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508739122049
+      One electron energy =   -143.982309655464
+      Two electron energy =     39.689308594824
+ Nuclear repulsion energy =      4.784261938592
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7547
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1145538618123  -0.1668602916902     0.0     0.0
+    2   0.0308726728522  -0.1772134435262     0.0     0.0
+    3   0.0130026710674  -0.1792955033842     0.0     0.0
+    4   0.0068281965748  -0.1799279670995     0.0     0.0
+    5   0.0040208579724  -0.1801721420584     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0009752725339  -0.1804109680648     0.0     0.0
+    7   0.0004987664558  -0.1803967409060     0.0     0.0
+    8   0.0003126896394  -0.1803988381084     0.0     0.0
+    9   0.0002047214408  -0.1803983538178     0.0     0.0
+   10   0.0001363232578  -0.1803991184270     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000154666476  -0.1804007361260     0.0     0.0
+   12   0.0000057227333  -0.1804013475636     0.0     0.0
+   13   0.0000028136027  -0.1804015222657     0.0     0.0
+   14   0.0000015383878  -0.1804015937480     0.0     0.0
+   15   0.0000008995239  -0.1804016265085     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000002869338  -0.1804016598034     0.0     0.0
+   17   0.0000001655449  -0.1804016635646     0.0     0.0
+   18   0.0000001063462  -0.1804016646893     0.0     0.0
+   19   0.0000000701079  -0.1804016651769     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180401665176904
+ CCSD total energy / hartree       =       -99.689140787225611
+
+ Singles contributions
+
+ Doubles contributions
+ step    -1 energy         -99.68914079
+            gradient        -0.001675
+
+
+                         TCE ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 F       0.201320  -0.025666   0.123799   -0.001003   0.000128  -0.000617
+   2 H      -1.403724   0.178961  -0.863197    0.001003  -0.000128   0.000617
+
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    1     -99.68919117 -3.0D-03  0.00118  0.00118  0.03478  0.05102     10.1
+                                                                    
+
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at      10.2s
+
+
+ Starting SCF solution at      10.2s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508527342394
+      One electron energy =   -143.922967047347
+      Two electron energy =     39.672689069364
+ Nuclear repulsion energy =      4.741750635588
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7548
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1146477567131  -0.1671196580026     0.0     0.0
+    2   0.0309757570888  -0.1774535949403     0.0     0.0
+    3   0.0130942645313  -0.1795457810590     0.0     0.0
+    4   0.0069063205638  -0.1801833975730     0.0     0.0
+    5   0.0040853388939  -0.1804307962251     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010059944134  -0.1806750528837     0.0     0.0
+    7   0.0005175240113  -0.1806604014365     0.0     0.0
+    8   0.0003260484603  -0.1806626495756     0.0     0.0
+    9   0.0002143126500  -0.1806621397917     0.0     0.0
+   10   0.0001432585528  -0.1806629552854     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000162046278  -0.1806646971879     0.0     0.0
+   12   0.0000060142061  -0.1806653450609     0.0     0.0
+   13   0.0000029745835  -0.1806655305335     0.0     0.0
+   14   0.0000016345859  -0.1806656068174     0.0     0.0
+   15   0.0000009601365  -0.1806656420609     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003071524  -0.1806656783615     0.0     0.0
+   17   0.0000001775683  -0.1806656823827     0.0     0.0
+   18   0.0000001144471  -0.1806656836065     0.0     0.0
+   19   0.0000000757129  -0.1806656841397     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180665684139724
+ CCSD total energy / hartree       =       -99.689193026533630
+
+ Singles contributions
+
+ Doubles contributions
+ Line search: 
+     step= 1.00 grad=-3.2D-06 hess= 1.4D-06 energy=    -99.689193 mode=downhill
+ new step= 1.17                   predicted energy=    -99.689193
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+          --------
+          Step   2
+          --------
+                         NWChem Numerical Gradients Module
+                         ---------------------------------
+
+
+ No. of totally-symmetric internal modes =   1
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at      11.5s
+
+
+ Starting SCF solution at      11.5s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508520012575
+      One electron energy =   -143.921306967790
+      Two electron energy =     39.672226449357
+ Nuclear repulsion energy =      4.740560505858
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7548
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1146503954941  -0.1671268949931     0.0     0.0
+    2   0.0309786771272  -0.1774603065131     0.0     0.0
+    3   0.0130968782111  -0.1795527836314     0.0     0.0
+    4   0.0069085626090  -0.1801905489980     0.0     0.0
+    5   0.0040871956410  -0.1804380411317     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010068794160  -0.1806824562483     0.0     0.0
+    7   0.0005180638812  -0.1806677927923     0.0     0.0
+    8   0.0003264329878  -0.1806700452648     0.0     0.0
+    9   0.0002145888821  -0.1806695347427     0.0     0.0
+   10   0.0001434585041  -0.1806703517175     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000162261639  -0.1806720972711     0.0     0.0
+   12   0.0000060227372  -0.1806727462001     0.0     0.0
+   13   0.0000029793235  -0.1806729319912     0.0     0.0
+   14   0.0000016374344  -0.1806730084166     0.0     0.0
+   15   0.0000009619387  -0.1806730437339     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003077517  -0.1806730801244     0.0     0.0
+   17   0.0000001779238  -0.1806730841532     0.0     0.0
+   18   0.0000001146866  -0.1806730853799     0.0     0.0
+   19   0.0000000758787  -0.1806730859145     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180673085914516
+ CCSD total energy / hartree       =       -99.689193098489184
+
+ Singles contributions
+
+ Doubles contributions
+ Reference energy         -99.68919310
+
+ Finite difference step  1.00000D-02
+ Use five point formula F
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at      12.8s
+
+
+ Starting SCF solution at      12.8s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508270349934
+      One electron energy =   -143.872482620951
+      Two electron energy =     39.658703440076
+ Nuclear repulsion energy =      4.705508830940
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7549
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1147277809567  -0.1673412742463     0.0     0.0
+    2   0.0310638220083  -0.1776583525954     0.0     0.0
+    3   0.0131733640245  -0.1797592541791     0.0     0.0
+    4   0.0069743223619  -0.1804013178222     0.0     0.0
+    5   0.0041417519475  -0.1806515332306     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0010332044605  -0.1809005854941     0.0     0.0
+    7   0.0005341903276  -0.1808855679389     0.0     0.0
+    8   0.0003379568175  -0.1808879527641     0.1     0.1
+    9   0.0002228873732  -0.1808874200906     0.1     0.1
+   10   0.0001494783313  -0.1808882821215     0.1     0.1
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000168726865  -0.1808901387618     0.0     0.0
+   12   0.0000062797919  -0.1808908193877     0.0     0.0
+   13   0.0000031229727  -0.1808910147288     0.0     0.1
+   14   0.0000017239855  -0.1808910954053     0.0     0.0
+   15   0.0000010167532  -0.1808911329441     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000003258453  -0.1808911720605     0.0     0.0
+   17   0.0000001886785  -0.1808911763131     0.0     0.0
+   18   0.0000001219508  -0.1808911776278     0.0     0.0
+   19   0.0000000809187  -0.1808911782022     0.0     0.0
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180891178202208
+ CCSD total energy / hartree       =       -99.689161528136609
+
+ Singles contributions
+
+ Doubles contributions
+ step     1 energy         -99.68916153
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+
+  ao basis        = "ao basis"
+  functions       =    48
+  atoms           =     2
+  alpha electrons =     5
+  beta  electrons =     4
+  charge          =   1.00
+  wavefunction    = UHF 
+  input vectors   = ./molecule.movecs
+  output vectors  = ./molecule.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Forming initial guess at      14.3s
+
+
+ Starting SCF solution at      14.3s
+
+
+
+       Final UHF  results 
+       ------------------ 
+
+         Total SCF energy =    -99.508706216478
+      One electron energy =   -143.970959274640
+      Two electron energy =     39.686114753336
+ Nuclear repulsion energy =      4.776138304826
+
+                       Sz =      0.5000
+                 Sz(Sz+1) =      0.7500
+                      S^2 =      0.7547
+
+        Time for solution =      0.1s
+
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                  HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ
+
+
+        L-threshold :  0.10D-06
+        EOM-threshold :  0.10D-06
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ pwtce:      F
+ qducc:      F
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+
+ tile_dim =     22
+
+ tce_ao2e: fast2e=1
+ half-transformed integrals in memory
+
+ tce_mo2e: fast2e=1
+ 2-e integrals stored in memory
+ T1-number-of-tasks                    4
+ T2-number-of-boxes                   10
+CCSD iterations
+ ---------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall 
+ ---------------------------------------------------------
+NEW TASK SCHEDULING
+CCSD_T1_NTS --- OK
+CCSD_T2_NTS --- OK
+    1   0.1145718067635  -0.1669097749553     0.0     0.0
+    2   0.0308923698730  -0.1772593108004     0.0     0.0
+    3   0.0130200967581  -0.1793433010324     0.0     0.0
+    4   0.0068430122057  -0.1799767463521     0.0     0.0
+    5   0.0040330602331  -0.1802215321732     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0009810514066  -0.1804613827023     0.0     0.0
+    7   0.0005022888552  -0.1804470748318     0.0     0.0
+    8   0.0003151941064  -0.1804492001133     0.0     0.0
+    9   0.0002065170454  -0.1804487110552     0.0     0.0
+   10   0.0001376197330  -0.1804494850957     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000156041836  -0.1804511257179     0.0     0.0
+   12   0.0000057768804  -0.1804517439642     0.0     0.0
+   13   0.0000028433490  -0.1804519206640     0.0     0.0
+   14   0.0000015560990  -0.1804519930374     0.0     0.0
+   15   0.0000009106588  -0.1804520262567     0.0     0.0
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000002906674  -0.1804520601036     0.0     0.0
+   17   0.0000001677658  -0.1804520639137     0.0     0.0
+   18   0.0000001078410  -0.1804520650568     0.0     0.0
+   19   0.0000000711408  -0.1804520655529     0.1     0.1
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.180452065552950
+ CCSD total energy / hartree       =       -99.689158282031187
+
+ Singles contributions
+
+ Doubles contributions
+ step    -1 energy         -99.68915828
+            gradient        -0.000162
+
+
+                         TCE ENERGY GRADIENTS
+
+    atom               coordinates                        gradient
+                 x          y          z           x          y          z
+   1 F       0.202675  -0.025839   0.124632   -0.000097   0.000012  -0.000060
+   2 H      -1.405079   0.179134  -0.864030    0.000097  -0.000012   0.000060
+
+
+  no constraints, skipping    0.0000000000000000     
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    2     -99.68919310 -1.9D-06  0.00011  0.00011  0.00092  0.00135     15.6
+                                     ok       ok       ok       ok  
+
+
+      ----------------------
+      Optimization converged
+      ----------------------
+
+
+  Step       Energy      Delta E   Gmax     Grms     Xrms     Xmax   Walltime
+  ---- ---------------- -------- -------- -------- -------- -------- --------
+@    2     -99.68919310 -1.9D-06  0.00011  0.00011  0.00092  0.00135     15.6
+                                     ok       ok       ok       ok  
+
+
+
+                         Geometry "geometry" -> "geometry"
+                         ---------------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 F                    9.0000     0.10725104    -0.01367344     0.06595225
+    2 H                    1.0000    -0.74353584     0.09479344    -0.45722505
+
+      Atomic Mass 
+      ----------- 
+
+      F                 18.998400
+      H                  1.007825
+
+
+ Effective nuclear repulsion energy (a.u.)       4.7405605059
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.4189966746    -0.0534179195     0.2576550659
+
+
+                Final and change from initial internal coordinates
+                --------------------------------------------------
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value       Change
+      ----------- --------  ----- ----- ----- ----- ----- ---------- ----------
+    1 Stretch                  1     2                       1.00465    0.06546
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+
+
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+
+          E. Aprà, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, Y. Alexeev, J. Anchell,
+       V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach, N. P. Bauman,
+     J. C. Becca, D. E. Bernholdt, K. Bhaskaran-Nair, S. Bogatko, P. Borowski,
+        J. Boschen, J. Brabec, A. Bruner, E. Cauët, Y. Chen, G. N. Chuev,
+      C. J. Cramer, J. Daily, M. J. O. Deegan, T. H. Dunning Jr., M. Dupuis,
+   K. G. Dyall, G. I. Fann, S. A. Fischer, A. Fonari, H. Früchtl, L. Gagliardi,
+      J. Garza, N. Gawande, S. Ghosh, K. Glaesemann, A. W. Götz, J. Hammond,
+       V. Helms, E. D. Hermes, K. Hirao, S. Hirata, M. Jacquelin, L. Jensen,
+   B. G. Johnson, H. Jónsson, R. A. Kendall, M. Klemm, R. Kobayashi, V. Konkov,
+      S. Krishnamoorthy, M. Krishnan, Z. Lin, R. D. Lins, R. J. Littlefield,
+      A. J. Logsdail, K. Lopata, W. Ma, A. V. Marenich, J. Martin del Campo,
+   D. Mejia-Rodriguez, J. E. Moore, J. M. Mullin, T. Nakajima, D. R. Nascimento,
+    J. A. Nichols, P. J. Nichols, J. Nieplocha, A. Otero-de-la-Roza, B. Palmer,
+    A. Panyala, T. Pirojsirikul, B. Peng, R. Peverati, J. Pittner, L. Pollack,
+   R. M. Richard, P. Sadayappan, G. C. Schatz, W. A. Shelton, D. W. Silverstein,
+   D. M. A. Smith, T. A. Soares, D. Song, M. Swart, H. L. Taylor, G. S. Thomas,
+            V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
+     Á. Vázquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis,
+        D. Wang, J. H. Weare, M. J. Williamson, T. L. Windus, K. Woliński,
+        A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias, Z. Zhang, Y. Zhao,
+                                and R. J. Harrison
+                        "NWChem: Past, present, and future
+                         J. Chem. Phys. 152, 184102 (2020)
+                               doi:10.1063/5.0004997
+
+                                      AUTHORS
+                                      -------
+     E. Apra, E. J. Bylaska, N. Govind, K. Kowalski, M. Valiev, W. A. de Jong,
+      T. P. Straatsma, H. J. J. van Dam, D. Wang, T. L. Windus, N. P. Bauman,
+       A. Panyala, J. Hammond, J. Autschbach, K. Bhaskaran-Nair, J. Brabec,
+    K. Lopata, S. A. Fischer, S. Krishnamoorthy, M. Jacquelin, W. Ma, M. Klemm,
+       O. Villa, Y. Chen, V. Anisimov, F. Aquino, S. Hirata, M. T. Hackler,
+           Eric Hermes, L. Jensen, J. E. Moore, J. C. Becca, V. Konjkov,
+            D. Mejia-Rodriguez, T. Risthaus, M. Malagoli, A. Marenich,
+   A. Otero-de-la-Roza, J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao,
+        P.-D. Fan, A. Fonari, M. J. Williamson, R. J. Harrison, J. R. Rehr,
+      M. Dupuis, D. Silverstein, D. M. A. Smith, J. Nieplocha, V. Tipparaju,
+      M. Krishnan, B. E. Van Kuiken, A. Vazquez-Mayagoitia, M. Swart, Q. Wu,
+   T. Van Voorhis, A. A. Auer, M. Nooijen, L. D. Crosby, E. Brown, G. Cisneros,
+     G. I. Fann, H. Fruchtl, J. Garza, K. Hirao, R. A. Kendall, J. A. Nichols,
+       K. Tsemekhman, K. Wolinski, J. Anchell, D. E. Bernholdt, P. Borowski,
+       T. Clark, D. Clerc, H. Dachsel, M. J. O. Deegan, K. Dyall, D. Elwood,
+      E. Glendening, M. Gutowski, A. C. Hess, J. Jaffe, B. G. Johnson, J. Ju,
+        R. Kobayashi, R. Kutteh, Z. Lin, R. Littlefield, X. Long, B. Meng,
+      T. Nakajima, S. Niu, L. Pollack, M. Rosing, K. Glaesemann, G. Sandrone,
+      M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe, A. T. Wong, Z. Zhang.
+
+ Total times  cpu:       13.9s     wall:       15.6s

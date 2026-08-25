@@ -1,0 +1,27 @@
+echo
+
+start molecule
+
+title "BF3 | Equilibrium Geometry | B3LYP/6-31G(d)"
+charge 0
+
+print low
+
+geometry units angstroms print xyz autosym
+B     -3.405764    0.080870   -0.561701
+F     -4.182413    0.858108   -0.613469
+F     -3.922955   -0.841549   -0.864469
+F     -2.319600    0.221784   -0.459450
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq
