@@ -14,7 +14,7 @@ Requirements:
 
 	$ /path/to/qe/bin/pw.x
 
-     Program PWSCF v.7.4.1 starts on 15Jul2025 at  9:33:25
+	Program PWSCF v.7.4.1 starts on 15Jul2025 at  9:33:25
  
 (2) Python (python3-full).
 
