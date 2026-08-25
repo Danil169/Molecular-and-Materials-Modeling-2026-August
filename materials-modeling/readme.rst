@@ -32,14 +32,14 @@ Requirements:
 Structure and potentials:
 ~~~~~~~~~~~~
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
+
 Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
+
 Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
 
-Pseudo potential: 
-scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. 
+Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. 
 
-DOS Plotting scripts provided:
-ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
+DOS Plotting scripts provided: ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
 
 For converting crystal structures to QE format, various online/ offline tools can be used.
 1) https://qeinputgenerator.materialscloud.io/ 
