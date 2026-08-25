@@ -108,11 +108,12 @@ We will also need:
 	CELL_PARAMETERS
 
 Details about input parameters can be found here: 
-https://www.quantum-espresso.org/Doc/INPUT_PW.html
-https://www.quantum-espresso.org/Doc/INPUT_PP.html
-https://www.quantum-espresso.org/Doc/INPUT_DOS.html
-https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html (orbital ordering)
-https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
+
+(1) https://www.quantum-espresso.org/Doc/INPUT_PW.html
+(2) https://www.quantum-espresso.org/Doc/INPUT_PP.html
+(3) https://www.quantum-espresso.org/Doc/INPUT_DOS.html
+(4) https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html (orbital ordering)
+(5) https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
 
 For running jobs, the pseudopotential file must be in the job directory (or you have to specify the path).
 ---------------------------------------------------------------------------------------------
