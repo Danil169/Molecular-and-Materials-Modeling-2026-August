@@ -1,0 +1,19 @@
+# NWChem Configuration File
+# This file contains settings for running NWChem with multiple NPROC values
+
+# Input file (required)
+input = ch3_zora_b3lyp_prop.nw
+
+# NPROC values (comma-separated)
+#nproc = 4,8,16
+nproc = 2,4,6
+
+# Executables (optional)
+#executable = nwchem
+#mpirun = mpirun
+
+# Output directory (optional)
+output_dir = results
+
+# Keep modified input files (true/false)
+keep_modified = true
