@@ -56,8 +56,7 @@ For converting crystal structures to QE format, various online/ offline tools ca
 Quantum ESPRESSO basics
 ~~~~~~~~~~~~
 
-The input file for PWscf is structured in a number of NAMELISTS and
-INPUT CARDS.
+**The input file for PWscf is structured in a number of NAMELISTS and INPUT CARDS.**
 
 | &NAMELIST1 
 |    ... 
