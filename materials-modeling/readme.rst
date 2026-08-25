@@ -57,7 +57,6 @@ Quantum ESPRESSO basics
 **The input file for PWscf is structured in a number of NAMELISTS and INPUT CARDS.**
 
 |
-|
 
 | &NAMELIST1 
 |    ... 
@@ -76,7 +75,7 @@ Quantum ESPRESSO basics
 | ....
 
 |
-|
+
 **NAMELISTS are read in a specific order**
 
 **NAMELISTS that are not required are ignored**
