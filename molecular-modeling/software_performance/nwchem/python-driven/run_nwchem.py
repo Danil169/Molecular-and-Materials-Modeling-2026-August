@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Python script to run NWChem with multiple NPROC values from config.txt
+Input file is kept untouched - modified copies are used for each run
+All outputs are redirected to a dedicated directory
 """
 
 import os
@@ -21,6 +23,7 @@ class NWChemRunner:
         self.mpirun_executable = 'mpirun'
         self.keep_modified = False
         self.output_dir = 'results'
+        self.silent = False
         
         if os.path.exists(config_file):
             self.load_config(config_file)
@@ -59,46 +62,39 @@ class NWChemRunner:
             keep = self.config.get('keep_modified', 'false')
             self.keep_modified = keep.lower() in ['true', 'yes', '1']
             
+            # Parse silent mode
+            silent = self.config.get('silent', 'false')
+            self.silent = silent.lower() in ['true', 'yes', '1']
+            
             print(f"Configuration loaded from {config_file}")
             
         except Exception as e:
             print(f"Error loading configuration: {e}")
             sys.exit(1)
     
-    def modify_nproc(self, input_file, output_file, nproc):
-        """Modify the NPROC value in the NWChem input file"""
+    def create_modified_input(self, input_file, output_file, nproc):
+        """
+        Create a modified copy of the input file without the mpirun command
+        The original input file remains untouched
+        """
         try:
             with open(input_file, 'r') as f:
                 content = f.read()
             
-            # Check if input file has the mpirun line
-            if 'mpirun' in content:
-                # Replace NPROC placeholder or existing value
-                pattern = r'(mpirun\s+-np\s+)(\d+|NPROC)(\s+nwchem)'
-                if re.search(pattern, content):
-                    modified_content = re.sub(
-                        pattern, 
-                        f'mpirun -np {nproc} nwchem', 
-                        content
-                    )
-                else:
-                    # Try to find any mpirun with -np
-                    pattern = r'(mpirun\s+-np\s+)(\d+)(\s+)'
-                    if re.search(pattern, content):
-                        modified_content = re.sub(
-                            pattern,
-                            f'mpirun -np {nproc} ',
-                            content
-                        )
-                    else:
-                        print(f"Warning: No mpirun -np pattern found in {input_file}")
-                        return False
-            else:
-                # No mpirun line, add at the end
-                modified_content = content
-                if not content.endswith('\n'):
-                    modified_content += '\n'
-                modified_content += f'\nmpirun -np {nproc} nwchem {input_file}\n'
+            # Remove any mpirun lines from the content
+            lines = content.split('\n')
+            cleaned_lines = []
+            for line in lines:
+                # Skip lines that contain mpirun commands
+                if re.search(r'mpirun\s+-np\s+\d+\s+nwchem', line):
+                    continue
+                cleaned_lines.append(line)
+            
+            # Add the correct mpirun command at the end
+            modified_content = '\n'.join(cleaned_lines)
+            if not modified_content.endswith('\n'):
+                modified_content += '\n'
+            modified_content += f'\n# mpirun -np {nproc} nwchem {os.path.basename(input_file)}\n'
             
             # Write the modified content
             with open(output_file, 'w') as f:
@@ -107,7 +103,7 @@ class NWChemRunner:
             return True
         
         except Exception as e:
-            print(f"Error modifying file: {e}")
+            print(f"Error creating modified file: {e}")
             return False
     
     def run_nwchem(self, input_file, nproc):
@@ -125,7 +121,7 @@ class NWChemRunner:
         out_filename = f"{base_name}_nproc{nproc}_{timestamp}.out"
         output_file = os.path.join(self.output_dir, out_filename)
         
-        # Build the command
+        # Build the command - use the modified input file
         cmd = [
             self.mpirun_executable,
             '-np', str(nproc),
@@ -133,11 +129,12 @@ class NWChemRunner:
             input_file
         ]
         
-        print(f"\n{'='*60}")
-        print(f"Running with NPROC={nproc}")
-        print(f"Command: {' '.join(cmd)}")
-        print(f"Output: {output_file}")
-        print(f"{'='*60}\n")
+        if not self.silent:
+            print(f"\n{'='*60}")
+            print(f"Running with NPROC={nproc}")
+            print(f"Command: {' '.join(cmd)}")
+            print(f"Output: {output_file}")
+            print(f"{'='*60}\n")
         
         try:
             with open(output_file, 'w') as f:
@@ -148,26 +145,23 @@ class NWChemRunner:
                 f.write(f"NPROC: {nproc}\n")
                 f.write(f"{'='*60}\n\n")
                 
-                # Run the process
+                # Run the process - redirect all output to file
                 process = subprocess.Popen(
                     cmd,
-                    stdout=subprocess.PIPE,
+                    stdout=f,
                     stderr=subprocess.STDOUT,
-                    universal_newlines=True,
-                    bufsize=1
+                    universal_newlines=True
                 )
                 
-                # Stream output to both console and file
-                for line in process.stdout:
-                    print(line, end='')
-                    f.write(line)
-                
+                # Wait for process to complete
                 return_code = process.wait()
                 
                 if return_code == 0:
-                    print(f"\n✓ NWChem completed successfully with NPROC={nproc}")
+                    if not self.silent:
+                        print(f"✓ NWChem completed successfully with NPROC={nproc}")
                 else:
-                    print(f"\n✗ NWChem exited with error code: {return_code} for NPROC={nproc}")
+                    if not self.silent:
+                        print(f"✗ NWChem exited with error code: {return_code} for NPROC={nproc}")
                 
                 return return_code
         
@@ -185,30 +179,38 @@ class NWChemRunner:
             print("Error: No input file specified in configuration")
             return 1
         
+        if not os.path.exists(self.input_file):
+            print(f"Error: Input file '{self.input_file}' not found")
+            return 1
+        
         if not self.nproc_values:
             print("Error: No NPROC values specified in configuration")
             return 1
         
-        print(f"\n{'='*60}")
-        print(f"NWChem Runner")
-        print(f"{'='*60}")
-        print(f"Input file: {self.input_file}")
-        print(f"NPROC values: {self.nproc_values}")
-        print(f"Output directory: {self.output_dir}")
-        print(f"{'='*60}\n")
+        if not self.silent:
+            print(f"\n{'='*60}")
+            print(f"NWChem Runner")
+            print(f"{'='*60}")
+            print(f"Input file: {self.input_file}")
+            print(f"NPROC values: {self.nproc_values}")
+            print(f"Output directory: {self.output_dir}")
+            print(f"Original input file will NOT be modified")
+            print(f"{'='*60}\n")
         
         results = {}
         modified_files = []
         
         try:
             for nproc in self.nproc_values:
-                # Create modified input file
+                # Create modified input file (does not modify original)
                 base = Path(self.input_file).stem
                 modified_file = f"{base}_nproc{nproc}.nw"
                 
-                print(f"Creating modified input: {modified_file}")
-                if not self.modify_nproc(self.input_file, modified_file, nproc):
-                    print(f"Failed to modify input file for NPROC={nproc}")
+                if not self.silent:
+                    print(f"Creating modified input: {modified_file}")
+                
+                if not self.create_modified_input(self.input_file, modified_file, nproc):
+                    print(f"Failed to create modified input file for NPROC={nproc}")
                     continue
                 
                 modified_files.append(modified_file)
@@ -221,20 +223,23 @@ class NWChemRunner:
                 }
             
             # Print summary
-            print(f"\n{'='*60}")
-            print("Summary of runs:")
-            print(f"{'='*60}")
-            for nproc, result in results.items():
-                status = "✓ SUCCESS" if result['return_code'] == 0 else "✗ FAILED"
-                print(f"NPROC={nproc}: {status} (return code: {result['return_code']})")
+            if not self.silent:
+                print(f"\n{'='*60}")
+                print("Summary of runs:")
+                print(f"{'='*60}")
+                for nproc, result in results.items():
+                    status = "✓ SUCCESS" if result['return_code'] == 0 else "✗ FAILED"
+                    print(f"NPROC={nproc}: {status} (return code: {result['return_code']})")
             
             # Clean up modified files
             if not self.keep_modified:
-                print(f"\nCleaning up temporary files...")
+                if not self.silent:
+                    print(f"\nCleaning up temporary files...")
                 for file in modified_files:
                     if os.path.exists(file):
                         os.remove(file)
-                        print(f"  Removed: {file}")
+                        if not self.silent:
+                            print(f"  Removed: {file}")
             
             # Check if any runs failed
             failed = any(r['return_code'] != 0 for r in results.values())
@@ -253,21 +258,25 @@ def create_sample_config():
     sample = """# NWChem Configuration File
 # This file contains settings for running NWChem with multiple NPROC values
 
-# Input file (required)
+# Input file (required) - this file will NOT be modified
 input = ch3_zora_b3lyp_prop.nw
 
 # NPROC values (comma-separated)
-nproc = 4,8,16
+nproc = 2,4,6
 
 # Executables (optional)
 executable = nwchem
 mpirun = mpirun
 
-# Output directory (optional)
+# Output directory (optional) - all output files go here
 output_dir = results
 
 # Keep modified input files (true/false)
 keep_modified = false
+
+# Silent mode - suppress console output (true/false)
+# When true, only errors and summary are printed
+silent = false
 """
     
     with open('config.txt', 'w') as f:
@@ -289,6 +298,11 @@ def main():
         action='store_true',
         help='Generate a sample config.txt file'
     )
+    parser.add_argument(
+        '--silent',
+        action='store_true',
+        help='Suppress console output (overrides config file)'
+    )
     
     args = parser.parse_args()
     
@@ -299,6 +313,10 @@ def main():
     
     # Create runner instance
     runner = NWChemRunner(args.config)
+    
+    # Override silent mode if specified
+    if args.silent:
+        runner.silent = True
     
     # Run all configurations
     return runner.run_all()
