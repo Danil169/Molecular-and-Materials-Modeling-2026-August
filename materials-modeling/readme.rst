@@ -55,6 +55,7 @@ Quantum ESPRESSO basics
 ~~~~~~~~~~~~
 
 **The input file for PWscf is structured in a number of NAMELISTS and INPUT CARDS.**
+
 |
 |
 
