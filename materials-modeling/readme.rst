@@ -12,7 +12,7 @@ Requirements:
 ~~~~~~~~~~~~
 (1) Quantum ESPRESSO should be installed in the local machine. 
 
-$ /path/to/qe/bin/pw.x
+	$ /path/to/qe/bin/pw.x
 
      Program PWSCF v.7.4.1 starts on 15Jul2025 at  9:33:25
 
