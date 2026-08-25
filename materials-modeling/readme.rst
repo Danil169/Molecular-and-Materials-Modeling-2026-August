@@ -18,15 +18,17 @@ Requirements:
  
 (2) Python (python3-full).
 
-$ python --version
+	$ python --version
 
 	Python 3.12.3
 
 
 (3) ASE (Atomic Simulation Environment) should be installed and be in path. Install the latest version by: pip install --upgrade git+https://gitlab.com/ase/ase.git@master
 
-$ ase --version
-ase-3.26.0b1
+	$ ase --version
+
+	ase-3.26.0b1
+
 ---------------------------------------------------------------------------------------------
 Structure and potentials:
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
