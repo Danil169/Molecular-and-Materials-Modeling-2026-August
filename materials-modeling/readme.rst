@@ -4,6 +4,14 @@ Materials Modeling
 
 Working files Hubrid School on Molecular and Materials Modeling.
 
+To activate:
+~~~~~~~~~~~~
+source ~/work/software/venv/bin/activate
+
+QE executables:
+/home/milias/work/software/qe/qe-7.5/bin
+
+
 
 Requirements:
 -------------
