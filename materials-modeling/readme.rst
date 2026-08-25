@@ -29,8 +29,8 @@ Requirements:
 
 	ase-3.26.0b1
 
----------------------------------------------------------------------------------------------
 Structure and potentials:
+~~~~~~~~~~~~
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
 Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
 Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
