@@ -32,10 +32,15 @@ Requirements:
 ~~~~~~~~~~~~
 Structure and potentials:
 ~~~~~~~~~~~~
+
 (1) Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
+
 (2) Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
+
 (3) Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
+
 (4) Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. 
+
 (5) DOS Plotting scripts provided: ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
 
 **For converting crystal structures to QE format, various online/ offline tools can be used.**
@@ -122,11 +127,16 @@ The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed fo
 
 The framework provides researchers with a unified interface for diverse simulation tasks while maintaining flexibility in method combinations.
 
-Optional software:
-------------------
 
-Grace: (https://sourceforge.net/projects/qtgrace/)
-VESTA: (https://jp-minerals.org/vesta/en/download.html)
-Seekpath: (pip install seekpath, https://seekpath.materialscloud.io/)
-postscript: (sudo apt install gv)
+~~~~~~~~~~~~
+Optional software
+~~~~~~~~~~~~
+
+(1) Grace: (https://sourceforge.net/projects/qtgrace/)
+
+(2) VESTA: (https://jp-minerals.org/vesta/en/download.html)
+
+(3) Seekpath: (pip install seekpath, https://seekpath.materialscloud.io/)
+
+(4) postscript: (sudo apt install gv)
 
