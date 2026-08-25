@@ -43,12 +43,18 @@ Structure and potentials:
 (5) DOS Plotting scripts provided: ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
 
 For converting crystal structures to QE format, various online/ offline tools can be used.
-1) https://qeinputgenerator.materialscloud.io/ 
-2) https://seekpath.materialscloud.io/ 
-3) VESTA
-4) ASE
----------------------------------------------------------------------------------------------
+
+(1) https://qeinputgenerator.materialscloud.io/ 
+
+(2) https://seekpath.materialscloud.io/ 
+
+(3) VESTA
+
+(4) ASE
+
+~~~~~~~~~~~~
 Quantum ESPRESSO basics
+~~~~~~~~~~~~
 
 The input file for PWscf is structured in a number of NAMELISTS and
 INPUT CARDS.
