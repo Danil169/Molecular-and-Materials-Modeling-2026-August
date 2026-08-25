@@ -1,0 +1,17 @@
+CHGNet v0.3.0 initialized with 412,525 parameters
+CHGNet will run on cuda
+
+ Running ASE-CHGNet calculations :
+
+ Running geometry optimization with initial d(N-N) = 1.1
+      Step     Time          Energy          fmax
+BFGS:    0 20:08:48      -16.659252        1.849643
+BFGS:    1 20:08:48      -16.569960        4.634055
+BFGS:    2 20:08:48      -16.669750        0.362232
+BFGS:    3 20:08:48      -16.670246        0.053086
+BFGS:    4 20:08:48      -16.670258        0.000482
+
+ Optimized d(N-N): 1.112 Ang (Experiment: 1.098 Ang)
+ Nitrogen atom energy: -3.05 eV
+ Nitrogen molecule energy: -16.67 eV
+ Atomization energy: 10.58 eV (Experiment: ~9.76 eV)
