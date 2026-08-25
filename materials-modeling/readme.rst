@@ -1,20 +1,20 @@
-==================
+~~~~~~~~~~~~
 Materials Modeling
-==================
+~~~~~~~~~~~~
 
-Working files for the Hybrid School on Molecular and Materials Modeling.
+Working files Hubrid School on Molecular and Materials Modeling.
 
-To activate
-~~~~~~~~~~~
+To activate:
+~~~~~~~~~~~~
 source ~/work/software/venv/bin/activate
 
-QE executables
-~~~~~~~~~~~~~~
+QE executables:
 /home/milias/work/software/qe/qe-7.5/bin
+~~~~~~~~~~~~
 
 
 Requirements:
-------------
+~~~~~~~~~~~~
 (1) Quantum ESPRESSO should be installed in the local machine. 
 
 $ /path/to/qe/bin/pw.x
@@ -46,10 +46,8 @@ Python 3.12.3
 
 $ ase --version
 ase-3.26.0b1
-
+---------------------------------------------------------------------------------------------
 Structure and potentials:
--------------------------
-
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
 Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
 Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
@@ -65,8 +63,7 @@ For converting crystal structures to QE format, various online/ offline tools ca
 2) https://seekpath.materialscloud.io/ 
 3) VESTA
 4) ASE
-
-~~~~~~~~~~~~
+---------------------------------------------------------------------------------------------
 Quantum ESPRESSO basics
 
 The input file for PWscf is structured in a number of NAMELISTS and
@@ -115,7 +112,7 @@ https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html (orbital ordering)
 https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
 
 For running jobs, the pseudopotential file must be in the job directory (or you have to specify the path).
-~~~~~~~~~~~~
+---------------------------------------------------------------------------------------------
 The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed for atomistic simulations, offering capabilities for setup, execution, analysis, and visualization. Its key advantages include:
 
 	(1) Streamlining complex, multistep computational workflows
@@ -125,7 +122,7 @@ The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed fo
 The framework provides researchers with a unified interface for diverse simulation tasks while maintaining flexibility in method combinations.
 
 Optional software:
-~~~~~~~~~~~~
+------------------
 
 Grace: (https://sourceforge.net/projects/qtgrace/)
 VESTA: (https://jp-minerals.org/vesta/en/download.html)
