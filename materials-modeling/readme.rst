@@ -2,13 +2,13 @@
 Materials Modeling
 ==================
 
-Working files Hubrid School on Molecular and Materials Modeling.
+Working files for the Hybrid School on Molecular and Materials Modeling.
 
-To activate:
-~~~~~~~~~~~~
+To activate
+~~~~~~~~~~~
 source ~/work/software/venv/bin/activate
 
-QE executables:
+QE executables
 ~~~~~~~~~~~~~~
 /home/milias/work/software/qe/qe-7.5/bin
 
@@ -47,8 +47,8 @@ Python 3.12.3
 $ ase --version
 ase-3.26.0b1
 
-~~~~~~~~~~~~
 Structure and potentials:
+-------------------------
 
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
 Graphite: experimental cif file retrieved from https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=193439&DatabaseToSearch=ICSD (neutron diffraction study, https://iopscience.iop.org/article/10.1149/2.0951410jes)
