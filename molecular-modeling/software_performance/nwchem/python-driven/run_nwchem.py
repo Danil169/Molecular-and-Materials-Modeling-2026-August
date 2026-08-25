@@ -3,6 +3,7 @@
 Python script to run NWChem with multiple NPROC values from config.txt
 Input file is kept untouched - modified copies are used for each run
 All outputs are redirected to a dedicated directory
+Extracts and summarizes wall times from NWChem output
 """
 
 import os
@@ -24,6 +25,7 @@ class NWChemRunner:
         self.keep_modified = False
         self.output_dir = 'results'
         self.silent = False
+        self.wall_times = {}
         
         if os.path.exists(config_file):
             self.load_config(config_file)
@@ -106,6 +108,36 @@ class NWChemRunner:
             print(f"Error creating modified file: {e}")
             return False
     
+    def extract_wall_time(self, output_file):
+        """Extract wall time from NWChem output file"""
+        try:
+            with open(output_file, 'r') as f:
+                content = f.read()
+            
+            # Look for "Total times" line
+            pattern = r'Total times\s+cpu:\s+([\d.]+)s\s+wall:\s+([\d.]+)s'
+            match = re.search(pattern, content)
+            
+            if match:
+                cpu_time = float(match.group(1))
+                wall_time = float(match.group(2))
+                return cpu_time, wall_time
+            
+            # Alternative pattern if not found
+            pattern2 = r'Task\s+times\s+cpu:\s+([\d.]+)s\s+wall:\s+([\d.]+)s'
+            match2 = re.search(pattern2, content)
+            
+            if match2:
+                cpu_time = float(match2.group(1))
+                wall_time = float(match2.group(2))
+                return cpu_time, wall_time
+            
+            return None, None
+            
+        except Exception as e:
+            print(f"Error extracting wall time from {output_file}: {e}")
+            return None, None
+    
     def run_nwchem(self, input_file, nproc):
         """Run NWChem with mpirun for a specific NPROC value"""
         if not os.path.exists(input_file):
@@ -157,9 +189,33 @@ class NWChemRunner:
                 return_code = process.wait()
                 
                 if return_code == 0:
-                    if not self.silent:
-                        print(f"✓ NWChem completed successfully with NPROC={nproc}")
+                    # Extract wall time from output file
+                    cpu_time, wall_time = self.extract_wall_time(output_file)
+                    if cpu_time is not None and wall_time is not None:
+                        self.wall_times[nproc] = {
+                            'cpu': cpu_time,
+                            'wall': wall_time,
+                            'output_file': output_file,
+                            'status': 'SUCCESS'
+                        }
+                        if not self.silent:
+                            print(f"✓ NWChem completed successfully with NPROC={nproc} (wall: {wall_time:.2f}s)")
+                    else:
+                        self.wall_times[nproc] = {
+                            'cpu': None,
+                            'wall': None,
+                            'output_file': output_file,
+                            'status': 'SUCCESS'
+                        }
+                        if not self.silent:
+                            print(f"✓ NWChem completed successfully with NPROC={nproc} (wall time not found)")
                 else:
+                    self.wall_times[nproc] = {
+                        'cpu': None,
+                        'wall': None,
+                        'output_file': output_file,
+                        'status': f'FAILED (code {return_code})'
+                    }
                     if not self.silent:
                         print(f"✗ NWChem exited with error code: {return_code} for NPROC={nproc}")
                 
@@ -172,6 +228,52 @@ class NWChemRunner:
         except Exception as e:
             print(f"Error running NWChem: {e}")
             return 1
+    
+    def print_summary(self):
+        """Print summary of wall times"""
+        if not self.wall_times:
+            print("\nNo timing data available")
+            return
+        
+        print(f"\n{'='*60}")
+        print("PERFORMANCE SUMMARY")
+        print(f"{'='*60}")
+        print(f"{'NPROC':<10} {'Wall Time (s)':<15} {'Speedup':<12} {'Efficiency':<12} {'Status':<15}")
+        print(f"{'-'*60}")
+        
+        # Sort by NPROC
+        sorted_nproc = sorted(self.wall_times.keys())
+        
+        # Find base time (first NPROC value)
+        base_time = None
+        for nproc in sorted_nproc:
+            if self.wall_times[nproc]['wall'] is not None:
+                base_time = self.wall_times[nproc]['wall']
+                break
+        
+        for nproc in sorted_nproc:
+            data = self.wall_times[nproc]
+            wall_time = data['wall']
+            status = data['status']
+            
+            if wall_time is not None:
+                speedup = base_time / wall_time if base_time else 1.0
+                efficiency = (speedup / nproc) * 100 if nproc > 0 else 0
+                print(f"{nproc:<10} {wall_time:<15.2f} {speedup:<12.2f} {efficiency:<11.1f}% {status:<15}")
+            else:
+                print(f"{nproc:<10} {'N/A':<15} {'N/A':<12} {'N/A':<12} {status:<15}")
+        
+        print(f"{'='*60}")
+        
+        # Print best speedup
+        valid_times = [(n, data['wall']) for n, data in self.wall_times.items() if data['wall'] is not None]
+        if len(valid_times) > 1:
+            fastest = min(valid_times, key=lambda x: x[1])
+            print(f"\nFastest run: NPROC={fastest[0]} with wall time={fastest[1]:.2f}s")
+            
+            if base_time and fastest[0] != sorted_nproc[0]:
+                speedup = base_time / fastest[1]
+                print(f"Speedup over NPROC={sorted_nproc[0]}: {speedup:.2f}x")
     
     def run_all(self):
         """Run NWChem with all NPROC values"""
@@ -222,14 +324,8 @@ class NWChemRunner:
                     'modified_file': modified_file
                 }
             
-            # Print summary
-            if not self.silent:
-                print(f"\n{'='*60}")
-                print("Summary of runs:")
-                print(f"{'='*60}")
-                for nproc, result in results.items():
-                    status = "✓ SUCCESS" if result['return_code'] == 0 else "✗ FAILED"
-                    print(f"NPROC={nproc}: {status} (return code: {result['return_code']})")
+            # Print timing summary
+            self.print_summary()
             
             # Clean up modified files
             if not self.keep_modified:

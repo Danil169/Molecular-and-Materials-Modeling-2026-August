@@ -9,8 +9,8 @@ input = ch3_zora_b3lyp_prop.nw
 nproc = 2,4,6
 
 # Executables (optional)
-#executable = nwchem
-#mpirun = mpirun
+executable = nwchem
+mpirun = mpirun
 
 # Output directory (optional)
 output_dir = results
