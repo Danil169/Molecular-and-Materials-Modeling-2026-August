@@ -1,0 +1,52 @@
+(mace_env) miroi@MIRO:~/work/projects/mol_mat_modeling_schools/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/software_performance/nwchem/python-driven/.python run_nwchem.py
+Configuration loaded from config.txt
+
+============================================================
+NWChem Runner
+============================================================
+Input file: ch3_zora_b3lyp_prop.nw
+NPROC values: [2, 4, 6]
+Output directory: results
+Original input file will NOT be modified
+============================================================
+
+Creating modified input: ch3_zora_b3lyp_prop_nproc2.nw
+
+============================================================
+Running with NPROC=2
+Command: mpirun -np 2 nwchem ch3_zora_b3lyp_prop_nproc2.nw
+Output: results/ch3_zora_b3lyp_prop_nproc2_nproc2_20260825_213142.out
+============================================================
+
+✓ NWChem completed successfully with NPROC=2 (wall: 12.40s)
+Creating modified input: ch3_zora_b3lyp_prop_nproc4.nw
+
+============================================================
+Running with NPROC=4
+Command: mpirun -np 4 nwchem ch3_zora_b3lyp_prop_nproc4.nw
+Output: results/ch3_zora_b3lyp_prop_nproc4_nproc4_20260825_213156.out
+============================================================
+
+✓ NWChem completed successfully with NPROC=4 (wall: 10.20s)
+Creating modified input: ch3_zora_b3lyp_prop_nproc6.nw
+
+============================================================
+Running with NPROC=6
+Command: mpirun -np 6 nwchem ch3_zora_b3lyp_prop_nproc6.nw
+Output: results/ch3_zora_b3lyp_prop_nproc6_nproc6_20260825_213207.out
+============================================================
+
+✓ NWChem completed successfully with NPROC=6 (wall: 9.30s)
+
+============================================================
+PERFORMANCE SUMMARY
+============================================================
+NPROC      Wall Time (s)   Speedup      Efficiency   Status
+------------------------------------------------------------
+2          12.40           1.00         50.0       % SUCCESS
+4          10.20           1.22         30.4       % SUCCESS
+6          9.30            1.33         22.2       % SUCCESS
+============================================================
+
+Fastest run: NPROC=6 with wall time=9.30s
+Speedup over NPROC=2: 1.33x
