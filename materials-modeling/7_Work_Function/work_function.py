@@ -69,7 +69,8 @@ qe_bin = "/home/milias/work/software/qe/qe-7.5/bin"
 
 # Main QE calculation 
 #pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/pw.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/pw.x'
+pw_command = f'mpirun -np 8 {qe_bin}/pw.x'
 
 # Post-processing commands
 #pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
