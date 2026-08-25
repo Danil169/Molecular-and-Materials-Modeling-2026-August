@@ -3,14 +3,17 @@ import sys
 from ase.calculators.gromacs import Gromacs
 
 # 1. Define the exact path to your custom GROMACS binary folder
-gmx_bin_dir = "/home/miroi/work/software/gromacs/gromacs_cloned/build_gnu/bin"
+#gmx_bin_dir = "/home/miroi/work/software/gromacs/gromacs_cloned/build_gnu/bin"
+gmx_bin_dir = ""
 
 # 2. Configure the ASE environment variables for GROMACS execution
 # GMXCMD_PREF handles your parallel wrapper (mpirun + core allocation)
-os.environ['GMXCMD_PREF'] = "mpirun -np 2"
+#os.environ['GMXCMD_PREF'] = "mpirun -np 2"
+os.environ['GMXCMD_PREF'] = ""
 
 # Use the absolute path to your custom gmx_mpi executable
-os.environ['ASE_GROMACS_COMMAND'] = os.path.join(gmx_bin_dir, "gmx_mpi")
+#os.environ['ASE_GROMACS_COMMAND'] = os.path.join(gmx_bin_dir, "gmx_mpi")
+os.environ['ASE_GROMACS_COMMAND'] = os.path.join(gmx_bin_dir, "gmx")
 
 # 3. Define your initial structure template
 input_structure = '1CRN.pdb' 
@@ -37,7 +40,7 @@ calc.set_own_params_runs('extra_genbox_parameters', '-cs spc216.gro')
 calc.run_genbox()
 
 # 7. Compile parameters and run the energy minimization
-print("Compiling parameters and running energy minimization via MPI pipeline...")
+print("Compiling parameters and running energy minimization ...")
 calc.generate_gromacs_run_file()
 calc.run()
 
