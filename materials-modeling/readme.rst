@@ -15,26 +15,12 @@ Requirements:
 	$ /path/to/qe/bin/pw.x
 
      Program PWSCF v.7.4.1 starts on 15Jul2025 at  9:33:25
-
-     This program is part of the open-source Quantum ESPRESSO suite
-     for quantum simulation of materials; please cite
-         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
-         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
-         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
-          URL http://www.quantum-espresso.org",
-     in publications or presentations arising from this work. More details at
-     http://www.quantum-espresso.org/quote
-
-     Serial version
-     25103 MiB available memory on the printing compute node when the environment starts
-
-     Waiting for input...
-	 
-
+ 
 (2) Python (python3-full).
 
 $ python --version
-Python 3.12.3
+
+	Python 3.12.3
 
 
 (3) ASE (Atomic Simulation Environment) should be installed and be in path. Install the latest version by: pip install --upgrade git+https://gitlab.com/ase/ase.git@master
