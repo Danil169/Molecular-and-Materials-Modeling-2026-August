@@ -29,6 +29,7 @@ Requirements:
 
 	ase-3.26.0b1
 
+~~~~~~~~~~~~
 Structure and potentials:
 ~~~~~~~~~~~~
 Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
