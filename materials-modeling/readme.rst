@@ -107,13 +107,18 @@ Details about input parameters can be found here:
 (4) https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html (orbital ordering)
 (5) https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
 
-For running jobs, the pseudopotential file must be in the job directory (or you have to specify the path).
----------------------------------------------------------------------------------------------
+**For running jobs, the pseudopotential file must be in the job directory (or you have to specify the path).**
+
+~~~~~~~~~~~~
+Atomic Simulation Environment (ASE)
+~~~~~~~~~~~~
 The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed for atomistic simulations, offering capabilities for setup, execution, analysis, and visualization. Its key advantages include:
 
-	(1) Streamlining complex, multistep computational workflows
-	(2) Enabling hybrid calculations by combining outputs from different codes (e.g., using Quantum ESPRESSO for DFT energies/forces while incorporating DFT-D4 for van der Waals corrections)
-	(3) Supporting interoperability with numerous electronic structure codes and force fields
+(1) Streamlining complex, multistep computational workflows
+
+(2) Enabling hybrid calculations by combining outputs from different codes (e.g., using Quantum ESPRESSO for DFT energies/forces while incorporating DFT-D4 for van der Waals corrections)
+
+(3) Supporting interoperability with numerous electronic structure codes and force fields
 
 The framework provides researchers with a unified interface for diverse simulation tasks while maintaining flexibility in method combinations.
 
