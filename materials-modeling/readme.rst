@@ -10,11 +10,11 @@ source ~/work/software/venv/bin/activate
 
 QE executables:
 /home/milias/work/software/qe/qe-7.5/bin
-
+~~~~~~~~~~~~
 
 
 Requirements:
--------------
+~~~~~~~~~~~~
 (1) Quantum ESPRESSO should be installed in the local machine. 
 
 $ /path/to/qe/bin/pw.x
