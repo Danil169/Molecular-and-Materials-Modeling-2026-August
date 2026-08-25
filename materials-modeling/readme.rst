@@ -74,20 +74,29 @@ Quantum ESPRESSO basics
 **Logically independent INPUT_CARDS can be given in any order**
 
 **There are three mandatory NAMELISTS**
+
 (1) &CONTROL input variables that control the flux of the calculation and the amount of I/O on disk and on the screen.
+
 (2) &SYSTEM input variables that specify the system under study.
+
 (3) &ELECTRONS input variables that control the algorithms used to reach the self-consistent solution of KS equations for the electrons.
 
 **We may also need:**
+
 (1) &IONS needed when ATOMS MOVE! IGNORED otherwise !
+
 (2) &CELL needed when CELL MOVES! IGNORED otherwise !
 
 **There are three mandatory INPUT_CARDS**
+
 (1) ATOMIC_SPECIES name, mass and pseudopotential used for each atomic species present in the system
+
 (2) ATOMIC_POSITIONS type and coordinates of each atom in the unit cell
+
 (3) K_POINTS coordinates and weights of the k-points used for BZ integration
 
 **We will also need:**
+
 (1) CELL_PARAMETERS
 
 Details about input parameters can be found here: 
