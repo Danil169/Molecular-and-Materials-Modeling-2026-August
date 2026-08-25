@@ -1,6 +1,6 @@
-~~~~~~~~~~~~
+==================
 Materials Modeling
-~~~~~~~~~~~~
+==================
 
 Working files Hubrid School on Molecular and Materials Modeling.
 
