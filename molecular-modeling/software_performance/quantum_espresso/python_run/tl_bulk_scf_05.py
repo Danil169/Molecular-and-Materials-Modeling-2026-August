@@ -168,16 +168,6 @@ def print_executable_info(pw_path, mpirun_path=None):
         print(f"   Exists: Yes")
         print(f"   Executable: {os.access(pw_path, os.X_OK)}")
         
-        # Get version info if available
-        try:
-            result = subprocess.run([pw_path, '--version'], capture_output=True, text=True)
-            if result.returncode == 0:
-                version_line = result.stdout.strip().split('\n')[0] if result.stdout else ""
-                if version_line:
-                    print(f"   Version: {version_line}")
-        except:
-            pass
-        
         # ldd information
         print(f"\n   Shared library dependencies (ldd):")
         ldd_output = get_ldd_info(pw_path)
@@ -199,16 +189,6 @@ def print_executable_info(pw_path, mpirun_path=None):
             print(f"   Exists: Yes")
             print(f"   Executable: {os.access(mpirun_path, os.X_OK)}")
             
-            # Get version info
-            try:
-                result = subprocess.run([mpirun_path, '--version'], capture_output=True, text=True)
-                if result.returncode == 0:
-                    version_line = result.stdout.strip().split('\n')[0] if result.stdout else ""
-                    if version_line:
-                        print(f"   Version: {version_line}")
-            except:
-                pass
-            
             # ldd information
             print(f"\n   Shared library dependencies (ldd):")
             ldd_output = get_ldd_info(mpirun_path)
@@ -223,7 +203,6 @@ def print_executable_info(pw_path, mpirun_path=None):
     else:
         print("   Not found in PATH")
     
-    # Print summary
     print("\n" + "=" * 80)
     print()
 

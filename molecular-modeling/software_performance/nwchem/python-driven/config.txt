@@ -6,7 +6,7 @@ input = ch3_zora_b3lyp_prop.nw
 
 # NPROC values (comma-separated)
 #nproc = 4,8,16
-nproc = 2,4,6
+nproc = 2,4
 
 # Executables (optional)
 executable = nwchem
@@ -16,4 +16,4 @@ mpirun = mpirun
 output_dir = results
 
 # Keep modified input files (true/false)
-keep_modified = true
+keep_modified = false
