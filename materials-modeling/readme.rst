@@ -7,7 +7,7 @@ Materials Modeling
 
 **/home/milias/work/software/qe/qe-7.5/bin**
 
-Working with git:  git clone, git add -A, git commit -a, git push, git pull
+**Working with git:  git clone, git add -A, git commit -a, git push, git pull**
 
 ~~~~~~~~~~~~
 Requirements:
