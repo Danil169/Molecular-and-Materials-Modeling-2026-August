@@ -1,0 +1,111 @@
+======================================================================
+NITROGEN MOLECULE (N₂) - EMT vs MACE COMPARISON
+======================================================================
+
+-----------------------------------
+EMT CALCULATIONS
+-----------------------------------
+
+Optimizing N₂ with EMT (initial d(N-N) = 1.1 Å)
+      Step     Time          Energy          fmax
+BFGS:    0 12:24:52        0.440344        3.251800
+BFGS:    1 12:24:52        0.264361        0.347497
+BFGS:    2 12:24:52        0.262860        0.080535
+BFGS:    3 12:24:52        0.262777        0.001453
+
+EMT Results:
+  Optimized N-N bond length: 0.9981 Å
+  Nitrogen atom energy:       5.1000 eV
+  Nitrogen molecule energy:   0.2628 eV
+  Atomization energy:         9.9372 eV
+
+-----------------------------------
+MACE CALCULATIONS
+-----------------------------------
+Using Materials Project MACE for MACECalculator with /home/milias/.cache/mace/20231203mace128L1_epoch199model
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+Optimizing N₂ with MACE (initial d(N-N) = 1.1 Å)
+      Step     Time          Energy          fmax
+BFGS:    0 12:24:53      -16.213922        1.873874
+BFGS:    1 12:24:54      -16.124224        4.461809
+BFGS:    2 12:24:54      -16.224463        0.482050
+BFGS:    3 12:24:55      -16.225212        0.159567
+BFGS:    4 12:24:55      -16.225301        0.003069
+
+MACE Results:
+  Optimized N-N bond length: 1.1124 Å
+  Nitrogen atom energy:       -2.9562 eV
+  Nitrogen molecule energy:   -16.2253 eV
+  Atomization energy:         10.3130 eV
+
+======================================================================
+COMPARISON WITH EXPERIMENT
+======================================================================
+
+Bond Length (N-N):
+  Experimental:  1.0980 Å
+  EMT:           0.9981 Å  (Δ = -0.0999 Å, 9.10%)
+  MACE:          1.1124 Å  (Δ = +0.0144 Å, 1.31%)
+
+Atomization Energy:
+  Experimental:  9.76 eV
+  EMT:           9.9372 eV  (Δ = +0.1772 eV, 1.82%)
+  MACE:          10.3130 eV  (Δ = +0.5530 eV, 5.67%)
+
+======================================================================
+SUMMARY TABLE
+======================================================================
+Method       Bond Length (Å)      Atomization (eV)     Steps     
+--------------------------------------------------------------
+EMT          0.9981               9.9372               3         
+MACE         1.1124               10.3130              4         
+Exp.         1.0980               9.76                 N/A       
+--------------------------------------------------------------
+
+Accuracy Improvement (MACE vs EMT):
+  Bond length:     MACE is 6.9x more accurate
+  Atomization:     MACE is 0.3x more accurate
+
+======================================================================
+ANALYSIS
+======================================================================
+
+EMT Performance:
+  ✗ Bond length error is significant (9.1%)
+  ✓ Atomization energy is reasonably accurate (<10% error)
+
+MACE Performance:
+  ✓ Bond length is highly accurate (<2% error)
+  ✓ Atomization energy is reasonably accurate (5.7% error)
+
+======================================================================
+DETAILED ANALYSIS
+======================================================================
+
+Interesting observations from the results:
+
+1. EMT Results:
+   - Optimized bond length: 0.9981 Å (experimental: 1.0980 Å)
+   - EMT underestimates bond length by 0.0999 Å
+   - Atomization energy: 9.9372 eV (overestimates by +0.18 eV)
+
+2. MACE Results:
+   - Optimized bond length: 1.1124 Å (experimental: 1.0980 Å)
+   - MACE overestimates bond length by 0.0144 Å
+   - Atomization energy: 10.3130 eV (overestimates by +0.55 eV)
+
+3. Method Comparison:
+   ✓ MACE gives better bond length (error: 0.0144 Å vs 0.0999 Å)
+   ✓ EMT gives better atomization energy (error: 0.1772 eV vs 0.5530 eV)
+
+4. Conclusion:
+   While MACE was expected to be more accurate for both properties, the results show:
+   - MACE gives significantly better bond length (only 1.31% error vs 9.10% for EMT)
+   - However, EMT gives surprisingly good atomization energy for N₂ (only 1.82% error)
+   - This demonstrates that simple empirical potentials can sometimes give good results
+     for certain properties, even if they are less accurate overall.
+
+Optimization complete! Trajectory files saved as:
+  - N2_opt_emt.traj  (EMT)
+  - N2_opt_mace.traj (MACE)

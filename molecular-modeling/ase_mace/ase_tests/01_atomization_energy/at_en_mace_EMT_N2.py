@@ -108,10 +108,15 @@ print("\n" + "=" * 70)
 print("SUMMARY TABLE")
 print("=" * 70)
 
+# Get number of optimization steps
+# For BFGS, we can use the number of iterations from the optimizer
+n_steps_emt = opt_emt.nsteps
+n_steps_mace = opt_mace.nsteps
+
 print(f"{'Method':<12} {'Bond Length (Å)':<20} {'Atomization (eV)':<20} {'Steps':<10}")
 print("-" * 62)
-print(f"{'EMT':<12} {d_emt:<20.4f} {e_atomization_emt:<20.4f} {len(opt_emt.energies):<10}")
-print(f"{'MACE':<12} {d_mace:<20.4f} {e_atomization_mace:<20.4f} {len(opt_mace.energies):<10}")
+print(f"{'EMT':<12} {d_emt:<20.4f} {e_atomization_emt:<20.4f} {n_steps_emt:<10}")
+print(f"{'MACE':<12} {d_mace:<20.4f} {e_atomization_mace:<20.4f} {n_steps_mace:<10}")
 print(f"{'Exp.':<12} {EXP_BOND_LENGTH:<20.4f} {EXP_ATOMIZATION_ENERGY:<20.2f} {'N/A':<10}")
 print("-" * 62)
 
@@ -152,14 +157,45 @@ if abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY) < 0.5:
 else:
     print(f"  ✓ Atomization energy is reasonably accurate ({abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY)/EXP_ATOMIZATION_ENERGY*100:.1f}% error)")
 
-print("\nConclusion:")
-if abs(d_mace - EXP_BOND_LENGTH) < abs(d_emt - EXP_BOND_LENGTH) and \
-   abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY) < abs(e_atomization_emt - EXP_ATOMIZATION_ENERGY):
-    print("  MACE significantly outperforms EMT for both bond length and atomization energy.")
-    print("  This demonstrates the power of machine-learned potentials for accurate")
-    print("  quantum chemistry calculations at classical force-field speed.")
+# ============================================
+# 6. Detailed Analysis of Results
+# ============================================
+print("\n" + "=" * 70)
+print("DETAILED ANALYSIS")
+print("=" * 70)
+
+print("\nInteresting observations from the results:")
+
+# EMT results analysis
+print("\n1. EMT Results:")
+print(f"   - Optimized bond length: {d_emt:.4f} Å (experimental: {EXP_BOND_LENGTH:.4f} Å)")
+print(f"   - EMT underestimates bond length by {abs(d_emt - EXP_BOND_LENGTH):.4f} Å")
+print(f"   - Atomization energy: {e_atomization_emt:.4f} eV (overestimates by {e_atomization_emt - EXP_ATOMIZATION_ENERGY:+.2f} eV)")
+
+# MACE results analysis
+print("\n2. MACE Results:")
+print(f"   - Optimized bond length: {d_mace:.4f} Å (experimental: {EXP_BOND_LENGTH:.4f} Å)")
+print(f"   - MACE overestimates bond length by {abs(d_mace - EXP_BOND_LENGTH):.4f} Å")
+print(f"   - Atomization energy: {e_atomization_mace:.4f} eV (overestimates by {e_atomization_mace - EXP_ATOMIZATION_ENERGY:+.2f} eV)")
+
+# Comparison
+print("\n3. Method Comparison:")
+if abs(d_mace - EXP_BOND_LENGTH) < abs(d_emt - EXP_BOND_LENGTH):
+    print(f"   ✓ MACE gives better bond length (error: {abs(d_mace - EXP_BOND_LENGTH):.4f} Å vs {abs(d_emt - EXP_BOND_LENGTH):.4f} Å)")
 else:
-    print("  Results show the trade-offs between different computational methods.")
+    print(f"   ✓ EMT gives better bond length (error: {abs(d_emt - EXP_BOND_LENGTH):.4f} Å vs {abs(d_mace - EXP_BOND_LENGTH):.4f} Å)")
+
+if abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY) < abs(e_atomization_emt - EXP_ATOMIZATION_ENERGY):
+    print(f"   ✓ MACE gives better atomization energy (error: {abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY):.4f} eV vs {abs(e_atomization_emt - EXP_ATOMIZATION_ENERGY):.4f} eV)")
+else:
+    print(f"   ✓ EMT gives better atomization energy (error: {abs(e_atomization_emt - EXP_ATOMIZATION_ENERGY):.4f} eV vs {abs(e_atomization_mace - EXP_ATOMIZATION_ENERGY):.4f} eV)")
+
+print("\n4. Conclusion:")
+print("   While MACE was expected to be more accurate for both properties, the results show:")
+print("   - MACE gives significantly better bond length (only 1.31% error vs 9.10% for EMT)")
+print("   - However, EMT gives surprisingly good atomization energy for N₂ (only 1.82% error)")
+print("   - This demonstrates that simple empirical potentials can sometimes give good results")
+print("     for certain properties, even if they are less accurate overall.")
 
 print("\nOptimization complete! Trajectory files saved as:")
 print("  - N2_opt_emt.traj  (EMT)")
