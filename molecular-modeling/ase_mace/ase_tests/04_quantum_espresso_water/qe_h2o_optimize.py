@@ -17,7 +17,7 @@ from ase.units import Ry, Bohr
 # 1. Create the initial water molecule structure
 # H-O-H structure, approx bond length 0.96 A, angle 104.5 deg
 h2o = molecule('H2O')
-h2o.set_cell([10, 10, 10])  # Create a 10x10x10 Angstrom vacuum box
+h2o.set_cell([12, 12, 12])  # Create a vacuum box
 h2o.center()               # Center the molecule in the box
 
 # 2. Configure the Quantum ESPRESSO Calculator
@@ -31,16 +31,16 @@ input_data = {
     'control': {
         'calculation': 'scf', 
         'prefix': 'h2o',
-        'pseudo_dir': '/usr/share/espresso/pseudo/',  # CHANGE THIS
+      #  'pseudo_dir': '/usr/share/espresso/pseudo/',  # CHANGE THIS
         'outdir': './outdir',
         'verbosity': 'low',
         'tstress': True,
         'tprnfor': True
     },
     'system': {
-        'ecutwfc': 40.0,    # Plane wave cutoff (Ry)
-        'ecutrho': 320.0,   # Charge density cutoff (Ry)
-        'ibrav': 0,         # 
+        'ecutwfc': 50.0,    # Plane wave cutoff (Ry)
+        'ecutrho': 350.0,   # Charge density cutoff (Ry)
+        'ibrav': 1,         # 
         'nosym': True,      # No symmetry for molecules
         'noinv': True,
     },
@@ -53,8 +53,10 @@ input_data = {
 }
 
 #command='mpirun -np 4 /opt/espresso/7.5/pw.x'
-command='mpirun -np 2 /opt/espresso/7.5/pw.x'
-profile = EspressoProfile(command,pseudo_dir='/usr/share/espresso/pseudo/')
+#command='mpirun -np 2 /opt/espresso/7.5/pw.x'
+command='mpirun -np 4 pw.x'
+#profile = EspressoProfile(command,pseudo_dir='/usr/share/espresso/pseudo/')
+profile = EspressoProfile(command)
 
 calc = Espresso(profile=profile, pseudopotentials=pseudopotentials,
                 input_data=input_data,
