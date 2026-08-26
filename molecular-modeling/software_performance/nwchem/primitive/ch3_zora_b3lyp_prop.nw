@@ -1,6 +1,7 @@
 echo
 start ch3radical_rot
 title ch3radical_rot
+print minimal
 geometry noautoz units angstrom nocenter
  symmetry c1
  c +0.00000000 +0.00000000 +0.00000000
