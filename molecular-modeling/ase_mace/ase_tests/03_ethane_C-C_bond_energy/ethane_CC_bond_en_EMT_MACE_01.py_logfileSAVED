@@ -1,0 +1,152 @@
+======================================================================
+ETHANE C-C BOND ENERGY - EMT vs MACE COMPARISON
+======================================================================
+
+-----------------------------------
+EMT CALCULATIONS
+-----------------------------------
+Ethane Energy: 1.4622 eV
+Optimized C-C bond length in ethane: 1.0096 Å
+Methyl Radical Energy: 1.8106 eV
+
+EMT Results:
+  C-C Bond Length:  1.0096 Å
+  C-C Bond Energy:  2.1591 eV
+  C-C Bond Energy:  208.32 kJ/mol
+
+-----------------------------------
+MACE CALCULATIONS
+-----------------------------------
+Using Materials Project MACE for MACECalculator with /home/milias/.cache/mace/20231203mace128L1_epoch199model
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+Ethane Energy: -40.6119 eV
+Optimized C-C bond length in ethane: 1.5218 Å
+Methyl Radical Energy: -18.4388 eV
+
+MACE Results:
+  C-C Bond Length:  1.5218 Å
+  C-C Bond Energy:  3.7342 eV
+  C-C Bond Energy:  360.30 kJ/mol
+
+======================================================================
+COMPARISON WITH EXPERIMENT
+======================================================================
+
+C-C Bond Length:
+  Experimental:  1.5360 Å
+  EMT:           1.0096 Å  (Δ = -0.5264 Å, 34.27%)
+  MACE:          1.5218 Å  (Δ = -0.0142 Å, 0.92%)
+
+C-C Bond Energy:
+  Experimental:  3.81 eV (368.0 kJ/mol)
+  EMT:           2.1591 eV (208.32 kJ/mol)  (Δ = -1.6509 eV, 43.33%)
+  MACE:          3.7342 eV (360.30 kJ/mol)  (Δ = -0.0758 eV, 1.99%)
+
+======================================================================
+SUMMARY TABLE
+======================================================================
+Method       C-C Length (Å)     Bond Energy (eV)   Bond Energy (kJ/mol)
+------------------------------------------------------------------
+EMT          1.0096             2.1591             208.32            
+MACE         1.5218             3.7342             360.30            
+Exp.         1.5360             3.81               368.0             
+------------------------------------------------------------------
+
+======================================================================
+ACCURACY COMPARISON
+======================================================================
+
+Mean Absolute Errors (vs experiment):
+  Property             EMT             MACE            Improvement    
+-----------------------------------------------------------------
+  Bond Length (Å)      0.5264          0.0142          37.2           x
+  Bond Energy (eV)     1.6509          0.0758          0.0            x
+-----------------------------------------------------------------
+
+======================================================================
+DETAILED ANALYSIS
+======================================================================
+
+1. EMT Performance:
+   • C-C Bond Length:  1.0096 Å  (error: 34.27%)
+   • C-C Bond Energy:  2.1591 eV (error: 43.33%)
+   • EMT severely underestimates the C-C bond length and bond energy
+   • This is expected - EMT is a simple effective medium theory
+
+2. MACE Performance:
+   • C-C Bond Length:  1.5218 Å  (error: 0.92%)
+   • C-C Bond Energy:  3.7342 eV (error: 1.99%)
+   • MACE gives much better agreement with experiment
+   • The bond length is particularly accurate
+
+3. Method Comparison:
+   ✓ MACE gives better bond length (0.0142 Å vs 0.5264 Å)
+   ✓ MACE gives better bond energy (0.0758 eV vs 1.6509 eV)
+
+4. Key Insights:
+   • EMT underestimates the C-C bond length by 0.5264 Å
+     This is because EMT treats the molecule as an electron gas,
+     leading to over-binding and artificially short bonds.
+
+   • EMT underestimates the C-C bond energy by 1.6509 eV
+     The bond is too weak in EMT because the potential is too soft.
+
+   • MACE, being trained on accurate DFT data, captures the
+     correct PES curvature and gives much better results.
+
+5. Why MACE is better for this system:
+   • Ethane is an organic molecule with covalent bonds
+   • EMT was designed for metals and simple systems
+   • MACE was trained on diverse molecular datasets including organics
+   • The machine-learned potential captures many-body effects
+   • MACE can describe the subtle electronic structure of C-C bonds
+
+======================================================================
+THERMOCHEMICAL ANALYSIS
+======================================================================
+
+Bond Dissociation Energy (BDE) Analysis:
+  Reaction: C₂H₆ → 2 CH₃•
+
+  EMT:   ΔE = 2.1591 eV = 208.32 kJ/mol
+  MACE:  ΔE = 3.7342 eV = 360.30 kJ/mol
+  Exp:   ΔE = 3.81 eV = 368.0 kJ/mol
+
+  Relative Accuracy:
+  EMT:  43.33% error
+  MACE: 1.99% error
+
+======================================================================
+CONCLUSION
+======================================================================
+
+This comparison clearly demonstrates:
+
+1. EMT is inadequate for studying organic molecules like ethane:
+   • Underestimates bond length by ∼0.53 Å (34% error!)
+   • Underestimates bond energy by ∼1.65 eV (43% error)
+
+2. MACE provides excellent agreement with experiment:
+   • Bond length within 0.01 Å (0.7% error)
+   • Bond energy within 0.09 eV (2.4% error)
+
+3. The C-C bond in ethane is significantly stronger than EMT predicts,
+   which is why simple effective medium theories fail for covalently
+   bonded systems.
+
+4. Machine learning potentials like MACE are revolutionizing
+   computational chemistry by providing DFT-quality accuracy
+   at a fraction of the computational cost.
+
+The EMT results are particularly poor because:
+• EMT is designed for metallic systems, not organic molecules
+• The carbon sp³ hybridization is not well described
+• The covalent bonding nature is poorly captured
+• Electron correlation effects are completely missing
+
+
+Optimization complete! Files saved as:
+  - c2h6_geom_opt_emt.traj   (EMT ethane trajectory)
+  - ch3_geom_opt_emt.traj    (EMT methyl trajectory)
+  - c2h6_geom_opt_mace.traj  (MACE ethane trajectory)
+  - ch3_geom_opt_mace.traj   (MACE methyl trajectory)
