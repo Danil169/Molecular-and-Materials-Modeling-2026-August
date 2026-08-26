@@ -1,0 +1,154 @@
+======================================================================
+NITROGEN MOLECULE (N₂) - EMT vs MACE COMPARISON
+======================================================================
+
+-----------------------------------
+EMT CALCULATIONS
+-----------------------------------
+
+Optimizing N₂ with EMT (initial d(N-N) = 1.1 Å)
+      Step     Time          Energy          fmax
+BFGS:    0 15:21:42        0.440344        3.251800
+BFGS:    1 15:21:42        0.264361        0.347497
+BFGS:    2 15:21:42        0.262860        0.080535
+BFGS:    3 15:21:42        0.262777        0.001453
+
+EMT Results:
+  Optimized N-N bond length: 0.9981 Å
+  Nitrogen atom energy:       5.1000 eV
+  Nitrogen molecule energy:   0.2628 eV
+  Atomization energy:         9.9372 eV
+
+-----------------------------------
+MACE CALCULATIONS
+-----------------------------------
+Using Materials Project MACE for MACECalculator with /home/milias/.cache/mace/20231203mace128L1_epoch199model
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+Optimizing N₂ with MACE (initial d(N-N) = 1.1 Å)
+      Step     Time          Energy          fmax
+BFGS:    0 15:21:44      -16.213922        1.873874
+BFGS:    1 15:21:44      -16.124224        4.461809
+BFGS:    2 15:21:45      -16.224463        0.482050
+BFGS:    3 15:21:45      -16.225212        0.159567
+BFGS:    4 15:21:46      -16.225301        0.003069
+
+MACE Results:
+  Optimized N-N bond length: 1.1124 Å
+  Nitrogen atom energy:       -2.9562 eV
+  Nitrogen molecule energy:   -16.2253 eV
+  Atomization energy:         10.3130 eV
+
+======================================================================
+VIBRATIONAL FREQUENCY CALCULATIONS
+======================================================================
+
+-----------------------------------
+EMT VIBRATIONAL FREQUENCY
+-----------------------------------
+
+Calculating EMT vibrational frequencies...
+
+EMT Vibrational Frequencies (cm⁻¹):
+  Mode 1: 0.00 cm⁻¹
+  Mode 2: 0.00 cm⁻¹
+  Mode 3: 0.00 cm⁻¹
+  Mode 4: 11.51 cm⁻¹
+  Mode 5: 11.51 cm⁻¹
+  Mode 6: 1231.26 cm⁻¹
+
+EMT Stretching Frequency: 1231.26 cm⁻¹
+
+-----------------------------------
+MACE VIBRATIONAL FREQUENCY
+-----------------------------------
+
+Calculating MACE vibrational frequencies...
+
+MACE Vibrational Frequencies (cm⁻¹):
+  Mode 1: 0.00 cm⁻¹
+  Mode 2: 0.00 cm⁻¹
+  Mode 3: 0.00 cm⁻¹
+  Mode 4: 18.17 cm⁻¹
+  Mode 5: 18.17 cm⁻¹
+  Mode 6: 2347.09 cm⁻¹
+
+MACE Stretching Frequency: 2347.09 cm⁻¹
+
+======================================================================
+COMPARISON WITH EXPERIMENT
+======================================================================
+
+Bond Length (N-N):
+  Experimental:  1.0980 Å
+  EMT:           0.9981 Å  (Δ = -0.0999 Å, 9.10%)
+  MACE:          1.1124 Å  (Δ = +0.0144 Å, 1.31%)
+
+Atomization Energy:
+  Experimental:  9.76 eV
+  EMT:           9.9372 eV  (Δ = +0.1772 eV, 1.82%)
+  MACE:          10.3130 eV  (Δ = +0.5530 eV, 5.67%)
+
+Vibrational Frequency (N-N stretching):
+  Experimental:  2358.57 cm⁻¹
+  EMT:           1231.26 cm⁻¹  (Δ = -1127.31 cm⁻¹, 47.80%)
+  MACE:          2347.09 cm⁻¹  (Δ = -11.48 cm⁻¹, 0.49%)
+
+======================================================================
+SUMMARY TABLE
+======================================================================
+Method       Bond Length (Å)    Atomization (eV)   Frequency (cm⁻¹)   Steps   
+--------------------------------------------------------------------------
+EMT          0.9981             9.9372             1231.26            3       
+MACE         1.1124             10.3130            2347.09            4       
+Exp.         1.0980             9.76               2358.57            N/A     
+--------------------------------------------------------------------------
+
+======================================================================
+ACCURACY COMPARISON
+======================================================================
+
+Mean Absolute Errors (vs experiment):
+  Property             EMT             MACE            Improvement    
+-----------------------------------------------------------------
+  Bond Length (Å)      0.0999          0.0144          6.9            x
+  Atomization (eV)     0.1772          0.5530          3.1            x
+  Frequency (cm⁻¹)     1127.31         11.48           98.2           x
+-----------------------------------------------------------------
+
+======================================================================
+KEY INSIGHTS
+======================================================================
+
+This comparison reveals fascinating trade-offs between empirical and ML potentials:
+
+1. GEOMETRY (Bond Length):
+   • EMT: Severely underestimates (9.10% error)
+   • MACE: Excellent agreement (1.31% error)
+   → MACE wins by 7×
+
+2. THERMODYNAMICS (Atomization Energy):
+   • EMT: Surprisingly accurate (1.82% error)
+   • MACE: Moderate overestimation (5.67% error)
+   → EMT wins by 3×
+
+3. SPECTROSCOPY (Vibrational Frequency):
+   • EMT: Catastrophic failure (47.80% error)
+   • MACE: Near-perfect agreement (0.49% error)
+   → MACE wins by 98× !!!
+
+The vibrational frequency is the most sensitive test - it depends on the 
+curvature of the potential energy surface (second derivatives). EMT's poor
+curvature leads to terrible frequencies, while MACE's accurate PES gives
+excellent vibrational properties.
+
+This demonstrates why machine learning potentials are transforming 
+computational chemistry - they can achieve DFT-quality vibrational 
+spectra at a fraction of the cost!
+
+
+Optimization complete! Files saved as:
+  - N2_opt_emt.traj       (EMT optimization trajectory)
+  - N2_opt_mace.traj      (MACE optimization trajectory)
+  - N2_vib_emt.json       (EMT vibrational frequencies)
+  - N2_vib_mace.json      (MACE vibrational frequencies)
