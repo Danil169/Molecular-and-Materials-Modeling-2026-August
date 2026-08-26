@@ -23,7 +23,7 @@ installing packages
 ~~~~~~~~~~~~~~~~~~~
 conda activate myenv
 conda config --add channels conda-forge
-conda install ase nwchem xtb xtb-python mopac nwchem qe pyscf
+conda install ase nwchem xtb xtb-python mopac nwchem qe pyscf gromacs
 
 which ase
 /home/milias/miniconda3/envs/myenv/bin/ase
