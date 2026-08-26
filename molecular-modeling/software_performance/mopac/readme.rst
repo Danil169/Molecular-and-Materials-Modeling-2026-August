@@ -51,3 +51,12 @@ Nthr    Job tim
 18      12.07
 
 see also http://openmopac.net/Manual/Reducing_computation_time.html
+
+MOPAC performance: conda vs distribution package
+------------------------------------------------
+https://share.google/aimode/gr2XC4ERewdo7sXPW
+
+Your Own Build: It links against libiomp5.so, which is Intel's highly optimized OpenMP runtime library. Intel's runtime has significantly lower thread-overhead, faster synchronization barriers, and vastly superior matrix-parallel performance on modern x86_64 CPUs (both Intel and AMD).
+
+Conda Build: It uses the generic GNU libgomp.so.1, which is stable but less optimized for high-performance linear algebra calculations.
+
