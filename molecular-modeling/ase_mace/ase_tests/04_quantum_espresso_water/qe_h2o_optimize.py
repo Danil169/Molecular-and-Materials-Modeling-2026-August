@@ -56,7 +56,7 @@ input_data = {
 #command='mpirun -np 2 /opt/espresso/7.5/pw.x'
 command='mpirun -np 4 pw.x'
 #profile = EspressoProfile(command,pseudo_dir='/usr/share/espresso/pseudo/')
-profile = EspressoProfile(command)
+profile = EspressoProfile(command,pseudo_dir='')
 
 calc = Espresso(profile=profile, pseudopotentials=pseudopotentials,
                 input_data=input_data,
