@@ -6,25 +6,23 @@ from ase.vibrations import Vibrations
 import numpy as np
 import warnings
 
-# Suppress warnings for cleaner output
 warnings.filterwarnings('ignore')
 
-# Experimental values for N2 at 298.15 K and 1 atm
-EXP_FREQ = 2358.57  # cm^-1 (harmonic vibrational frequency)
-EXP_H = -0.524  # eV (formation enthalpy relative to atoms, approximate)
-EXP_S = 0.001916  # eV/K (191.6 J/mol·K)
-EXP_BOND_LENGTH = 1.0975  # Angstroms
+# Experimental values
+EXP_FREQ = 2358.57  # cm^-1
+EXP_S = 0.001916  # eV/K
+EXP_BOND_LENGTH = 1.0975  # Å
+EXP_ZPE = 0.145  # eV
 
 print("=" * 70)
 print("N2 MOLECULE THERMOCHEMISTRY CALCULATION (ASE with EMT)")
 print("=" * 70)
 
-# 1. Setup and Optimize
+# 1. Structure Optimization
 print("\n1. Structure Optimization")
 print("-" * 40)
 atoms = molecule('N2')
 print(f"Initial bond length: {atoms.get_distance(0, 1):.4f} Å")
-print(f"Experimental bond length: {EXP_BOND_LENGTH:.4f} Å")
 
 atoms.calc = EMT()
 dyn = QuasiNewton(atoms)
@@ -32,38 +30,51 @@ dyn.run(fmax=0.01)
 
 final_bond_length = atoms.get_distance(0, 1)
 print(f"Optimized bond length: {final_bond_length:.4f} Å")
-print(f"Error in bond length: {(final_bond_length - EXP_BOND_LENGTH)*1000:.2f} mÅ")
-print(f"Relative error: {abs(final_bond_length - EXP_BOND_LENGTH)/EXP_BOND_LENGTH*100:.2f}%")
+print(f"Error: {(final_bond_length - EXP_BOND_LENGTH)*1000:.2f} mÅ")
 
-# 2. Get Potential Energy and Vibrations
+# 2. Vibrational Analysis
 print("\n2. Vibrational Analysis")
 print("-" * 40)
 potentialenergy = atoms.get_potential_energy()
+print(f"Potential energy: {potentialenergy:.6f} eV")
+
 vib = Vibrations(atoms)
 vib.run()
-vib_energies = vib.get_energies()  # in eV
-vib_freqs_cm1 = vib.get_frequencies()  # in cm^-1
+vib_energies = vib.get_energies()
+vib_freqs_cm1 = vib.get_frequencies()
 
 print("Calculated vibrational frequencies (cm⁻¹):")
+positive_modes = []
 for i, freq in enumerate(vib_freqs_cm1):
-    print(f"  Mode {i+1}: {freq:.2f} cm⁻¹")
+    freq_real = np.real(freq)
+    if abs(freq_real) > 1.0:
+        positive_modes.append(freq_real)
+        print(f"  Mode {i+1}: {freq_real:.2f} cm⁻¹")
+    else:
+        print(f"  Mode {i+1}: {freq_real:.2f} cm⁻¹ (translational/rotational)")
 
-# Only keep positive frequencies (remove imaginary/zero modes)
-positive_freqs = vib_freqs_cm1[vib_freqs_cm1 > 0]
-if len(positive_freqs) > 0:
-    calc_freq = positive_freqs[0]  # First positive frequency for linear molecule
-    print(f"\nFundamental vibrational frequency: {calc_freq:.2f} cm⁻¹")
-    print(f"Experimental frequency: {EXP_FREQ:.2f} cm⁻¹")
+if positive_modes:
+    calc_freq = max(positive_modes)
+    print(f"\nN-N stretching frequency: {calc_freq:.2f} cm⁻¹")
+    print(f"Experimental: {EXP_FREQ:.2f} cm⁻¹")
     print(f"Error: {calc_freq - EXP_FREQ:.2f} cm⁻¹ ({abs(calc_freq - EXP_FREQ)/EXP_FREQ*100:.2f}%)")
-    print(f"Note: EMT is a simple effective medium theory, so deviations are expected")
 
-# 3. Thermochemistry Calculation
+# 3. Thermochemistry
 print("\n3. Thermochemistry at 298.15 K, 1 atm")
 print("-" * 40)
 
-# Use vib_energies for thermochemistry (in eV)
+# Filter vib_energies for thermochemistry
+vib_energies_filtered = np.array([np.real(e) for e in vib_energies if np.real(e) > 0.001])
+
+# Manual ZPE calculation (since it's not a separate method)
+zpe = 0.5 * np.sum(vib_energies_filtered)
+print(f"Zero-Point Energy (ZPE): {zpe:.6f} eV")
+print(f"Experimental ZPE: {EXP_ZPE:.4f} eV")
+print(f"ZPE Error: {zpe - EXP_ZPE:.4f} eV ({abs(zpe - EXP_ZPE)/EXP_ZPE*100:.2f}%)")
+
+# Create thermo object
 thermo = IdealGasThermo(
-    vib_energies=vib_energies,
+    vib_energies=vib_energies_filtered,
     potentialenergy=potentialenergy,
     atoms=atoms,
     geometry='linear',
@@ -72,46 +83,48 @@ thermo = IdealGasThermo(
 )
 
 temperature = 298.15
-pressure = 101325.0  # 1 atm in Pa
+pressure = 101325.0
 
-# Calculate thermodynamic properties
-H = thermo.get_enthalpy(temperature=temperature)
-S = thermo.get_entropy(temperature=temperature, pressure=pressure)
-G = thermo.get_gibbs_energy(temperature=temperature, pressure=pressure)
-Cv = thermo.get_heat_capacity(temperature=temperature)
-Cp = Cv + 8.314462618 / 96485.33212  # Add R to convert to Cp (eV/K)
+# Calculate properties silently
+H = thermo.get_enthalpy(temperature=temperature, verbose=False)
+S = thermo.get_entropy(temperature=temperature, pressure=pressure, verbose=False)
+G = thermo.get_gibbs_energy(temperature=temperature, pressure=pressure, verbose=False)
+U = thermo.get_internal_energy(temperature=temperature, verbose=False)
 
-# Get individual contributions (for analysis)
-H_trans = thermo.get_enthalpy(temperature=temperature, verbose=False) - potentialenergy
-# We need to compute contributions separately
-# For rotational enthalpy: RT for linear molecule
-R_ev = 8.314462618 / 96485.33212  # R in eV/K
-H_rot = R_ev * temperature  # For linear molecule
-H_vib = thermo.get_enthalpy(temperature=temperature) - thermo.potentialenergy - H_trans - H_rot
+print(f"Internal Energy (U): {U:.6f} eV")
+print(f"Enthalpy (H): {H:.6f} eV")
+print(f"Entropy (S): {S:.6f} eV/K")
+print(f"Gibbs Free Energy (G): {G:.6f} eV")
 
-print(f"Total Enthalpy (H):")
-print(f"  Calculated: {H:.6f} eV")
-print(f"  Experimental: {EXP_H:.6f} eV (approximate)")
-print(f"  Error: {H - EXP_H:.6f} eV")
+# Manual heat capacity calculation (since it's not a method)
+def calculate_Cv(thermo, T, deltaT=0.1):
+    U1 = thermo.get_internal_energy(temperature=T - deltaT/2, verbose=False)
+    U2 = thermo.get_internal_energy(temperature=T + deltaT/2, verbose=False)
+    return (U2 - U1) / deltaT
 
-print(f"\nTotal Entropy (S):")
-print(f"  Calculated: {S:.6f} eV/K")
-print(f"  Experimental: {EXP_S:.6f} eV/K")
-print(f"  Error: {S - EXP_S:.6f} eV/K ({abs(S - EXP_S)/EXP_S*100:.2f}%)")
+Cv = calculate_Cv(thermo, temperature)
+kB = 8.617333262145e-5  # Boltzmann constant in eV/K
+Cp = Cv + kB
 
-print(f"\nGibbs Free Energy (G): {G:.6f} eV")
 print(f"Heat Capacity (Cv): {Cv:.6f} eV/K")
 print(f"Heat Capacity (Cp): {Cp:.6f} eV/K")
 
+# Print final summary (this will show the formatted output once)
+print("\n" + "=" * 70)
+print("FINAL THERMODYNAMIC SUMMARY")
+print("=" * 70)
+thermo.get_enthalpy(temperature=temperature, verbose=True)
+
 # 4. Comparison Summary
 print("\n" + "=" * 70)
-print("SUMMARY OF COMPARISON WITH EXPERIMENT")
+print("COMPARISON WITH EXPERIMENT")
 print("=" * 70)
 
 properties = [
     ("Bond Length", final_bond_length, EXP_BOND_LENGTH, "Å"),
-    ("Vibrational Frequency", calc_freq, EXP_FREQ, "cm⁻¹"),
-    ("Entropy", S, EXP_S, "eV/K")
+    ("Vibrational Freq", calc_freq, EXP_FREQ, "cm⁻¹"),
+    ("Entropy", S, EXP_S, "eV/K"),
+    ("ZPE", zpe, EXP_ZPE, "eV")
 ]
 
 print("\n{:<20} {:<15} {:<15} {:<15} {:<10}".format(
@@ -121,25 +134,9 @@ print("-" * 75)
 
 for name, calc, exp, unit in properties:
     error = calc - exp
-    error_pct = abs(error)/exp * 100
+    error_pct = abs(error)/exp * 100 if exp != 0 else 0
     print("{:<20} {:<15.4f} {:<15.4f} {:<+15.4f} {:<9.2f}%".format(
         name, calc, exp, error, error_pct
     ))
-
-print("\nDISCUSSION:")
-print("-" * 40)
-print("• EMT is a fast but approximate method, not designed for high accuracy")
-print("• For quantitative results, use DFT (e.g., GPAW, VASP) or quantum chemistry")
-print("• The N-N triple bond is stiff, making vibrational frequency sensitive to the method")
-print("• Zero-point energy contribution is not explicitly included in this simple calculation")
-print("• Experimental entropy includes all degrees of freedom (translational, rotational, vibrational)")
-
-# 5. Additional Analysis - Zero-point energy
-print("\n5. Zero-Point Energy (ZPE)")
-print("-" * 40)
-zpe = 0.5 * sum(vib_energies[vib_energies > 0])  # Sum over positive frequencies only
-print(f"Zero-point energy: {zpe:.6f} eV ({zpe*96485.33212:.2f} kJ/mol)")
-print(f"ZPE as fraction of bond energy: {zpe/abs(potentialenergy)*100:.2f}%")
-print(f"Note: The true ZPE for N2 is approximately 0.145 eV (14.0 kJ/mol)")
 
 print("\n" + "=" * 70)
