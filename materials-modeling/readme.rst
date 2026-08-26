@@ -1,7 +1,6 @@
 ~~~~~~~~~~~~
 Materials Modeling
 ~~~~~~~~~~~~
-**Working files Hubrid School on Molecular and Materials Modeling.**
 
 **source ~/work/software/venv/bin/activate**
 
