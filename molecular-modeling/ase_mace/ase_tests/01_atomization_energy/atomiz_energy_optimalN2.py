@@ -19,8 +19,10 @@ opt.run(fmax=0.01)
 # print out optimal internuclear distance
 print('d(N-N)optimiz=',molecule.get_distance(0,1),' Ang (exp. 1.098 Ang)')
 
+# energy of the N2 molecule
 e_molecule = molecule.get_potential_energy()
 
+# atomization energy of the diatomic molecule
 e_atomization = 2 * e_atom - e_molecule
 
 print('\n Nitrogen atom energy: %5.2f eV' % e_atom)
