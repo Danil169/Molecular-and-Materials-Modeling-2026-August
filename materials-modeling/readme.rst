@@ -39,7 +39,7 @@ Structure and potentials:
 
 (3) Al: retrieved from from the Materials Project https://next-gen.materialsproject.org/materials/mp-134 for single-shot calculations
 
-(4) Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. 
+(4) Pseudopotential: scalar-relativistic optimised norm-conserving Vanderbilt pseudopotential files can be downloaded from (https://www.pseudo-dojo.org/), and are also suppiled. Other sources: (a) https://www.materialscloud.org/discover/sssp/table/efficiency (b) https://pseudopotentials.quantum-espresso.org/legacy_tables (c) https://www.quantum-espresso.org/other-resources/
 
 (5) DOS Plotting scripts provided: ase_qe_np_tdos.py and ase_qe_np_pdos.py - for plotting TDOS and PDOS, works only for non-spin-polarized and non-SOC case. They expect the files to be organized in a certain order and local sumpdos.x must be supplied if needed.  
 
