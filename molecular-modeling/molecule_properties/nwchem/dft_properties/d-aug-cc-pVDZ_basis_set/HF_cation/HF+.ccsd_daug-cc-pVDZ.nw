@@ -1,0 +1,31 @@
+echo
+
+start molecule
+
+title "HF+ | Equilibrium Geometry | CCSD/daug-cc-pVDZ"
+charge +1
+
+print low
+
+geometry units angstroms print xyz 
+SYMMETRY c1
+F     -7.495632    1.264070   -0.005417
+H     -8.290988    1.365470   -0.494508
+end
+
+basis
+  * library d-aug-cc-pvdz
+end
+
+scf
+  print low
+  doublet
+  uhf
+end
+
+tce
+  freeze core
+  ccsd
+end
+
+task tce optimize

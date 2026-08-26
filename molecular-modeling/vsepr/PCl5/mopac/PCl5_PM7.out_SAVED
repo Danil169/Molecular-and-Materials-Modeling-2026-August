@@ -1,0 +1,210 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.1.2                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Tue Aug 26 15:18:05 2025  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  SINGLET    - SPIN STATE DEFINED AS A SINGLET
+ *  RHF        - RESTRICTED HARTREE-FOCK CALCULATION
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = 0
+ *
+ *
+ *
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *******************************************************************************
+ AUX  CHARGE=0 SINGLET  PM7   RHF
+ PCl5 | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       P         -3.06382200  *   0.22198800  *  -0.16493100  *
+     2      Cl         -2.12427300  *   1.73091100  *   0.90368900  *
+     3      Cl         -4.00340100  *  -1.28689500  *  -1.23340700  *
+     4      Cl         -4.18035100  *   1.64043400  *  -1.18601000  *
+     5      Cl         -3.78116200  *  -0.58522200  *   1.60581800  *
+     6      Cl         -1.22921400  *  -0.38920300  *  -0.91472000  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1         P         -3.0638      0.2220     -0.1649
+     2        Cl         -2.1243      1.7309      0.9037
+     3        Cl         -4.0034     -1.2869     -1.2334
+     4        Cl         -4.1804      1.6404     -1.1860
+     5        Cl         -3.7812     -0.5852      1.6058
+     6        Cl         -1.2292     -0.3892     -0.9147
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: P Cl5  =     6 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   D3h 
+
+
+ SINGLET STATE CALCULATION
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 20
+
+
+          Geometry optimization using EF
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.086 TIME LEFT:  2.00D  GRAD.:    83.223 HEAT: -50.22165
+ CYCLE:     2 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:    45.418 HEAT: -59.33220
+ CYCLE:     3 TIME:   0.008 TIME LEFT:  2.00D  GRAD.:    41.852 HEAT: -61.81725
+ CYCLE:     4 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:    34.030 HEAT: -63.36789
+ CYCLE:     5 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:    12.013 HEAT: -64.24191
+ CYCLE:     6 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     6.295 HEAT: -64.39684
+ CYCLE:     7 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     3.306 HEAT: -64.48999
+ CYCLE:     8 TIME:   0.008 TIME LEFT:  2.00D  GRAD.:     2.742 HEAT: -64.51547
+ CYCLE:     9 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     2.617 HEAT: -64.53424
+ CYCLE:    10 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     2.271 HEAT: -64.55400
+ CYCLE:    11 TIME:   0.008 TIME LEFT:  2.00D  GRAD.:     1.404 HEAT: -64.56414
+ CYCLE:    12 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.792 HEAT: -64.56707
+
+     GRADIENT =  0.79225 IS LESS THAN CUTOFF =  1.00000
+
+
+
+ -------------------------------------------------------------------------------
+ AUX  CHARGE=0 SINGLET  PM7   RHF
+ PCl5 | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.1.2 Linux
+                                                       Tue Aug 26 15:18:05 2025
+
+
+
+
+          FINAL HEAT OF FORMATION =        -64.56707 KCAL/MOL =    -270.14861 KJ/MOL
+
+
+          COSMO AREA              =        153.36 SQUARE ANGSTROMS
+          COSMO VOLUME            =        156.94 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.79225          =       0.32344 PER ATOM
+          IONIZATION POTENTIAL    =         10.656454 EV
+          HOMO LUMO ENERGIES (EV) =        -10.656 -1.690
+          NO. OF FILLED LEVELS    =         20
+          MOLECULAR WEIGHT        =        208.2388         POINT GROUP:  D3h 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+           Cl     3   Cl     2     4.30049
+           Cl     6   Cl     5     3.27053
+           Cl     4   Cl     5     2.82237
+
+
+          SCF CALCULATIONS        =         13
+ 
+          WALL-CLOCK TIME         =      0.164 SECONDS
+          COMPUTATION TIME        =      1.252 SECONDS
+
+
+
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1       P         -3.06538150  *   0.22064709  *  -0.16525521  *
+     2      Cl         -2.08368660  *   1.78408943  *   0.94145472  *
+     3      Cl         -4.03456433  *  -1.34617185  *  -1.26982169  *
+     4      Cl         -4.08053005  *   1.51061052  *  -1.09124643  *
+     5      Cl         -3.72012138  *  -0.50639640  *   1.44584435  *
+     6      Cl         -1.39804098  *  -0.33085335  *  -0.85055790  *
+
+                             CARTESIAN COORDINATES
+
+   1    P       -3.065381502     0.220647089    -0.165255214
+   2   Cl       -2.083686599     1.784089430     0.941454721
+   3   Cl       -4.034564335    -1.346171846    -1.269821693
+   4   Cl       -4.080530046     1.510610518    -1.091246432
+   5   Cl       -3.720121381    -0.506396404     1.445844349
+   6   Cl       -1.398040979    -0.330853355    -0.850557904
+
+
+           Empirical Formula: P Cl5  =     6 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   D3h 
+
+
+                  EIGENVALUES  
+ -52.37209 -27.55099 -27.54814 -26.15105 -26.02378 -22.11264 -16.81849 -16.81132
+ -16.66668 -13.68977 -13.67853 -12.68677 -12.66914 -11.83324 -10.99486 -10.86163
+ -10.86044 -10.80739 -10.79824 -10.65645  -1.68957  -0.44549  -0.43161  -0.06857
+  65.18179  65.18670  65.88854  66.13327  66.14424  66.30785  66.31888  66.45913
+  66.74817  66.97442  66.98014  67.29075  67.29794  68.44446  68.82347  70.64585
+  70.64876  71.34377  71.34705  71.54454  72.62924  72.63026  72.89411  72.89569
+  76.68366 102.08566 102.08598 103.83011 104.33393 104.34101
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.   TYPE          CHARGE      No. of ELECS.   s-Pop       p-Pop       d-Pop       
+    1          P           0.266057        4.7339     1.64268     2.93089     0.16037
+    2         Cl          -0.353029        7.3530     1.97678     5.35717     0.01907
+    3         Cl          -0.349055        7.3491     1.97657     5.35334     0.01914
+    4         Cl           0.145148        6.8549     1.96080     4.87068     0.02337
+    5         Cl           0.145784        6.8542     1.96082     4.87003     0.02336
+    6         Cl           0.145096        6.8549     1.96085     4.87068     0.02337
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -0.044    -0.018    -0.020     0.052
+ HYBRID         0.001    -0.001     0.002     0.003
+ SUM           -0.043    -0.019    -0.018     0.050
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+     Atom    s        px        py        pz      x^2-y^2     xz        z^2       yz        xy
+    1  P   1.64268   0.98444   0.96548   0.98097   0.03032   0.03260   0.03019   0.03403   0.03323
+    2 Cl   1.97678   1.85310   1.68092   1.82315   0.00250   0.00316   0.00154   0.00648   0.00539
+    3 Cl   1.97657   1.85532   1.67628   1.82174   0.00264   0.00304   0.00164   0.00650   0.00532
+    4 Cl   1.96080   1.65643   1.51375   1.70050   0.00247   0.00452   0.00204   0.00665   0.00768
+    5 Cl   1.96082   1.80193   1.79002   1.27808   0.00125   0.00585   0.00754   0.00678   0.00194
+    6 Cl   1.96085   1.23183   1.84471   1.79415   0.00732   0.00659   0.00283   0.00157   0.00505
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.17 SECONDS
+
+ == MOPAC DONE ==

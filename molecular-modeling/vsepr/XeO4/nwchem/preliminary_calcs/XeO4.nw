@@ -1,0 +1,30 @@
+title "XeO4 B3LYP ECP Optimization"
+
+geometry units angstroms autosym
+  Xe  0.000000  0.000000  0.000000
+  O   0.000000  0.000000  1.750000
+  O   0.000000  1.750000  0.000000
+  O   0.000000 -1.750000  0.000000
+  O   1.750000  0.000000  0.000000
+end
+
+basis
+  Xe library def2-tzvp
+   O library sto-3g
+end
+
+ecp
+  Xe library def2-tzvp
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+driver
+  maxiter 100
+end
+
+task dft optimize
+

@@ -1,0 +1,33 @@
+echo
+
+start molecule
+
+print low
+
+title "Fe(CO)5 | Equilibrium Geometry | B3LYP/6-31G(d)"
+charge 0
+
+geometry units angstroms print xyz autosym
+Fe    -1.383636   -0.354933   -0.791284
+C     -0.844961   -1.011926    0.746374
+O     -0.518187   -1.435861    1.771629
+C     -1.335545    0.096979   -2.488204
+O     -1.332967    0.405900   -3.602771
+C     -0.434098    1.081195   -0.442864
+O      0.164594    2.041618   -0.204242
+C     -1.744091   -1.997139   -1.300066
+O     -2.012378   -3.073135   -1.628711
+C     -3.007714    0.212311   -0.349271
+O     -4.059400    0.579339   -0.062729
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize

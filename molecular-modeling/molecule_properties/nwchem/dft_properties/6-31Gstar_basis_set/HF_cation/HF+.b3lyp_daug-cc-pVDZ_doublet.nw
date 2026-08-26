@@ -1,0 +1,30 @@
+echo
+
+start molecule
+
+title "HF+ | Equilibrium Geometry | B3LYP/daug-cc-pVDZ"
+
+charge +1
+
+print low
+
+geometry units angstroms print xyz autosym
+F     -7.495632    1.264070   -0.005417
+H     -8.290988    1.365470   -0.494508
+end
+
+basis
+  * library d-aug-cc-pvdz
+end
+
+dft
+  xc b3lyp
+  mult 2
+  odft
+end
+
+driver
+  maxiter 50
+end
+
+task dft optimize

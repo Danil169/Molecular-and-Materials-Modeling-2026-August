@@ -1,0 +1,389 @@
+ *******************************************************************************
+ **                                                                           **
+ **                              MOPAC v23.2.3                                **
+ **                                                                           **
+ *******************************************************************************
+ **          Digital Object Identifier (DOI): 10.5281/zenodo.6511958          **
+ **    Visit the DOI location for information on how to cite this program.    **
+ *******************************************************************************
+
+                              PM7 CALCULATION RESULTS
+
+ *******************************************************************************
+ *  CALCULATION DONE: (MAX THREADS = 20)             Thu Feb 19 15:03:22 2026  *
+ *  PM7        - The PM7 Hamiltonian to be used
+ *  SINGLET    - SPIN STATE DEFINED AS A SINGLET
+ *  PDBOUT     - PRINT GEOMETRY IN PDB FORMAT
+ *  RHF        - RESTRICTED HARTREE-FOCK CALCULATION
+ *  RESIDUES   - DETERMINE THE SEQUENCE OF RESIDUES
+ *
+ *
+ *
+ *                 CHARGE ON SYSTEM = 0
+ *
+ *
+ *
+ *  PRECISE    - TIGHTER CRITERIA TO BE USED
+ *  T=         - A TIME OF 172800.0 SECONDS REQUESTED
+ *  DUMP=N     - RESTART FILE WRITTEN EVERY 7200.0 SECONDS REQUESTED
+ *  AUX        - OUTPUT AUXILIARY INFORMATION
+ *******************************************************************************
+ AUX PRECISE  CHARGE=0 SINGLET  PM7 PDBOUT RHF
+ F6S | Equilibrium Geometry | PM7
+
+   ATOM   CHEMICAL          X               Y               Z
+  NUMBER   SYMBOL      (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1      Fe         -1.38756200  *  -0.35668200  *  -0.79142100  *
+     2       C         -0.85828600  *  -1.01123000  *   0.75240000  *
+     3       O         -0.53515800  *  -1.43223700  *   1.77964900  *
+     4       C         -1.34839600  *   0.10087800  *  -2.48868500  *
+     5       O         -1.34572400  *   0.41289200  *  -3.60203500  *
+     6       C         -0.42841800  *   1.07268700  *  -0.44802500  *
+     7       O          0.17601300  *   2.03086000  *  -0.21337900  *
+     8       C         -1.72955500  *  -2.00011300  *  -1.30345400  *
+     9       O         -1.98315000  *  -3.07917200  *  -1.63576900  *
+    10       C         -3.00892800  *   0.21626800  *  -0.34566600  *
+    11       O         -4.05676800  *   0.59132400  *  -0.05555500  *
+ 
+
+
+          CARTESIAN COORDINATES 
+
+    NO.       ATOM           X           Y           Z
+
+     1        Fe         -1.3876     -0.3567     -0.7914
+     2         C         -0.8583     -1.0112      0.7524
+     3         O         -0.5352     -1.4322      1.7796
+     4         C         -1.3484      0.1009     -2.4887
+     5         O         -1.3457      0.4129     -3.6020
+     6         C         -0.4284      1.0727     -0.4480
+     7         O          0.1760      2.0309     -0.2134
+     8         C         -1.7296     -2.0001     -1.3035
+     9         O         -1.9831     -3.0792     -1.6358
+    10         C         -3.0089      0.2163     -0.3457
+    11         O         -4.0568      0.5913     -0.0556
+
+ General Reference for PM7:
+ "Optimization of Parameters for Semiempirical Methods VI: More Modifications to the 
+ NDDO Approximations and Re-optimization of Parameters", J. J. P. Stewart, J. Mol. Mod., 1:32, 19 (2013)
+ https://link.springer.com/article/10.1007/s00894-012-1667-x
+
+           Empirical Formula: C5 O5 Fe  =    11 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C2v 
+
+
+ SINGLET STATE CALCULATION
+
+
+      RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 29
+
+
+          Geometry optimization using EF
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+
+          DIAGONAL MATRIX USED AS START HESSIAN
+
+ CYCLE:     1 TIME:   0.441 TIME LEFT:  2.00D  GRAD.:     0.676 HEAT: -203.2425
+ CYCLE:     2 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     6.093 HEAT: -203.2389
+ CYCLE:     3 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     3.985 HEAT: -203.2411
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:     4 TIME:   0.383 TIME LEFT:  2.00D  GRAD.:     5.626 HEAT: -203.2397
+ CYCLE:     5 TIME:   0.008 TIME LEFT:  2.00D  GRAD.:     6.453 HEAT: -203.2373
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:     6 TIME:   0.414 TIME LEFT:  2.00D  GRAD.:     3.823 HEAT: -203.2414
+ CYCLE:     7 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     2.677 HEAT: -203.2425
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:     8 TIME:   0.402 TIME LEFT:  2.00D  GRAD.:     8.848 HEAT: -203.2348
+ CYCLE:     9 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.938 HEAT: -203.2435
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    10 TIME:   0.375 TIME LEFT:  2.00D  GRAD.:     2.538 HEAT: -203.2429
+ CYCLE:    11 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     1.733 HEAT: -203.2437
+ CYCLE:    12 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     6.435 HEAT: -203.2385
+ CYCLE:    13 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.553 HEAT: -203.2442
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    14 TIME:   0.375 TIME LEFT:  2.00D  GRAD.:     0.713 HEAT: -203.2443
+ CYCLE:    15 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.518 HEAT: -203.2446
+ CYCLE:    16 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.530 HEAT: -203.2451
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    17 TIME:   0.391 TIME LEFT:  2.00D  GRAD.:     0.460 HEAT: -203.2455
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    18 TIME:   0.379 TIME LEFT:  2.00D  GRAD.:     0.215 HEAT: -203.2456
+ CYCLE:    19 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.228 HEAT: -203.2457
+ CYCLE:    20 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.368 HEAT: -203.2459
+ CYCLE:    21 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.324 HEAT: -203.2460
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    22 TIME:   0.379 TIME LEFT:  2.00D  GRAD.:     0.207 HEAT: -203.2461
+ CYCLE:    23 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.202 HEAT: -203.2462
+ CYCLE:    24 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.311 HEAT: -203.2463
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    25 TIME:   0.375 TIME LEFT:  2.00D  GRAD.:     0.354 HEAT: -203.2464
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    26 TIME:   0.406 TIME LEFT:  2.00D  GRAD.:     0.219 HEAT: -203.2466
+ CYCLE:    27 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.163 HEAT: -203.2466
+ CYCLE:    28 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.245 HEAT: -203.2467
+ CYCLE:    29 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.277 HEAT: -203.2468
+ CYCLE:    30 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.253 HEAT: -203.2469
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    31 TIME:   0.387 TIME LEFT:  2.00D  GRAD.:     0.234 HEAT: -203.2470
+ CYCLE:    32 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.283 HEAT: -203.2472
+ CYCLE:    33 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.263 HEAT: -203.2473
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    34 TIME:   0.383 TIME LEFT:  2.00D  GRAD.:     0.198 HEAT: -203.2474
+ CYCLE:    35 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.129 HEAT: -203.2474
+ CYCLE:    36 TIME:   0.008 TIME LEFT:  2.00D  GRAD.:     0.132 HEAT: -203.2475
+ CYCLE:    37 TIME:   0.000 TIME LEFT:  2.00D  GRAD.:     0.150 HEAT: -203.2475
+ CYCLE:    38 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.151 HEAT: -203.2475
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    39 TIME:   0.387 TIME LEFT:  2.00D  GRAD.:     0.244 HEAT: -203.2476
+ CYCLE:    40 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.274 HEAT: -203.2477
+ CYCLE:    41 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.203 HEAT: -203.2478
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    42 TIME:   0.387 TIME LEFT:  2.00D  GRAD.:     0.161 HEAT: -203.2479
+ CYCLE:    43 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.141 HEAT: -203.2480
+ CYCLE:    44 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.117 HEAT: -203.2480
+ CYCLE:    45 TIME:   0.004 TIME LEFT:  2.00D  GRAD.:     0.065 HEAT: -203.2480
+
+
+ ALL CONVERGERS ARE NOW FORCED ON
+ SHIFT=10, PULAY ON, CAMP-KING ON
+ AND ITERATION COUNTER RESET
+
+
+ CYCLE:    46 TIME:   0.395 TIME LEFT:  2.00D  GRAD.:     0.042 HEAT: -203.2480
+
+     GRADIENT =  0.04235 IS LESS THAN CUTOFF =  0.05000
+
+
+
+ -------------------------------------------------------------------------------
+ AUX PRECISE  CHARGE=0 SINGLET  PM7 PDBOUT RHF
+ F6S | Equilibrium Geometry | PM7
+
+
+
+     GEOMETRY OPTIMISED USING EIGENVECTOR FOLLOWING (EF).     
+     SCF FIELD WAS ACHIEVED                                   
+
+
+                              PM7 CALCULATION
+                                                       MOPAC v23.2.3 Linux
+                                                       Thu Feb 19 15:03:28 2026
+
+
+
+
+          FINAL HEAT OF FORMATION =       -203.24803 KCAL/MOL =    -850.38977 KJ/MOL
+
+
+          COSMO AREA              =        174.45 SQUARE ANGSTROMS
+          COSMO VOLUME            =        167.57 CUBIC ANGSTROMS
+
+          GRADIENT NORM           =          0.04235          =       0.01277 PER ATOM
+          IONIZATION POTENTIAL    =          8.288296 EV
+          HOMO LUMO ENERGIES (EV) =         -8.288 -0.868
+          NO. OF FILLED LEVELS    =         29
+          MOLECULAR WEIGHT        =        195.8990         POINT GROUP:  C4v 
+
+          MOLECULAR DIMENSIONS (Angstroms)
+
+            Atom       Atom       Distance
+            O     5    O     3     5.73935
+            O     7    O     9     5.73838
+            O    11    O     9     3.42922
+
+
+          SCF CALCULATIONS        =         51
+ 
+          WALL-CLOCK TIME         =      6.379 SECONDS
+          COMPUTATION TIME        =          1 MINUTE AND 0.277 SECONDS
+
+
+
+
+   ATOM                 CHEMICAL                   X               Y               Z
+  NUMBER                 SYMBOL               (ANGSTROMS)     (ANGSTROMS)     (ANGSTROMS)
+ 
+     1      Fe(HETATM    1 FE    FE A   1)   -1.38363610  *  -0.35493274  *  -0.79128450  *
+     2       C(ATOM      2  C1  MOH A   1)   -0.84496122  *  -1.01192623  *   0.74637404  *
+     3       O(ATOM      3  O1  MOH A   1)   -0.51818697  *  -1.43586133  *   1.77162945  *
+     4       C(ATOM      4  C2  MOH A   1)   -1.33554493  *   0.09697870  *  -2.48820359  *
+     5       O(ATOM      5  O2  MOH A   1)   -1.33296660  *   0.40590020  *  -3.60277073  *
+     6       C(ATOM      6  C3  MOH A   1)   -0.43409826  *   1.08119505  *  -0.44286354  *
+     7       O(ATOM      7  O3  MOH A   1)    0.16459360  *   2.04161825  *  -0.20424168  *
+     8       C(ATOM      8  C4  MOH A   1)   -1.74409084  *  -1.99713853  *  -1.30006614  *
+     9       O(ATOM      9  O4  MOH A   1)   -2.01237797  *  -3.07313545  *  -1.62871143  *
+    10       C(ATOM     10  C5  MOH A   1)   -3.00771362  *   0.21231085  *  -0.34927134  *
+    11       O(ATOM     11  O5  MOH A   1)   -4.05939979  *   0.57933865  *  -0.06272928  *
+
+                             CARTESIAN COORDINATES
+
+   1   Fe       -1.383636102    -0.354932743    -0.791284498
+   2    C       -0.844961217    -1.011926228     0.746374041
+   3    O       -0.518186969    -1.435861333     1.771629452
+   4    C       -1.335544928     0.096978702    -2.488203594
+   5    O       -1.332966598     0.405900201    -3.602770727
+   6    C       -0.434098257     1.081195052    -0.442863542
+   7    O        0.164593600     2.041618250    -0.204241675
+   8    C       -1.744090842    -1.997138531    -1.300066136
+   9    O       -2.012377965    -3.073135446    -1.628711434
+  10    C       -3.007713624     0.212310852    -0.349271342
+  11    O       -4.059399793     0.579338649    -0.062729283
+
+
+           Empirical Formula: C5 O5 Fe  =    11 atoms
+
+
+
+      MOLECULAR POINT GROUP   :   C4v 
+
+
+                  EIGENVALUES  
+ -34.59711 -33.85407 -33.46688 -33.33366 -33.32845 -25.58543 -23.36394 -23.07782
+ -21.68851 -21.68723 -18.54460 -17.69187 -17.68878 -16.61637 -16.41320 -16.34943
+ -16.31168 -16.31103 -16.16331 -15.80671 -15.80613 -15.47457 -15.42284 -14.80026
+ -14.79897 -11.62139 -11.35559 -11.35131  -8.28830  -0.86836  -0.83680  -0.83576
+  -0.56181  -0.55939   0.22192   0.54642   1.19745   1.19939   1.29815   1.89569
+   2.68724   3.55960   3.71386   3.71709   3.87012   5.05612   6.55201   6.75869
+   6.76055
+
+
+              NET ATOMIC CHARGES AND DIPOLE CONTRIBUTIONS
+
+  ATOM NO.                 TYPE                        CHARGE      No. of ELECS.   s-Pop       p-Pop       d-Pop       
+    1         Fe(HETATM    1 FE    FE A   1)           0.334217        7.6658     0.59816     0.81085     6.25678
+    2          C(ATOM      2  C1  MOH A   1)           0.194539        3.8055     1.35644     2.44902
+    3          O(ATOM      3  O1  MOH A   1)          -0.290995        6.2910     1.85744     4.43356
+    4          C(ATOM      4  C2  MOH A   1)           0.194301        3.8057     1.35636     2.44934
+    5          O(ATOM      5  O2  MOH A   1)          -0.291069        6.2911     1.85744     4.43362
+    6          C(ATOM      6  C3  MOH A   1)           0.193853        3.8061     1.35626     2.44989
+    7          O(ATOM      7  O3  MOH A   1)          -0.291314        6.2913     1.85745     4.43386
+    8          C(ATOM      8  C4  MOH A   1)           0.194014        3.8060     1.35632     2.44967
+    9          O(ATOM      9  O4  MOH A   1)          -0.291260        6.2913     1.85745     4.43381
+   10          C(ATOM     10  C5  MOH A   1)           0.343710        3.6563     1.38842     2.26787
+   11          O(ATOM     11  O5  MOH A   1)          -0.289996        6.2900     1.85306     4.43694
+ DIPOLE           X         Y         Z       TOTAL
+ POINT-CHG.    -0.425     0.146     0.117     0.464
+ HYBRID        -0.082     0.028     0.023     0.090
+ SUM           -0.507     0.174     0.140     0.554
+
+
+          ATOMIC ORBITAL ELECTRON POPULATIONS
+
+                   Atom                  s        px        py        pz      x^2-y^2     xz        z^2       yz        xy
+  Fe(HETATM    1 FE    FE A   1)   0.59816   0.28366   0.26420   0.26299   1.25979   1.39585   1.06565   1.27263   1.26286
+   C(ATOM      2  C1  MOH A   1)   1.35644   0.80876   0.71030   0.92996
+   O(ATOM      3  O1  MOH A   1)   1.85744   1.59327   1.48359   1.35670
+   C(ATOM      4  C2  MOH A   1)   1.35636   0.78220   0.68916   0.97797
+   O(ATOM      5  O2  MOH A   1)   1.85744   1.61907   1.50382   1.31073
+   C(ATOM      6  C3  MOH A   1)   1.35626   0.87365   0.90359   0.67265
+   O(ATOM      7  O3  MOH A   1)   1.85745   1.54722   1.38399   1.50265
+   C(ATOM      8  C4  MOH A   1)   1.35632   0.80177   0.96247   0.68543
+   O(ATOM      9  O4  MOH A   1)   1.85745   1.61610   1.32731   1.49040
+   C(ATOM     10  C5  MOH A   1)   1.38842   0.91551   0.68258   0.66979
+   O(ATOM     11  O5  MOH A   1)   1.85306   1.35566   1.53584   1.54544
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             6.38 SECONDS
+
+ == MOPAC DONE ==
