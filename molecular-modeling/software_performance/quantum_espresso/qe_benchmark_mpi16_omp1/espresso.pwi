@@ -1,0 +1,42 @@
+&CONTROL
+   pseudo_dir       = '/home/danil/home/Molecular-and-Materials-Modeling-2026-August/molecular-modeling/software_performance/quantum_espresso'
+/
+&SYSTEM
+   ecutwfc          = 40.0
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'cold'
+   noncolin         = .true.
+   lspinorb         = .true.
+   starting_magnetization(1) = 0.0
+   ntyp             = 1
+   nat              = 2
+   ibrav            = 0
+/
+&ELECTRONS
+   conv_thr         = 1e-08
+   mixing_beta      = 0.7
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Tl  204.38 Tl.upf
+
+K_POINTS automatic
+8 8 8  0 0 0
+
+CELL_PARAMETERS angstrom
+3.46000000000000 0.00000000000000 0.00000000000000
+-1.73000000000000 2.99644789709416 0.00000000000000
+0.00000000000000 0.00000000000000 5.52000000000000
+
+ATOMIC_POSITIONS angstrom
+Tl  0.0000000000 0.0000000000 0.0000000000  
+Tl  0.0000000000 1.9976319314 2.7600000000  
+

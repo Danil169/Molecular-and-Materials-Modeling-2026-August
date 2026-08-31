@@ -1,0 +1,45 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+================================================================================
+O2 MOLECULE THERMOCHEMISTRY: EMT vs MACE
+================================================================================
+
+----------------------------------------
+EMT CALCULATOR
+----------------------------------------
+1. Optimizing geometry...
+Optimized bond length: 1.1003 Å
+Potential energy: 0.624750 eV
+2. Calculating vibrations...
+O-O stretching frequency: 1075.22 cm⁻¹
+3. Calculating thermochemistry (T=298.15 K)...
+Zero-Point Energy (ZPE): 0.0678 eV
+Enthalpy (H): 0.7821 eV
+Entropy (S): 0.002111 eV/K
+
+Initializing MACE...
+Using Materials Project MACE for MACECalculator with /home/danil/.cache/mace/20231203mace128L1_epoch199model
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+----------------------------------------
+MACE CALCULATOR
+----------------------------------------
+1. Optimizing geometry...
+Optimized bond length: 1.2367 Å
+Potential energy: -9.689281 eV
+2. Calculating vibrations...
+O-O stretching frequency: 1418.99 cm⁻¹
+3. Calculating thermochemistry (T=298.15 K)...
+Zero-Point Energy (ZPE): 0.0893 eV
+Enthalpy (H): -9.5112 eV
+Entropy (S): 0.002129 eV/K
+
+================================================================================
+SUMMARY COMPARISON VS EXPERIMENT
+================================================================================
+Property             | EMT          | MACE         | Experiment  
+-----------------------------------------------------------------
+Bond Length (Å)      | 1.1003       | 1.2367       | 1.2070      
+Frequency (cm⁻¹)     | 1075.2       | 1419.0       | 1580.0      
+ZPE (eV)             | 0.0678       | 0.0893       | 0.0980      
+Entropy (eV/K)       | 0.002111     | 0.002129     | 0.002126    
+================================================================================

@@ -15,6 +15,7 @@ input_data = {
     'control': {
         'prefix': 'energy',
         'outdir': './tmp',
+        'pseudo_dir': '../',
         'verbosity': 'low',
         'tstress': True,
         'tprnfor': True
@@ -57,16 +58,18 @@ except Exception as e:
 # Set QE bin directory 
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1"
-qe_bin = "/home/milias/work/software/qe/qe-7.5/bin"
+qe_bin = ""
 
 # Parallel calculation 
-#pw_command = f'{qe_bin}/bin/pw.x'
+#import os
+os.environ['OMP_NUM_THREADS'] = '1'
+pw_command = f'{qe_bin}/bin/pw.x'
 #pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/pw.x'
+pw_command = 'mpirun -np 4 pw.x'
 
 pw_profile = EspressoProfile(
     command=pw_command,
-    pseudo_dir='./'
+    pseudo_dir='../'
 )
 
 # Set k-grids

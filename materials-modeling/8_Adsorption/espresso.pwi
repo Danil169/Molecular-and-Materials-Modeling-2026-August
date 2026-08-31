@@ -1,0 +1,53 @@
+&CONTROL
+   verbosity        = 'low'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './tmp'
+   prefix           = 'energy_c'
+   pseudo_dir       = '../'
+/
+&SYSTEM
+   ibrav            = 0
+   nat              = 8
+   ntyp             = 1
+   ecutwfc          = 80
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'gauss'
+   nspin            = 2
+   vdw_corr         = 'DFT-D3'
+   dftd3_version    = 4
+   starting_magnetization(1) = 0.0
+/
+&ELECTRONS
+   conv_thr         = 1e-10
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+C  12.011 C.upf
+
+K_POINTS automatic
+1 1 1  0 0 0
+
+CELL_PARAMETERS angstrom
+4.93264818190000 0.00000000000000 0.00000000000000
+-2.46632465980000 4.27179830510000 0.00000000000000
+0.00000000000000 0.00000000000000 15.00000000000000
+
+ATOMIC_POSITIONS angstrom
+C  0.0000000000 0.0000000000 7.5000000000  
+C  -1.2331623300 2.1358991530 7.5000000000  
+C  2.4663240910 0.0000000000 7.5000000000  
+C  1.2331617610 2.1358991530 7.5000000000  
+C  -0.0000001900 1.4239326830 7.5000000000  
+C  -1.2331625190 3.5598318360 7.5000000000  
+C  2.4663237540 1.4239326830 7.5000000000  
+C  1.2331614240 3.5598318360 7.5000000000  
+

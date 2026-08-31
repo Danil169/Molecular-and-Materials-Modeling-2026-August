@@ -1,0 +1,15 @@
+# QE temporary files
+**/tmp/
+**/pwscf.save/
+**/*.save/
+**/espresso.err
+**/relaxation.traj
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Fix scripts (not needed in repo)
+**/fix_*.py
+**/update_*.py
+**/create_report*.py

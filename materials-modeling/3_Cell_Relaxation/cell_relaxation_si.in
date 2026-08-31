@@ -2,7 +2,7 @@
    calculation      = 'vc-relax'
    tstress          = .true.
    tprnfor          = .true.
-   pseudo_dir       = './'
+   pseudo_dir       = '../'
 /
 &SYSTEM
    ibrav            = 0

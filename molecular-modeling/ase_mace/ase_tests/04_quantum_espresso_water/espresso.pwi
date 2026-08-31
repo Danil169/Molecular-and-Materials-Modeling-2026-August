@@ -1,0 +1,50 @@
+&CONTROL
+   calculation      = 'scf'
+   verbosity        = 'low'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './outdir'
+   prefix           = 'h2o'
+   pseudo_dir       = '/usr/share/espresso/pseudo/'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 46.0
+   nosym            = .true.
+   noinv            = .true.
+   occupations      = 'smearing'
+   degauss          = 0.02
+   smearing         = 'gaussian'
+   ntyp             = 2
+   nat              = 3
+/
+&ELECTRONS
+   conv_thr         = 1e-08
+   mixing_beta      = 0.7
+   diagonalization  = 'david'
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+O 15.999 O.pbe-kjpaw.UPF
+H 1.008 H.pbe-kjpaw.UPF
+
+K_POINTS automatic
+1 1 1  0 0 0
+
+CELL_PARAMETERS angstrom
+12.00000000000000 0.00000000000000 0.00000000000000
+0.00000000000000 12.00000000000000 0.00000000000000
+0.00000000000000 0.00000000000000 12.00000000000000
+
+ATOMIC_POSITIONS angstrom
+O 5.9999998801 6.0000001476 6.2975523765  
+H 6.0000000139 6.7694067482 5.7021464700  
+H 6.0000000962 5.2305930944 5.7021466602  
+

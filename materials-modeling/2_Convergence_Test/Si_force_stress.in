@@ -1,6 +1,6 @@
 &CONTROL
    calculation      = 'scf'
-   pseudo_dir       = './'
+   pseudo_dir       = '../'
    tstress          = .true.
    tprnfor          = .true.
 /

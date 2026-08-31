@@ -1,0 +1,20 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+================================================================================
+ATOMIZATION ENERGIES OF DIATOMIC MOLECULES (EMT vs MACE)
+================================================================================
+Loading MACE calculator...
+Using Materials Project MACE for MACECalculator with /home/danil/.cache/mace/20231203mace128L1_epoch199model
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+=====================================================================================
+Molecule   | EMT E_atom (eV) | MACE E_atom (eV)  | Exp (eV)   | MACE Error
+-------------------------------------------------------------------------------------
+H2         | 5.3495          | 4.2065            | 4.52       | 6.9       %
+N2         | 9.9372          | 10.3130           | 9.76       | 5.7       %
+O2         | 8.5753          | 5.5264            | 5.16       | 7.1       %
+F2         | nan             | -0.5825           | 1.65       | 135.3     %
+=====================================================================================
+
+NOTE: EMT is a classical potential designed for metals (like Cu, Ag, Au).
+It fails catastrophically for covalent molecules like O2 and F2.
+MACE (Neural Network) successfully calculates covalent bonds for all elements.

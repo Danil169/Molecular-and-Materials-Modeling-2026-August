@@ -24,6 +24,7 @@ base_input_data = {
     'control': {
         'prefix': 'graphene',
         'outdir': './tmp',
+        'pseudo_dir': '../',
         'verbosity': 'low',
         'tstress': True,
         'tprnfor': True,
@@ -68,28 +69,30 @@ atoms = Atoms(
 # Set QE bin directory
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1"
-qe_bin = "/home/milias/work/software/qe/qe-7.5/bin"
+qe_bin = ""
 
 # Main QE calculation 
+import os
+os.environ['OMP_NUM_THREADS'] = '1'
 #pw_command = f'{qe_bin}/bin/pw.x'
 #pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/pw.x'
+pw_command = 'mpirun -np 4 pw.x'
 
 # Serial post-processing commands for fast execution
 #pp_command = f"{qe_bin}/bin/pp.x < pp.in > pp.out 2>&1"
-pp_command = f"{qe_bin}/pp.x < pp.in > pp.out 2>&1"
+pp_command = "pp.x < pp.in > pp.out 2>&1"
 
 #dos_command = f"{qe_bin}/bin/dos.x < dos.in > dos.out 2>&1"
-dos_command = f"{qe_bin}/dos.x < dos.in > dos.out 2>&1"
+dos_command = "dos.x < dos.in > dos.out 2>&1"
 
 # Memory intensive Parallel post-processing commands (run in one node only)
 #projwfc_command = f'{qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
 #projwfc_command = f'mpirun -np 4 {qe_bin}/bin/projwfc.x < projwfc.in > projwfc.out 2>&1'
-projwfc_command = f'mpirun -np 4 {qe_bin}/projwfc.x < projwfc.in > projwfc.out 2>&1'
+projwfc_command = 'mpirun -np 4 projwfc.x < projwfc.in > projwfc.out 2>&1'
 
 profile = EspressoProfile(
     command=pw_command,
-    pseudo_dir='./'
+    pseudo_dir='../'
 )
 
 # Set k-grids (modify as needed)

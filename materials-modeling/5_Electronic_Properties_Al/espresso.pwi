@@ -1,0 +1,43 @@
+&CONTROL
+   calculation      = 'nscf'
+   verbosity        = 'low'
+   wf_collect       = .true.
+   outdir           = './tmp'
+   prefix           = 'Al_Electronic'
+   disk_io          = 'high'
+   pseudo_dir       = '../'
+/
+&SYSTEM
+   ibrav            = 0
+   nat              = 1
+   ntyp             = 1
+   ecutwfc          = 65
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'gauss'
+/
+&ELECTRONS
+   conv_thr         = 1e-10
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Al 26.9815385 Al.upf
+
+K_POINTS automatic
+30 30 30  0 0 0
+
+CELL_PARAMETERS angstrom
+0.00000000000000 2.01946484500000 2.01946484500000
+2.01946484500000 0.00000000000000 2.01946484500000
+2.01946484500000 2.01946484500000 0.00000000000000
+
+ATOMIC_POSITIONS angstrom
+Al 0.0000000000 0.0000000000 0.0000000000  
+
