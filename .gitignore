@@ -13,3 +13,6 @@ __pycache__/
 **/fix_*.py
 **/update_*.py
 **/create_report*.py
+
+# LibreOffice/Word transient lock files
+.~lock.*#

@@ -2,6 +2,10 @@
 Materials Modeling
 ~~~~~~~~~~~~
 
+This directory holds Part II calculation materials. The current submission-ready
+reports are in the repository root: ``../Report_Materials_Modeling_EN.docx``
+and ``../Report_Materials_Modeling_RU.docx``. The former is the file to submit.
+
 **source ~/work/software/venv/bin/activate**
 
 **/home/milias/work/software/qe/qe-7.5/bin**
@@ -144,4 +148,3 @@ Optional software
 (3) Seekpath: (pip install seekpath, https://seekpath.materialscloud.io/)
 
 (4) postscript: (sudo apt install gv)
-
