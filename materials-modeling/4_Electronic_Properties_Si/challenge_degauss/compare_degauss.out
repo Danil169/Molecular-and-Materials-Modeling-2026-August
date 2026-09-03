@@ -1,0 +1,4 @@
+degauss=0.005 Ry  E=-230.280072 eV  E_F=6.293700 eV  DOS(E_F)=0.000000
+degauss=0.010 Ry  E=-230.280072 eV  E_F=6.315200 eV  DOS(E_F)=0.000102
+degauss=0.020 Ry  E=-230.280149 eV  E_F=6.318200 eV  DOS(E_F)=0.011740
+Saved degauss_summary.csv and three DOS files.

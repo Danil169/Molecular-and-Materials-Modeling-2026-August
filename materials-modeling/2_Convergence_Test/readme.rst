@@ -39,11 +39,18 @@ TASK 2.2
 Run a final QE SCF calculation with your converged ecutwfc and kpoints (similar to TASK 1), along with tstress = .true. and tprnfor = .true. in the input file (under &CONTROL) to compute stress and atomic forces and inspect the output.
 /path/to/qebin/pw.x < Si_force_stress.in > Si_force_stress.out
 
+**Status: ✓ Completed.** See ``challenge_force_stress/`` for input and output.
+The calculation ran in 6.68 s (4 MPI).
+
 TASK 2.3
 ~~~~~~~~
 Within Cell relaxation (QE and ASE), shift the atoms manually and run the convergence again
 
+**Status:** Not completed during the school.
 
 TASK 2.4
 ---------
  Find different pseudopotentials from http://pseudopotentials.quantum-espresso.org/legacy_tables or other resources. Update the convergence Test (ASE) python code, and run the convergence test for each. Make a table of energy and k point cut offs of various pseudopotentials using Si as an example.
+
+**Status:** Not completed during the school.  Alternative pseudopotentials
+are available in ``challenge_pseudopotentials/`` for future use.

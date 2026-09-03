@@ -15,4 +15,18 @@ The 'assume_isolated': '2D' setting introduces artificial image charges that dis
 
 Challenge
 ---------
-...
+Remove the ``'assume_isolated': '2D'`` flag, rerun the work function
+calculation, and inspect how the electrostatic potential profile changes
+(the unphysical peaks at cell boundaries should disappear).
+
+**Status: ✓ Completed.** See ``challenge_no_assume_isolated/`` for scripts and results.
+
+.. csv-table::
+   :header: "Setting", "E (eV)", "E_F (eV)", "Vacuum (eV)", "W (eV)"
+
+   assume_isolated='2D', −327.840, −4.241, +0.001, 4.241
+   No isolation flag,    −327.840, −1.717, +2.520, 4.237
+
+Both methods give W ≈ 4.24 eV (agree within 0.004 eV).  The potential profile
+without the flag is physically smoother — the unphysical peaks at z=0 and z=c
+disappear.

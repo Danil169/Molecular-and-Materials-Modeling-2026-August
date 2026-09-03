@@ -1,0 +1,7 @@
+&DOS
+ prefix = 'dg010',
+ outdir = './tmp',
+ fildos = 'dos_dg010.dat',
+ Emin = -15.0, Emax = 15.0, DeltaE = 0.02,
+ ngauss = 0, degauss = 0.01,
+/

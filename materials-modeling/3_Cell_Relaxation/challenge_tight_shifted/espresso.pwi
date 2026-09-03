@@ -1,0 +1,44 @@
+&CONTROL
+   calculation      = 'scf'
+   verbosity        = 'low'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './tmp_ase'
+   prefix           = 'si_tight_ase'
+   pseudo_dir       = '../..'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 65
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'gauss'
+   ntyp             = 1
+   nat              = 2
+/
+&ELECTRONS
+   conv_thr         = 1e-12
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Si 28.085 Si.upf
+
+K_POINTS automatic
+15 15 15  0 0 0
+
+CELL_PARAMETERS angstrom
+-0.00001248206893 2.73450419379762 2.73452668953482
+2.73438075960949 0.00004117531487 2.73447088981096
+2.73440023372948 2.73447262190446 0.00001887273054
+
+ATOMIC_POSITIONS angstrom
+Si 1.3923784004 4.0866521637 4.1118325789  
+Si 0.0251601582 -0.0151093427 0.0100917810  
+

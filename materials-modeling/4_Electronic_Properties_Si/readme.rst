@@ -37,3 +37,16 @@ Challenge
 ---------
 Modify the Electronic Properties: Si script and test the effects of different values of Gaussian broadening (degauss)
 
+**Status: ✓ Completed.** See ``challenge_degauss/`` for scripts, data, and results.
+
+Key results (PBE, ONCV Si.upf, 65 Ry, 15×15×15 SCF / 24×24×24 NSCF):
+
+.. csv-table::
+   :header: "degauss (Ry)", "E (eV)", "E_F (eV)", "DOS(E_F) (states/eV)"
+
+   0.005, −230.2801, 6.294, 0.000000
+   0.010, −230.2801, 6.315, 0.000102
+   0.020, −230.2802, 6.318, 0.011740
+
+Total energy is insensitive to smearing (semiconductor); DOS at E_F grows
+with degauss as more weight is artificially placed in the gap.

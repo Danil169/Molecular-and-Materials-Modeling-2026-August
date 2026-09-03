@@ -1,0 +1,7 @@
+Challenge II.2.3 / II.3 — shifted-cell tight ASE→QE relaxation
+Total energy: -230.280075 eV
+Equivalent cubic lattice parameter: 5.469031 Å
+Max |force component|: 0.000751 eV/Å
+Mean normal stress: -0.001912 GPa
+Convergence target: fmax = 0.005 eV/Å; QE SCF conv_thr = 1e-12
+Final structure: si_tight_ase_final.vasp

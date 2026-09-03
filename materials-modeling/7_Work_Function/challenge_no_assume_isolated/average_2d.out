@@ -1,0 +1,32 @@
+
+     Program AVERAGE v.7.5 starts on  3Sep2026 at 16: 6:14 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       1 processor cores
+     Number of MPI processes:                 1
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+     1694 MiB available memory on the printing compute node when the environment starts
+
+     Reading header from file  potential_2d
+     Reading data from file  potential_2d
+     Output written to file avg.dat
+
+     AVERAGE      :      0.21s CPU      0.21s WALL
+
+
+   This run was terminated on:  16: 6:14   3Sep2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG

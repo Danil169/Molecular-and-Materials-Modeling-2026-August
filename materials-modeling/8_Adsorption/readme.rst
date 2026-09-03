@@ -32,5 +32,14 @@ Modify the Python script to perform the relaxation of the C8 slab and calculate 
 
 Likewise, increase the ecutwfc parameter to see if this improves the binding energy of H on C8.
 
+**Status: ✓ Completed.** See ``challenge_c8_relaxed_highcutoff/`` for script and results.
+
+Results at ecutwfc = 100 Ry (C8 relaxed, DFT-D3, spin-polarized, Gamma point):
+
+- E(C8 relaxed) = −1303.654 eV (max force = 5×10⁻⁶ eV/Å)
+- E(H@C8 relaxed) = −1319.077 eV
+- E(H) = −12.560 eV
+- **E_bind = 2.864 eV** (same as original 80 Ry; convergence confirmed)
+
 Note: if you would enlarge the slab (increasing the number of graphene C atoms), 
 it would become computationally very demanding, thus not suitable for running on your personal computer.

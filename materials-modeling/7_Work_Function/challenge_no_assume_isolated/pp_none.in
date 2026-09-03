@@ -1,0 +1,10 @@
+&INPUTPP
+ prefix = 'graphene_none',
+ outdir = './tmp',
+ filplot = 'potential_none',
+ plot_num = 11,
+/
+&PLOT
+ iflag = 3,
+ output_format = 6,
+/

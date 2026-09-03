@@ -1,0 +1,35 @@
+&CONTROL
+  calculation = 'scf'
+  prefix = 'si_force_stress'
+  pseudo_dir = '../..'
+  outdir = './tmp'
+  tstress = .true.
+  tprnfor = .true.
+  verbosity = 'high'
+/
+&SYSTEM
+  ibrav = 0
+  nat = 2
+  ntyp = 1
+  ecutwfc = 65
+  occupations = 'smearing'
+  smearing = 'gauss'
+  degauss = 0.01
+/
+&ELECTRONS
+  conv_thr = 1.0d-10
+/
+ATOMIC_SPECIES
+Si 28.085 Si.upf
+
+K_POINTS automatic
+15 15 15 0 0 0
+
+CELL_PARAMETERS angstrom
+0.0000000000 2.7149000000 2.7149000000
+2.7149000000 0.0000000000 2.7149000000
+2.7149000000 2.7149000000 0.0000000000
+
+ATOMIC_POSITIONS angstrom
+Si 1.3574500000 4.0723500000 4.0723500000
+Si 0.0000000000 0.0000000000 0.0000000000

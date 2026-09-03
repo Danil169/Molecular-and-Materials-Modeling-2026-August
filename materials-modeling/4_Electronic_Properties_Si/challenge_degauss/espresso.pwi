@@ -1,0 +1,44 @@
+&CONTROL
+   calculation      = 'nscf'
+   verbosity        = 'low'
+   wf_collect       = .true.
+   outdir           = './tmp'
+   prefix           = 'dg020'
+   pseudo_dir       = '../..'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 65
+   nosym            = .true.
+   occupations      = 'smearing'
+   degauss          = 0.02
+   smearing         = 'gauss'
+   ntyp             = 1
+   nat              = 2
+/
+&ELECTRONS
+   conv_thr         = 1e-10
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Si 28.085 Si.upf
+
+K_POINTS automatic
+24 24 24  0 0 0
+
+CELL_PARAMETERS angstrom
+0.00000000000000 2.73396813310000 2.73396813310000
+2.73396813310000 0.00000000000000 2.73396813310000
+2.73396813310000 2.73396813310000 0.00000000000000
+
+ATOMIC_POSITIONS angstrom
+Si 1.3669840666 4.1009521997 4.1009521997  
+Si 0.0000000000 0.0000000000 0.0000000000  
+

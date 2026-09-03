@@ -36,9 +36,27 @@ python hg_ie_calculation_01.py > hg_ie_calculation_01.py_logfile
 
 Results and discussion
 ----------------------
-Experiment 10.437 eV
+
+Experimental IP(Hg): **10.437 eV**
+
+.. csv-table::
+   :header: "Method / Software", "IP (eV)", "Error vs exp."
+
+   PM7 (MOPAC UHF),            10.518,  +0.08 eV  (+0.8 %)
+   GFN1-xTB,                   16.768,  +6.33 eV  (+61 %)  ← fails
+   CCSD(T)/def2-SVP (NWChem),  10.018,  −0.42 eV
+   CCSD(T)/def2-TZVP (NWChem), 10.139,  −0.30 eV
+   CCSD(T)/def2-QZVP (NWChem), 10.325,  −0.11 eV
+   ECP-CCSD(T)/def2-TZVP (PySCF), 10.125, −0.31 eV
+
+PM7 gives an excellent result for Hg (0.8 % error) due to well-fitted
+semi-empirical parameters for heavy elements.  NWChem CCSD(T) results
+improve systematically with basis set size, reaching 10.325 eV with def2-QZVP.
+xTB GFN1 is not parameterised for heavy-element ionisation and fails badly.
+
+Full write-up: ``abstract.rst``.
+Working files: ``mopac/``, ``xtb/``, ``nwchem/``, ``pyscf/``.
 
 deepseek 
 --------
 link for AI thread:  https://chat.deepseek.com/share/vpbbo1f5d5b4gzdxsj
-

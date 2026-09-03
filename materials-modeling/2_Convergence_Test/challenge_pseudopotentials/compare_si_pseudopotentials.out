@@ -1,0 +1,22 @@
+
+=== ONCV (repository Si.upf) ===
+ecut=45 Ry  E=-230.274526 eV  dE=nan meV/atom
+ecut=55 Ry  E=-230.274700 eV  dE=-0.0867 meV/atom
+ecut=65 Ry  E=-230.274754 eV  dE=-0.0271 meV/atom
+ecut=75 Ry  E=-230.274866 eV  dE=-0.0561 meV/atom
+k=10^3 at 65 Ry  E=-230.274032 eV  dE=nan meV/atom
+k=12^3 at 65 Ry  E=-230.274617 eV  dE=-0.2925 meV/atom
+k=14^3 at 65 Ry  E=-230.274736 eV  dE=-0.0595 meV/atom
+k=15^3 at 65 Ry  E=-230.274754 eV  dE=-0.0088 meV/atom
+
+=== RRKJ (QE distribution) ===
+ecut=45 Ry  E=-214.172460 eV  dE=nan meV/atom
+ecut=55 Ry  E=-214.172573 eV  dE=-0.0568 meV/atom
+ecut=65 Ry  E=-214.172625 eV  dE=-0.0261 meV/atom
+ecut=75 Ry  E=-214.172675 eV  dE=-0.0248 meV/atom
+k=10^3 at 65 Ry  E=-214.171956 eV  dE=nan meV/atom
+k=12^3 at 65 Ry  E=-214.172501 eV  dE=-0.2725 meV/atom
+k=14^3 at 65 Ry  E=-214.172609 eV  dE=-0.0542 meV/atom
+k=15^3 at 65 Ry  E=-214.172625 eV  dE=-0.0079 meV/atom
+
+Saved si_pseudopotential_convergence.csv

@@ -1,0 +1,6 @@
+Challenge II.8 — C8 relaxation and higher-cutoff adsorption energy
+ecutwfc: 100 Ry (original workflow: 80 Ry)
+E(C8 relaxed): -1303.653802 eV; max force: 0.000005 eV/Å
+E(H@C8 relaxed): -1319.077196 eV; max force: 0.003255 eV/Å
+E(H): -12.559540 eV
+E_bind = E(C8)+E(H)-E(H@C8): 2.863853 eV
