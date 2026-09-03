@@ -29,17 +29,17 @@ try:
 
     # 3. Plot
     plt.figure(figsize=(12, 8))
-    plt.plot(z_ang, planar_ev, color='red', label='Планарное усреднение (Planar Average)', linewidth=1.5, alpha=0.7)
-    plt.plot(z_ang, macro_ev, color='blue', label='Макроскопическое усреднение (Macroscopic)', linewidth=3)
+    plt.plot(z_ang, planar_ev, color='red', label='Planar Average', linewidth=1.5, alpha=0.7)
+    plt.plot(z_ang, macro_ev, color='blue', label='Macroscopic Average', linewidth=3)
     
-    plt.axhline(y=fermi_ev, color='green', linestyle='--', linewidth=2, label=f'Уровень Ферми: {fermi_ev:.3f} eV')
-    plt.axhline(y=vacuum_level, color='purple', linestyle=':', linewidth=2, label=f'Уровень Вакуума: {vacuum_level:.3f} eV')
+    plt.axhline(y=fermi_ev, color='green', linestyle='--', linewidth=2, label=f'Fermi Level: {fermi_ev:.3f} eV')
+    plt.axhline(y=vacuum_level, color='purple', linestyle=':', linewidth=2, label=f'Vacuum Level: {vacuum_level:.3f} eV')
     
     # Formatting
     plt.xlim(0, max(z_ang))
-    plt.xlabel('Координата Z (Ангстремы)', fontsize=14)
-    plt.ylabel('Электростатический потенциал (эВ)', fontsize=14)
-    plt.title(f'Работа выхода Графена (Work Function) = {work_function:.3f} eV', fontsize=16)
+    plt.xlabel('z Coordinate (Å)', fontsize=14)
+    plt.ylabel('Electrostatic Potential (eV)', fontsize=14)
+    plt.title(f'Graphene Work Function = {work_function:.3f} eV', fontsize=16)
     plt.legend(fontsize=12, loc='upper right')
     plt.grid(True, linestyle=':', alpha=0.7)
     

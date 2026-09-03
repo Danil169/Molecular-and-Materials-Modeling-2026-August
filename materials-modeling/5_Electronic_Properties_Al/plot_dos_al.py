@@ -23,13 +23,13 @@ try:
     plt.plot(energy_shifted, dos, label='Al Total DOS', color='darkorange')
     plt.fill_between(energy_shifted, 0, dos, where=(energy_shifted <= 0), color='bisque', alpha=0.7)
     
-    plt.axvline(x=0, color='red', linestyle='--', label=f'Уровень Ферми (0 эВ)')
+    plt.axvline(x=0, color='red', linestyle='--', label='Fermi Level (0 eV)')
     
     plt.xlim(-15, 10)
     plt.ylim(0, max(dos)*1.1)
-    plt.xlabel('Энергия (ЭВ)', fontsize=14)
-    plt.ylabel('Плотность состояний', fontsize=14)
-    plt.title('Плотность состояний Алюминия (Металл)', fontsize=16)
+    plt.xlabel('Energy (eV)', fontsize=14)
+    plt.ylabel('Density of States', fontsize=14)
+    plt.title('Aluminum Density of States (Metal)', fontsize=16)
     plt.grid(True, linestyle=':', alpha=0.7)
     plt.legend(fontsize=12)
     

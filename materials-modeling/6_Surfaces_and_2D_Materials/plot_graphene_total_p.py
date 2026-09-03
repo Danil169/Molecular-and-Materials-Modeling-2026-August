@@ -24,18 +24,18 @@ try:
     plt.figure(figsize=(10, 6))
     
     # Plot Total DOS in background
-    plt.fill_between(e_tdos, 0, tdos, color='grey', alpha=0.2, label='Общая плотность состояний (Total DOS)')
+    plt.fill_between(e_tdos, 0, tdos, color='grey', alpha=0.2, label='Total DOS')
     
     # Plot Total p-orbital
-    plt.plot(e_pdos, p_total_dos, label='Суммарная p-орбиталь (px + py + pz)', color='purple', linewidth=2.5)
+    plt.plot(e_pdos, p_total_dos, label='Total p orbital (px + py + pz)', color='purple', linewidth=2.5)
 
-    plt.axvline(x=0, color='black', linestyle='--', label='Уровень Ферми (0 эВ)')
+    plt.axvline(x=0, color='black', linestyle='--', label='Fermi Level (0 eV)')
 
     plt.xlim(-15, 10)
     plt.ylim(0, max(p_total_dos[ (e_pdos > -10) & (e_pdos < 10) ]) * 1.5)
-    plt.xlabel('Энергия (эВ)', fontsize=14)
-    plt.ylabel('Плотность состояний', fontsize=14)
-    plt.title('Графен: Полная p-орбиталь', fontsize=16)
+    plt.xlabel('Energy (eV)', fontsize=14)
+    plt.ylabel('Density of States', fontsize=14)
+    plt.title('Graphene: Total p Orbital', fontsize=16)
     plt.grid(True, linestyle=':', alpha=0.7)
     plt.legend(fontsize=12)
 

@@ -23,16 +23,16 @@ plt.figure(figsize=(10, 6))
 plt.fill_between(e_tdos, 0, tdos, color='grey', alpha=0.2, label='Total DOS')
 
 # Plot s and p orbitals
-plt.plot(e_pdos, s_dos, label='s - орбиталь', color='red', linewidth=2)
-plt.plot(e_pdos, p_dos, label='p - орбиталь', color='blue', linewidth=2)
+plt.plot(e_pdos, s_dos, label='s orbital', color='red', linewidth=2)
+plt.plot(e_pdos, p_dos, label='p orbital', color='blue', linewidth=2)
 
-plt.axvline(x=0, color='black', linestyle='--', label='Уровень Ферми (0 эВ)')
+plt.axvline(x=0, color='black', linestyle='--', label='Fermi Level (0 eV)')
 
 plt.xlim(-15, 10)
 plt.ylim(0, max(tdos)*1.1)
-plt.xlabel('Энергия (ЭВ)', fontsize=14)
-plt.ylabel('Плотность состояний (PDOS)', fontsize=14)
-plt.title('Проекция плотности состояний (PDOS) Кремния', fontsize=16)
+plt.xlabel('Energy (eV)', fontsize=14)
+plt.ylabel('Density of States (PDOS)', fontsize=14)
+plt.title('Silicon Projected Density of States (PDOS)', fontsize=16)
 plt.grid(True, linestyle=':', alpha=0.7)
 plt.legend(fontsize=12)
 
